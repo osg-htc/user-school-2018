@@ -1,2 +1,3 @@
-# user-school-2018
-OSG User School 2018 website
+# OSG User School 2018
+
+The source files for the OSG User School 2018 website.
