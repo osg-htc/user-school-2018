@@ -1,0 +1,26 @@
+site_name: OSG User School 2018
+site_url: https://opensciencegrid.github.io/user-school-2018/
+repo_name: null
+repo_url: null
+theme:
+  name: windmill
+
+extra:
+  article_nav_top: false
+
+extra_css:
+  - css/extra.css
+
+# Suppress weird JavaScript problems with development server
+extra_javascript: []
+
+pages:
+  - User School 2018:             index.md
+  - Curriculum:
+    - High-level overview:        curriculum/overview.md
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
