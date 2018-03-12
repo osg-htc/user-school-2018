@@ -4,7 +4,7 @@
 
 <p style="font-size: larger; font-weight: bold;">Could you transform your research with vast amounts of computing?</p>
 
-*Come spend a week at the beautiful University of Wisconsin–Madison and learn how*
+*Come spend a week at the beautiful University of Wisconsin–Madison and learn how.*
 
 During the school, July 9–13, you will learn to use high-throughput computing (HTC) systems — at your own campus or
 using the national Open Science Grid (OSG) — to run large-scale computing applications that are at the heart of today’s
