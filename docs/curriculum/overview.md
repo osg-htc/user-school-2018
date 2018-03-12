@@ -1,4 +1,4 @@
-# OSG User School 2018 : Curriculum and Syllabus
+# Curriculum and Syllabus
 
 ## Curriculum Goals
 
