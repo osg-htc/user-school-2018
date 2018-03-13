@@ -1,4 +1,4 @@
-![Madison skyline](files/madison-skyline-1.jpg)<br><span style="font-size: smaller;">(Image copyright Ann Althouse, licensed under Creative Commons, <http://www.flickr.com/photos/althouse/141467660/>)</span>
+![Madison skyline](files/madison-skyline-1.jpg)<br><span style="font-size: smaller;">(Image copyright Ann Althouse, licensed under Creative Commons, <https://www.flickr.com/photos/althouse/141467660/>)</span>
 
 # OSG User School 2018
 
@@ -25,7 +25,7 @@ ensure consideration!
 
 To apply, complete both of the steps below (in parallel, if you like):
 
-* Complete the [online application form](http://vdt.cs.wisc.edu/osgus-2018/) (link goes to vdt.cs.wisc.edu website,
+* Complete the [online application form](https://vdt.cs.wisc.edu/osgus-2018/) (link goes to vdt.cs.wisc.edu website,
   which hosts the application).
 
 * Have someone email a letter of recommendation for you to
@@ -53,7 +53,7 @@ significant effect on your work or research.
 Please tell people who may be interested in the School about us.  We will announce the School by email a couple of
 times, but you can send anyone to this website at any time!
 
-Another way to help: [Download our flyer](files/osg-user-school-2018-flyer.pdf, print copies, and post in prominent
+Another way to help: [Download our flyer](files/osg-user-school-2018-flyer.pdf), print copies, and post in prominent
 locations where good candidates might see it!
 
 ## Contact Us
