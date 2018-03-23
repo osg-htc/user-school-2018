@@ -19,9 +19,9 @@ faculty, and staff.  Students accepted to this program will receive financial su
 associated with the School.
 
 <span style="color: #FF6600; font-weight: bolder;">NEW:</span> For an excellent overview of the kinds of science that
-has taken advantage of High Throughput Computing, see
-[https://docs.google.com/presentation/d/1KeI-ZGfPya6S9WQ7Wzo7lRhU5fr0N_gIHRgRtK3tlIc/](this talk by OSG&rsquo;s Rob
-Gardner) from the OSG All-Hands Meeting in March, 2018.
+has taken advantage of High Throughput Computing, see [this talk by OSG&rsquo;s Rob
+Gardner](https://docs.google.com/presentation/d/1KeI-ZGfPya6S9WQ7Wzo7lRhU5fr0N_gIHRgRtK3tlIc/) from the OSG All-Hands
+Meeting in March, 2018.
 
 ## Applications
 
