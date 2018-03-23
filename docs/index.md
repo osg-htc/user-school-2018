@@ -18,6 +18,11 @@ of the research process, plus we will consider applications from advanced underg
 faculty, and staff.  Students accepted to this program will receive financial support for basic travel and local costs
 associated with the School.
 
+<span style="color: #FF6600; font-weight: bolder;">NEW:</span> For an excellent overview of the kinds of science that
+has taken advantage of High Throughput Computing, see [this talk by OSG&rsquo;s Rob
+Gardner](https://docs.google.com/presentation/d/1KeI-ZGfPya6S9WQ7Wzo7lRhU5fr0N_gIHRgRtK3tlIc/) from the OSG All-Hands
+Meeting in March, 2018.
+
 ## Applications
 
 Applications are now open.  *The deadline for applications is Friday, 20 April 2018.*  Submit your application soon to
