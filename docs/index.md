@@ -25,17 +25,15 @@ Meeting in March, 2018.
 
 ## Applications
 
-Applications are now closed.  We received a record number of applications this year, so thanks to everyone for your
-enthusiastic interest!
+Applications have closed and all applicants have been notified of their status.  We received a record number of
+applications this year, so thanks to everyone for your enthusiastic interest!
 
-If still needed, have someone email a letter of recommendation for you to
-[user-school@opensciencegrid.org](mailto:user-school@opensciencegrid.org) (any reasonable format is fine; we like PDF or
-plain text best).  Ask someone who knows you professionally&nbsp;&mdash; ideally a faculty member or other supervisor.
-They should clearly identify your name and the “OSG User School 2018” in the subject line and letter, so that we can
-associate your application and letter.
+## Information for Participants
 
-We plan to review applications by late April and invite students by early May or so.  We will contact all applicants
-once decisions have been made.  Thank you for your patience!
+- Logistics
+    - [General information and travel schedule](logistics/index.md)
+    - [Visa requirements for non-resident aliens](logistics/personal-info.md)
+    - [Travel planning to and from Madison](logistics/travel.md)
 
 ## Contact Us
 
