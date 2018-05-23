@@ -4,7 +4,7 @@
     
     <url>
      <loc>https://opensciencegrid.github.io/user-school-2018//</loc>
-     <lastmod>2018-05-08</lastmod>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,7 +13,29 @@
         
     <url>
      <loc>https://opensciencegrid.github.io/user-school-2018//curriculum/overview/</loc>
-     <lastmod>2018-05-08</lastmod>
+     <lastmod>2018-05-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://opensciencegrid.github.io/user-school-2018//logistics/</loc>
+     <lastmod>2018-05-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://opensciencegrid.github.io/user-school-2018//logistics/personal-info/</loc>
+     <lastmod>2018-05-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://opensciencegrid.github.io/user-school-2018//logistics/travel/</loc>
+     <lastmod>2018-05-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
