@@ -17,14 +17,14 @@ Get the example files for the tutorial "OSG Connect Quickstart" via `tutorial` c
 We will get the example files using the `tutorial` command.
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>tutorial quickstart</strong>
+user@user-training $ <strong>tutorial quickstart</strong>
 ```
 
 This creates a directory `tutorial-quickstart`. Go inside the directory and see what is inside.
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>cd tutorial-quickstart</strong>
-%UCL_PROMPT_SHORT% <strong>ls -F </strong>
+user@user-training $ <strong>cd tutorial-quickstart</strong>
+user@user-training $ <strong>ls -F </strong>
 ```
 
 You will see the following contents:
@@ -41,14 +41,14 @@ Job Execution File
 Take a look at the job execution file `short.sh`.
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>cat short.sh </strong>
+user@user-training $ <strong>cat short.sh </strong>
 ```
 
 This is a shell script, quite ordinary . Run this shell script locally to see what it does.
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>chmod + short.sh </strong>
-%UCL_PROMPT_SHORT% <strong>./short.sh </strong>
+user@user-training $ <strong>chmod + short.sh </strong>
+user@user-training $ <strong>./short.sh </strong>
 ```
 
 Submitting the job on the OSG
@@ -57,13 +57,13 @@ Submitting the job on the OSG
 The job description file `tutorial01.submit` executes the shell script `short.sh` as a vanilla universe job. Take a look at the job description file.
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>cat tutorial01.submit </strong>
+user@user-training $ <strong>cat tutorial01.submit </strong>
 ```
 
 Now run this job on the OSG.
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_submit tutorial01.submit </strong>
+user@user-training $ <strong>condor_submit tutorial01.submit </strong>
 ```
 
 Once your job has finished, you can look at the files that HTCondor has returned to the working directory. If everything was successful, it should have returned:
@@ -77,7 +77,7 @@ job.log: (A log file for each job's log)
 Read the output file.
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>cat job.output </strong>
+user@user-training $ <strong>cat job.output </strong>
 ```
 
 Observe the difference between the outputs from running the job on the OSG and running locally. (Hint: Check the username, id, work directory etc.)

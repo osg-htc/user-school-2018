@@ -19,7 +19,7 @@ Setup
 We've previously used `blastx` to analyze a relatively small input file of test data, `mouse.fa`, but let's imagine that you now need to blast a much larger dataset for your research. This dataset can be downloaded with the following command:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/mouse_rna.tar.gz</strong>
+user@user-training $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/mouse_rna.tar.gz</strong>
 ```
 
 After un-tar'ing the file, you should be able to confirm that it's size is roughly 100 MB. Not only is this a bit large for file transfer, but it would take hours to complete a single `blastx` analysis for it. Also, the single output file would be huge. Compare for yourself to the time and output file size for the mouse.fa input file, according to your test job in the last exercise.
@@ -31,13 +31,13 @@ For `blast`, it's scientifically valid to split up the input query file, analyze
 Because genetic sequence data is used heavily across the life science, there are also tools for splitting up the data into smaller files. One of these is called [genome tools](http://genometools.org/), and you can download a package of precompiled binaries (just like blast) using the following command:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>wget http://genometools.org/pub/binary_distributions/gt-1.5.9-Linux_x86_64-64bit-complete.tar.gz</strong>
+user@user-training $ <strong>wget http://genometools.org/pub/binary_distributions/gt-1.5.9-Linux_x86_64-64bit-complete.tar.gz</strong>
 ```
 
 Un-tar the gt package (`tar -xzvf ...`), then run it's sequence file splitter as follows, with the target file size of 1 MB:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>./gt-1.5.9-Linux_x86_64-64bit-complete/bin/gt splitfasta -targetsize 1 mouse_rna.fa</strong>
+user@user-training $ <strong>./gt-1.5.9-Linux_x86_64-64bit-complete/bin/gt splitfasta -targetsize 1 mouse_rna.fa</strong>
 ```
 
 You'll notice that the result is a set of 100 files, all about the size of 1 MB, and numbered 1 through 100.

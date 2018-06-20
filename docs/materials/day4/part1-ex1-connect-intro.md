@@ -11,7 +11,7 @@ In this exercise, you'll get acquainted with the OSG Connect submit server (user
 Get Acquainted with the OSG Connect Submit Server (user-training.osgconnect.net)
 --------------------------------------------------------------------------------
 
-SSH to `username@user-training.osgconnect.net` in a command-line terminal.
+SSH to `user@user-training.osgconnect.net` in a command-line terminal.
 
 ### Look around your 'home' directory
 
@@ -22,7 +22,7 @@ You'll notice the 'public', and 'stash' directories, which may be used in variou
 Running `condor_status` by itself on the OSG Connect submit host will give no output, but you can otherwise check with:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_status -pool osg-flock.grid.iu.edu</strong>
+user@user-training $ <strong>condor_status -pool osg-flock.grid.iu.edu</strong>
 ```
 
 Visit the Helpdesk Materials

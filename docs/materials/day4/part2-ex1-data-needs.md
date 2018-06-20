@@ -19,8 +19,8 @@ This exercise's goal is to learn to think critically about an application's data
 #### Copy the blast executables:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/ncbi-blast-2.6.0+-x64-linux.tar.gz</strong>
-%UCL_PROMPT_SHORT% <strong>tar -xzf ncbi-blast-2.6.0+-x64-linux.tar.gz</strong>
+user@user-training $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/ncbi-blast-2.6.0+-x64-linux.tar.gz</strong>
+user@user-training $ <strong>tar -xzf ncbi-blast-2.6.0+-x64-linux.tar.gz</strong>
 ```
 
 #### Copy the Input Files
@@ -30,14 +30,14 @@ To run BLAST, we need an input file and reference database. For this example, we
 1.  Download these files to your current directory: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/pdbaa.tar.gz</strong>
-%UCL_PROMPT_SHORT% <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/mouse.fa</strong>
+user@user-training $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/pdbaa.tar.gz</strong>
+user@user-training $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/mouse.fa</strong>
 ```
 
 1.  Untar the `pdbaa` database: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>tar -xzf pdbaa.tar.gz</strong>
+user@user-training $ <strong>tar -xzf pdbaa.tar.gz</strong>
 ```
 
 Understanding blast
@@ -46,7 +46,7 @@ Understanding blast
 Remember that `blastx` is executed in a command like the following:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>blastx -db %RED%database_rootname%ENDCOLOR% -query %RED%input_file%ENDCOLOR% -out %RED%results_file%ENDCOLOR%</strong>
+user@user-training $ <strong>blastx -db %RED%database_rootname%ENDCOLOR% -query %RED%input_file%ENDCOLOR% -out %RED%results_file%ENDCOLOR%</strong>
 ```
 
 In the above, the `input_file` is a file containing a number of genetic sequences, and the database that these are compared against is made up of several files that begin with the same root name (we previously used the "pdbaa" database, whose files all begin with `pdbaa`). The output from this analysis will be printed to a results file that is also indicated in the command.

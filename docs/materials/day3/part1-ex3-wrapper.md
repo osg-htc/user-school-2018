@@ -74,7 +74,7 @@ ncbi-blast-2.6.0+/bin/blastx -db pdbaa/pdbaa -query mouse.fa -out results2.txt <
 1.  While not strictly necessary, it's a good idea to enable executable permissions on the wrapper script, like so: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>chmod u+x run_blast.sh</strong>
+user@osg-learn $ <strong>chmod u+x run_blast.sh</strong>
 ```
 
 Your job is now ready to submit. Submit it using `condor_submit` and monitor using `condor_q`.

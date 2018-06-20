@@ -38,8 +38,8 @@ one of the pre-built binaries. \\ Before proceeding, look at the list of downloa
 labelled with the `x64-linux` suffix. All the other links are either for source code or other operating systems. \\ While logged into `osg-learn.chtc.wisc.edu`, create a directory for this exercise. Then download the appropriate `tar.gz` file and un-tar it. \\ You can download the file directly from the BLAST website using `wget` or download our local copy with the command below: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/ncbi-blast-2.6.0+-x64-linux.tar.gz</strong>
-%UCL_PROMPT_SHORT% <strong>tar -xzf ncbi-blast-2.6.0+-x64-linux.tar.gz</strong>
+user@osg-learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/ncbi-blast-2.6.0+-x64-linux.tar.gz</strong>
+user@osg-learn $ <strong>tar -xzf ncbi-blast-2.6.0+-x64-linux.tar.gz</strong>
 ```
 
 1.  We're going to be using the `blastx` binary in our job. Where is \\
@@ -54,14 +54,14 @@ To run BLAST, we need an input file and reference database. For this example, we
 1.  Download these files to your current directory: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/pdbaa.tar.gz</strong>
-%UCL_PROMPT_SHORT% <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/mouse.fa</strong>
+user@osg-learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/pdbaa.tar.gz</strong>
+user@osg-learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/mouse.fa</strong>
 ```
 
 1.  Untar the `pdbaa` database: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>tar -xzf pdbaa.tar.gz</strong>
+user@osg-learn $ <strong>tar -xzf pdbaa.tar.gz</strong>
 ```
 
 Submitting the Job
@@ -70,7 +70,7 @@ Submitting the Job
 We now have our program (the pre-compiled `blastx` binary) and our input files, so all that remains is to create the submit file. A typical `blastx` command looks something like this:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong> blastx -db database -query input_file -out results.txt</strong>
+user@osg-learn $ <strong> blastx -db database -query input_file -out results.txt</strong>
 ```
 
 1.   Copy the submit file from the last exercise into your current directory. 2. Think about which lines you will need to change or add to your submit file in order to submit \\
