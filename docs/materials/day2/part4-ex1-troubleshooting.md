@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Tuesday Exercise 3.1: Troubleshooting a DAG
 ===========================================
 

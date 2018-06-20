@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Thursday Exercise 3.2: Using StashCache for Large Shared Data
 =============================================================
 

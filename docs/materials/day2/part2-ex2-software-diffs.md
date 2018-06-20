@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Tuesday Exercise 2.2: Software Differences in the OSG
 =====================================================
 

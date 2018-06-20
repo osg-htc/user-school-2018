@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Thursday Exercise 3.1: Using a Web Proxy for Large Shared Input
 ===============================================================
 

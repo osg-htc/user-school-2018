@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Thursday Exercise 1.4: Try Singularity on the OSG (Optional)
 ============================================================
 

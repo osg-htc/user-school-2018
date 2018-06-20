@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Tuesday Exercise 1.2: Log in to the OSG Submit Machine
 ======================================================
 

@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Tuesday Exercise 1.3: Running jobs in the OSG
 =============================================
 

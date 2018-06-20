@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Thursday Exercise 4.2: Large Output Data
 ========================================
 

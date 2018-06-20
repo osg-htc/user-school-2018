@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Thursday Exercise 2.3: Splitting Large Input for Better Throughput
 ==================================================================
 

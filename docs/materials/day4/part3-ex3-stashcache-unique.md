@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Thursday Exercise 3.3: Using Stash for unique large input
 =========================================================
 

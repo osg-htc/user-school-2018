@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Thursday Exercise 1.1: Getting Acquainted with OSG Connect
 ==========================================================
 

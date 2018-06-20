@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 # OSG Connect Sign-up Instructions
 
 On Tuesday afternoon, you will use OSG Connect to run jobs on OSG.  Before then, please sign up for an OSG Connect

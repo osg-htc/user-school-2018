@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 a<style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
 Monday Exercise 3.4: A More Complex DAG

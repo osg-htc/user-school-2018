@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Thursday Exercise 1.3: Try an OSG Connect Software Module
 =========================================================
 

@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
 Wednesday Exercise 1.3: Using Wrapper Scripts to Submit Jobs

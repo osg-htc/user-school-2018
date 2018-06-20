@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 --+ !Thursday Exercise 1.2: Do the OSG Connect Quickstart
 
 For this exercise, you can also follow the online guide from the OSG Connect helpdesk that will acquaint you with submission on the OSG Connect submit server. Please use the submit host user-training.osgconnect.net instead of login.osgconnect.net for the workshop.

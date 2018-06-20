@@ -1,3 +1,7 @@
+---
+status: in progress
+---
+
 Simpler DAGs with variable substitutions
 ========================================
 
