@@ -45,7 +45,12 @@ In the exercises, we will show commands that you are supposed to type or copy in
 learn.chtc.wisc.edu
 ```
 
-**Note:** In the first line of the example above, the `%UCL_PROMPT_SHORT%` part is meant to show the Linux command-line prompt. You do not type this part! Further, your actual prompt probably is a bit different, and that is expected. So in the example above, the command that you type at your own prompt is just the eight characters `hostname`. The second line of the example, without the prompt, shows the output of the command; you do not type this part, either.
+!!! note
+    In the first line of the example above, the `%UCL_PROMPT_SHORT%` part is meant to show the Linux command-line prompt.
+    You do not type this part! Further, your actual prompt probably is a bit different, and that is expected.
+    So in the example above, the command that you type at your own prompt is just the eight characters `hostname`.
+    The second line of the example, without the prompt, shows the output of the command; you do not type this part,
+    either.
 
 Here are a few other commands that you can try, to learn a little bit about this machine (the examples below do not show the output from each command):
 

@@ -46,7 +46,8 @@ and
 ...
 ```
 
-**Note:** Each event ends with a line that contains only 3 dots: `...`
+!!! note
+    Each event ends with a line that contains only 3 dots: `...`
 
 But the periodic information update event contains some additional information:
 

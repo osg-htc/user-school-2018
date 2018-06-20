@@ -81,11 +81,12 @@ for word in sorted(words.keys()):
 
 If things do not work the first time, keep trying! At this point in the exercises, we are telling you less and less explicitly how to do steps that you have done before. If you get stuck, ask a neighbor or one of the instructors.
 
-**Note:** If you want to transfer more than one input file, list all of them on a single `transfer_input_files` command, separated by commas. For example, if there are three input files:
+!!! note
+    If you want to transfer more than one input file, list all of them on a single `transfer_input_files` command,
+    separated by commas.
+    For example, if there are three input files:
 
-``` file
-transfer_input_files = a.txt, b.txt, c.txt
-```
+            transfer_input_files = a.txt, b.txt, c.txt
 
 ### Extra Challenge
 
@@ -141,7 +142,11 @@ Suppose you decide that you want only the timestamp output file and all files in
 transfer_output_files = output-timestamp.txt, subdirectory/
 ```
 
-**Note:** See the trailing slash (`/`) on the subdirectory? That tells HTCondor to transfer back **the files** contained in the subdirectory, but not the directory itself; the files will be written directly into the submit directory itself. If you want HTCondor to transfer back an entire directory, leave off the trailing slash.
+!!! note
+    See the trailing slash (`/`) on the subdirectory?
+    That tells HTCondor to transfer back **the files** contained in the subdirectory, but not the directory itself;
+    the files will be written directly into the submit directory itself.
+    If you want HTCondor to transfer back an entire directory, leave off the trailing slash.
 
 1.  Remove all output files from the previous run, including `output-timestamp.txt` and `output-calendar.txt`
 2.  Copy the previous submit file that ran `output.sh` and add the `transfer_output_files` line from above
