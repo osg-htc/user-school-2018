@@ -10,11 +10,15 @@ The goal of this exercise is to have your jobs running on the OSG and map their 
 Where in the world are my jobs? (Part 2)
 ----------------------------------------
 
-In this version of the geolocating exercise, you will be submitting jobs to the OSG from `osg-learn.chtc.wisc.edu` and hopefully getting back much more interesting results! Due to some differences between the machines in the OSG and our local cluster here at UW-Madison, you will be using a slightly different payload and then performing the geolocation on the results from the submit host.
+In this version of the geolocating exercise, you will be submitting jobs to the OSG from `osg-learn.chtc.wisc.edu` and
+hopefully getting back much more interesting results!
+Due to some differences between the machines in the OSG and our local cluster here at UW-Madison, you will be using a
+slightly different payload and then performing the geolocation on the results from the submit host.
 
 ### Hostname fetching code
 
-The following Python script finds the ClassAd of the machine it's running on and finds a network identity that can be used to perform lookups:
+The following Python script finds the ClassAd of the machine it's running on and finds a network identity that can be
+used to perform lookups:
 
 ``` file
 #!/bin/env python
@@ -45,15 +49,18 @@ except AttributeError:
 
 Now to create submit files and that will run in the OSG!
 
-1.  If not already logged in, `ssh` into `osg-learn.chtc.wisc.edu`
-2.  Make a new directory for this exercise, `tuesday-1.3` and change into it
-3.  Save the above Python script to a file and call it `ce_hostname.py`
-4.  Create a submit file that runs `ce_hostname.py` 100 times and uses the $(Process) macro to write different `output` and `error` files
-5.  Submit your file and wait for the results
+1. If not already logged in, `ssh` into `osg-learn.chtc.wisc.edu`
+2. Make a new directory for this exercise, `tuesday-1.3` and change into it
+3. Save the above Python script to a file and call it `ce_hostname.py`
+4. Create a submit file that runs `ce_hostname.py` 100 times and uses the $(Process) macro to write different `output`
+   and `error` files
+5. Submit your file and wait for the results
 
 ### Geolocating machines in the OSG
 
-**NOTE:** In this section, we are bending a rule about running jobs locally on the submit host because this host is a closed environment only utilized by the class and this exercise is designed for low load. Normally you should NOT run jobs on your submit host.
+**NOTE:** In this section, we are bending a rule about running jobs locally on the submit host because this host is a
+closed environment only utilized by the class and this exercise is designed for low load.
+Normally you should NOT run jobs on your submit host.
 
 You will be re-using the Python script from the the last exercise to perform the geolocation except instead of submitting it as a job, you will run it manually. Copy it over from `learn.chtc.wisc.edu` using `scp` with the following command:
 

@@ -5,18 +5,24 @@ status: in progress
 Tuesday Exercise 1.1: Refresher – Submitting Multiple Jobs
 ==========================================================
 
-The goal of this exercise is to map the physical locations of some worker nodes in our local cluster. To do this, you will write a simple submit file that will queue multiple jobs and then manually collate the results.
+The goal of this exercise is to map the physical locations of some worker nodes in our local cluster.
+To do this, you will write a simple submit file that will queue multiple jobs and then manually collate the results.
 
 Where in the world are my jobs?
 -------------------------------
 
-To find the physical location of the computers your jobs our running on, you will use a method called *geolocation*. Geolocation uses a registry to match a computer’s network address to an approximate latitude and longitude.
+To find the physical location of the computers your jobs our running on, you will use a method called *geolocation*.
+Geolocation uses a registry to match a computer’s network address to an approximate latitude and longitude.
 
 ### Geolocation code
 
-Below is a Python script that geolocates the machine that it is running on, returning [latitude and longitude coordinates](https://en.wikipedia.org/wiki/Geographic_coordinate_system). It is not important to understand how the internals of the script works.
+Below is a Python script that geolocates the machine that it is running on, returning
+[latitude and longitude coordinates](https://en.wikipedia.org/wiki/Geographic_coordinate_system).
+It is not important to understand how the internals of the script works.
+When called without any arguments, the script will return the latitude and longitude coordinates of the machine from
+which it is run.
 
-``` file
+```
 #!/bin/env python
 
 import sys
@@ -58,8 +64,6 @@ for host in hostnames:
         pass
 ```
 
-When called without any arguments, the above script will return the latitude and longitude coordinates of the machine that it is run on.
-
 ### Geolocating several machines
 
 Now, let’s try to use this Python script and remember some basic HTCondor ideas from yesterday!
@@ -68,18 +72,26 @@ Now, let’s try to use this Python script and remember some basic HTCondor idea
 2.  Create and change into a new folder for this exercise, for example `tuesday-1.1`
 3.  Save the Python script above as a file named `location.py`
 4.  As always, ensure that your script has the proper permissions (hint: try running it from the command line)
-5.  Create a submit file that generates ten jobs that run `location.py` and uses the `$(Process)` macro to write different `output` and `error` files. Try to do this step without looking at materials from yesterday. But if you are stuck, see [yesterday’s exercise 2.4](../day1/part2-ex4-queue-n.md).
+5.  Create a submit file that generates ten jobs that run `location.py` and uses the `$(Process)` macro to write
+    different `output` and `error` files.
+    Try to do this step without looking at materials from yesterday.
+    But if you are stuck, see [yesterday’s exercise 2.4](../day1/part2-ex4-queue-n.md).
 6.  Submit your jobs and wait for the results
 
 ### Collating your results
 
-Now that you have your results, it's time to summarize them. Rather than inspecting each output file individually, you can use the `cat` command to print the results from all of your output files at once. If all of your output files have the format `location-#.out` (e.g., `location-10.out`), your command will look something like this:
+Now that you have your results, it's time to summarize them.
+Rather than inspecting each output file individually, you can use the `cat` command to print the results from all of
+your output files at once.
+If all of your output files have the format `location-#.out` (e.g., `location-10.out`), your command will look something
+like this:
 
 ``` console
 user@learn $ <strong>cat location-*.out</strong>
 ```
 
-The `*` is a wildcard so the above cat command runs on all files that start with `location-` and end in `.out`. Additionally, you can use `cat` in tandem with the `sort` and `uniq` commands to print only the unique results:
+The `*` is a wildcard so the above cat command runs on all files that start with `location-` and end in `.out`.
+Additionally, you can use `cat` in tandem with the `sort` and `uniq` commands to print only the unique results:
 
 ``` console
 user@learn $ <strong>cat location-*.out | sort | uniq</strong>
@@ -88,7 +100,10 @@ user@learn $ <strong>cat location-*.out | sort | uniq</strong>
 Mapping your results
 --------------------
 
-To visualize the locations of the machines that your jobs ran on, you will be using <http://www.mapcustomizer.com/>. Copy and paste the collated results into the text box that pops up when clicking on the 'Bulk Entry' button on the right-hand side. Are the results what you expected?
+To visualize the locations of the machines that your jobs ran on, you will be using <http://www.mapcustomizer.com/>.
+Copy and paste the collated results into the text box that pops up when clicking on the 'Bulk Entry' button on the
+right-hand side.
+Are the results what you expected?
 
 Next exercise
 -------------
