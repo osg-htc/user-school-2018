@@ -39,8 +39,8 @@ View Joe's files
 Log in to `learn.chtc.wisc.edu` and move to a desired location in your home directory. Enter the following commands to download and decompress/untar Joe’s job ingredients:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/WorkflowExercise.tar.gz</strong>
-%UCL_PROMPT_SHORT% <strong>tar -xzf WorkflowExercise.tar.gz</strong>
+user@learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/WorkflowExercise.tar.gz</strong>
+user@learn $ <strong>tar -xzf WorkflowExercise.tar.gz</strong>
 ```
 
 You can now navigate into the `WorkflowExercise` directory to view the full ingredients for Joe’s Computing work. Review all of these files based upon the information below and refer back to it as you proceed through the remaining exercises (1.2-1.4). (If you've been drawing a diagram of Joe's work so far, feel free to annotate with some of this information.)

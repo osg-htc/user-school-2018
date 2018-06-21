@@ -18,8 +18,8 @@ The Program
 If you haven't already, log in to `learn.chtc.wisc.edu`. Download the software package and untar it.
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/motif-flanks.tar.gz</strong>
-%UCL_PROMPT_SHORT% <strong>tar -xzf motif-flanks.tar.gz</strong>
+user@learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/motif-flanks.tar.gz</strong>
+user@learn $ <strong>tar -xzf motif-flanks.tar.gz</strong>
 ```
 
 Use the `cd` command to enter the unpacked `motif-flanks` directory. Take a look at the README file and then do the following:
@@ -29,7 +29,7 @@ Use the `cd` command to enter the unpacked `motif-flanks` directory. Take a look
 This program generates all permutations of nucleotide sequences \\ surrounding a given DNA motif. We can choose the length of permutation we want both \\ before and after a motif of our choice. To use this program on the command line and save the output to a FASTA file, we can use the command:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>./motif-flanks 2 AGTTCATGCCT 2 > sequences.fa</strong>
+user@learn $ <strong>./motif-flanks 2 AGTTCATGCCT 2 > sequences.fa</strong>
 ```
 
 According to the usage information and README, the two numerical arguments can add up to 13, at most, and the middle sequence can be any \\ DNA sequence up to 20 characters. The largest output we can expect is around 4 GB.

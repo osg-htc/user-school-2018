@@ -44,7 +44,7 @@ NOTE: All anagrams formed must be contained in the given text file.
 Unfortunately, there are many issues with the DAG and its submit files that you will have to work through before you can you can obtain the solution to the problem (the code itself should be bug-free)! Submit the DAG:
 
 ``` console
- %UCL_PROMPT_SHORT% condor_submit_dag anagrams.dag
+ user@learn $ condor_submit_dag anagrams.dag
 ```
 
 Then use your newfound HTCondor troubleshooting knowledge to find the answer to the Euler problem that ends up in `result.out` when you've successfully completed this exercise.
@@ -54,7 +54,7 @@ Then use your newfound HTCondor troubleshooting knowledge to find the answer to 
 There is also a working solution on our web server that can be retrieved with
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/tues_31_answer.tar.gz</strong>
+user@learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/tues_31_answer.tar.gz</strong>
 ```
 
 It contains comments labeled `SOLUTION` that you can consult in case you get stuck. Like any answer key, it's mainly useful as a verification tool, so try to only use it as a last resort or for additional illumination.

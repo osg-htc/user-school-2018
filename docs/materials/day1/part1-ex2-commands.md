@@ -19,7 +19,7 @@ As discussed in the lecture, the `condor_status` command is used to view the cur
 At its most basic, the command is very simple:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_status</strong>
+user@learn $ <strong>condor_status</strong>
 ```
 
 This command, running on our (CHTC) pool, will produce a lot of output; there is one line per slot, and we typically have over 10,000 slots. TIP: You can widen your terminal window, which may help you to see all details of the output better.
@@ -76,7 +76,7 @@ Now, run `condor_status` yourself and try these:
 Also try out the `-compact` for a slightly different view of whole machines, without the individual slots shown.
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_status -compact</strong>
+user@learn $ <strong>condor_status -compact</strong>
 ```
 
 How has the column information changed? (Below is an example of the top of the output.)
@@ -101,7 +101,7 @@ The `condor_q` command lists jobs that are on this submit machine and that are r
 The simplest form of the command lists only your jobs:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_q</strong>
+user@learn $ <strong>condor_q</strong>
 ```
 
 The main part of the output (which will be empty, because you haven't submitted jobs yet) shows one job ID per line:
@@ -144,7 +144,7 @@ It shows total counts of jobs in the different possible states.
 By default, the `condor_q` command shows **your** jobs only. To see everyone’s jobs that are queued on the machine, add the `-all` option:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_q -all</strong>
+user@learn $ <strong>condor_q -all</strong>
 ```
 
 Run that command now and use its output to answer the following questions:
@@ -157,7 +157,7 @@ Run that command now and use its output to answer the following questions:
 The `condor_q` output, by default, groups "batches" of jobs together (if they were submitted with the same submit file as part of the same Cluster, and even for separately submitted Clusters that use the same exact executable). To see more information for EVERY job on a separate line of output, use `condor_q -nobatch` (or, to see everyone's jobs `condor_q -all -nobatch`).
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_q -all -nobatch</strong>
+user@learn $ <strong>condor_q -all -nobatch</strong>
 ```
 
 How has the column information changed? (Below is an example of the top of the output.)

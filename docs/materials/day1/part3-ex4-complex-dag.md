@@ -111,7 +111,7 @@ Running the DAG
 Submit your DAG:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_submit_dag goatbrot.dag</strong>
+user@learn $ <strong>condor_submit_dag goatbrot.dag</strong>
 -----------------------------------------------------------------------
 File for submitting this DAG to Condor           : goatbrot.dag.condor.sub
 Log of DAGMan debugging messages                 : goatbrot.dag.dagman.out

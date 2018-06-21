@@ -17,32 +17,32 @@ Selecting Jobs
 The `condor_q` program has many options for selecting which jobs are listed. You have already seen that the default mode (as of version 8.5) is to show only your jobs in "batch" mode:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_q</strong>
+user@learn $ <strong>condor_q</strong>
 ```
 
 You've seen that you can view all jobs (all users) in the submit node's queue by using the `-all` argument:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_q -all</strong>
+user@learn $ <strong>condor_q -all</strong>
 ```
 
 And you've seen that you can view more details about queued jobs, with each separate job on a single line using the `-nobatch` option:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_q -nobatch</strong>
-%UCL_PROMPT_SHORT% <strong>condor_q -all -nobatch</strong>
+user@learn $ <strong>condor_q -nobatch</strong>
+user@learn $ <strong>condor_q -all -nobatch</strong>
 ```
 
 Did you know you can also name one or more user IDs on the command line, in which case jobs for all of the named users are listed at once?
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_q <em><i>username1 username2 username3</i></em></strong>
+user@learn $ <strong>condor_q <em><i>username1 username2 username3</i></em></strong>
 ```
 
 There are two other, simple selection criteria that you can use. To list just the jobs associated with a single cluster number:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_q <em><i>CLUSTER</i></em></strong>
+user@learn $ <strong>condor_q <em><i>CLUSTER</i></em></strong>
 ```
 
 For example, if you want to see the jobs in cluster 5678 (i.e., `5678.0`, `5678.1`, etc.), you use `condor_q 5678`.
@@ -50,7 +50,7 @@ For example, if you want to see the jobs in cluster 5678 (i.e., `5678.0`, `5678.
 To list a specific job (i.e., cluster.process, as in 5678.0):
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_q <em><i>JOB_ID</i></em></strong>
+user@learn $ <strong>condor_q <em><i>JOB_ID</i></em></strong>
 ```
 
 For example, to see job ID 5678.1, you use `condor_q 5678.1`.
@@ -79,7 +79,7 @@ You may have wondered why it is useful to be able to list a single job ID using 
 If you add the `-long` option to `condor_q` (or its short form, `-l`), it will show the complete ClassAd for each selected job, instead of the one-line summary that you have seen so far. Because job ClassAds may have 80–90 attributes (or more), it probably makes the most sense to show the ClassAd for a single job at a time. And you know how to show just one job! Here is what the command looks like:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_q -long <em>job-id</em></strong>
+user@learn $ <strong>condor_q -long <em>job-id</em></strong>
 ```
 
 The output from this command is long and complex. Most of the attributes that HTCondor adds to a job are arcane and uninteresting for us now. But here are some examples of common, interesting attributes taken directly from `condor_q` output (except with some line breaks added to the `Requirements` attribute):
@@ -133,7 +133,7 @@ Sometimes, you submit a job and it just sits in the queue in Idle state, never r
 To ask HTCondor why you job is not running, add the `-better-analyze` option to `condor_q` for the specific job. For example, for job ID 2423.0, the command is:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_q -better-analyze <em>2423.0</em></strong>
+user@learn $ <strong>condor_q -better-analyze <em>2423.0</em></strong>
 ```
 
 Of course, replace the job ID with your own.
@@ -199,7 +199,7 @@ There is a way to format output from `condor_q` with the `-autoformat` or `-af` 
 To use autoformatting, use the `-af` option followed by the attribute name, for each attribute that you want to output:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_q -af Owner -af ClusterId -af Cmd</strong>
+user@learn $ <strong>condor_q -af Owner -af ClusterId -af Cmd</strong>
 moate 2418 /share/test.sh
 cat 2421 /bin/sleep
 cat 2422 /bin/sleep

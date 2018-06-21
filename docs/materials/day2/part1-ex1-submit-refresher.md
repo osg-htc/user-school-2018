@@ -76,13 +76,13 @@ Now, let’s try to use this Python script and remember some basic HTCondor idea
 Now that you have your results, it's time to summarize them. Rather than inspecting each output file individually, you can use the `cat` command to print the results from all of your output files at once. If all of your output files have the format `location-#.out` (e.g., `location-10.out`), your command will look something like this:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>cat location-*.out</strong>
+user@learn $ <strong>cat location-*.out</strong>
 ```
 
 The `*` is a wildcard so the above cat command runs on all files that start with `location-` and end in `.out`. Additionally, you can use `cat` in tandem with the `sort` and `uniq` commands to print only the unique results:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>cat location-*.out | sort | uniq</strong>
+user@learn $ <strong>cat location-*.out | sort | uniq</strong>
 ```
 
 Mapping your results

@@ -61,14 +61,14 @@ You will be re-using the Python script from the the last exercise to perform the
 2.  Copy the file over to `osg-learn.chtc.wisc.edu`: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>scp tuesday-1.1/location.py osg-learn.chtc.wisc.edu:tuesday-1.3/</strong>
+user@learn $ <strong>scp tuesday-1.1/location.py osg-learn.chtc.wisc.edu:tuesday-1.3/</strong>
 ```
 
 `location.py` can take a text file that contains a list of locations as an argument, which can be done by collating your output files into a single file. The easiest way to do this is to use the `cat` command from today's exercise 1.2, the `*` wildcard from last exercise and a new operator `>`, which can write command output to a file. If your output files are named `ce_hostname-0.out...ce_hostname-99.out`, your commands would look like this:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>cat ce_hostname-*.out > hostnames.txt</strong>
-%UCL_PROMPT_SHORT% <strong>./location.py hostnames.txt</strong>
+user@osg-learn $ <strong>cat ce_hostname-*.out > hostnames.txt</strong>
+user@osg-learn $ <strong>./location.py hostnames.txt</strong>
 ```
 
 Mapping your jobs

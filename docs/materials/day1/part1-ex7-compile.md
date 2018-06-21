@@ -46,19 +46,19 @@ Save that code to a file, for example, `simple.c`.
 Compile the program with static linking:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>gcc -static -o simple simple.c</strong>
+user@learn $ <strong>gcc -static -o simple simple.c</strong>
 ```
 
 As always, test that you can run your command from the command line first. First, without arguments to make sure it fails correctly:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>./simple</strong>
+user@learn $ <strong>./simple</strong>
 ```
 
 and then with valid arguments:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>./simple 5 21</strong>
+user@learn $ <strong>./simple 5 21</strong>
 ```
 
 Running a Compiled C Program

@@ -55,7 +55,7 @@ queue
 3.  To request an interactive job, we will add a `-i` flag to the `condor_submit` command. The whole command you enter should look like this: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_submit -i build.submit</strong> 
+user@learn $ <strong>condor_submit -i build.submit</strong>
 ```
 
 Read Through Installation Documentation
@@ -77,7 +77,7 @@ Your interactive job should have started by now and we've learned about installi
 1.  Before we follow the installation instructions, we should create a directory to hold our installation. You can create this in the current directory. \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>mkdir openbugs</strong>
+user@learn $ <strong>mkdir openbugs</strong>
 ```
 
 \\
@@ -85,8 +85,8 @@ Your interactive job should have started by now and we've learned about installi
 1.  Now run the commands to unpack the source code: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>tar zxvf OpenBUGS-3.2.3.tar.gz</strong>
-%UCL_PROMPT_SHORT% <strong>cd OpenBUGS-3.2.3</strong>
+user@learn $ <strong>tar zxvf OpenBUGS-3.2.3.tar.gz</strong>
+user@learn $ <strong>cd OpenBUGS-3.2.3</strong>
 ```
 
 \\
@@ -96,9 +96,9 @@ Your interactive job should have started by now and we've learned about installi
 current working directory and then a relative path to the `openbugs` directory we created in step 1: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>./configure --prefix=$(pwd)/../openbugs</strong>
-%UCL_PROMPT_SHORT% <strong>make</strong>
-%UCL_PROMPT_SHORT% <strong>make install</strong>
+user@learn $ <strong>./configure --prefix=$(pwd)/../openbugs</strong>
+user@learn $ <strong>make</strong>
+user@learn $ <strong>make install</strong>
 ```
 
 \\
@@ -106,13 +106,13 @@ current working directory and then a relative path to the `openbugs` directory w
 1.  **Go back to the job's main working directory**: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>cd ..</strong>
+user@learn $ <strong>cd ..</strong>
 ```
 
 \\ and confirm that our installation procedure created `bin`, \\ `lib`, and `share` directories. \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>ls openbugs</strong>
+user@learn $ <strong>ls openbugs</strong>
 bin lib share
 ```
 
@@ -123,7 +123,7 @@ bin lib share
 into a single gzipped tarball. \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>tar -czf openbugs.tar.gz openbugs/</strong>
+user@learn $ <strong>tar -czf openbugs.tar.gz openbugs/</strong>
 ```
 
 \\
@@ -131,7 +131,7 @@ into a single gzipped tarball. \\
 1.  Once everything is complete, type `exit` to leave the interactive job. Make sure that your tarball is in the main working directory - it will be transferred back to the submit server automatically. \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>exit</strong>
+user@learn $ <strong>exit</strong>
 ```
 
 Note that we now have two tarballs in our directory -- the *source* tarball (`OpenBUGS-3.2.3.tar.gz`), which we will no longer need and our newly built installation (`openbugs.tar.gz`) which is what we will actually be using to run jobs.
@@ -168,7 +168,7 @@ OpenBUGS < input.txt > results.txt
 1.  Make sure the wrapper script has executable permissions: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>chmod u+x run_openbugs.sh</strong>
+user@learn $ <strong>chmod u+x run_openbugs.sh</strong>
 ```
 
 Run a Open BUGS job
@@ -179,8 +179,8 @@ We're almost ready! We need two more pieces to run a OpenBUGS job.
 1.  Download the necessary input files to your directory on the submit server and then untar them. \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/openbugs_files.tar.gz</strong>
-%UCL_PROMPT_SHORT% <strong>tar -xzf openbugs_files.tar.gz</strong>
+user@learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/openbugs_files.tar.gz</strong>
+user@learn $ <strong>tar -xzf openbugs_files.tar.gz</strong>
 ```
 
 1.  Our last step is to create a submit file for our Open BUGS job. Think about which lines this submit file will need. Make a copy of a previous submit file (you could use the blast submit file from the [previous exercise](part1-ex3-wrapper.md) as a base) and modify it as you think necessary.

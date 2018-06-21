@@ -58,7 +58,7 @@ Note that we are not using the `arguments` lines or `transfer_input_files` becau
 Double-check your submit file, so that it matches the text above. Then, tell HTCondor to run your job:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_submit simple.sub</strong>
+user@learn $ <strong>condor_submit simple.sub</strong>
 Submitting job(s).
 1 job(s) submitted to cluster <em>NNNN</em>.
 ```
@@ -74,7 +74,7 @@ Now, use `condor_q` and `condor_q -nobatch` to watch for your job in the queue. 
 The output from your job is written to the filename given in the `output` line of your submit file. Thus, after the job finishes, you should be able to see the `hostname` output in `simple.out`, since this information is usually printed to the terminal by the `hostname` program, and not to a special file of it's own.
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>cat simple.out</strong>
+user@learn $ <strong>cat simple.out</strong>
 e171.chtc.wisc.edu
 ```
 
@@ -85,15 +85,15 @@ The `simple.err` file should be empty, unless there were issues running the `hos
 Very often, when you run a command on the command line, it includes arguments after the command name itself:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>cat <em>simple.out</em></strong>
-%UCL_PROMPT_SHORT% <strong>sleep <em>60</em></strong>
-%UCL_PROMPT_SHORT% <strong>dc <em>-e '6 7 * p'</em></strong>
+user@learn $ <strong>cat <em>simple.out</em></strong>
+user@learn $ <strong>sleep <em>60</em></strong>
+user@learn $ <strong>dc <em>-e '6 7 * p'</em></strong>
 ```
 
 In an HTCondor submit file, the command (or "program") name itself goes in the `executable` statement and **all remaining arguments** go into an `arguments` statement. For example, if the full command is:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>sleep <em>60</em></strong>
+user@learn $ <strong>sleep <em>60</em></strong>
 ```
 
 Then in the submit file, we put:
@@ -109,7 +109,7 @@ arguments = "60"
 For the command-line command:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>dc <em>-e '6 7 * p'</em></strong>
+user@learn $ <strong>dc <em>-e '6 7 * p'</em></strong>
 ```
 
 Then in the submit file, we put:

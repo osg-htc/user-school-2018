@@ -26,13 +26,13 @@ To practice removing jobs from the queue, you need a job in the queue!
 So far, we have created job clusters that contain only one job process (the `.0` part of the job ID). That will change soon, so it is good to know how to remove a specific job ID. However, it is possible to remove all jobs that are part of a cluster at once. Simply omit the job process (the `.0` part of the job ID) in the `condor_rm` command:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_rm <em>cluster</em></strong>
+user@learn $ <strong>condor_rm <em>cluster</em></strong>
 ```
 
 Finally, you can include many job clusters and full job IDs in a single `condor_rm` command. For example:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>condor_rm 5768 5769 5770.0 5771.2</strong>
+user@learn $ <strong>condor_rm 5768 5769 5770.0 5771.2</strong>
 ```
 
 Removing All of Your Jobs

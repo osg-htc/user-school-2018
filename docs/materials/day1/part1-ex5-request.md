@@ -29,7 +29,7 @@ For Memory: On Mac and Windows, for example, the "Activity Monitor" and "Task Ma
 Using `ps`:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>ps ux</strong>
+user@learn $ <strong>ps ux</strong>
 USER       PID %CPU %MEM    VSZ   <em>RSS</em> TTY      STAT START   TIME COMMAND
 cat      24342  0.0  0.0  90224  <em>1864</em> ?        S    13:39   0:00 sshd: cat@pts/0  
 cat      24343  0.0  0.0  66096  <em>1580</em> pts/0    Ss   13:39   0:00 -bash
@@ -43,7 +43,7 @@ The Resident Set Size (`RSS`) column, highlighted above, gives a rough indicatio
 Using `top`:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>top -u <em>userid</em></strong>
+user@learn $ <strong>top -u <em>userid</em></strong>
 top - 13:55:31 up 11 days, 20:59,  5 users,  load average: 0.12, 0.12, 0.09
 Tasks: 198 total,   1 running, 197 sleeping,   0 stopped,   0 zombie
 Cpu(s):  1.2%us,  0.1%sy,  0.0%ni, 98.5%id,  0.2%wa,  0.0%hi,  0.1%si,  0.0%st

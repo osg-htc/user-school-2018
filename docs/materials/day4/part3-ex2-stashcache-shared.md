@@ -42,15 +42,15 @@ As the `public` directory name indicates \*your files placed in the `public` dir
 Next, you can check for the file and test the command that we'll use in jobs on the OSG Connect login node:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>ls public</strong>
+user@user-training $ <strong>ls public</strong>
 ```
 
 Now, load the `stashcp` module, which will allow you to test a copy of the file from StashCache into your home directory on `login.osgconnect.net`:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>module load stashcp</strong>
-%UCL_PROMPT_SHORT% <strong>module load xrootd</strong>
-%UCL_PROMPT_SHORT% <strong>stashcp /user/%RED%username%ENDCOLOR%/public/pdbaa_files.tar.gz ./</strong>
+user@user-training $ <strong>module load stashcp</strong>
+user@user-training $ <strong>module load xrootd</strong>
+user@user-training $ <strong>stashcp /user/%RED%username%ENDCOLOR%/public/pdbaa_files.tar.gz ./</strong>
 ```
 
 You should now see the `pdbaa_files.tar.gz` file in your current directory. Notice that we had to include the **`/user`** and **`username`** in the file path for `stashcp`, which make sure you're copying from **your** `public` space.

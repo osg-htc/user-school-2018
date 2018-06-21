@@ -18,7 +18,7 @@ We'll start by moving our source movie files into Stash, so that they'll be avai
 using `wget`: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>wget http://proxy.chtc.wisc.edu/osgschool17/videos.tar.gz</strong>
+user@user-training $ <strong>wget http://proxy.chtc.wisc.edu/osgschool17/videos.tar.gz</strong>
 ```
 
 \\
@@ -28,7 +28,7 @@ using `wget`: \\
 3.  We're going to need a list of these files later. For now, let's save that list to a file in this directory by running `ls` and redirecting the output to a file: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>ls *.MOV *.mov > movie_list.txt</strong>
+user@user-training $ <strong>ls *.MOV *.mov > movie_list.txt</strong>
 ```
 
 1.  Once you've examined the three `mov` files and created the list of files, remove the original `tar.gz` file.
@@ -39,13 +39,13 @@ Software
 We'll be using a multi-purpose media tool called `ffmpeg` \\ to convert video formats. The basic command to convert a file looks like this: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>./ffmpeg -i input.mov output.mp4</strong>
+user@user-training $ <strong>./ffmpeg -i input.mov output.mp4</strong>
 ```
 
 In order to resize our files, we're going to manually set the video bitrate and resize the frames, so that the resulting file is smaller.
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>./ffmpeg -i input.mp4 -b:v 400k -s 640x360 output.mp4</strong>
+user@user-training $ <strong>./ffmpeg -i input.mp4 -b:v 400k -s 640x360 output.mp4</strong>
 ```
 
 To get the `ffmpeg` program do the following:
@@ -56,14 +56,14 @@ To get the `ffmpeg` program do the following:
 Look for the `x86_64` build. \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>wget http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz</strong>
+user@user-training $ <strong>wget http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz</strong>
 ```
 
 1.  Once the binary is downloaded, un-tar it, and then copy the main `ffmpeg` program into your current directory: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>tar -xf ffmpeg-release-64bit-static.tar.xz</strong>
-%UCL_PROMPT_SHORT% <strong>cp ffmpeg-3.3.2-64bit-static/ffmpeg ./</strong>
+user@user-training $ <strong>tar -xf ffmpeg-release-64bit-static.tar.xz</strong>
+user@user-training $ <strong>cp ffmpeg-3.3.2-64bit-static/ffmpeg ./</strong>
 ```
 
 Script

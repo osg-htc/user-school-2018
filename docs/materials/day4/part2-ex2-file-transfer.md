@@ -56,7 +56,7 @@ In our first blast job from yesterday, the database files in the `pdbaa` directo
 A typical command for creating a tar file is:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>tar -cvzf [compressed filename] [list of files]</strong>
+user@user-training $ <strong>tar -cvzf [compressed filename] [list of files]</strong>
 ```
 
 Move this file to the `thur-blast-data` directory.

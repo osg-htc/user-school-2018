@@ -26,7 +26,7 @@ Archiving tools (WinZip, 7zip, Archive Utility, etc.) can compress the size of y
 -   To **create** a tarball named `<archive filename>` containing `<archive contents>`, use the following command: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>tar -czvf <archive filename> <archive contents></strong>
+user@osg-learn $ <strong>tar -czvf <archive filename> <archive contents></strong>
 ```
 
 \\ <p> Where `<archive filename>` should end in `.tar.gz` and `<archive contents>` can be a list of any number of files and/or folders, separated by spaces.</p>
@@ -34,13 +34,13 @@ Archiving tools (WinZip, 7zip, Archive Utility, etc.) can compress the size of y
 -   To **extract** the files from a tarball into the current directory: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>tar -xzvf <archive filename></strong>
+user@osg-learn $ <strong>tar -xzvf <archive filename></strong>
 ```
 
 -   To **list** the files within a tarball: \\
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>tar -tzvf <archive filename></strong>
+user@osg-learn $ <strong>tar -tzvf <archive filename></strong>
 ```
 
 Using the above knowledge, log into `learn.chtc.wisc.edu`, create a tarball that contains Monday's exercise 2.4 directory, and verify that it contains all the proper files.
@@ -65,28 +65,28 @@ Transferring files
 [Secure copy](https://en.wikipedia.org/wiki/Secure_copy) (`scp`) is a command based on `SSH` that lets you securely copy files between two different hosts. It takes similar arguments to the `cp` command that you are familiar with but also takes additional host information:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>scp <source 1> <source 2>...<source N> <remote host>:<remote path> 
+user@learn $ <strong>scp <source 1> <source 2>...<source N> <remote host>:<remote path>
 </strong>
 ```
 
 For example, if I were logged in to `learn.chtc.wisc.edu` and wanted to copy the file `foo` from my current directory to my home directory on `osg-learn.chtc.wisc.edu`, the command would look like this:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>scp foo osg-learn.chtc.wisc.edu:~
+user@learn $ <strong>scp foo osg-learn.chtc.wisc.edu:~
 </strong>
 ```
 
 Additionally, I could also pull files from `osg-learn.chtc.wisc.edu` to `learn.chtc.wisc.edu`. The following command copies `bar` from my home directory on `osg-learn.chtc.wisc.edu` to my current directory on `learn.chtc.wisc.edu`:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>scp osg-learn.chtc.wisc.edu:~/bar .
+user@learn $ <strong>scp osg-learn.chtc.wisc.edu:~/bar .
 </strong>
 ```
 
 You can also copy folders between hosts using the `-r` option. If I kept all my files from Monday's exercise 1.3 in a folder named `monday-1.3` on `learn.chtc.wisc.edu`, I could use the following command to copy them to my home directory on `osg-learn.chtc.wisc.edu`:
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>scp -r monday-1.3 osg-learn.chtc.wisc.edu:~
+user@learn $ <strong>scp -r monday-1.3 osg-learn.chtc.wisc.edu:~
 </strong>
 ```
 
@@ -113,7 +113,7 @@ WinSCP is an `scp` client for Windows operating systems.
 `scp` is a great, ubiquitous tool for one-time transfers but if you find yourself transferring the same set of files to the same location repeatedly, there are better tools to use. Another common tool available on many linux machines is `rsync`, which is like a beefed-up version of `scp`. The invocation is similar to `scp`: you can transfer files and/or folders, but the options are different and when transferring folders, make sure they don't have a trailing slash (`/`, this means to copy all the files within the folder instead of the folder itself):
 
 ``` console
-%UCL_PROMPT_SHORT% <strong>rsync -Pavz <source 1> <source 2>...<source N> <remote host>:<remote path> 
+user@learn $ <strong>rsync -Pavz <source 1> <source 2>...<source N> <remote host>:<remote path>
 </strong>
 ```
 

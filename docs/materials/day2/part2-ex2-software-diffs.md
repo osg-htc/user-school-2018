@@ -24,13 +24,13 @@ Comparing operating systems
 To really see differences between slots in the local cluster vs the OSG, you will want to compare the slot ClassAds between the two pools. Rather than inspecting the very long ClassAd for each slot, you will look at a specific attribute called `OpSysAndVer`, which tells us the operating system version of the machine where a slot resides. An easy way to show this attribute for all slots is by using `condor_status` in conjunction with the `-autoformat` option. `-autoformat` like the `-format` option you learned about yesterday will print out the attributes you're interested in for each slot but as you probably guessed, perform the formatting in an automatic way. So to show the operating system and version of each slot, run the following command in both of your terminal windows:
 
 ``` console
-%UCL_PROMPT_SHORT% condor_status -autoformat OpSysAndVer
+user@learn $ condor_status -autoformat OpSysAndVer
 ```
 
 You will see many values with the type of operating system at the front and the version number at the end (i.e. SL6 stands for Scientific Linux 6). The only problem is that with hundreds or thousands of slots, it's difficult to get a feel for the composition of each pool from this output. You can find a count for each operating system by passing the `condor_status` output into the `sort` and `uniq` commands. Your command line should look something like this:
 
 ``` console
-%UCL_PROMPT_SHORT% condor_status -autoformat OpSysAndVer | sort | uniq -c
+user@learn $ condor_status -autoformat OpSysAndVer | sort | uniq -c
 ```
 
 Can you spot the differences between the two pools now?
