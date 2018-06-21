@@ -42,7 +42,8 @@ Write a single DAG file for the workflow, including:
 -   `PARENT x CHILD y` lines as necessary
 -   `SCRIPT PRE` and/or `SCRIPT POST` lines for the tar steps
 
-**Note:** You may need to think about how each `tar` step works for deciding on "PRE" or "POST" scripts for each.
+!!! note
+    You may need to think about how each `tar` step works for deciding on "PRE" or "POST" scripts for each.
 
 If you need a refresher on what a DAG looks like, see [this exercise from Monday](../day1/part3-ex4-complex-dag.md) or the [HTCondor manual](http://research.cs.wisc.edu/htcondor/manual/current/2_10DAGMan_Applications.htmll)
 

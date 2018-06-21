@@ -55,7 +55,9 @@ user@learn $ <strong>condor_q <em><i>JOB_ID</i></em></strong>
 
 For example, to see job ID 5678.1, you use `condor_q 5678.1`.
 
-**Note:** You can name more than one cluster, job ID, or combination thereof on the command line, in which case jobs for **all** of the named clusters and/or job IDs are listed.
+!!! note
+    You can name more than one cluster, job ID, or combination thereof on the command line, in which case jobs for
+    **all** of the named clusters and/or job IDs are listed.
 
 Let’s get some practice using `condor_q` selections!
 
@@ -102,7 +104,9 @@ Cmd = "/bin/sleep"
 Arguments = "120"
 ```
 
-**Note:** Attributes are listed in no particular order and may change from time to time. Do not assume anything about the order of attributes in `condor_q` output.
+!!! note
+    Attributes are listed in no particular order and may change from time to time.
+    Do not assume anything about the order of attributes in `condor_q` output.
 
 See what you can find in a job ClassAd from your own job.
 

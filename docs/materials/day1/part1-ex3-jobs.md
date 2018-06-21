@@ -35,7 +35,11 @@ queue
 
 Write those lines of text in a file named `simple.sub`.
 
-**Note:** There is nothing magic about the name of an HTCondor submit file. It can be any filename you want. It's a good practice to always include the `.sub` extension, but it is not required. Ultimately, a submit file is a text file
+!!! note
+    There is nothing magic about the name of an HTCondor submit file.
+    It can be any filename you want.
+    It's a good practice to always include the `.sub` extension, but it is not required.
+    Ultimately, a submit file is a text file
 
 The lines of the submit file have the following meanings:
 
@@ -99,7 +103,8 @@ executable = /bin/sleep
 arguments = "60"
 ```
 
-**Note:** Put the entire list of arguments inside one pair of double-quotes.
+!!! note
+    Put the entire list of arguments inside one pair of double-quotes.
 
 For the command-line command:
 
@@ -157,9 +162,25 @@ echo 'Date: ' \`date\` echo 'Host: ' \`hostname\` echo 'System: ' \`uname -spo\`
 
 <span class="twiki-macro UCL_PROMPT_SHORT"></span> **./test-script.sh hello 42** Date: Mon Jul 17 10:02:20 CDT 2017 Host: learn.chtc.wisc.edu System: Linux x86\_64 GNU/Linux Program: ./test-script.sh Args: hello 42 </pre>\\ <p>This step is **really** important! If you cannot run your executable from the command-line, HTCondor probably cannot run it on another machine, either. And debugging simple problems like this one is surprisingly difficult. So, if possible, test your `executable` and `arguments` as a command at the command-line first.</p>
 
-1.  Write the submit file (this should be getting easier by now):\\ <pre class="file">
+1.  Write the submit file (this should be getting easier by now):
 
-universe = vanilla executable = *test-script.sh* arguments = "foo bar baz" output = script.out error = script.err log = script.log request\_cpus = 1 request\_memory = 1 request\_disk = 1 queue </pre>\\ <p>**Note:** As this example shows, blank lines and spaces around the = sign do not matter to HTCondor. Use whitespace to make things clear to **you**. What format do you prefer to read?</p>
+        universe = vanilla
+        executable = *test-script.sh*
+        arguments = "foo bar baz"
+
+        output = script.out
+        error = script.err
+        log = script.log
+
+        request_cpus = 1
+        request_memory = 1
+        request_disk = 1
+
+        queue
+
+    !!! note
+        As this example shows, blank lines and spaces around the = sign do not matter to HTCondor.
+        Use whitespace to make things clear to **you**. What format do you prefer to read?
 
 1.  Submit the job, wait for it to finish, check the output. (Are you surprised by the `Program:` line in the output? Why is it like that? Google for it, or ask an instructor if you are curious, although the answer is not that exciting.)
 
@@ -200,11 +221,11 @@ print 'Script  :', os.path.abspath(__file__)
 print 'Args    :', arguments
 ```
 
-**Note:** For the Python script, above, you'll want to increase the memory request. We will talk about tuning resource requests, later, but you should be able to set the following to have the job run:
+!!! note
+    For the Python script, above, you'll want to increase the memory request.
+    We will talk about tuning resource requests, later, but you should be able to set the following to have the job run:
 
-``` file
-request_memory = 64 MB
-```
+            request_memory = 64 MB
 
 ### Extra Challenge 1
 

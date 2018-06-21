@@ -48,7 +48,9 @@ For example, to see the “first” slot on the machine above:
 user@learn $ <strong>condor_status slot1@e242.chtc.wisc.edu</strong>
 ```
 
-**Note:** You can name more than one hostname, slot, or combination thereof on the command line, in which case slots for **all** of the named hostnames and/or slots are listed.
+!!! note
+    You can name more than one hostname, slot, or combination thereof on the command line, in which case slots for
+    **all** of the named hostnames and/or slots are listed.
 
 Let’s get some practice using `condor_status` selections!
 
@@ -102,13 +104,18 @@ For example, suppose we want to list all slots that are running Scientific Linux
 user@learn $ <strong>condor_status -constraint 'OpSysAndVer == "SL6" && Memory >= 64000'</strong>
 ```
 
-**Note:** Be very careful with using quote characters appropriately in these commands. In the example above, the single quotes (`'`) are for the shell, so that the entire expression is passed to `condor_status` untouched, and the double quotes (`"`) surround a string value within the expression itself.
+!!! note
+    Be very careful with using quote characters appropriately in these commands.
+    In the example above, the single quotes (`'`) are for the shell, so that the entire expression is passed to
+    `condor_status` untouched, and the double quotes (`"`) surround a string value within the expression itself.
 
 Currently on CHTC, there are only a few slots that meet these criteria.
 
 If you are interested in learning more about writing ClassAd expressions, look at section 4.1 and especially 4.1.4 of the HTCondor Manual. This is definitely advanced material, so if you do not want to read it, that is fine. But if you do, take some time to practice writing expressions for the `condor_status -constraint` command.
 
-**Note:** The `condor_q` command accepts the `-constraint` option as well! As you might expect, the option allows you to limit the jobs that are listed based on a ClassAd expression.
+!!! note
+    The `condor_q` command accepts the `-constraint` option as well!
+    As you might expect, the option allows you to limit the jobs that are listed based on a ClassAd expression.
 
 Formatting Output (Optional)
 ----------------------------
