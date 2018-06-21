@@ -65,7 +65,7 @@ status: in progress
 ### Tuesday Afternoon: Troubleshooting jobs
 
 - Lecture: Troubleshooting jobs ([PDF](day2/files/osgus17-day2-part4-troubleshooting.pdf))
-- [Exercise 3.1: Troubleshooting a DAG](day2/part4-ex1-troubleshooting.md)
+- [Exercise 3.1: Troubleshooting a DAG](day2/part3-ex1-troubleshooting.md)
 
 ### Tuesday Afternoon: Connecting to OSG
 
