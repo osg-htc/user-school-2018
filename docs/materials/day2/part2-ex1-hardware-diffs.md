@@ -57,7 +57,7 @@ To create our parameter sweep, we will create one submit file with multiple queu
 Every few minutes, run `condor_q` and see how your sleep jobs are doing. To easily see how many jobs of each type you have left, run the following command:
 
 ``` console
-%UCL_PROMPT_SHORT% condor_q <span style="background-color: #D1CAF2;"><Cluster ID></span> -af RequestMemory | sort -n | uniq -c
+user@learn $ condor_q <span style="background-color: #D1CAF2;"><Cluster ID></span> -af RequestMemory | sort -n | uniq -c
 ```
 
 The numbers in the left column are the number of jobs left of that type and the number on the right is the amount of memory you requested in MB. Consider making a little table like the one below to track progress.
