@@ -20,6 +20,8 @@ pages:
   - Curriculum:
     - High-level overview:        curriculum/overview.md
   - Materials:
+    - Overview:                   materials/index.md
+    - Sign-up for OSG Connect:    materials/connect.md
     - Day 1:
       - Exercise 1.1:             materials/day1/part1-ex1-login.md
       - Exercise 1.2:             materials/day1/part1-ex2-commands.md
