@@ -11,10 +11,9 @@
 
 # 2017 OSG User School Schedule
 
-The schedule is in progress at this time.
+Schedule subject to change prior to the start of the school.
 
-All events happen in the Computer Sciences building (1210 West Dayton Street), Room 1240, except when shown <span
-class="hi">in orange</span> below.
+All events happen in the Computer Sciences building (1210 West Dayton Street), Room 1240, except when noted otherwise.
 
 ## Sunday, 16 July 2017
 
