@@ -75,7 +75,7 @@ Now, let’s try to use this Python script and remember some basic HTCondor idea
 5.  Create a submit file that generates ten jobs that run `location.py` and uses the `$(Process)` macro to write
     different `output` and `error` files.
     Try to do this step without looking at materials from yesterday.
-    But if you are stuck, see [yesterday’s exercise 2.4](../day1/part2-ex4-queue-n.md).
+    But if you are stuck, see [yesterday’s exercise 2.4](/materials/day1/part2-ex4-queue-n.md).
 6.  Submit your jobs and wait for the results
 
 ### Collating your results
@@ -108,5 +108,5 @@ Are the results what you expected?
 Next exercise
 -------------
 
-Once completed, move onto the next exercise: [Logging in to the OSG Submit Machine](part1-ex2-login-scp.md)
+Once completed, move onto the next exercise: [Logging in to the OSG Submit Machine](/materials/day2/part1-ex2-login-scp.md)
 
