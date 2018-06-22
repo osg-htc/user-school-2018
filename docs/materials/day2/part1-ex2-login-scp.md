@@ -37,22 +37,20 @@ tarballs) whose usage is as follows:
 -   To **create** a tarball named `<archive filename>` containing `<archive contents>`, use the following command:
 
         :::console
-        user@osg-learn $ <strong>tar -czvf <archive filename> <archive contents></strong>
+        user@osg-learn $ tar -czvf <archive filename> <archive contents>
 
     Where `<archive filename>` should end in `.tar.gz` and `<archive contents>` can be a list of any number of files
     and/or folders, separated by spaces.
 
 -   To **extract** the files from a tarball into the current directory:
 
-``` console
-user@osg-learn $ <strong>tar -xzvf <archive filename></strong>
-```
+        :::console
+        user@osg-learn $ tar -xzvf <archive filename>
 
 -   To **list** the files within a tarball:
 
-``` console
-user@osg-learn $ <strong>tar -tzvf <archive filename></strong>
-```
+        :::console
+        user@osg-learn $ tar -tzvf <archive filename>
 
 Using the above knowledge, log into `learn.chtc.wisc.edu`, create a tarball that contains Monday's exercise 2.4
 directory, and verify that it contains all the proper files.
@@ -80,17 +78,15 @@ Transferring files
 files between two different hosts.
 It takes similar arguments to the `cp` command that you are familiar with but also takes additional host information:
 
-``` console
-user@learn $ <strong>scp <source 1> <source 2>...<source N> <remote host>:<remote path>
-</strong>
+```console
+user@learn $ scp <source 1> <source 2>...<source N> <remote host>:<remote path>
 ```
 
 For example, if I were logged in to `learn.chtc.wisc.edu` and wanted to copy the file `foo` from my current directory to
 my home directory on `osg-learn.chtc.wisc.edu`, the command would look like this:
 
-``` console
-user@learn $ <strong>scp foo osg-learn.chtc.wisc.edu:~
-</strong>
+```console
+user@learn $ scp foo osg-learn.chtc.wisc.edu:~
 ```
 
 Additionally, I could also pull files from `osg-learn.chtc.wisc.edu` to `learn.chtc.wisc.edu`.
@@ -98,8 +94,7 @@ The following command copies `bar` from my home directory on `osg-learn.chtc.wis
 `learn.chtc.wisc.edu`:
 
 ``` console
-user@learn $ <strong>scp osg-learn.chtc.wisc.edu:~/bar .
-</strong>
+user@learn $ scp osg-learn.chtc.wisc.edu:~/bar .
 ```
 
 You can also copy folders between hosts using the `-r` option.
@@ -107,8 +102,7 @@ If I kept all my files from Monday's exercise 1.3 in a folder named `monday-1.3`
 the following command to copy them to my home directory on `osg-learn.chtc.wisc.edu`:
 
 ``` console
-user@learn $ <strong>scp -r monday-1.3 osg-learn.chtc.wisc.edu:~
-</strong>
+user@learn $ scp -r monday-1.3 osg-learn.chtc.wisc.edu:~
 ```
 
 Try copying the tarball you created earlier in this exercise on `learn.chtc.wisc.edu` to `osg-learn.chtc.wisc.edu`.
@@ -143,8 +137,7 @@ transferring folders, make sure they don't have a trailing slash (`/`, this mean
 folder instead of the folder itself):
 
 ``` console
-user@learn $ <strong>rsync -Pavz <source 1> <source 2>...<source N> <remote host>:<remote path>
-</strong>
+user@learn $ rsync -Pavz <source 1> <source 2>...<source N> <remote host>:<remote path>
 ```
 
 `rsync` has many benefits over `scp` but two of its biggest features are built-in compression (so you don't have to
@@ -156,7 +149,7 @@ from scratch every time your connection fails.
 1.  Create a new file in your exercise 1.1 folder on `learn.chtc.wisc.edu` with the `touch` command:
 
         :::console
-        user@learn touch <filename>
+        user@learn $ touch <filename>
 
 1. Use the same `rsync` command to transfer the folder with the new file you just created.
    How many files were transferred the first time? How many files were transferred if you run the same rsync command
