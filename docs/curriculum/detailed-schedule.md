@@ -19,7 +19,16 @@ All events happen in the Computer Sciences building (1210 West Dayton Street), R
 
 **Welcome Dinner for Students and Staff**
 
-<table class="schedule"> <tr valign="baseline"> <th class="side">Location</th> <td><span class="hi">Fluno Center (601 University Avenue)</span>, Skyview Room</td> </tr> <tr valign="baseline"> <th class="side">Time</th> <td>6:30 p.m.</td> </tr> </table>
+<table class="schedule">
+    <tr valign="baseline">
+        <th class="side">Location</th>
+        <td><span class="hi">Fluno Center (601 University Avenue)</span>, Skyview Room</td>
+    </tr>
+    <tr valign="baseline">
+        <th class="side">Time</th>
+        <td>6:30 p.m.</td>
+    </tr>
+</table>
 
 We will have instructors at the hotel lobby by ~5:45pm. At about 6:00 p.m., we will walk to the Fluno Center, which will
 take 25 minutes. Join us for the walk if you want, or otherwise meet us in the dinner room by 6:30 p.m.
@@ -56,4 +65,14 @@ take 25 minutes. Join us for the walk if you want, or otherwise meet us in the d
 
 **Closing Dinner for Students and Staff**
 
-<table class="schedule"> <tr> <th class="side">Location</th> <td><span class="hi">Union South (1208 Dayton Street)</span>, search the “Today In The Union” (TITU) display for the exact room</td> </tr> <tr> <th class="side">Time</th> <td>6:30 p.m.</td> </tr> </table>
+<table class="schedule">
+    <tr>
+        <th class="side">Location</th>
+        <td>
+            <span class="hi">Union South (1208 Dayton Street)</span>, search the “Today In The Union” (TITU) display for the exact room</td>
+    </tr>
+    <tr>
+        <th class="side">Time</th>
+        <td>6:30 p.m.</td>
+    </tr>
+</table>
