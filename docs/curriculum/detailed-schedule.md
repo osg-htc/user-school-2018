@@ -37,31 +37,110 @@ take 25 minutes. Join us for the walk if you want, or otherwise meet us in the d
 
 **Main Idea:** High Throughput Computing at a Local Site
 
-<table class="schedule"> <tr> <th>Start</th> <th>End</th> <th>Event</th> <th>Instructor</th> </tr> <tr class="meal"> <td class="time">8:00</td> <td class="time">8:45</td> <td colspan="2">Breakfast and group discussion</td> </tr> <tr class="inst"> <td class="time">9:00</td> <td class="time">9:15</td> <td>Welcome</td> <td>Tim Cartwright</td> </tr> <tr class="inst"> <td class="time">9:15</td> <td class="time">9:45</td> <td>Introduction to High Throughput Computing (lecture)</td> <td>Lauren Michael</td> </tr> <tr class="inst"> <td class="time">9:45</td> <td class="time">10:30</td> <td>Running jobs locally with HTCondor, Part 1 (hands-on)</td> <td>"</td> </tr> <tr class="break"> <td class="time">10:30</td> <td class="time">10:45</td> <td colspan="2">Break</td> </tr> <tr class="inst"> <td class="time">10:45</td> <td class="time">11:15</td> <td>Intermediate HTCondor (lecture)</td> <td>Lauren Michael</td> </tr> <tr class="inst"> <td class="time">11:15</td> <td class="time">12:15</td> <td>Running jobs locally with HTCondor, Part 2 (hands-on)</td> <td>"</td> </tr> <tr class="meal"> <td class="time">12:15</td> <td class="time">1:15</td> <td colspan="2">Lunch</td> </tr> <tr class="inst"> <td class="time">1:15</td> <td class="time">1:45</td> <td>Introduction to workflows (lecture)</td> <td>Lauren Michael</td> </tr> <tr class="inst"> <td class="time">1:45</td> <td class="time">3:15</td> <td>Running workflows locally with HTCondor and DAGMan, Part 1 (hands-on)</td> <td>"</td> </tr> <tr class="break"> <td class="time">3:15</td> <td class="time">3:30</td> <td colspan="2">Break</td> </tr> <tr class="inst"> <td class="time">3:30</td> <td class="time">4:00</td> <td>Intermediate workflows (lecture)</td> <td>Lauren Michael</td> </tr> <tr class="inst"> <td class="time">4:00</td> <td class="time">5:00</td> <td>Running workflows locally with HTCondor and DAGMan, Part 2 (hands-on)</td> <td>"</td> </tr> <tr class="break"> <td class="time">5:00</td> <td class="time">—</td> <td colspan="2">On your own</td> </tr> <tr class="inst"> <td class="time">7:00</td> <td class="time">9:00</td> <td>Evening work session</td> <td>Bala, Derek, Lauren, Tim</td> </tr> </table>
+| Start | End   | Event                                                                 | Instructor               |
+|-------|-------|-----------------------------------------------------------------------|--------------------------|
+| 8:00  | 8:45  | Breakfast and group discussion                                        |                          |
+| 9:00  | 9:15  | Welcome                                                               | Tim Cartwright           |
+| 9:15  | 9:45  | Introduction to High Throughput Computing (lecture)                   | Lauren Michael           |
+| 9:45  | 10:30 | Running jobs locally with HTCondor, Part 1 (hands-on) 	"           |                          |
+| 10:30 | 10:45 | Break                                                                 |                          |
+| 10:45 | 11:15 | Intermediate HTCondor (lecture)                                       | Lauren Michael           |
+| 11:15 | 12:15 | Running jobs locally with HTCondor, Part 2 (hands-on)                 | "                        |
+| 12:15 | 1:15  | Lunch                                                                 |                          |
+| 1:15  | 1:45  | Introduction to workflows (lecture)                                   | Lauren Michael           |
+| 1:45  | 3:15  | Running workflows locally with HTCondor and DAGMan, Part 1 (hands-on) | "                        |
+| 3:15  | 3:30  | Break                                                                 |                          |
+| 3:30  | 4:00  | Intermediate workflows (lecture)                                      | Lauren Michael           |
+| 4:00  | 5:00  | Running workflows locally with HTCondor and DAGMan, Part 2 (hands-on) | "                        |
+| 5:00  | —     | On your own                                                           |                          |
+| 7:00  | 9:00  | Evening work session                                                  | Bala, Derek, Lauren, Tim |
 
 ## Tuesday, 10 July 2018
 
 **Main Ideas:** Distributed High Throughput Computing; Security; Connecting to OSG
 
-<table class="schedule"> <tr> <th>Start</th> <th>End</th> <th>Event</th> <th>Instructor</th> </tr> <tr class="meal"> <td class="time">8:00</td> <td class="time">8:45</td> <td colspan="2">Breakfast and group discussion</td> </tr> <tr class="inst"> <td class="time">9:00</td> <td class="time">9:30</td> <td>Introduction to DHTC and overlay systems (lecture)</td> <td>Brian Lin</td> </tr> <tr class="inst"> <td class="time">9:30</td> <td class="time">10:30</td> <td>Interacting with overlay systems (hands-on)</td> <td>"</td> </tr> <tr class="break"> <td class="time">10:30</td> <td class="time">10:45</td> <td colspan="2">Break</td> </tr> <tr class="inst"> <td class="time">10:45</td> <td class="time">11:15</td> <td>What's different about overlay systems? (lecture)</td> <td>Brian Lin</td> </tr> <tr class="inst"> <td class="time">11:15</td> <td class="time">12:15</td> <td>Seeing differences with overlay systems (hands-on)</td> <td>"</td> </tr> <tr class="meal"> <td class="time">12:15</td> <td class="time">1:15</td> <td colspan="2">Lunch</td> </tr> <tr class="inst"> <td class="time">1:15</td> <td class="time">2:25</td> <td>High throughput computing in action (interactive)</td> <td>Group</td> </tr> <tr class="inst"> <td class="time">2:25</td> <td class="time">2:40</td> <td>Security in the OSG (lecture)</td> <td>Brian Lin</td> </tr> <tr class="break"> <td class="time">2:40</td> <td class="time">2:55</td> <td colspan="2">Break</td> </tr> <tr class="inst"> <td class="time">2:55</td> <td class="time">3:25</td> <td>Troubleshooting (lecture)</td> <td>Brian Lin</td> </tr> <tr class="inst"> <td class="time">3:25</td> <td class="time">4:45</td> <td>Troubleshooting (hands-on)</td> <td>"</td> </tr> <tr class="inst"> <td class="time">4:45</td> <td class="time">5:00</td> <td>Ways to connect to OSG (lecture)</td> <td>Lauren Michael</td> </tr> <tr class="break"> <td class="time">5:00</td> <td class="time">—</td> <td colspan="2">On your own</td> </tr> <tr class="inst"> <td class="time">7:00</td> <td class="time">9:00</td> <td>Evening work session</td> <td>Bala, Derek, Christina</td> </tr> </table>
+| Start | End   | Event                                              | Instructor             |
+|-------|-------|----------------------------------------------------|------------------------|
+| 8:00  | 8:45  | Breakfast and group discussion                     |                        |
+| 9:00  | 9:30  | Introduction to DHTC and overlay systems (lecture) | Brian Lin              |
+| 9:30  | 10:30 | Interacting with overlay systems (hands-on)        | "                      |
+| 10:30 | 10:45 | Break                                              |                        |
+| 10:45 | 11:15 | What's different about overlay systems? (lecture)  | Brian Lin              |
+| 11:15 | 12:15 | Seeing differences with overlay systems (hands-on) | "                      |
+| 12:15 | 1:15  | Lunch                                              |                        |
+| 1:15  | 2:25  | High throughput computing in action (interactive)  | Group                  |
+| 2:25  | 2:40  | Security in the OSG (lecture)                      | Brian Lin              |
+| 2:40  | 2:55  | Break                                              |                        |
+| 2:55  | 3:25  | Troubleshooting (lecture)                          | Brian Lin              |
+| 3:25  | 4:45  | Troubleshooting (hands-on)                         | "                      |
+| 4:45  | 5:00  | Ways to connect to OSG (lecture)                   | Lauren Michael         |
+| 5:00  | —     | On your own                                        |                        |
+| 7:00  | 9:00  | Evening work session                               | Bala, Derek, Christina |
 
 ## Wednesday, 11 July 2018
 
 **Main Ideas:** Software Portability + take a break
 
-<table class="schedule"> <tr> <th>Start</th> <th>End</th> <th>Event</th> <th>Instructor</th> </tr> <tr class="meal"> <td class="time">8:00</td> <td class="time">8:45</td> <td colspan="2">Breakfast and group discussion</td> </tr> <tr class="inst"> <td class="time">9:00</td> <td class="time">9:30</td> <td>Software portability considerations</td> <td>Christina Koch</td> </tr> <tr class="inst"> <td class="time">9:30</td> <td class="time">10:30</td> <td>Compiled software and wrapper scripts (hands-on)</td> <td>"</td> </tr> <tr class="break"> <td class="time">10:30</td> <td class="time">10:45</td> <td colspan="2">Break</td> </tr> <tr class="inst"> <td class="time">10:45</td> <td class="time">11:15</td> <td>Licensing challenges and research software (lecture)</td> <td>Christina Koch</td> </tr> <tr class="inst"> <td class="time">11:15</td> <td class="time">12:15</td> <td>Matlab and Python portability (hands-on)</td> <td>"</td> </tr> <tr class="meal"> <td class="time">12:15</td> <td class="time">1:15</td> <td colspan="2">Lunch</td> </tr> <tr class="inst"> <td class="time">1:15</td> <td class="time">5:00</td> <td>Free Choice (with options provided)</td> <td>Group</td> </tr> <tr class="break"> <td class="time">5:00</td> <td class="time">—</td> <td colspan="2">On your own</td> </tr> <tr class="inst"> <td class="time">7:00</td> <td class="time">9:00</td> <td>Evening work session</td> <td>Derek, Christina, Tim</td> </tr> </table>
+| Start | End   | Event                                                | Instructor            |
+|-------|-------|------------------------------------------------------|-----------------------|
+| 8:00  | 8:45  | Breakfast and group discussion                       |                       |
+| 9:00  | 9:30  | Software portability considerations                  | Christina Koch        |
+| 9:30  | 10:30 | Compiled software and wrapper scripts (hands-on)     | "                     |
+| 10:30 | 10:45 | Break                                                |                       |
+| 10:45 | 11:15 | Licensing challenges and research software (lecture) | Christina Koch        |
+| 11:15 | 12:15 | Matlab and Python portability (hands-on)             | "                     |
+| 12:15 | 1:15  | Lunch                                                |                       |
+| 1:15  | 5:00  | Free Choice (with options provided)                  | Group                 |
+| 5:00  | —     | On your own                                          |                       |
+| 7:00  | 9:00  | Evening work session                                 | Derek, Christina, Tim |
 
 ## Thursday, 12 July 2018
 
 **Main Ideas:** OSG Connect; Data Handling
 
-<table class="schedule"> <tr> <th>Start</th> <th>End</th> <th>Event</th> <th>Instructor</th> </tr> <tr class="meal"> <td class="time">8:00</td> <td class="time">8:45</td> <td colspan="2">Breakfast and group discussion</td> </tr> <tr class="inst"> <td class="time">9:00</td> <td class="time">9:30</td> <td>OSG Connect (lecture)</td> <td>Bala Desinghu</td> </tr> <tr class="inst"> <td class="time">9:30</td> <td class="time">10:45</td> <td>Using OSG Connect and OASIS</td> <td>"</td> </tr> <tr class="break"> <td class="time">10:45</td> <td class="time">11:00</td> <td colspan="2">Break</td> </tr> <tr class="inst"> <td class="time">11:00</td> <td class="time">11:30</td> <td>HTC considerations for "big data"? (lecture)</td> <td>Derek Weitzel</td> </tr> <tr class="inst"> <td class="time">11:30</td> <td class="time">12:25</td> <td>Determining data requirements (hands-on)</td> <td>"</td> </tr> <tr class="meal"> <td class="time">12:25</td> <td class="time">1:15</td> <td colspan="2">Lunch</td> </tr> <tr class="inst"> <td class="time">1:15</td> <td class="time">1:45</td> <td>Solutions for large input data (lecture)</td> <td>Derek Weitzel</td> </tr> <tr class="inst"> <td class="time">1:45</td> <td class="time">3:15</td> <td>Handling large input data (hands-on)</td> <td>"</td> </tr> <tr class="break"> <td class="time">3:15</td> <td class="time">3:30</td> <td colspan="2">Break</td> </tr> <tr class="inst"> <td class="time">3:30</td> <td class="time">4:00</td> <td>Large output and local file systems (lecture)</td> <td>Derek Weitzel</td> </tr> <tr class="inst"> <td class="time">4:00</td> <td class="time">5:00</td> <td>Leveraging shared file systems (hands-on)</td> <td>"</td> </tr> <tr class="break"> <td class="time">5:00</td> <td class="time">—</td> <td colspan="2">On your own</td> </tr> <tr class="inst"> <td class="time">7:00</td> <td class="time">9:00</td> <td>Evening work session</td> <td>Bala, Derek, Ian</td> </tr> </table>
+| Start | End   | Event                                         | Instructor       |
+|-------|-------|-----------------------------------------------|------------------|
+| 8:00  | 8:45  | Breakfast and group discussion                |                  |
+| 9:00  | 9:30  | OSG Connect (lecture)                         | Bala Desinghu    |
+| 9:30  | 10:45 | Using OSG Connect and OASIS                   | "                |
+| 10:45 | 11:00 | Break                                         |                  |
+| 11:00 | 11:30 | HTC considerations for "big data"? (lecture)  | Derek Weitzel    |
+| 11:30 | 12:25 | Determining data requirements (hands-on)      | "                |
+| 12:25 | 1:15  | Lunch                                         |                  |
+| 1:15  | 1:45  | Solutions for large input data (lecture)      | Derek Weitzel    |
+| 1:45  | 3:15  | Handling large input data (hands-on)          | "                |
+| 3:15  | 3:30  | Break                                         |                  |
+| 3:30  | 4:00  | Large output and local file systems (lecture) | Derek Weitzel    |
+| 4:00  | 5:00  | Leveraging shared file systems (hands-on)     | "                |
+| 5:00  | —     | On your own                                   |                  |
+| 7:00  | 9:00  | Evening work session                          | Bala, Derek, Ian |
 
 ## Friday, 13 July 2018
 
 **Main Ideas:** Science Workflows; High-Throughput Computing; HTC Showcase
 
-<table class="schedule"> <tr> <th>Start</th> <th>End</th> <th>Event</th> <th>Instructor</th> </tr> <tr class="meal"> <td class="time">8:00</td> <td class="time">8:45</td> <td colspan="2">Breakfast and group discussion</td> </tr> <tr class="inst"> <td class="time">9:00</td> <td class="time">9:30</td> <td>From science to workflow (lecture)</td> <td>Christina Koch</td> </tr> <tr class="inst"> <td class="time">9:30</td> <td class="time">10:15</td> <td>Workflow development (hands-on)</td> <td>"</td> </tr> <tr class="break"> <td class="time">10:15</td> <td class="time">10:30</td> <td colspan="2">Break</td> </tr> <tr class="inst"> <td class="time">10:30</td> <td class="time">10:50</td> <td>From workflow to production (lecture)</td> <td>Christina Koch</td> </tr> <tr class="inst"> <td class="time">10:50</td> <td class="time">11:55</td> <td>Workflow execution (hands-on)</td> <td>"</td> </tr> <tr class="meal"> <td class="time">11:55</td> <td class="time">12:40</td> <td colspan="2">Lunch</td> </tr> <tr class="inst"> <td class="time">12:40</td> <td class="time">1:05</td> <td><span class="hi">Group photo; Tour of Wisconsin Institutes for Discovery</span></td> <td>Lauren/Christina</td> </tr> <tr class="break"> <td class="time">1:05</td> <td class="time">1:15</td> <td colspan="2">Walk back to Comp Sci</td> </tr> <tr class="inst"> <td class="time">**1:15**</td> <td class="time">**2:55**</td> <td colspan="2">**High-throughput computing showcase**</td> </tr> <tr class="inst"> <td class="time">1:20</td> <td class="time">1:40</td> <td>TBA</td> <td>TBA</td> </tr> <tr class="inst"> <td class="time">1:45</td> <td class="time">2:05</td> <td>TBA</td> <td>TBA</td> </tr> <tr class="inst"> <td class="time">2:10</td> <td class="time">2:30</td> <td>TBA</td> <td>TBA</td> </tr> <tr class="inst"> <td class="time">2:35</td> <td class="time">2:55</td> <td>TBA</td> <td>TBA</td> </tr> <tr class="break"> <td class="time">2:55</td> <td class="time">3:25</td> <td colspan="2">Break and Q&A</td> </tr> <tr class="inst"> <td class="time">3:25</td> <td class="time">4:40</td> <td>Principles for high-throughput computing (lecture)</td> <td>Miron Livny</td> </tr> <tr class="break"> <td class="time">4:40</td> <td class="time">4:45</td> <td colspan="2">Short Break</td> </tr> <tr class="inst"> <td class="time">4:45</td> <td class="time">5:15</td> <td>Where to go and what to do next?<br>Final assignment</td> <td>Tim Cartwright</td> </tr> <tr class="break"> <td class="time">5:15</td> <td class="time">6:30</td> <td colspan="2">On your own</td> </tr> </table>
+| Start    | End      | Event                                                   | Instructor       |
+|----------|----------|---------------------------------------------------------|------------------|
+| 8:00     | 8:45     | Breakfast and group discussion                          |                  |
+| 9:00     | 9:30     | From science to workflow (lecture)                      | Christina Koch   |
+| 9:30     | 10:15    | Workflow development (hands-on)                         | "                |
+| 10:15    | 10:30    | Break                                                   |                  |
+| 10:30    | 10:50    | From workflow to production (lecture)                   | Christina Koch   |
+| 10:50    | 11:55    | Workflow execution (hands-on)                           | "                |
+| 11:55    | 12:40    | Lunch                                                   |                  |
+| 12:40    | 1:05     | Group photo; Tour of Wisconsin Institutes for Discovery | Lauren/Christina |
+| 1:05     | 1:15     | Walk back to Comp Sci                                   |                  |
+| **1:15** | **2:55** | **High-throughput computing showcase**                  |                  |
+| 1:20     | 1:40     | TBA                                                     | TBA              |
+| 1:45     | 2:05     | TBA                                                     | TBA              |
+| 2:10     | 2:30     | TBA                                                     | TBA              |
+| 2:35     | 2:55     | TBA                                                     | TBA              |
+| 2:55     | 3:25     | Break and Q&A                                           |                  |
+| 3:25     | 4:40     | Principles for high-throughput computing (lecture)      | Miron Livny      |
+| 4:40     | 4:45     | Short Break                                             |                  |
+| 4:45     | 5:15     | Where to go and what to do next?                        | Tim Cartwright   |
+|          |          | Final assignment                                        |                  |
+| 5:15     | 6:30     | On your own                                             |                  |
 
 **Closing Dinner for Students and Staff**
 
