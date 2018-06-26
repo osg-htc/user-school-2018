@@ -11,7 +11,7 @@ The objective of this exercise is to prepare for blasting a much larger input qu
 Setup
 -----
 
--   Make sure you are still logged into `user-training.osgconnect.net`
+-   Make sure you are still logged into `training.osgconnect.net`
 -   Make sure you are in the directory named `thur-blast-data` under the `stash` filesystem.
 
 ### Obtain the large input
@@ -19,7 +19,7 @@ Setup
 We've previously used `blastx` to analyze a relatively small input file of test data, `mouse.fa`, but let's imagine that you now need to blast a much larger dataset for your research. This dataset can be downloaded with the following command:
 
 ``` console
-user@user-training $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/mouse_rna.tar.gz</strong>
+user@training $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/mouse_rna.tar.gz
 ```
 
 After un-tar'ing the file, you should be able to confirm that it's size is roughly 100 MB. Not only is this a bit large for file transfer, but it would take hours to complete a single `blastx` analysis for it. Also, the single output file would be huge. Compare for yourself to the time and output file size for the mouse.fa input file, according to your test job in the last exercise.
@@ -31,13 +31,13 @@ For `blast`, it's scientifically valid to split up the input query file, analyze
 Because genetic sequence data is used heavily across the life science, there are also tools for splitting up the data into smaller files. One of these is called [genome tools](http://genometools.org/), and you can download a package of precompiled binaries (just like blast) using the following command:
 
 ``` console
-user@user-training $ <strong>wget http://genometools.org/pub/binary_distributions/gt-1.5.9-Linux_x86_64-64bit-complete.tar.gz</strong>
+user@training $ wget http://genometools.org/pub/binary_distributions/gt-1.5.9-Linux_x86_64-64bit-complete.tar.gz
 ```
 
 Un-tar the gt package (`tar -xzvf ...`), then run it's sequence file splitter as follows, with the target file size of 1 MB:
 
 ``` console
-user@user-training $ <strong>./gt-1.5.9-Linux_x86_64-64bit-complete/bin/gt splitfasta -targetsize 1 mouse_rna.fa</strong>
+user@training $ ./gt-1.5.9-Linux_x86_64-64bit-complete/bin/gt splitfasta -targetsize 1 mouse_rna.fa
 ```
 
 You'll notice that the result is a set of 100 files, all about the size of 1 MB, and numbered 1 through 100.
@@ -92,6 +92,6 @@ This job will take a bit longer than the job in the last exercise, since the inp
 Update the resource requests
 ----------------------------
 
-After the job finishes successfully, examine the `log` file for memory and disk usage, and update the requests in the submit file. In [Exercise 3.1](Education.UserSchool17Thu31BlastProxy) (after the next lecture) you'll submit many jobs at once *and* use a different method for handling the `pdbaa_files.tar.gz` file, which is a bit too large to use regular file transfer when submitting many jobs.
+After the job finishes successfully, examine the `log` file for memory and disk usage, and update the requests in the submit file. In [Exercise 3.1](part2-ex3-blast-proxy.md) (after the next lecture) you'll submit many jobs at once *and* use a different method for handling the `pdbaa_files.tar.gz` file, which is a bit too large to use regular file transfer when submitting many jobs.
 
 

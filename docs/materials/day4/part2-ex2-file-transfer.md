@@ -2,8 +2,6 @@
 status: in progress
 ---
 
-<style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
-
 File Compression and Testing Resource Requirements
 ==================================================
 
@@ -13,7 +11,7 @@ The objective of this exercise is to refresh yourself on HTCondor file transfer,
 Setup
 -----
 
--   Make sure you are still logged into `user-training.osgconnect.net`
+-   Make sure you are still logged into `training.osgconnect.net`
 -   Make a directory for today's blast exercises named `thur-blast-data`, and change into it.
 
 The executable we'll use in this exercise and later today is the same **`blastx`** executable from the previous exercise.
@@ -56,7 +54,7 @@ In our first blast job from yesterday, the database files in the `pdbaa` directo
 A typical command for creating a tar file is:
 
 ``` console
-user@user-training $ <strong>tar -cvzf [compressed filename] [list of files]</strong>
+user@training $ tar -cvzf [compressed filename] [list of files]
 ```
 
 Move this file to the `thur-blast-data` directory.
@@ -103,6 +101,6 @@ Once you have finished editing the submit file, go ahead and submit the job. It 
 
 Run a **`du -sh`** on the directory with this job's input. How does it compare to the directory from yesterday, and why?
 
-When you've completed the above, continue with the [next exercise](Education.UserSchool17Thu23BlastSplit).
+When you've completed the above, continue with the [next exercise](part2-ex3-blast-split.md).
 
 

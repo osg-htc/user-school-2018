@@ -11,8 +11,8 @@ Continuing the series of exercises blasting mouse genetic sequences, the objecti
 Setup
 -----
 
--   Make sure you are logged into `user-training.osgconnect.net`
--   Make sure you are in the same directory as the previous exercise, [Exercise 2.3](Education.UserSchool17Thu23BlastSplit) directory named `thur-blast-data`.
+-   Make sure you are logged into `training.osgconnect.net`
+-   Make sure you are in the same directory as the previous exercise, [Exercise 2.3](part2-ex3-blast-split.md) directory named `thur-blast-data`.
 
 Place the Large File on the Proxy
 ---------------------------------
@@ -20,17 +20,17 @@ Place the Large File on the Proxy
 First, you'll need to put the `pdbaa_files.tar.gz` file onto the Stash web directory. Use the following command:
 
 ``` console
-user@user-training $ cp pdbaa_files.tar.gz ~/stash/public/
+user@training $ cp pdbaa_files.tar.gz ~/stash/public/
 ```
 
 ### Test a download of the file
 
-Once the file is placed in the ~/stash/public directory, it can be downloaded from a corresponding URL such as `http://stash.osgconnect.net/~%RED%username%ENDCOLOR%/pdbaa_files.tar.gz`, where %RED%username<span class="twiki-macro ENDCOLOR"></span> is your username on `user-training.osgconnect.net`.
+Once the file is placed in the ~/stash/public directory, it can be downloaded from a corresponding URL such as `http://stash.osgconnect.net/~%RED%username%ENDCOLOR%/pdbaa_files.tar.gz`, where %RED%username<span class="twiki-macro ENDCOLOR"></span> is your username on `training.osgconnect.net`.
 
-Using the above convention (and from a different directory on `user-training.osgconnect.net`, any directory), you can test the download of your `pdbaa_files.tar.gz` file with a command like the following:
+Using the above convention (and from a different directory on `training.osgconnect.net`, any directory), you can test the download of your `pdbaa_files.tar.gz` file with a command like the following:
 
 ``` console
-user@user-training $ <strong>wget http://stash.osgconnect.net/~%RED%username%ENDCOLOR%/pdbaa_files.tar.gz</strong>
+user@training $ <strong>wget http://stash.osgconnect.net/~%RED%username%ENDCOLOR%/pdbaa_files.tar.gz</strong>
 ```
 
 You may realize that you've been using `wget` to download files from a web proxy for many of the previous exercises at the school!
