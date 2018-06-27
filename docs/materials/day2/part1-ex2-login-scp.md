@@ -5,7 +5,7 @@ status: in progress
 Tuesday Exercise 1.2: Log in to the OSG Submit Machine
 ======================================================
 
-The goal of this exercise is to log on to a different submit host so that you can start submitting jobs into the OSG
+The goal of this exercise is to log in to a different submit host so that you can start submitting jobs into the OSG
 instead of the local cluster here at UW-Madison.
 Additionally, you will learn about the `tar` and `scp` commands, which will allow you to efficiently copy files between
 the two submit nodes.
@@ -63,9 +63,9 @@ compression is between `best` and `fast`).
 
 1.  Use `wget` to download the following files from our web server:
     1.  Text file: <http://proxy.chtc.wisc.edu/SQUID/osgschool18/random_text>
-    2.  Archive: <http://proxy.chtc.wisc.edu/SQUID/osgschool18/pdbaa.tar.gz>
-    3.  Image: <http://proxy.chtc.wisc.edu/SQUID/osgschool18/obligatory_cat.jpg>
-2.  Use `tar` on each file and compare the sizes of the original file and the compressed version.
+    1.  Archive: <http://proxy.chtc.wisc.edu/SQUID/osgschool18/pdbaa.tar.gz>
+    1.  Image: <http://proxy.chtc.wisc.edu/SQUID/osgschool18/obligatory_cat.jpg>
+1.  Use `tar` on each file and compare the sizes of the original file and the compressed version.
 
 Which files were compressed the least? Why?
 
@@ -129,9 +129,9 @@ WinSCP is an `scp` client for Windows operating systems.
 
 ### Extra challenge: Using rsync
 
-`scp` is a great, ubiquitous tool for one-time transfers but if you find yourself transferring the same set of files to
-the same location repeatedly, there are better tools to use.
-Another common tool available on many linux machines is `rsync`, which is like a beefed-up version of `scp`.
+`scp` is a great, ubiquitous tool for one-time transfers but there are better tools if you find yourself transferring
+the same set of files to the same location repeatedly.
+Another common tool available on many Linux machines is `rsync`, which is like a beefed-up version of `scp`.
 The invocation is similar to `scp`: you can transfer files and/or folders, but the options are different and when
 transferring folders, make sure they don't have a trailing slash (`/`, this means to copy all the files within the
 folder instead of the folder itself):
