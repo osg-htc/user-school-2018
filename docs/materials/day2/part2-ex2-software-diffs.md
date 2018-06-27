@@ -15,7 +15,7 @@ Refresher - condor\_status
 The OSG pool, like the local pool you used yesterday, is just another HTCondor pool.
 This means that the commands you use will be the same and the jobs you submit can have similar payloads but there is one
 major difference: the slots are different!
-You will can use the `condor_status` command just as you did yesterday to inspect these differences.
+You can use the `condor_status` command just as you did yesterday to inspect these differences.
 
 1.  Open two terminal windows side-by-side
 2.  Log in to `learn.chtc.wisc.edu` in one window and `osg-learn.chtc.wisc.edu` in the other
@@ -33,11 +33,11 @@ which tells us the operating system version of the machine where a slot resides.
 An easy way to show this attribute for all slots is by using `condor_status` in conjunction with the `-autoformat`
 option.
 `-autoformat` like the `-format` option you learned about yesterday will print out the attributes you're interested in
-for each slot but as you probably guessed, perform the formatting in an automatic way.
+for each slot but as you probably guessed, it does some automatic formatting for you.
 So to show the operating system and version of each slot, run the following command in both of your terminal windows:
 
 ``` console
-user@learn $ condor_status -autoformat OpSysAndVer
+user@submit-host $ condor_status -autoformat OpSysAndVer
 ```
 
 You will see many values with the type of operating system at the front and the version number at the end (i.e. SL6
@@ -57,16 +57,17 @@ Can you spot the differences between the two pools now?
 Submitting probe jobs
 ---------------------
 
-Knowing the different operating systems is a step in the right direction to knowing what kind of software will be
-available on the machines that your jobs land on but only serves as a proxy to the information that you want: does the
-machine have the software that you want?
+Knowing the type and version of the operating systems is a step in the right direction to knowing what kind of software
+will be available on the machines that your jobs land on.
+However it still only serves as a proxy to the information that you really want: does the machine have the software that
+you want?
 Does it have the correct version?
 
 ### Software probe code
 
 The following shell script probes for software and returns the version if it is installed:
 
-``` file
+```bash
 #!/bin/sh
 
 get_version(){
@@ -98,17 +99,17 @@ For example, if you wanted to test for the existence and version of `nslookup`, 
 of the script:
 
 ``` file
-get_version '%RED%nslookup%ENDCOLOR%'
+get_version 'nslookup'
 ```
 
 ### Probing several machines
 
 For this part of the exercise, try creating a submit file without referring to previous exercises!
 
-1.  Log on to `osg-learn.chtc.wisc.edu`
+1.  Log in to `osg-learn.chtc.wisc.edu`
 2.  Create and change into a new folder for this exercise, e.g. `tuesday-2.2`
 3.  Save the above script as a file named `sw_probe.sh`
-4.  As always (), make sure that you can run your script from the command line before asking HTCondor to do so
+4.  As always, make sure that you can run your script from the command line before asking HTCondor to do so
 5.  Create a submit file that runs `sw_probe.sh` 100 times and uses macros to write different `output`, `error`, and
     `log` files
 6.  Submit your job and wait for the results
