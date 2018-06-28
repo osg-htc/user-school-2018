@@ -11,6 +11,7 @@ extra:
 
 extra_css:
   - css/extra.css
+  - css/codehilite.css
 
 # Suppress weird JavaScript problems with development server
 extra_javascript: []
