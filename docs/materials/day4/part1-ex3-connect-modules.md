@@ -11,7 +11,7 @@ In this exercise, you'll use a software package called GROMACS that was already 
 Setup
 -----
 
--   Make sure you are logged into `user-training.osgconnect.net` (the OSG Connect submit server for this workshop).
+-   Make sure you are logged into `training.osgconnect.net` (the OSG Connect submit server for this workshop).
 
 Practice Loading the GROMACS Module on OSG Connect submit host
 --------------------------------------------------------------
@@ -23,14 +23,14 @@ Before proceeding, make sure to read over the OSG Connect help desk guide on [Ac
 2. Before loading the `gromacs` module, check your "PATH" variable with:
 
 ``` console
-user@user-training $ <strong>echo $PATH</strong>
+username@training $ <strong>echo $PATH</strong>
 ```
 
 3. Now load the `gromacs` module, which will give you the default version, and check your list of modules:
 
 ``` console
-user@user-training $ <strong>module load gromacs</strong>
-user@user-training $ <strong>module list</strong>
+username@training $ <strong>module load gromacs</strong>
+username@training $ <strong>module list</strong>
 ```
 
 4. Recheck your "PATH" variable. What has changed? Is the default version of `gromacs` visible?
@@ -38,9 +38,9 @@ user@user-training $ <strong>module list</strong>
 5. When you're done, unload the module and check that you no longer have the module loaded:
 
 ``` console
-user@user-training $ <strong>module unload gromacs</strong>
-user@user-training $ <strong>module list</strong>
-user@user-training $ <strong>echo $PATH</strong>
+username@training $ <strong>module unload gromacs</strong>
+username@training $ <strong>module list</strong>
+username@training $ <strong>echo $PATH</strong>
 ```
 
 Submit a job that uses GROMACS from OASIS
@@ -51,14 +51,14 @@ Now let us see how to do a job submission on the OSG that uses GROMACS on OASIS 
 We will get the example files using the `tutorial` command.
 
 ``` console
-user@user-training $ <strong>tutorial gromacs</strong>
+username@training $ <strong>tutorial gromacs</strong>
 ```
 
 This creates a directory `tutorial-quickstart`. Go inside the directory and see what is inside.
 
 ``` console
-user@user-training $ <strong>cd tutorial-gromacs</strong>
-user@user-training $ <strong>ls -F </strong>
+username@training $ <strong>cd tutorial-gromacs</strong>
+username@training $ <strong>ls -F </strong>
 ```
 
 You will see the following files:
@@ -70,13 +70,13 @@ You will see the following files:
 Take a look at the job description file
 
 ``` console
-user@user-training $ <strong>cat gromacs_job.submit </strong>
+username@training $ <strong>cat gromacs_job.submit </strong>
 ```
 
 The modules are loaded in the wrapper script before executing the actual job. In this example, gromacs is loaded before running the actual simulation.
 
 ``` console
-user@user-training $ <strong>cat gromacs_job.sh</strong>
+username@training $ <strong>cat gromacs_job.sh</strong>
 ```
 
 The following requirement is added to find a machine that has the modules:
@@ -88,13 +88,13 @@ requirements = HAS_MODULES == True
 Check the job description file.
 
 ``` console
-user@user-training $ <strong>cat gromacs_job.submit </strong>
+username@training $ <strong>cat gromacs_job.submit </strong>
 ```
 
 Let's submit the job.
 
 ``` console
-user@user-training $ <strong>condor_submit gromacs_job.submit </strong>
+username@training $ <strong>condor_submit gromacs_job.submit </strong>
 ```
 
 After the simulation is completed, you will see the output files (including gro, cpt and trr files) from GROMACS in your work directory.
