@@ -16,9 +16,8 @@ emailed shortly before the School itself.
 
 In general, a hotel shuttle is free and direct, so it is the best option between airport and hotel.  If a shuttle is not
 available, you may take a taxi or ride-sharing service and be reimbursed after the School.  There are several good taxi
-companies in Madison, including [http://www.greencabofmadison.com/ Green Cab](http://www.greencabofmadison.com/ Green
-Cab), [http://www.badgercab.com/ Badger Cab](http://www.badgercab.com/ Badger Cab) and [http://www.unioncab.com/ Union
-Cab](http://www.unioncab.com/ Union Cab), and both [Lyft](https://www.lyft.com/) and [Uber](https://www.uber.com/ride/)
+companies in Madison, including [Green Cab](http://www.greencabofmadison.com/), [Badger Cab](http://www.badgercab.com/),
+and [Union Cab](http://www.unioncab.com/), and both [Lyft](https://www.lyft.com/) and [Uber](https://www.uber.com/ride/)
 are active in Madison.  Taxis are readily available at the Madison airport, but nearly everywhere else (e.g., from your
 hotel back to the airport), you should contact the company and request a ride or make a reservation in advance.  Note
 that we can reimburse you only for taxi or ride-sharing rides between the airport and hotel/campus area.
