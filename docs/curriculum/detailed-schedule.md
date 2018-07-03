@@ -131,10 +131,10 @@ take 25 minutes. Join us for the walk if you want, or otherwise meet us in the d
 | 12:40    | 1:05     | Group photo; Tour of Wisconsin Institutes for Discovery | Lauren/Christina |
 | 1:05     | 1:15     | Walk back to Comp Sci                                   |                  |
 | **1:15** | **2:55** | **High-throughput computing showcase**                  |                  |
-| 1:20     | 1:40     | TBA                                                     | TBA              |
-| 1:45     | 2:05     | TBA                                                     | TBA              |
-| 2:10     | 2:30     | TBA                                                     | TBA              |
-| 2:35     | 2:55     | TBA                                                     | TBA              |
+| 1:20     | 1:40     | When low throughput biologists meet high throughput computing   | Prof. Dave O'Connor |
+| 1:45     | 2:05     | Exploring virtual screening approaches with HTC         | Spencer Ericksen |
+| 2:10     | 2:30     | High-Throughput Computing in Atomic Physics             | Josh Karpel      |
+| 2:35     | 2:55     | High-Throughput Machine Learning from Electronic Health Records | Ross Kleiman |
 | 2:55     | 3:25     | Break and Q&A                                           |                  |
 | 3:25     | 4:40     | Principles for high-throughput computing (lecture)      | Miron Livny      |
 | 4:40     | 4:45     | Short Break                                             |                  |
