@@ -30,6 +30,9 @@ applications this year, so thanks to everyone for your enthusiastic interest!
 
 ## Information for Participants
 
+- Curriculum
+    - [High-level curriculum](curriculum/overview.md)
+    - [Detailed schedule](curriculum/detailed-schedule.md)
 - Logistics
     - [General information and travel schedule](logistics/index.md)
     - [Visa requirements for non-resident aliens](logistics/personal-info.md)
