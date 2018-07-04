@@ -85,6 +85,10 @@ pages:
     - General information:        logistics/index.md
     - Visa requirements:          logistics/personal-info.md
     - Travel planning:            logistics/travel.md
+    - Hotel information:          logistics/hotel.md
+    - Local transportation:       logistics/local-transportation.md
+    - School location:            logistics/location.md
+    - Meals at the School:        logistics/meals.md
 
 markdown_extensions:
   - admonition

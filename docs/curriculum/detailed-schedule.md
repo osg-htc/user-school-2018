@@ -4,9 +4,9 @@
   th + th, th + td, td + td { padding-left: 1em; }
   th.side { text-align: right; }
   td.time { text-align: right; }
-  .hi { color: \#F60; /\* font-weight: bold; \*/ }
-  tr.meal { background-color: \#FFEEBF; }
-  tr.break { background-color: \#D9F0FF; }
+  .hi { color: #F60; /\* font-weight: bold; \*/ }
+  tr.meal { background-color: #FFEEBF; }
+  tr.break { background-color: #D9F0FF; }
 </style>
 
 # 2017 OSG User School Schedule
@@ -14,6 +14,7 @@
 Schedule subject to change prior to the start of the school.
 
 All events happen in the Computer Sciences building (1210 West Dayton Street), Room 1240, except when noted otherwise.
+
 
 ## Sunday, 8 July 2018
 
@@ -30,8 +31,12 @@ All events happen in the Computer Sciences building (1210 West Dayton Street), R
     </tr>
 </table>
 
-We will have instructors at the hotel lobby by ~5:45pm. At about 6:00 p.m., we will walk to the Fluno Center, which will
-take 25 minutes. Join us for the walk if you want, or otherwise meet us in the dinner room by 6:30 p.m.
+We will have instructors at the hotel lobbies prior to dinner, and walk with groups to the Fluno Center. More details
+will be available here soon.
+
+<!-- We will have instructors at the hotel lobby by ~5:45pm. At about 6:00 p.m., we will walk to the Fluno Center, which will
+take 25 minutes. Join us for the walk if you want, or otherwise meet us in the dinner room by 6:30 p.m. -->
+
 
 ## Monday, 9 July 2018
 
