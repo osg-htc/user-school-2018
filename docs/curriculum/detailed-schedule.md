@@ -39,7 +39,7 @@ For those joining us to walk over together, instructors will be at the hotel lob
 by ~5:45pm.  See the list below for which 
 instructor will be at your hotel and their expected departure time for the Fluno.  
 
-* HotelRed, Bala, leave at 6:05
+* HotelRED, Bala, leave at 6:05
 * Union South, Lauren, leaving at 6:10
 * DoubleTree, Christina, leaving at 6:15
 
