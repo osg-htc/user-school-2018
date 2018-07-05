@@ -19,14 +19,14 @@ Get the example files and understand the job requirements.
 Let us utilize the `tutorial` command. In the command prompt, type
 
 ``` console
-username@training $ <strong>tutorial tf-matmul  </strong>
+username@training $ tutorial tf-matmul  
 ```
 
 This creates a directory `tutorial-tf-matmul`. Go inside the directory and see what is inside.
 
 ``` console
-username@training $ <strong>cd tutorial-tf-matmul</strong>
-username@training $ <strong>ls -F</strong>
+username@training $ cd tutorial-tf-matmul
+username@training $ ls -F
 ```
 
 You will see the following files
@@ -62,7 +62,7 @@ Submit the tensorflow example job
 Submit the job.
 
 ``` console
-username@training $ <strong>condor_submit tf_matmul.submit </strong>
+username@training $ condor_submit tf_matmul.submit 
 ```
 
 The job will look for a machine on the OSG that has singularity installed, creates the singularity container with the image `/cvmfs/singularity.opensciencegrid.org/tensorflow/tensorflow:latest` and executes the program `tf_matmul.py`.

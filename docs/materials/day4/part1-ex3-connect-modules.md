@@ -23,14 +23,14 @@ Before proceeding, make sure to read over the OSG Connect help desk guide on [Ac
 2. Before loading the `gromacs` module, check your "PATH" variable with:
 
 ``` console
-username@training $ <strong>echo $PATH</strong>
+username@training $ echo $PATH
 ```
 
 3. Now load the `gromacs` module, which will give you the default version, and check your list of modules:
 
 ``` console
-username@training $ <strong>module load gromacs</strong>
-username@training $ <strong>module list</strong>
+username@training $ module load gromacs
+username@training $ module list
 ```
 
 4. Recheck your "PATH" variable. What has changed? Is the default version of `gromacs` visible?
@@ -38,9 +38,9 @@ username@training $ <strong>module list</strong>
 5. When you're done, unload the module and check that you no longer have the module loaded:
 
 ``` console
-username@training $ <strong>module unload gromacs</strong>
-username@training $ <strong>module list</strong>
-username@training $ <strong>echo $PATH</strong>
+username@training $ module unload gromacs
+username@training $ module list
+username@training $ echo $PATH
 ```
 
 Submit a job that uses GROMACS from OASIS
@@ -51,14 +51,14 @@ Now let us see how to do a job submission on the OSG that uses GROMACS on OASIS 
 We will get the example files using the `tutorial` command.
 
 ``` console
-username@training $ <strong>tutorial gromacs</strong>
+username@training $ tutorial gromacs
 ```
 
 This creates a directory `tutorial-quickstart`. Go inside the directory and see what is inside.
 
 ``` console
-username@training $ <strong>cd tutorial-gromacs</strong>
-username@training $ <strong>ls -F </strong>
+username@training $ cd tutorial-gromacs
+username@training $ ls -F 
 ```
 
 You will see the following files:
@@ -70,13 +70,13 @@ You will see the following files:
 Take a look at the job description file
 
 ``` console
-username@training $ <strong>cat gromacs_job.submit </strong>
+username@training $ cat gromacs_job.submit 
 ```
 
 The modules are loaded in the wrapper script before executing the actual job. In this example, gromacs is loaded before running the actual simulation.
 
 ``` console
-username@training $ <strong>cat gromacs_job.sh</strong>
+username@training $ cat gromacs_job.sh
 ```
 
 The following requirement is added to find a machine that has the modules:
@@ -88,13 +88,13 @@ requirements = HAS_MODULES == True
 Check the job description file.
 
 ``` console
-username@training $ <strong>cat gromacs_job.submit </strong>
+username@training $ cat gromacs_job.submit 
 ```
 
 Let's submit the job.
 
 ``` console
-username@training $ <strong>condor_submit gromacs_job.submit </strong>
+username@training $ condor_submit gromacs_job.submit 
 ```
 
 After the simulation is completed, you will see the output files (including gro, cpt and trr files) from GROMACS in your work directory.

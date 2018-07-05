@@ -17,14 +17,14 @@ Get the example files for the tutorial "OSG Connect Quickstart" via `tutorial` c
 We will get the example files using the `tutorial` command.
 
 ``` console
-username@training $ <strong>tutorial quickstart</strong>
+username@training $ tutorial quickstart
 ```
 
 This creates a directory `tutorial-quickstart`. Go inside the directory and see what is inside.
 
 ``` console
-username@training $ <strong>cd tutorial-quickstart</strong>
-username@training $ <strong>ls -F </strong>
+username@training $ cd tutorial-quickstart
+username@training $ ls -F 
 ```
 
 You will see the following contents:
@@ -41,14 +41,14 @@ Job Execution File
 Take a look at the job execution file `short.sh`.
 
 ``` console
-username@training $ <strong>cat short.sh </strong>
+username@training $ cat short.sh 
 ```
 
 This is a shell script, quite ordinary . Run this shell script locally to see what it does.
 
 ``` console
-username@training $ <strong>chmod + short.sh </strong>
-username@training $ <strong>./short.sh </strong>
+username@training $ chmod + short.sh 
+username@training $ ./short.sh 
 ```
 
 Submitting the job on the OSG
@@ -57,13 +57,13 @@ Submitting the job on the OSG
 The job description file `tutorial01.submit` executes the shell script `short.sh` as a vanilla universe job. Take a look at the job description file.
 
 ``` console
-username@training $ <strong>cat tutorial01.submit </strong>
+username@training $ cat tutorial01.submit 
 ```
 
 Now run this job on the OSG.
 
 ``` console
-username@training $ <strong>condor_submit tutorial01.submit </strong>
+username@training $ condor_submit tutorial01.submit 
 ```
 
 Once your job has finished, you can look at the files that HTCondor has returned to the working directory. If everything was successful, it should have returned:
@@ -77,7 +77,7 @@ job.log: (A log file for each job's log)
 Read the output file.
 
 ``` console
-username@training $ <strong>cat job.output </strong>
+username@training $ cat job.output 
 ```
 
 Observe the difference between the outputs from running the job on the OSG and running locally. (Hint: Check the username, id, work directory etc.)

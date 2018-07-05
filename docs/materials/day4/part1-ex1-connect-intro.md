@@ -22,7 +22,7 @@ You'll notice the 'public', and 'stash' directories, which may be used in variou
 Running `condor_status` by itself on the OSG Connect submit host will give no output, but you can otherwise check with:
 
 ``` console
-username@training $ <strong>condor_status -pool flock.opensciencegrid.org</strong>
+username@training $ condor_status -pool flock.opensciencegrid.org
 ```
 
 Visit the Helpdesk Materials
