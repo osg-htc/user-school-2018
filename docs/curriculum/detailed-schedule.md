@@ -9,7 +9,7 @@
   tr.break { background-color: #D9F0FF; }
 </style>
 
-# 2017 OSG User School Schedule
+# 2018 OSG User School Schedule
 
 Schedule subject to change prior to the start of the school.
 
