@@ -134,7 +134,7 @@ take 25 minutes. Join us for the walk if you want, or otherwise meet us in the d
 | 1:20     | 1:40     | Exploring virtual screening approaches with HTC         | Spencer Ericksen |
 | 1:45     | 2:05     | High-Throughput Computing in Atomic Physics             | Josh Karpel      |
 | 2:10     | 2:30     | High-Throughput Machine Learning from Electronic Health Records | Ross Kleiman |
-| 2:35     | 2:55     | When low throughput biologists meet high throughput computing   | Prof. Dave O'Connor |
+| 2:35     | 2:55     | When Low Throughput Biologists Meet High Throughput Computing   | Prof. Dave O'Connor |
 | 2:55     | 3:25     | Break and Q&A                                           |                  |
 | 3:25     | 4:40     | Principles for high-throughput computing (lecture)      | Miron Livny      |
 | 4:40     | 4:45     | Short Break                                             |                  |
