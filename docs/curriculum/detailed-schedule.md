@@ -40,8 +40,8 @@ by ~5:45pm.  See the list below for which
 instructor will be at your hotel and their expected departure time for the Fluno.  
 
 * HotelRed, Bala, leave at 6:05
-* Union South, leaving at 6:10
-* Doubletree, leaving at 6:15
+* Union South, Lauren, leaving at 6:10
+* DoubleTree, Christina, leaving at 6:15
 
 ## Monday, 9 July 2018
 
@@ -63,7 +63,9 @@ instructor will be at your hotel and their expected departure time for the Fluno
 | 3:30  | 4:00  | Intermediate workflows (lecture)                                      | Lauren Michael           |
 | 4:00  | 5:00  | Running workflows locally with HTCondor and DAGMan, Part 2 (hands-on) | "                        |
 | 5:00  | —     | On your own                                                           |                          |
-| 7:00  | 9:00  | Evening work session (at Union South, search the “Today In The Union” (TITU) display for the exact room)  | Bala, Derek, Lauren, Tim |
+| 7:00  | 9:00  | Evening work session												    | Bala, Derek, Lauren, Tim |
+
+The evening work session will be at Union South; search the “Today In The Union” (TITU) display for the exact room.  
 
 ## Tuesday, 10 July 2018
 
@@ -85,7 +87,9 @@ instructor will be at your hotel and their expected departure time for the Fluno
 | 3:25  | 4:45  | Troubleshooting (hands-on)                         | "                      |
 | 4:45  | 5:00  | Ways to connect to OSG (lecture)                   | Lauren Michael         |
 | 5:00  | —     | On your own                                        |                        |
-| 7:00  | 9:00  | Evening work session (at Union South, search the “Today In The Union” (TITU) display for the exact room) | Bala, Derek, Christina |
+| 7:00  | 9:00  | Evening work session                               | Bala, Derek, Christina |
+
+The evening work session will be at Union South; search the “Today In The Union” (TITU) display for the exact room.  
 
 ## Wednesday, 11 July 2018
 
@@ -102,7 +106,9 @@ instructor will be at your hotel and their expected departure time for the Fluno
 | 12:15 | 1:15  | Lunch                                                |                       |
 | 1:15  | 5:00  | Free Choice (with options provided)                  | Group                 |
 | 5:00  | —     | On your own                                          |                       |
-| 7:00  | 9:00  | Evening work session (at Union South, search the “Today In The Union” (TITU) display for the exact room)  | Derek, Christina, Tim |
+| 7:00  | 9:00  | Evening work session                                 | Derek, Christina, Tim |
+
+The evening work session will be at Union South; search the “Today In The Union” (TITU) display for the exact room.  
 
 ## Thursday, 12 July 2018
 
@@ -123,7 +129,9 @@ instructor will be at your hotel and their expected departure time for the Fluno
 | 3:30  | 4:00  | Large output and local file systems (lecture) | Derek Weitzel    |
 | 4:00  | 5:00  | Leveraging shared file systems (hands-on)     | "                |
 | 5:00  | —     | On your own                                   |                  |
-| 7:00  | 9:00  | Evening work session (at Union South, search the “Today In The Union” (TITU) display for the exact room) | Bala, Derek, Ian |
+| 7:00  | 9:00  | Evening work session                          | Bala, Derek, Ian |
+
+The evening work session will be at Union South; search the “Today In The Union” (TITU) display for the exact room.  
 
 ## Friday, 13 July 2018
 
