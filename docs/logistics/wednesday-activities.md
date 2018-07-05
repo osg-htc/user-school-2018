@@ -62,6 +62,5 @@ remember that you'll be responsible for any/all costs, including transportation.
 -   **[Capital Brewery Tour](http://capitalbrewery.com/).** 7734 Terrace Ave., Middleton; $7 walk-in, includes
     commemorative glass and 4 samples.  Bus routes 70, 71, and 72.
 
--   [Paddling rentals on Lake
-    Mendota](https://union.wisc.edu/events-and-activities/outdoor-uw/outdoor-rentals/paddling-rentals/).** Paddling
-    rentals, including paddleboards, kayak, and canoes.  Memorial Union Terrace, $17 per hour.
+-   **[Paddling rentals on Lake Mendota](https://union.wisc.edu/events-and-activities/outdoor-uw/outdoor-rentals/paddling-rentals/).**
+    Paddling rentals, including paddleboards, kayak, and canoes.  Memorial Union Terrace, $17 per hour.
