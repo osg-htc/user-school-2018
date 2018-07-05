@@ -9,7 +9,7 @@
   tr.break { background-color: #D9F0FF; }
 </style>
 
-# 2017 OSG User School Schedule
+# OSG User School Schedule
 
 Schedule subject to change prior to the start of the school.
 
@@ -31,12 +31,17 @@ All events happen in the Computer Sciences building (1210 West Dayton Street), R
     </tr>
 </table>
 
-We will have instructors at the hotel lobbies prior to dinner, and walk with groups to the Fluno Center. More details
-will be available here soon.
+We will have instructors at the hotel lobbies prior to dinner, and walk with groups 
+to the Fluno Center.  Join 
+us for the walk if you want, or otherwise meet us in the dinner room by 6:30 p.m.
 
-<!-- We will have instructors at the hotel lobby by ~5:45pm. At about 6:00 p.m., we will walk to the Fluno Center, which will
-take 25 minutes. Join us for the walk if you want, or otherwise meet us in the dinner room by 6:30 p.m. -->
+For those joining us to walk over together, instructors will be at the hotel lobby 
+by ~5:45pm.  See the list below for which 
+instructor will be at your hotel and their expected departure time for the Fluno.  
 
+* HotelRED, Bala, leave at 6:05
+* Union South, Lauren, leaving at 6:10
+* DoubleTree, Christina, leaving at 6:15
 
 ## Monday, 9 July 2018
 
@@ -58,7 +63,9 @@ take 25 minutes. Join us for the walk if you want, or otherwise meet us in the d
 | 3:30  | 4:00  | Intermediate workflows (lecture)                                      | Lauren Michael           |
 | 4:00  | 5:00  | Running workflows locally with HTCondor and DAGMan, Part 2 (hands-on) | "                        |
 | 5:00  | —     | On your own                                                           |                          |
-| 7:00  | 9:00  | Evening work session                                                  | Bala, Derek, Lauren, Tim |
+| 7:00  | 9:00  | Evening work session												    | Bala, Derek, Lauren, Tim |
+
+The evening work session will be at Union South; search the “Today In The Union” (TITU) display for the exact room.  
 
 ## Tuesday, 10 July 2018
 
@@ -82,6 +89,8 @@ take 25 minutes. Join us for the walk if you want, or otherwise meet us in the d
 | 5:00  | —     | On your own                                        |                        |
 | 7:00  | 9:00  | Evening work session                               | Bala, Derek, Christina |
 
+The evening work session will be at Union South; search the “Today In The Union” (TITU) display for the exact room.  
+
 ## Wednesday, 11 July 2018
 
 **Main Ideas:** Software Portability + take a break
@@ -98,6 +107,8 @@ take 25 minutes. Join us for the walk if you want, or otherwise meet us in the d
 | 1:15  | 5:00  | Free Choice (with options provided)                  | Group                 |
 | 5:00  | —     | On your own                                          |                       |
 | 7:00  | 9:00  | Evening work session                                 | Derek, Christina, Tim |
+
+The evening work session will be at Union South; search the “Today In The Union” (TITU) display for the exact room.  
 
 ## Thursday, 12 July 2018
 
@@ -119,6 +130,8 @@ take 25 minutes. Join us for the walk if you want, or otherwise meet us in the d
 | 4:00  | 5:00  | Leveraging shared file systems (hands-on)     | "                |
 | 5:00  | —     | On your own                                   |                  |
 | 7:00  | 9:00  | Evening work session                          | Bala, Derek, Ian |
+
+The evening work session will be at Union South; search the “Today In The Union” (TITU) display for the exact room.  
 
 ## Friday, 13 July 2018
 
