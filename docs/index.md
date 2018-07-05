@@ -38,7 +38,7 @@ applications this year, so thanks to everyone for your enthusiastic interest!
     - [Visa requirements for non-resident aliens](/logistics/personal-info.md)
     - [Travel planning to and from Madison](/logistics/travel.md)
     - [Hotel information](/logistics/hotel.md)
-    - [Local transportation](/logistics/local-transportation.md)
+    - [Local transportation within Madison](/logistics/local-transportation.md)
     - [School location](/logistics/location.md)
     - [Meals at the School](/logistics/meals.md)
 
