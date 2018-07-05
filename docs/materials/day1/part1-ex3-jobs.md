@@ -1,5 +1,5 @@
 ---
-status: in done
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
@@ -56,7 +56,7 @@ Note that we are not using the `arguments` lines or `transfer_input_files` becau
 Double-check your submit file, so that it matches the text above. Then, tell HTCondor to run your job:
 
 ``` console
-user@learn $ condor_submit simple.sub
+username@learn $ condor_submit simple.sub
 Submitting job(s).
 1 job(s) submitted to cluster NNNN.
 ```
@@ -76,7 +76,7 @@ You may not even catch the job in the `R` running state, because the `hostname` 
 The output from your job is written to the filename given in the `output` line of your submit file. Thus, after the job finishes, you should be able to see the `hostname` output in `simple.out`, since this information is usually printed to the terminal by the `hostname` program, and not to a special file of it's own.
 
 ``` console
-user@learn $ cat simple.out
+username@learn $ cat simple.out
 e171.chtc.wisc.edu
 ```
 
@@ -87,15 +87,15 @@ The `simple.err` file should be empty, unless there were issues running the `hos
 Very often, when you run a command on the command line, it includes arguments (i.e. options) after the program name, as in the below examples:
 
 ``` console
-user@learn $ cat simple.out
-user@learn $ sleep 60
-user@learn $ dc -e '6 7 * p'
+username@learn $ cat simple.out
+username@learn $ sleep 60
+username@learn $ dc -e '6 7 * p'
 ```
 
 In an HTCondor submit file, the program (or 'executable') name goes in the `executable` statement and **all remaining arguments** go into an `arguments` statement. For example, if the full command is:
 
 ``` console
-user@learn $ sleep 60
+username@learn $ sleep 60
 ```
 
 Then in the submit file, we would put the location of the "sleep" program (you can find it with `which sleep`) as the job `executable`, and options ("60" seconds for the "sleep" program to count) as the job `arguments`:
@@ -108,7 +108,7 @@ arguments = 60
 For the command-line command:
 
 ``` console
-user@learn $ dc -e '6 7 * p'
+username@learn $ dc -e '6 7 * p'
 ```
 
 We would put the following into the submit file:

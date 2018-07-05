@@ -19,7 +19,7 @@ As discussed in the lecture, the `condor_status` command is used to view the cur
 At its most basic, the command is very simple:
 
 ``` console
-user@learn $ condor_status
+username@learn $ condor_status
 ```
 
 This command, running on our (CHTC) pool, will produce a lot of output; there is one line per slot, and we typically have over 10,000 slots. **TIP: You can widen your terminal window, which may help you to see all details of the output better.**
@@ -72,7 +72,7 @@ There is one row of summary for each machine (i.e. "slot") architecture/operatin
 Also try out the `-compact` for a slightly different view of whole machines (i.e. server hostnames), without the individual slots shown.
 
 ``` console
-user@learn $ condor_status -compact
+username@learn $ condor_status -compact
 ```
 
 -   How has the column information changed? (Below is an example of the top of the output.)
@@ -97,7 +97,7 @@ The `condor_q` command lists jobs that are on this submit machine and that are r
 The simplest form of the command lists only your jobs:
 
 ``` console
-user@learn $ condor_q
+username@learn $ condor_q
 ```
 
 The main part of the output (which will be empty, because you haven't submitted jobs yet) shows one set ("batch") of submitted jobs per line. If you had a single job in the queue, it would look something like the below:
@@ -140,7 +140,7 @@ It shows total counts of jobs in the different possible states.
 By default, the `condor_q` command shows **your** jobs only. To see everyone’s jobs that are queued on the machine, add the `-all` option:
 
 ``` console
-user@learn $ condor_q -all
+username@learn $ condor_q -all
 ```
 
 Run that command now and use its output to answer the following questions:
@@ -153,7 +153,7 @@ Run that command now and use its output to answer the following questions:
 The `condor_q` output, by default, groups "batches" of jobs together (if they were submitted with the same submit file or "jobbatchname"). To see more information for EVERY job on a separate line of output, use the `-nobatch` option to `condor_q`:
 
 ``` console
-user@learn $ condor_q -all -nobatch
+username@learn $ condor_q -all -nobatch
 ```
 
 How has the column information changed? (Below is an example of the top of the output.)

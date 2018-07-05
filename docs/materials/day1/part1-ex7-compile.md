@@ -46,19 +46,19 @@ Save that code to a file, for example, `simple.c`.
 Compile the program with static linking:
 
 ``` console
-user@learn $ <strong>gcc -static -o simple simple.c</strong>
+username@learn $ gcc -static -o simple simple.c
 ```
 
 As always, test that you can run your command from the command line first. First, without arguments to make sure it fails correctly:
 
 ``` console
-user@learn $ <strong>./simple</strong>
+username@learn $ ./simple
 ```
 
 and then with valid arguments:
 
 ``` console
-user@learn $ <strong>./simple 5 21</strong>
+username@learn $ ./simple 5 21
 ```
 
 Running a Compiled C Program

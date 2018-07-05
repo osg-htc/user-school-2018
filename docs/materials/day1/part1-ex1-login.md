@@ -21,7 +21,7 @@ To log in, use a [Secure Shell](http://en.wikipedia.org/wiki/Secure_Shell) (SSH)
 -   From a Mac or Linux computer, run the Terminal app and use the `ssh` command, like so:
 
 ``` console
-user@learn $ ssh username@learn.chtc.wisc.edu
+username@learn $ ssh username@learn.chtc.wisc.edu
 ```
 
 -   On Windows, we recommend a free client called [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/), but any SSH client should be fine.
@@ -38,12 +38,12 @@ Running Commands
 In the exercises, we will show commands that you are supposed to type or copy into the command line, like this:
 
 ``` console
-user@learn $ hostname
+username@learn $ hostname
 learn.chtc.wisc.edu
 ```
 
 !!! note
-    In the first line of the example above, the `user@learn $` part is meant to show the Linux command-line prompt.
+    In the first line of the example above, the `username@learn $` part is meant to show the Linux command-line prompt.
     You do not type this part! Further, your actual prompt probably is a bit different, and that is expected.
     So in the example above, the command that you type at your own prompt is just the eight characters `hostname`.
     The second line of the example, without the prompt, shows the output of the command; you do not type this part,
@@ -52,9 +52,9 @@ learn.chtc.wisc.edu
 Here are a few other commands that you can try (the examples below do not show the output from each command):
 
 ``` console
-user@learn $ whoami
-user@learn $ date
-user@learn $ uname -a
+username@learn $ whoami
+username@learn $ date
+username@learn $ uname -a
 ```
 
 A suggestion for the day: Try typing into the command line as many of the commands as you can. Copy-and-paste is fine, of course, but **you WILL learn more if you take the time to type each command, yourself.**
@@ -67,9 +67,9 @@ You will be doing many different exercises over the next few days, many of them 
 For instance, for the rest of this exercise, you may wish to create and use a directory named `monday-1.1-login`, or something like that.
 
 ``` console
-user@learn $ mkdir Mon
-user@learn $ mkdir Mon/1.1
-user@learn $ cd Mon/1.1
+username@learn $ mkdir Mon
+username@learn $ mkdir Mon/1.1
+username@learn $ cd Mon/1.1
 ```
 
 Showing the Version of HTCondor
@@ -78,7 +78,7 @@ Showing the Version of HTCondor
 HTCondor is installed on this server. But what version? You can ask HTCondor itself:
 
 ``` console
-user@learn $ condor_version
+username@learn $ condor_version
 $CondorVersion: 8.7.2 Jun 02 2017 BuildID: 407060 $
 $CondorPlatform: x86_64_RedHat6 $
 ```

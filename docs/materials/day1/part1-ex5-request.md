@@ -29,13 +29,13 @@ For Memory: On Mac and Windows, for example, the "Activity Monitor" and "Task Ma
 Using `ps`:
 
 ``` console
-user@learn $ <strong>ps ux</strong>
-USER       PID %CPU %MEM    VSZ   <em>RSS</em> TTY      STAT START   TIME COMMAND
-cat      24342  0.0  0.0  90224  <em>1864</em> ?        S    13:39   0:00 sshd: cat@pts/0  
-cat      24343  0.0  0.0  66096  <em>1580</em> pts/0    Ss   13:39   0:00 -bash
-cat      25864  0.0  0.0  65624   <em>996</em> pts/0    R+   13:52   0:00 ps ux
-cat      30052  0.0  0.0  90720  <em>2456</em> ?        S    Jun22   0:00 sshd: cat@pts/2  
-cat      30053  0.0  0.0  66096  <em>1624</em> pts/2    Ss+  Jun22   0:00 -bash
+username@learn $ ps ux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+cat      24342  0.0  0.0  90224  1864 ?        S    13:39   0:00 sshd: cat@pts/0  
+cat      24343  0.0  0.0  66096  1580 pts/0    Ss   13:39   0:00 -bash
+cat      25864  0.0  0.0  65624   996 pts/0    R+   13:52   0:00 ps ux
+cat      30052  0.0  0.0  90720  2456 ?        S    Jun22   0:00 sshd: cat@pts/2  
+cat      30053  0.0  0.0  66096  1624 pts/2    Ss+  Jun22   0:00 -bash
 ```
 
 The Resident Set Size (`RSS`) column, highlighted above, gives a rough indication of the memory usage (in KB) of each running process. If your program runs long enough, you can run this command several times and note the greatest value.
@@ -43,19 +43,19 @@ The Resident Set Size (`RSS`) column, highlighted above, gives a rough indicatio
 Using `top`:
 
 ``` console
-user@learn $ <strong>top -u <em>userid</em></strong>
+username@learn $ top -u userid
 top - 13:55:31 up 11 days, 20:59,  5 users,  load average: 0.12, 0.12, 0.09
 Tasks: 198 total,   1 running, 197 sleeping,   0 stopped,   0 zombie
 Cpu(s):  1.2%us,  0.1%sy,  0.0%ni, 98.5%id,  0.2%wa,  0.0%hi,  0.1%si,  0.0%st
 Mem:   4001440k total,  3558028k used,   443412k free,   258568k buffers
 Swap:  4194296k total,      148k used,  4194148k free,  2960760k cached
 
-  PID USER      PR  NI  VIRT  <em>RES</em>  SHR S %CPU %MEM    TIME+  COMMAND
-24342 cat       15   0 90224 <em>1864</em> 1096 S  0.0  0.0   0:00.26 sshd
-24343 cat       15   0 66096 <em>1580</em> 1232 S  0.0  0.0   0:00.07 bash
-25927 cat       15   0 12760 <em>1196</em>  836 R  0.0  0.0   0:00.01 top
-30052 cat       16   0 90720 <em>2456</em> 1112 S  0.0  0.1   0:00.69 sshd
-30053 cat       18   0 66096 <em>1624</em> 1236 S  0.0  0.0   0:00.37 bash
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+24342 cat       15   0 90224 1864 1096 S  0.0  0.0   0:00.26 sshd
+24343 cat       15   0 66096 1580 1232 S  0.0  0.0   0:00.07 bash
+25927 cat       15   0 12760 1196  836 R  0.0  0.0   0:00.01 top
+30052 cat       16   0 90720 2456 1112 S  0.0  0.1   0:00.69 sshd
+30053 cat       18   0 66096 1624 1236 S  0.0  0.0   0:00.37 bash
 ```
 
 The `top` command (shown here with an option to limit the output to a single user ID) also shows information about running processes, but updates periodically by itself. Type the letter `q` to quit the interactive display. Again, the highlighted `RES` column shows an approximation of memory usage.
@@ -93,10 +93,10 @@ os.remove('temp')
 Without trying to figure out what this code does or how many resources it uses, just create a submit file for it, and run it once with HTCondor, starting with somewhat high memory requests ("1GB" for memory and disk is a good starting point, unless you think the job will use far more, and will still match quickly). When it is done, examine the log file. In particular, we care about these lines:
 
 ``` file
-    Partitionable Resources :    <em>Usage</em>  Request Allocated
+    Partitionable Resources :    Usage  Request Allocated
        Cpus                 :                 1         1
-       Disk (<em>KB</em>)            :     <em>6739</em>  1048576   8022934
-       Memory (<em>MB</em>)          :        <em>3</em>     1024      1024
+       Disk (KB)            :     6739  1048576   8022934
+       Memory (MB)          :        3     1024      1024
 ```
 
 So, now we know that the job used 6,739 KB of disk (= about 6.5 MB) and 3 MB of memory!
