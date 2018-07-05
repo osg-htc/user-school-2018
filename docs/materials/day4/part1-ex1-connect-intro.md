@@ -6,12 +6,12 @@ Thursday Exercise 1.1: Getting Acquainted with OSG Connect
 ==========================================================
 
 
-In this exercise, you'll get acquainted with the OSG Connect submit server (user-training.osgconnect.net), and the OSG Connect helpdesk.
+In this exercise, you'll get acquainted with the OSG Connect submit server (training.osgconnect.net), and the OSG Connect helpdesk.
 
-Get Acquainted with the OSG Connect Submit Server (user-training.osgconnect.net)
+Get Acquainted with the OSG Connect Submit Server (training.osgconnect.net)
 --------------------------------------------------------------------------------
 
-SSH to `user@user-training.osgconnect.net` in a command-line terminal.
+SSH to `username@training.osgconnect.net` in a command-line terminal.
 
 ### Look around your 'home' directory
 
@@ -22,7 +22,7 @@ You'll notice the 'public', and 'stash' directories, which may be used in variou
 Running `condor_status` by itself on the OSG Connect submit host will give no output, but you can otherwise check with:
 
 ``` console
-user@user-training $ <strong>condor_status -pool osg-flock.grid.iu.edu</strong>
+username@training $ condor_status -pool flock.opensciencegrid.org
 ```
 
 Visit the Helpdesk Materials
