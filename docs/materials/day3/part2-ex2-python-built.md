@@ -27,7 +27,7 @@ The first step in our job process is building a Python installation that we can 
 2.  Download the Python source code from <https://www.python.org/>. \\
 
 ``` console
-user@learn $ <strong>wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz</strong>
+user@learn $ wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
 ```
 
 1.  Of our options - submit server, interactive job, personal computer - which should we use for this installation/packaging process? Once you have a guess, move to the next step.
@@ -38,7 +38,7 @@ The best place to install will be an interactive job. For this job, we can use t
 1.  Make a copy of the interactive submit file from [Exercise 1.4](part1-ex4-prepackaged.md) and change the `transfer_input_files` line to the Python tarball you just downloaded. Then submit it using the `-i` flag. \\
 
 ``` console
-user@learn $ <strong>condor_submit -i build.submit</strong>
+user@learn $ condor_submit -i build.submit
 ```
 
 1.   Once the interactive job begins, we can start our installation process. First, we have to determine how to install Python to a specific location in our working directory.
@@ -58,7 +58,7 @@ instructions near the top of the `README`. Based on that short introduction, we 
 `configure` script has this option by using the "help" option. \\ \\
 
 ``` console
-user@learn $ <strong>./configure --help</strong>
+user@learn $ ./configure --help
 ```
 
 \\ \\ Sure enough, there's a list of all the different options that can be passed to the `configure` script, which includes `-prefix`. Therefore, we can use the \\ `$(pwd)` command in order to set the path correctly, just as we did earlier today.
@@ -67,31 +67,31 @@ user@learn $ <strong>./configure --help</strong>
     1.  **From the job's main working directory**, create a directory to hold the installation. \\
 
 ``` console
-user@learn $ <strong>cd $_CONDOR_SCRATCH_DIR</strong>
-user@learn $ <strong>mkdir python</strong>
+user@learn $ cd $_CONDOR_SCRATCH_DIR
+user@learn $ mkdir python
 ```
 
 1.  Move into the `Python 3.6.1` directory and run the installation commands. These may take a few minutes each. \\
 
 ``` console
-user@learn $ <strong>cd Python-3.6.1</strong>
-user@learn $ <strong>./configure --prefix=$(pwd)/../python</strong>
-user@learn $ <strong>make</strong>
-user@learn $ <strong>make install</strong>
+user@learn $ cd Python-3.6.1
+user@learn $ ./configure --prefix=$(pwd)/../python
+user@learn $ make
+user@learn $ make install
 ```
 
 1.  If I move back to the main job working directory, and look in the `python` subdirectory, I should see a Python installation. \\
 
 ``` console
-user@learn $ <strong>cd ..</strong>
-user@learn $ <strong>ls python/</strong>
+user@learn $ cd ..
+user@learn $ ls python/
 bin  include  lib  share
 ```
 
 1.  I have successfully created a self-contained Python installation. Now it just needs to be tarred up! \\
 
 ``` console
-user@learn $ <strong>tar -czf prebuilt_python.tar.gz python/</strong>
+user@learn $ tar -czf prebuilt_python.tar.gz python/
 ```
 
 1.  Before exiting, we might want to know how we installed Python for later reference. \\
@@ -99,13 +99,13 @@ user@learn $ <strong>tar -czf prebuilt_python.tar.gz python/</strong>
 Enter the following commands to save our history to a file: \\
 
 ``` console
-user@learn $ <strong>history > python_install.txt</strong>
+user@learn $ history > python_install.txt
 ```
 
 1.  Exit the interactive job. \\
 
 ``` console
-user@learn $ <strong>exit</strong>
+user@learn $ exit
 ```
 
 Python Script

@@ -66,7 +66,7 @@ queue
 \\
 
 ``` console
-user@learn $ <strong>condor_submit -i compile.submit</strong>
+user@learn $ condor_submit -i compile.submit
 ```
 
 \\ Make sure you've submitted this command from `learn.chtc.wisc.edu`! Once the job starts, continue with the following instructions.
@@ -74,7 +74,7 @@ user@learn $ <strong>condor_submit -i compile.submit</strong>
 1.  Since you are a guest user on our system, you will need to set your `HOME` directory by running this command: \\
 
 ``` console
-user@learn $ <strong>export HOME=$PWD</strong>
+user@learn $ export HOME=$PWD
 ```
 
 \\
@@ -82,7 +82,7 @@ user@learn $ <strong>export HOME=$PWD</strong>
 1.  Compile your Matlab code with version 2015b. \\
 
 ``` console
-user@learn $ <strong>/usr/local/MATLAB/R2015b/bin/mcc -m -R -singleCompThread -R -nodisplay -R -nojvm matrix.m</strong>
+user@learn $ /usr/local/MATLAB/R2015b/bin/mcc -m -R -singleCompThread -R -nodisplay -R -nojvm matrix.m
 ```
 
 \\ The extra arguments to the `mcc` command are very important here. Matlab, by default, will run on as many CPUs as it can find. This can be a big problem \\ when running on someone else's computers, because your Matlab code might interfere with what the owner wants. The `-singleCompThread` option \\ compiles the code to run on a single CPU, avoiding this problem. In addition, the `-nodisplay` and `-nojvm` options turn off the display (which won't exist \\ where the code runs). \\
@@ -98,7 +98,7 @@ The newly compiled binary will require the 2015b Matlab runtime to run. You can 
 1.  Download the 2015b Matlab runtime hosted by CHTC: \\
 
 ``` console
-user@learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/r2015b.tar.gz </strong>
+user@learn $ wget http://proxy.chtc.wisc.edu/SQUID/r2015b.tar.gz 
 ```
 
 \\
@@ -153,7 +153,7 @@ arguments = v90
 -   Look at the size of the untarred runtime directory by running: \\
 
 ``` console
-user@learn $ <strong>du -sh v90/</strong>
+user@learn $ du -sh v90/
 ```
 
 \\ We need to request *at least* this much \\ disk space in our submit file: \\
