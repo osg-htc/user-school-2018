@@ -41,6 +41,7 @@ applications this year, so thanks to everyone for your enthusiastic interest!
     - [Local transportation within Madison](/logistics/local-transportation.md)
     - [School location](/logistics/location.md)
     - [Meals at the School](/logistics/meals.md)
+    - [Fun things to do in Madison](/logistics/fun.md) and [Wednesday activities](/logistics/wednesday-activities.md)
 
 ## Contact Us
 
