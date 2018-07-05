@@ -35,11 +35,11 @@ remember that you'll be responsible for any/all costs, including transportation.
 
 ### FREE!
 
--  **[Chazen Museum of Art](https://www.chazen.wisc.edu).** Large collections of art from a variety of eras.  On campus
+-   **[Chazen Museum of Art](https://www.chazen.wisc.edu).** Large collections of art from a variety of eras.  On campus
     (750 Univesity Avenue) and free (donations welcome).
 
--   **[UW–Madison Geology Museum](http://www.geologymuseum.org/).** Large collection of geological specimens.  Across
-    Dayton Street from the School building (1215 Dayton Street).
+-   **[UW–Madison Geology Museum](https://geoscience.wisc.edu/museum/).** Large collection of geological specimens.
+    Across Dayton Street from the School building (1215 Dayton Street).
 
 -   **[L.R. Ingersoll Physics Museum](https://www.physics.wisc.edu/ingersollmuseum).** Small museum of Physics objects
     and demonstrations.  Very short walk from the School building: Chamberlin Hall, 1150 University Avenue.
@@ -62,6 +62,5 @@ remember that you'll be responsible for any/all costs, including transportation.
 -   **[Capital Brewery Tour](http://capitalbrewery.com/).** 7734 Terrace Ave., Middleton; $7 walk-in, includes
     commemorative glass and 4 samples.  Bus routes 70, 71, and 72.
 
--   [Paddling rentals on Lake
-    Mendota](https://union.wisc.edu/events-and-activities/outdoor-uw/outdoor-rentals/paddling-rentals/).** Paddling
-    rentals, including paddleboards, kayak, and canoes.  Memorial Union Terrace, $17 per hour.
+-   **[Paddling rentals on Lake Mendota](https://union.wisc.edu/events-and-activities/outdoor-uw/outdoor-rentals/paddling-rentals/).**
+    Paddling rentals, including paddleboards, kayak, and canoes.  Memorial Union Terrace, $17 per hour.
