@@ -31,11 +31,19 @@ All events happen in the Computer Sciences building (1210 West Dayton Street), R
     </tr>
 </table>
 
-We will have instructors at the hotel lobbies prior to dinner, and walk with groups to the Fluno Center. More details
-will be available here soon.
+We will have instructors at the hotel lobbies prior to dinner, and walk with groups 
+to the Fluno Center.  Join 
+us for the walk if you want, or otherwise meet us in the dinner room by 6:30 p.m.
 
-<!-- We will have instructors at the hotel lobby by ~5:45pm. At about 6:00 p.m., we will walk to the Fluno Center, which will
-take 25 minutes. Join us for the walk if you want, or otherwise meet us in the dinner room by 6:30 p.m. -->
+For those joining us to walk over together, instructors will be at the hotel lobby 
+by ~5:45pm.  See the list below for which 
+instructor will be at your hotel and their expected departure time for the Fluno.  
+
+
+* HotelRed, Bala, leave at 6:05
+* Union South, leaving at 6:10
+* Doubletree, leaving at 6:15
+
 
 
 ## Monday, 9 July 2018
