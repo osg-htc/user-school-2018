@@ -92,7 +92,7 @@ status: in progress
 
 ### Wednesday Afternoon: On Your Own
 
-- [Ideas for activities](UserSchool15WedActivities)
+- [Ideas for activities](/logistics/wednesday-activities.md)
 
 ## Thursday
 
