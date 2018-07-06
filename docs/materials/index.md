@@ -125,8 +125,8 @@ status: in progress
 - [Exercise 4.1: Using a local shared filesystem for large input files](/materials/day4/part4-ex1-input.md)
 - [Exercise 4.2: Using a local shared filesystem for large output files](/materials/day4/part4-ex2-output.md)
 
-The submit host `user-training.osgconnect.net` will be active for about two weeks.  For long term use, please
-[sign up for OSG Connect](/materials/connect.md).
+The submit host `training.osgconnect.net` will be active for about two weeks.  For long term use, please
+[sign up for OSG Connect](https://osgconnect.net/).
 If you have any questions about the signup process, please email
 <user-support@opensciencegrid.org>
 
