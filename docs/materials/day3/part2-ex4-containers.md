@@ -24,8 +24,7 @@ Submit File Changes
 
 		:::file
 		universe = docker
-		docker_image = python
-		requirements = (OpSysMajorVer == 7)
+		docker_image = python:3.7.0-stretch
 
 	Here we are requesting HTCondor's Docker universe and using a pre-built python image that, by default, will be pulled from a public website of Docker images called DockerHub.  The requirements line will ensure that we run on computers whose operating system can support Docker.
 
@@ -33,7 +32,7 @@ Submit File Changes
 
 		:::file
 		executable = fib.py
-		arguments = 5
+		arguments = 90
 
 1.  Finally, we no longer need to transfer a Python tarball (whether source code or pre-built) or our Python script. You can remove both from the `transfer_input_files` line of the submit file.
 
@@ -43,7 +42,7 @@ Python Script
 1.  Open the Python script and add the following line at the top: 
 
 		:::file
-		#!/usr/bin/env python
+		#!/usr/bin/env python3
 
 	This will ensure that the script uses the version of Python that comes in the Docker container.
 

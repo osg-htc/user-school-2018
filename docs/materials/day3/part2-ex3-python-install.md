@@ -31,8 +31,8 @@ Our wrapper script will need to install Python from the source code and then run
 		export PATH
 
 		mkdir python
-		tar xzf Python-3.6.1.tgz
-		cd Python-3.6.1
+		tar xzf Python-3.7.0.tgz
+		cd Python-3.7.0
 		./configure --prefix=$(pwd)/../python
 		make
 		make install
@@ -43,12 +43,12 @@ Our wrapper script will need to install Python from the source code and then run
 		:::bash
 		export PATH=$(pwd)/python/bin:$PATH
 
-		python3 fib.py 5
+		python3 fib.py 90
 
 	or
 
 		:::bash
-		python/bin/python3 fib.py 5
+		python/bin/python3 fib.py 90
 
 	Choose whichever method you prefer, and add it to your `run_py.sh` script.
 

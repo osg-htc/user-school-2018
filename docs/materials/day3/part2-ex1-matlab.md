@@ -57,17 +57,17 @@ The first step in making Matlab portable is compiling our Matlab script. To comp
 		:::console
 		username@learn $ condor_submit -i compile.submit
 
- Make sure you've submitted this command from `learn.chtc.wisc.edu`! Once the job starts, continue with the following instructions.
+	Make sure you've submitted this command from `learn.chtc.wisc.edu`! Once the job starts, continue with the following instructions.
 
 1.  Since you are a guest user on our system, you will need to set your `HOME` directory by running this command: 
 
 		:::console
-		username@learn $ export HOME=$PWD
+		username@build $ export HOME=$PWD
 
 1.  Compile your Matlab code with version 2015b. 
 
 		:::console
-		username@learn $ /usr/local/MATLAB/R2015b/bin/mcc -m -R -singleCompThread -R -nodisplay -R -nojvm matrix.m
+		username@build $ /usr/local/MATLAB/R2015b/bin/mcc -m -R -singleCompThread -R -nodisplay -R -nojvm matrix.m
 
 	The extra arguments to the `mcc` command are very important here. Matlab, by default, will run on as many CPUs as it can find. This can be a big problem  when running on someone else's computers, because your Matlab code might interfere with what the owner wants. The `-singleCompThread` option  compiles the code to run on a single CPU, avoiding this problem. In addition, the `-nodisplay` and `-nojvm` options turn off the display (which won't exist  where the code runs). 
 
@@ -88,7 +88,7 @@ The newly compiled binary will require the 2015b Matlab runtime to run. You can 
 Wrapper Script
 --------------
 
-Like the [OpenBUGS](part1-ex4-prepackaged.md) example from earlier this morning, we will need a wrapper script to open the Matlab runtime and then run our compiled Matlab code. Our wrapper script will need to accomplish the following steps:
+Like the [OpenBUGS](/materials/day3/part1-ex4-prepackaged) example from earlier this morning, we will need a wrapper script to open the Matlab runtime and then run our compiled Matlab code. Our wrapper script will need to accomplish the following steps:
 
 -   Unpack the transferred runtime
 -   Set the environment variables
@@ -98,14 +98,18 @@ Fortunately, the Matlab compiler has pre-written most of this wrapper script for
 
 1.  Take a look at `run_matrix.sh`. Which of the above steps do we need to add? Once you have an idea, move to the next step.
 
-1. We'll need to add commands to unpack the runtime (which will have been transferred with the job). Add this line to the beginning of the `run_matrix.sh` file, after `#!/bin/bash` but before `exe_name=$0` : 
+1. We'll need to add commands to unpack the runtime (which will have been transferred with the job). Add this line to the beginning of the `run_matrix.sh` file, after `#!/bin/bash` and the comments, but before `exe_name=$0` : 
 
 		:::file
 		tar -xzf r2015b.tar.gz
 
 1. Look at `readme.txt` to determine what arguments our wrapper script requires. Once you have an idea, move to the next step.
 
-1. The name of the Matlab runtime directory is a required argument to the wrapper script `run_matrix.sh`. We'll have to do a little extra work to find out the name of that directory. 2. Untar the runtime tarball we downloaded to the submit server. 3. What directory has been created? This is the name of the runtime directory, and the argument you should pass to `run_matrix.sh`.
+1. The name of the Matlab runtime directory is a required argument to the wrapper script `run_matrix.sh`. We'll have to do a little extra work to find out the name of that directory. 
+
+1. Untar the runtime tarball we downloaded to the submit server. 
+
+1. What directory has been created? This is the name of the runtime directory, and the argument you should pass to `run_matrix.sh`.  
 
 Submitting the Job
 ------------------
@@ -136,7 +140,7 @@ Submitting the Job
 			:::file
 			request_disk = 2GB
 
-1. Submit the job using `condor_submit`. 
+1. Submit the job using `condor_submit`.  While you're waiting for the job to run, you can remove the `v90` directory from your home folder to clear up that space.  
 
-1. After it completes, the job should have produced a file called `results.txt`
+1. After it completes, the job should have produced a file called `results.txt`.  
 
