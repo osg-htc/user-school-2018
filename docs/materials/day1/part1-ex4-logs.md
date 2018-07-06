@@ -17,7 +17,7 @@ This exercise is short, but you'll want to at least read over it before moving o
 Reading a Log File
 ------------------
 
-For this exercise, we can examoine a log file for any previous job that you have run. The example output below is based on the `sleep 60` job.
+For this exercise, we can examine a log file for any previous job that you have run. The example output below is based on the `sleep 60` job.
 
 A job log file is updated throughout the life of a job, usually at key events. Each event starts with a heading that indicates what happened and when. Here are **all** of the event headings from the `sleep` job log (detailed output in between headings has been omitted here):
 
@@ -103,7 +103,7 @@ When are events written to the job log file? Let’s find out. Read through the 
 1.  Right away, run a command to show the log file and **keep showing** updates as they occur:
 
         :::console
-        username@learn tail -f sleep.log
+        username@learn $ tail -f sleep.log
 
 1.  Watch the output carefully. When do events appear in the log file?
 1.  After the termination event appears, press Control-C to end the `tail` command and return to the shell prompt.
@@ -116,7 +116,8 @@ When HTCondor writes the output, error, and log files, does it erase the previou
 
 For this exercise, we can use the `hostname` job from earlier.
 
-1.  Edit the `hostname` submit file so that it uses new and unique filenames for output, error, and log files\\ <p>Alternatively, delete any existing output, error, and log files from previous runs of the `hostname` job.</p>
+1.  Edit the `hostname` submit file so that it uses new and unique filenames for output, error, and log files.  
+Alternatively, delete any existing output, error, and log files from previous runs of the `hostname` job.
 1.  Submit the job three separate times in a row (there are better ways to do this, which we will cover in the next lecture)
 1.  Wait for all three jobs to finish
 1.  Examine the output file: How many hostnames are there? Did HTCondor erase the previous contents for each job, or add new lines?

@@ -81,13 +81,13 @@ To use the script:
 
         :::console
         username@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/books.zip
-        unzip books.zip
+        username@learn $ unzip books.zip
 
 1.  Verify the script by running it on one book manually.
 1.  Create a submit file to submit one job (pick a book file and model your submit file off of the one above), including memory and disk requests of 20 MB; submit it, if you like.
 1.  Modify the following submit file statements to work for all books:
 
-        :::file
+        :::text
         transfer_input_files = $(BOOK) 
         arguments = $(book) 
         output = $(book).out 
@@ -107,19 +107,19 @@ The result is the same as if we had written out a much longer submit file:
 ...
 
 transfer_input_files = AAiW.txt
-arguments = &quot;AAiW.txt&quot;
+arguments = "AAiW.txt"
 output = AAiW.txt.out
 error = AAiW.txt.err
 queue
 
 transfer_input_files = PandP.txt
-arguments = &quot;PandP.txt&quot;
+arguments = "PandP.txt"
 output = PandP.txt.out
 error = PandP.txt.err
 queue
 
 transfer_input_files = TAoSH.txt
-arguments = &quot;TAoSH.txt&quot;
+arguments = "TAoSH.txt"
 output = TAoSH.txt.out
 error = TAoSH.txt.err
 queue

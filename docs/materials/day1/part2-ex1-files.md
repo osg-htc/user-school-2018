@@ -16,12 +16,12 @@ Before you learn to transfer files to and from your job, it is good to understan
 
 1.  Save the script below in a file named `sandbox.sh`:
 
-        :::file
-        #/bin/sh
+        :::bash
+        #!/bin/sh
         echo 'Date: ' `date`
         echo 'Host: ' `hostname` 
         echo 'Sandbox: ' `pwd` 
-        echo ls -alF</pre>
+        echo ls -alF
         # END
 
 1.  Create a submit file for this script and submit it.
@@ -48,7 +48,7 @@ Now that we know something about the sandbox, we can transfer more files to and 
 Running a Job With Input Files
 ------------------------------
 
-Next, you will run a job that requires an input file. As with all previous examples, you will tell HTCondor to transfer files to the sandbox (=should\_transfer\_files = YES=). Remember, the initial job sandbox contains only the renamed job executable and nothing else from your directory on the submit machine. You must tell HTCondor explicitly about every other file to transfer to the sandbox. Fortunately, this is easy.
+Next, you will run a job that requires an input file. As with all previous examples, you will tell HTCondor to transfer files to the sandbox (`should_transfer_files = YES`). Remember, the initial job sandbox contains only the renamed job executable and nothing else from your directory on the submit machine. You must tell HTCondor explicitly about every other file to transfer to the sandbox. Fortunately, this is easy.
 
 Here is a simple Python script that takes the name of an input file (containing one word per line) from the command line, counts the number of times each (lowercased) word occurs in the text, and prints out the final list of words and their counts.
 
