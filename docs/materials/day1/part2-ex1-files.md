@@ -1,10 +1,10 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-Monday Exercise 2.3: Work With Input and Output Files
+Monday Exercise 2.1: Work With Input and Output Files
 =====================================================
 
 The goal of this exercise is make input files available to your job on the execute machine, and return output files back. This small change significantly adds to the kinds of jobs that you can run.
@@ -14,12 +14,18 @@ Viewing a Job Sandbox
 
 Before you learn to transfer files to and from your job, it is good to understand a bit more about the environment in which your job runs. When the HTCondor `starter` process prepares to run your job, it creates a new directory for your job and all of its files. We call this directory the *job sandbox*, because it is your job’s private space to play. Let’s see what is in the job sandbox for a very simple job with no special input or output files.
 
-1.  Save the script below in a file named `sandbox.sh`:\\ <pre class="file">\#/bin/sh
+1.  Save the script below in a file named `sandbox.sh`:
 
-echo 'Date: ' \`date\` echo 'Host: ' \`hostname\` echo 'System: ' \`uname -spo\` echo 'OS info: ' \`cat /etc/redhat-release\` echo 'Sandbox: ' \`pwd\` echo ls -alF</pre>
+        :::file
+        #/bin/sh
+        echo 'Date: ' `date`
+        echo 'Host: ' `hostname` 
+        echo 'Sandbox: ' `pwd` 
+        echo ls -alF</pre>
+        # END
 
-1.  Create a submit file for this script and submit it
-2.  When the job finishes, look at the contents of the output file
+1.  Create a submit file for this script and submit it.
+1.  When the job finishes, look at the contents of the output file.
 
 In the output file, note the `Sandbox:` line: That is the full path to your job sandbox for the run. It was created just for your job, and it was removed as soon as your job finished.
 
@@ -73,11 +79,21 @@ for word in sorted(words.keys()):
 ```
 
 1.  Save the Python script in a file named `freq.py`
-2.  Download the input file for the script (263K lines, ~1.4 MB) and save it in your submit directory:\\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> **wget <http://proxy.chtc.wisc.edu/SQUID/osgschool16/mon-3.2-words.txt>**</pre>
-3.  Create a basic submit file for the `freq.py` executable
-4.  Add a line to tell HTCondor to transfer the input file:\\ <pre class="file">transfer\_input\_files = mon-3.2-words.txt</pre>\\ <p>As with all submit file commands, it does not matter where this line goes. I usually group it with the other file transfer commands.</p>
-5.  Do not forget to add a line to name the input file as the argument to the Python script
-6.  Submit the job, wait for it to finish, and check the output!
+1.  Download the input file for the script (263K lines, ~1.4 MB) and save it in your submit directory:
+
+        :::console
+        username@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/mon-2.1-words.txt
+
+1.  Create a basic submit file for the `freq.py` executable
+1.  Add a line to tell HTCondor to transfer the input file:
+
+        :::file
+        transfer_input_files = mon-3.2-words.txt
+
+    As with all submit file commands, it does not matter where this line goes, as long as it comes before the word `queue`.
+
+1.  Do not forget to add a line to name the input file as the argument to the Python script
+1.  Submit the job, wait for it to finish, and check the output!
 
 If things do not work the first time, keep trying! At this point in the exercises, we are telling you less and less explicitly how to do steps that you have done before. If you get stuck, ask a neighbor or one of the instructors.
 
@@ -86,13 +102,8 @@ If things do not work the first time, keep trying! At this point in the exercise
     separated by commas.
     For example, if there are three input files:
 
-            transfer_input_files = a.txt, b.txt, c.txt
+        transfer_input_files = a.txt, b.txt, c.txt
 
-### Extra Challenge
-
-Many standard command-line program operate on input files. For example, the `cat` command can takes one or more input files as arguments, printing to standard output each file in order. Other common commands that take input files as arguments are `grep`, `diff`, and `sort`.
-
-Using commands like these, or others that you know and that are readily available, create one or more submit files that take input files and produce output. If you are using a command that is **not** contained in your submit directory, be sure to put its complete path in your `executable` line; use the `which` command to find the paths of standard programs. Also be sure to set the `arguments` line correctly for each program.
 
 Transferring Output Files
 -------------------------
@@ -101,16 +112,16 @@ So far, we have relied on programs that send their output to the standard output
 
 Let’s start by exploring what happens to files that a jobs creates in the sandbox. We will use a very simple method for creating a new file: We will copy an input file to another name.
 
-1.  Find or create a small input file (it is fine to use any small file from a previous exercise)
-2.  Create a submit file that transfers the input file and copies it to another name (as if doing `/bin/cp input.txt output.txt` on the command line)
+1.  Find or create a small input file (it is fine to use any small file from a previous exercise).
+1.  Create a submit file that transfers the input file and copies it to another name (as if doing `/bin/cp input.txt output.txt` on the command line)
     -   Make the output filename different than any filenames that are in your submit directory
     -   What is the `executable` line?
     -   What is the `arguments` line?
     -   How do you tell HTCondor to transfer the input file?
     -   As always, use `output`, `error`, and `log` filenames that are different from previous exercises
-3.  Submit the job and wait for it to finish
+1.  Submit the job and wait for it to finish.
 
-What happened? Can you tell what HTCondor did with your output file, after it was created in the job sandbox? Look carefully at the list of files in your submit directory now…
+What happened? Can you tell what HTCondor did with your output file, after it was created in the job sandbox? Look carefully at the list of files in your submit directory now.
 
 Transferring Specific Output Files
 ----------------------------------
@@ -133,8 +144,8 @@ cp $1 subdirectory/backup-$1
 First, let’s confirm that HTCondor does not bring back the output file in the subdirectory:
 
 1.  Save the shell script in a file named `output.sh`
-2.  Write a submit file that transfers an input file and runs `output.sh` on it
-3.  Submit the job, wait for it to finish, and examine the contents of your submit directory
+1.  Write a submit file that transfers an input file and runs `output.sh` on it
+1.  Submit the job, wait for it to finish, and examine the contents of your submit directory
 
 Suppose you decide that you want only the timestamp output file and all files in the subdirectory, but not the calendar output file. You can tell HTCondor to transfer these specific files:
 
@@ -145,12 +156,12 @@ transfer_output_files = output-timestamp.txt, subdirectory/
 !!! note
     See the trailing slash (`/`) on the subdirectory?
     That tells HTCondor to transfer back **the files** contained in the subdirectory, but not the directory itself;
-    the files will be written directly into the submit directory itself.
+    the files will be written directly into the submit directory.
     If you want HTCondor to transfer back an entire directory, leave off the trailing slash.
 
-1.  Remove all output files from the previous run, including `output-timestamp.txt` and `output-calendar.txt`
-2.  Copy the previous submit file that ran `output.sh` and add the `transfer_output_files` line from above
-3.  Submit the job, wait for it to finish, and examine the contents of your submit directory
+1.  Remove all output files from the previous run, including `output-timestamp.txt` and `output-calendar.txt`.
+1.  Copy the previous submit file that ran `output.sh` and add the `transfer_output_files` line from above.
+1.  Submit the job, wait for it to finish, and examine the contents of your submit directory.
 
 Did it work as you expected?
 
