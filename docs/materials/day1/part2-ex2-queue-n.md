@@ -192,7 +192,7 @@ Once again, we will use `sleep` jobs, so that your jobs remain in the queue long
 Check on the submissions using a normal `condor_q` and `condor_q -nobatch`. Of course, your special attribute does not appear in the `condor_q -nobatch` output, but it is present in the `condor_q` output and in each job’s ClassAd. You can see the effect of the attribute by limiting your `condor_q` output to one type of job or another. First, run this command:
 
 ``` console
-user@learn $ condor_q -constraint 'JobBatchName == "1"'
+username@learn $ condor_q -constraint 'JobBatchName == "1"'
 ```
 
 Do you get the output that you expected? Using the example command above, how would you list your other five jobs?

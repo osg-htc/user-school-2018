@@ -19,7 +19,7 @@ The `condor_status` program has many options for selecting which slots are liste
 Another convenient option is to list only those slots that are available now:
 
 ``` console
-user@learn $ condor_status -avail
+username@learn $ condor_status -avail
 ```
 
 Of course, the individual execute machines only report their slots to the collector at certain time intervals, so this list will not reflect the up-to-the-second reality of all slots. But this limitation is true of all `condor_status` output, not just with the `-avail` option.
@@ -27,25 +27,25 @@ Of course, the individual execute machines only report their slots to the collec
 Similar to `condor_q`, you can limit the slots that are listed in two easy ways. To list just the slots on a specific machine:
 
 ``` console
-user@learn $ condor_status %RED%HOSTNAME%ENDCOLOR%
+username@learn $ condor_status %RED%HOSTNAME%ENDCOLOR%
 ```
 
 For example, if you want to see the slots on `e242.chtc.wisc.edu` (in the CHTC pool):
 
 ``` console
-user@learn $ condor_status e242.chtc.wisc.edu
+username@learn $ condor_status e242.chtc.wisc.edu
 ```
 
 To list a specific slot on a machine:
 
 ``` console
-user@learn $ condor_status %RED%SLOT%ENDCOLOR%@%RED%HOSTNAME%ENDCOLOR%
+username@learn $ condor_status %RED%SLOT%ENDCOLOR%@%RED%HOSTNAME%ENDCOLOR%
 ```
 
 For example, to see the “first” slot on the machine above:
 
 ``` console
-user@learn $ condor_status slot1@e242.chtc.wisc.edu
+username@learn $ condor_status slot1@e242.chtc.wisc.edu
 ```
 
 !!! note
@@ -68,7 +68,7 @@ Viewing a Slot ClassAd
 Just as with `condor_q`, you can use `condor_status` to view the complete ClassAd for a given slot (often confusingly called the “machine” ad):
 
 ``` console
-user@learn $ condor_status -long %RED%SLOT%ENDCOLOR%@%RED%HOSTNAME%ENDCOLOR%
+username@learn $ condor_status -long %RED%SLOT%ENDCOLOR%@%RED%HOSTNAME%ENDCOLOR%
 ```
 
 Because slot ClassAds may have 150–200 attributes (or more), it probably makes the most sense to show the ClassAd for a single slot at a time, as shown above.
@@ -101,7 +101,7 @@ Often, it is helpful to view slots that meet some particular criteria. For examp
 For example, suppose we want to list all slots that are running Scientific Linux 6 (operating system) and have at least 16 GB memory available. Note that memory is reported in units of Megabytes. The command is:
 
 ``` console
-user@learn $ condor_status -constraint 'OpSysAndVer == "CentOS7" && Memory >= 200000'
+username@learn $ condor_status -constraint 'OpSysAndVer == "CentOS7" && Memory >= 200000'
 ```
 
 !!! note
@@ -125,7 +125,7 @@ The `condor_status` command accepts the same `-autoformat` (`-af`) options that 
 For example, I was curious about the Windows slots listed in the `condor_status` summary output. Here are two commands that show the full hostnames and major version information for the Windows slots:
 
 ``` console
-user@learn $ condor_status -af Machine -af OpSysAndVer -constraint 'OpSys == "WINDOWS"'
+username@learn $ condor_status -af Machine -af OpSysAndVer -constraint 'OpSys == "WINDOWS"'
 ```
 
 If you like, spend a few minutes now or later experimenting with `condor_status` formatting.
