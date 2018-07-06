@@ -1,6 +1,15 @@
 ---
-status: in progress
+status: done
 ---
+
+<style type="text/css">
+  pre em { font-style: normal; background-color: yellow; }
+  pre strong { font-style: normal; font-weight: bold; color: \#008; }
+</style>
+
+# Monday Bonus Exercise 4.5: YOUR Jobs and More on Workflows
+
+The objective of this exercise is to learn the very basics of running a set of jobs, where our set is just one job.
 
 Challenge 1
 -----------
@@ -29,23 +38,15 @@ Now make a movie! Make a series of images where you zoom into a point in the Man
 Challenge 3
 -----------
 
-Try out [Pegasus](OSGSS2012ExtraPegasus). Pegasus is a workflow manager that uses DAGMan and can work in a grid environment and/or run across different types of clusters (with other queueing software). It will create the DAGs from abstract DAG descriptions and ensure they are appropriate for the location of the data and computation.
+Try out Pegasus. Pegasus is a workflow manager that uses DAGMan and can work in a grid environment and/or run across different types of clusters (with other queueing software). It will create the DAGs from abstract DAG descriptions and ensure they are appropriate for the location of the data and computation.
 
 Links to more information:
 
--   [Pegasus Website](http://pegasus.isi.edu)
--   [Pegasus Documentation](http://pegasus.isi.edu/wms/docs/4.0/)
--   [Useful Tutorial](https://github.com/OSGConnect/tutorial-pegasus)
--   [Pegasus on OSG Connect (covered Thursday)](https://pegasus.isi.edu/documentation/tutorial.php)
+-   [Pegasus Website](https://pegasus.isi.edu)
+-   [Pegasus Documentation](https://pegasus.isi.edu/documentation)
+-   [Pegasus on OSG Connect (covered Thursday)](https://support.opensciencegrid.org/support/solutions/articles/5000639789-pegasus)
 
 If you have any questions or problems, please feel free to contact the Pegasus team by emailing <pegasus-support@isi.edu>
-
-Challenge 4
------------
-
-Try out [Makeflow](OSGSS2012ExtraMakeflow). You can think of it acting like DAGMan, but there several intriguing differences. Now that you understand DAGMan, you should think about how it compares to Makeflow. Why would you use DAGMan or Makeflow?
-
-These extra exercises for Makeflow were kindly provided by Doug Thain.
 
 Note: Be Nice
 -------------

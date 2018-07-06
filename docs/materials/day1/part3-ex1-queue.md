@@ -118,7 +118,7 @@ Arguments = "120"
 
 1.  After the job starts execution but before it finishes, capture its ClassAd again and save to a file
 
-        :::console 
+        :::console
         condor_q -l %RED%<job_id>%ENDCOLOR% > classad-1.txt
 
 Now examine each saved ClassAd file. Here are a few things to look for:
