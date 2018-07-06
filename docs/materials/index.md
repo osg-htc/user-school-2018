@@ -35,8 +35,8 @@ status: in progress
 ### Monday Afternoon: Automating Workflows with HTCondor's DAGMan
 
 - Lecture: HTCondor: More on Workflows ([PDF](/materials/day1/files/osgus18-day1-part4-dagman.pdf);[PPT](/materials/day1/files/osgus18-day1-part4-dagman.ppt))
-- [Exercise 4.1: A brief detour through the Mandelbrot set](/materials/day1/part4-ex1-mandelbrot.md)
-- [Exercise 4.2: Coordinating set of jobs: A simple DAG](/materials/day1/part4-ex2-simple-dag.md)
+- [Exercise 4.1: Coordinating set of jobs: A simple DAG](/materials/day1/part4-ex1-simple-dag.md)
+- [Exercise 4.2: A brief detour through the Mandelbrot set](/materials/day1/part4-ex2-mandelbrot.md)
 - [Exercise 4.3: A more complex DAG](/materials/day1/part4-ex3-complex-dag.md)
 - [Exercise 4.4: Handling jobs that fail with DAGMan](/materials/day1/part4-ex4-failed-dag.md)
 - [Bonus Exercise 4.5: HTCondor challenges](/materials/day1/part4-ex5-challenges.md) (If and only if you have time)
