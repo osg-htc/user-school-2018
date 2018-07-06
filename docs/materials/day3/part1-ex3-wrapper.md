@@ -40,14 +40,15 @@ We now need to make some changes to our submit file.
 1. Since we are now using a wrapper script, that will be our job's executable. Replace the original `blastx` exeuctable with the name of our wrapper script and comment out the arguments line.  
 
         :::file
-        executable = run_blast.sh #arguments = </pre>
+        executable = run_blast.sh 
+        #arguments = 
 
 1. Note that since the `blastx` program is no longer listed as the executable, it will be need to be included in `transfer_input_files`. Instead of transferring just that program, we will transfer the original downloaded `tar.gz` file.  
 
         :::file
         transfer_input_files = pdbaa, mouse.fa, %BLUE%ncbi-blast-2.6.0+-x64-linux.tar.gz%ENDCOLOR%
 
-1. To achieve efficiency, we'll also transfer the pdbaa database as the original `tar.gz` file instead of as the unzipped folder:  <pre class="file">
+1. To achieve efficiency, we'll also transfer the pdbaa database as the original `tar.gz` file instead of as the unzipped folder: 
 
         :::file
         transfer_input_files = %BLUE%pdbaa.tar.gz%ENDCOLOR%, mouse.fa, ncbi-blast-2.6.0+-x64-linux.tar.gz
@@ -74,7 +75,7 @@ Now that our database and BLAST software are being transferred to the job as `ta
 1.  While not strictly necessary, it's a good idea to enable executable permissions on the wrapper script, like so: 
 
         :::console
-        user@osg-learn $ chmod u+x run_blast.sh
+        username@osg-learn $ chmod u+x run_blast.sh
 
 Your job is now ready to submit. Submit it using `condor_submit` and monitor using `condor_q`.
 

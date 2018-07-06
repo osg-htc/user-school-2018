@@ -58,7 +58,7 @@ Our goal is to pre-build an Open BUGS installation, and then write a script that
 	1.  To request an interactive job, we will add a `-i` flag to the `condor_submit` command. The whole command you enter should look like this: 
 
 			:::console
-			user@learn $ condor_submit -i build.submit
+			username@learn $ condor_submit -i build.submit
 
 Read Through Installation Documentation
 ---------------------------------------
@@ -77,41 +77,41 @@ Your interactive job should have started by now and we've learned about installi
 1.  Before we follow the installation instructions, we should create a directory to hold our installation. You can create this in the current directory. 
 
 		:::console
-		user@learn $ mkdir openbugs
+		username@learn $ mkdir openbugs
 
 1.  Now run the commands to unpack the source code: 
 
         :::console
-		user@learn $ tar zxvf OpenBUGS-3.2.3.tar.gz
-		user@learn $ cd OpenBUGS-3.2.3
+		username@learn $ tar zxvf OpenBUGS-3.2.3.tar.gz
+		username@learn $ cd OpenBUGS-3.2.3
 
 1.  Now we can follow the second set of installation instructions. For the prefix, we'll use the command `$(pwd)` to capture the name of our current working directory and then a relative path to the `openbugs` directory we created in step 1: 
 
 		:::console
-		user@learn $ ./configure --prefix=$(pwd)/../openbugs
-		user@learn $ make
-		user@learn $ make install
+		username@learn $ ./configure --prefix=$(pwd)/../openbugs
+		username@learn $ make
+		username@learn $ make install
 
 1.  **Go back to the job's main working directory**: 
 
 		:::console
-		user@learn $ cd ..
+		username@learn $ cd ..
 
 	and confirm that our installation procedure created `bin`,  `lib`, and `share` directories. 
 
 		:::console
-		user@learn $ ls openbugs
+		username@learn $ ls openbugs
 		bin lib share
 
 1.  Now we want to package up our installation, so we can use it in other jobs. We can do this simply by compressing any necessary directories into a single gzipped tarball. 
 
-	:::console
-	user@learn $ tar -czf openbugs.tar.gz openbugs/
+		:::console
+		username@learn $ tar -czf openbugs.tar.gz openbugs/
 
 1.  Once everything is complete, type `exit` to leave the interactive job. Make sure that your tarball is in the main working directory - it will be transferred back to the submit server automatically. 
 
 		:::console
-		user@learn $ exit
+		username@learn $ exit
 
 Note that we now have two tarballs in our directory -- the *source* tarball (`OpenBUGS-3.2.3.tar.gz`), which we will no longer need and our newly built installation (`openbugs.tar.gz`) which is what we will actually be using to run jobs.
 
@@ -125,7 +125,7 @@ Now that we've created our portable installation, we need to write a script that
 		:::bash
 		#/bin/bash
 
-		tar -xzf openbugs.tar.gz </pre>
+		tar -xzf openbugs.tar.gz
 
 1.  We're going to use the same `$(pwd)` trick from the installation in order to tell the computer how to find Open BUGS. We will do this by setting the `PATH` environment variable, to include the directory where Open BUGS is installed: 
 
@@ -140,7 +140,7 @@ Now that we've created our portable installation, we need to write a script that
 1.  Make sure the wrapper script has executable permissions: 
 
 		:::console
-		user@learn $ chmod u+x run_openbugs.sh
+		username@learn $ chmod u+x run_openbugs.sh
 
 
 Run a Open BUGS job
@@ -150,9 +150,9 @@ We're almost ready! We need two more pieces to run a OpenBUGS job.
 
 1.  Download the necessary input files to your directory on the submit server and then untar them. 
 
-	:::console
-	user@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/openbugs_files.tar.gz
-	user@learn $ tar -xzf openbugs_files.tar.gz
+		:::console
+		username@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/openbugs_files.tar.gz
+		username@learn $ tar -xzf openbugs_files.tar.gz
 
 1.  Our last step is to create a submit file for our Open BUGS job. Think about which lines this submit file will need. Make a copy of a previous submit file (you could use the blast submit file from the [previous exercise](/materials/day3/part1-ex3-wrapper) as a base) and modify it as you think necessary.
 

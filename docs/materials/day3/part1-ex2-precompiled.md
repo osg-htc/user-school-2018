@@ -34,8 +34,8 @@ reference database, the BLAST program.
 1.  Based on our operating system, we want to use the Linux binary, which is labelled with the `x64-linux` suffix. All the other links are either for source code or other operating systems. While logged into `osg-learn.chtc.wisc.edu`, create a directory for this exercise. Then download the appropriate `tar.gz` file and un-tar it. You can download the file directly from the BLAST website using `wget` or download our local copy with the command below: 
 
         :::console
-        user@host $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/ncbi-blast-2.6.0+-x64-linux.tar.gz
-        user@host $ tar -xzf ncbi-blast-2.6.0+-x64-linux.tar.gz
+        user@osg-learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/ncbi-blast-2.6.0+-x64-linux.tar.gz
+        user@osg-learn $ tar -xzf ncbi-blast-2.6.0+-x64-linux.tar.gz
 
 1.  We're going to be using the `blastx` binary in our job. Where is it in the directory you just downloaded?
 
@@ -47,13 +47,13 @@ To run BLAST, we need an input file and reference database. For this example, we
 1.  Download these files to your current directory: 
 
         :::console
-        user@host $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/pdbaa.tar.gz
-        user@host $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/mouse.fa
+        username@osg-learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/pdbaa.tar.gz
+        username@osg-learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/mouse.fa
 
 1.  Untar the `pdbaa` database: 
 
         :::console
-        user@host $ tar -xzf pdbaa.tar.gz
+        username@osg-learn $ tar -xzf pdbaa.tar.gz
 
 
 Submitting the Job
@@ -62,7 +62,7 @@ Submitting the Job
 We now have our program (the pre-compiled `blastx` binary) and our input files, so all that remains is to create the submit file. A typical `blastx` command looks something like this:
 
 ```console
-user $ blastx -db database -query input_file -out results.txt
+username@host $ blastx -db database -query input_file -out results.txt
 ```
 
 1.   Copy the submit file from the last exercise into your current directory. 

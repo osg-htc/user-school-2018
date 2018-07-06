@@ -70,19 +70,19 @@ In order to use this code in a job, we will first need to statically compile the
 1. Compile the code, using the command: 
 
         :::console
-        user@host $ gcc -static pascal.c -o pascal
+        username@osg-learn $ gcc -static pascal.c -o pascal
 
 	Note that we have added the `-static` option to make sure that the compiled binary includes the necessary libraries. This will allow the code to run on any Linux machine, no matter where those libraries are located. 
 
 1. Verify that the compiled binary was statically linked:
 
         :::console
-        user@host $ file pascal
+        username@osg-learn $ file pascal
 
 The Linux `file` command provides information about the *type* or *kind* of file that is given as an argument. In this case, you should get output like this:
 
 ```console
-user@host $ file pascal
+username@host $ file pascal
 pascal: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), %BLUE%statically linked%ENDCOLOR%,
 for GNU/Linux 2.6.18, not stripped
 ```

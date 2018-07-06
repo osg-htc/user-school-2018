@@ -2,9 +2,9 @@
 status: in progress
 ---
 
-<style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
+<style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
 
-Wednesday Exercise 1.7: Using Python, Pre-Built
+Wednesday Exercise 2.2: Using Python, Pre-Built
 ===============================================
 
 In this exercise, you will install Python, package your installation, and then use it to run jobs. It should take about 20 minutes.
@@ -16,7 +16,7 @@ We chose Python as the language for this example because: a) it is a common lang
 
 Running any Python script requires an installation of the Python interpreter. The Python interpreter is what we're using when we type `python` at the command line. In order to run Python jobs on a distributed system, you will need to install the Python interpreter (what we often refer to as just "installing Python"), within the job, then run your Python script.
 
-There are two installation approaches. The approach we will cover in this exercise is that of "pre-building" the installation (much like we did with Open BUGS [thir morning](part1-ex4-prepackaged.md)). We will install Python to a specific directory, and then create a tarball of that installation directory. We can then use our tarball within jobs to run Python scripts.
+There are two installation approaches. The approach we will cover in this exercise is that of "pre-building" the installation (much like we did with Open BUGS [this morning](/materials/day3/part1-ex4-prepackaged)). We will install Python to a specific directory, and then create a tarball of that installation directory. We can then use our tarball within jobs to run Python scripts.
 
 Interactive Job for Pre-Building
 --------------------------------
@@ -24,110 +24,93 @@ Interactive Job for Pre-Building
 The first step in our job process is building a Python installation that we can package up.
 
 1.  Create a directory for this exercise on `learn.chtc.wisc.edu` and `cd` into it.
-2.  Download the Python source code from <https://www.python.org/>. \\
+1.  Download the Python source code from <https://www.python.org/>. 
 
-``` console
-user@learn $ wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
-```
+		:::console
+		username@learn $ wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
 
 1.  Of our options - submit server, interactive job, personal computer - which should we use for this installation/packaging process? Once you have a guess, move to the next step.
-2.  Due to the number of people on our submit server, we shouldn't use the submit server. Your own computer probably doesn't have the right operating system. \\
 
-The best place to install will be an interactive job. For this job, we can use the same interactive submit file as Exercise 1.4, with one change. What is it?
+1.  Due to the number of people on our submit server, we shouldn't use the submit server. Your own computer probably doesn't have the right operating system. The best place to install will be an interactive job. For this job, we can use the same interactive submit file as Exercise 1.4, with one change. What is it?
 
-1.  Make a copy of the interactive submit file from [Exercise 1.4](part1-ex4-prepackaged.md) and change the `transfer_input_files` line to the Python tarball you just downloaded. Then submit it using the `-i` flag. \\
+1.  Make a copy of the interactive submit file from [Exercise 1.4](part1-ex4-prepackaged.md) and change the `transfer_input_files` line to the Python tarball you just downloaded. Then submit it using the `-i` flag. 
 
-``` console
-user@learn $ condor_submit -i build.submit
-```
+		:::console
+		username@learn $ condor_submit -i build.submit
 
 1.   Once the interactive job begins, we can start our installation process. First, we have to determine how to install Python to a specific location in our working directory.
     1.  Untar the Python source tarball and look at the `README` in the `Python-3.6.1` directory. What will the main installation steps be? Where will Python be installed by default? Once you've tried to answer these questions, move to the next step.
-    2.  There are some basic installation \\
+    1.  There are some basic installation instructions near the top of the `README`. Based on that short introduction, we can see the main steps of installation will be: 
 
-instructions near the top of the `README`. Based on that short introduction, we can see the main steps of installation will be: \\
+		./configure
+		make
+		make install
 
-    ./configure
-    make
-    make install
+		This looks a lot like the Open BUGS installation from earlier today! It turns out that this three-stage process (configure, make, make install) is a common  way to install many software packages.   Also like the Open BUGS installation, the default installation  location for Python requires `sudo` (administrative privileges) to install. However, we'd like to install to a specific location in the working directory  so that we can compress that installation directory into a tarball. How did we do this with Open BUGS? 
 
-\\ \\ This looks a lot like the Open BUGS installation from earlier today! It turns out that this three-stage process (configure, make, make install) is a common \\ way to install many software packages. \\ \\ Also like the Open BUGS installation, the default installation \\ location for Python requires `sudo` (administrative privileges) to install. However, we'd like to install to a specific location in the working directory \\ so that we can compress that installation directory into a tarball. How did we do this with Open BUGS? \\
+	1.   With Open BUGS we used the `-prefix` option with the `configure` script. Let's see if the Python `configure` script has this option by using the "help" option.  
 
-1.   With Open BUGS we used the `-prefix` option with the `configure` script. Let's see if the Python \\
+			:::console
+			username@learn $ ./configure --help
 
-`configure` script has this option by using the "help" option. \\ \\
-
-``` console
-user@learn $ ./configure --help
-```
-
-\\ \\ Sure enough, there's a list of all the different options that can be passed to the `configure` script, which includes `-prefix`. Therefore, we can use the \\ `$(pwd)` command in order to set the path correctly, just as we did earlier today.
+		Sure enough, there's a list of all the different options that can be passed to the `configure` script, which includes `-prefix`. Therefore, we can use the  `$(pwd)` command in order to set the path correctly, just as we did earlier today.
 
 1.  Now let's actually install Python!
-    1.  **From the job's main working directory**, create a directory to hold the installation. \\
+    1.  **From the job's main working directory**, create a directory to hold the installation. 
 
-``` console
-user@learn $ cd $_CONDOR_SCRATCH_DIR
-user@learn $ mkdir python
-```
+			:::console
+			username@learn $ cd $_CONDOR_SCRATCH_DIR
+			username@learn $ mkdir python
 
-1.  Move into the `Python 3.6.1` directory and run the installation commands. These may take a few minutes each. \\
+	1.  Move into the `Python 3.6.1` directory and run the installation commands. These may take a few minutes each. 
 
-``` console
-user@learn $ cd Python-3.6.1
-user@learn $ ./configure --prefix=$(pwd)/../python
-user@learn $ make
-user@learn $ make install
-```
+			:::console
+			username@learn $ cd Python-3.6.1
+			username@learn $ ./configure --prefix=$(pwd)/../python
+			username@learn $ make
+			username@learn $ make install
 
-1.  If I move back to the main job working directory, and look in the `python` subdirectory, I should see a Python installation. \\
+	1.  If I move back to the main job working directory, and look in the `python` subdirectory, I should see a Python installation. 
 
-``` console
-user@learn $ cd ..
-user@learn $ ls python/
-bin  include  lib  share
-```
+			:::console
+			username@learn $ cd ..
+			username@learn $ ls python/
+			bin  include  lib  share
 
-1.  I have successfully created a self-contained Python installation. Now it just needs to be tarred up! \\
+	1.  I have successfully created a self-contained Python installation. Now it just needs to be tarred up! 
 
-``` console
-user@learn $ tar -czf prebuilt_python.tar.gz python/
-```
+			:::console
+			username@learn $ tar -czf prebuilt_python.tar.gz python/
 
-1.  Before exiting, we might want to know how we installed Python for later reference. \\
+1.  Before exiting, we might want to know how we installed Python for later reference.  Enter the following commands to save our history to a file: 
 
-Enter the following commands to save our history to a file: \\
+		:::console
+		username@learn $ history > python_install.txt
 
-``` console
-user@learn $ history > python_install.txt
-```
+1.  Exit the interactive job. 
 
-1.  Exit the interactive job. \\
-
-``` console
-user@learn $ exit
-```
+		:::console
+		username@learn $ exit
 
 Python Script
 -------------
 
-1.  Create a script with the following lines called `fib.py`. \\
+1.  Create a script with the following lines called `fib.py`. 
 
-``` file
-import sys
-import os
+		:::python
+		import sys
+		import os
 
-if len(sys.argv) != 2:
-    print('Usage: %s MAXIMUM' % (os.path.basename(sys.argv[0])))
-    sys.exit(1)
-maximum = int(sys.argv[1])
-n1 = n2 = 1
-while n2 <= maximum:
-    n1, n2 = n2, n1 + n2
-print('The greatest Fibonacci number up to %d is %d' % (maximum, n1))
-```
+		if len(sys.argv) != 2:
+			print('Usage: %s MAXIMUM' % (os.path.basename(sys.argv[0])))
+			sys.exit(1)
+		maximum = int(sys.argv[1])
+		n1 = n2 = 1
+		while n2 <= maximum:
+			n1, n2 = n2, n1 + n2
+		print('The greatest Fibonacci number up to %d is %d' % (maximum, n1))
 
-2. What command line arguments does this script take? Try running it on the submit server.
+1. What command line arguments does this script take? Try running it on the submit server.
 
 Wrapper Script
 --------------
@@ -135,35 +118,43 @@ Wrapper Script
 We now have our Python installation and our Python script - we just need to write a wrapper script to run them.
 
 1.  What steps do you think the wrapper script needs to perform? Create a file called `run_fib.sh` and write them out in plain English before moving to the next step.
-2.  Our script will need to
+1.  Our script will need to
     1.  untar our `prebuilt_python.tar.gz` file
-    2.  access the `python` command from our installation to run our `fib.py` script
-3.  Try turning your plain English steps into commands that the computer can run.
-4.  Your final `run_fib.sh` script should look something like this: \\ <pre class="file">
+    1.  access the `python` command from our installation to run our `fib.py` script
+1.  Try turning your plain English steps into commands that the computer can run.
+1.  Your final `run_fib.sh` script should look something like this: 
 
-\#/bin/bash
+		:::bash
+		#/bin/bash
 
-tar xzf prebuilt\_python.tar.gz python/bin/python3 fib.py 5 </pre>\\ or\\ <pre class="file"> \#/bin/bash
+		tar xzf prebuilt_python.tar.gz python/bin/python3 fib.py 5
 
-tar xzf prebuilt\_python.tar.gz export PATH=$(pwd)/python/bin:$PATH python3 fib.py 5 </pre>\\
+	or
+
+		:::bash
+		#/bin/bash
+
+		tar xzf prebuilt_python.tar.gz export PATH=$(pwd)/python/bin:$PATH python3 fib.py 5
 
 1.  Make sure your `run_fib.sh` script is executable.
 
 Submit File
 -----------
 
-1.  Make a copy of a previous submit file in your local directory (the Open BUGS submit file could be a good starting point). What changes need to be made to run this Python job? 2. Modify your submit file, then make sure you've included the key lines below: \\
+1.  Make a copy of a previous submit file in your local directory (the Open BUGS submit file could be a good starting point). What changes need to be made to run this Python job? 
 
-``` file
-executable = run_fib.sh
-transfer_input_files = fib.py, prebuilt_python.tar.gz
-```
+1. Modify your submit file, then make sure you've included the key lines below: 
 
-1.  Because we pre-built our Python installation on a machine running Scientific Linux, version 6.something, we should request machines with similar characteristics. Add the following line to your submit file as well: \\
+		:::file
+		executable = run_fib.sh
+		transfer_input_files = fib.py, prebuilt_python.tar.gz
 
-``` file
-requirements = (OpSys == "LINUX" && OpSysMajorVer == 6 )
-```
+1.  Because we pre-built our Python installation on a machine running Scientific Linux, version 6.something, we should request machines with similar characteristics. Add the following line to your submit file as well: 
 
-3. Submit the job using `condor_submit`. 4. Check the `.out` file to see if the job completed.
+		:::file
+		requirements = (OpSys == "LINUX" && OpSysMajorVer == 6 )
+
+1. Submit the job using `condor_submit`. 
+
+1. Check the `.out` file to see if the job completed.
 
