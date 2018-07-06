@@ -30,9 +30,8 @@ Determining Resource Needs Before Running Any Jobs
     If you are running short on time, you can skip to "Determining Resource Needs By Running Test Jobs", below, but try to come back and read over this part at some point.
 
 It can be very difficult to predict the memory needs of your running program without just running tests. Typically, the memory size of a job changes over time, making the task even trickier. 
-If you have knowledge ahead of time about your job’s maximum memory needs, use that, or a maybe a number that's just a bit higher, to be safe. Worst case scenario, you can request a fairly large amount of memory (higher than what's on your laptop or other server, if you know you job can run ther without crashing) for a first test job, OR you can run the job locally and 'watch' it:
-
-### Running a Job Locally 
+If you have knowledge ahead of time about your job’s maximum memory needs, use that, or a maybe a number that's just a bit higher, to be safe. Worst case scenario, you can request a fairly large amount of memory (as high as what's on your laptop or other server, if you know your program can run without crashing) for a first test job, OR you can run the program locally and 'watch' it:
+### Examining a Running Program on a Local Computer
 
 When working on a shared submit server, you should not run computationally-intensive work because it can use resources needed by HTCondor to manage the queue for all uses. 
 However, you may have access to other computers (your laptop, for example, or another server) where you can observe the memory usage of a program. The downside is that you'll have to watch a program run for essentially the entire time, to make sure you catch the maximum memory usage.
@@ -106,7 +105,9 @@ time.sleep(60)
 os.remove('temp')
 ```
 
-Without trying to figure out what this code does or how many resources it uses, just create a submit file for it, and run it once with HTCondor, starting with somewhat high memory requests ("1GB" for memory and disk is a good starting point, unless you think the job will use far more, and will still match quickly). When it is done, examine the log file. In particular, we care about these lines:
+Without trying to figure out what this code does or how many resources it uses, just create a submit file for it, 
+and run it once with HTCondor, starting with somewhat high memory requests ("1GB" for memory and disk is a good starting point, unless you think the job will use far more).
+When it is done, examine the log file. In particular, we care about these lines:
 
 ``` file
     Partitionable Resources :    Usage  Request Allocated
@@ -137,6 +138,5 @@ Pay close attention to units:
 
 HTCondor translates these requirements into attributes that become part of the job's `requirements` expression. However, do not put your CPU, memory, and disk requirements directly into the `requirements` expression; use the `request_<i>XXX</i>` statements instead.
 
-Add these requirements to your submit file for the Python script, rerun the job, and confirm in the log file that your requests were used.
-
+**If you still have time in this working session, Add these requirements to your submit file for the Python script, rerun the job, and confirm in the log file that your requests were used.**
 

@@ -9,7 +9,7 @@ Monday Exercise 1.3: Run Jobs!
 
 The goal of this exercise is to submit jobs to HTCondor and have them run on the local pool (CHTC). This is a huge step in learning to use an HTC system!
 
-This exercise will take longer than the first two, short ones. It is the essential part of this exercise time. If you are having any problems getting the jobs to run, please ask the instructors! It is very important that you know how to run simple jobs.
+**This exercise will take longer than the first two, short ones. It is the essential part of this exercise time. If you are having any problems getting the jobs to run, please ask the instructors! It is very important that you know how to run simple jobs.**
 
 Running a Simple Job
 --------------------
@@ -61,9 +61,7 @@ Submitting job(s).
 1 job(s) submitted to cluster NNNN.
 ```
 
-The actual cluster number will be shown instead of `NNNN`.
-
-If, instead of the text above, there are error messages, read them carefully and then try to correct your submit file or ask for help.
+The actual cluster number will be shown instead of `NNNN`. **If, instead of the text above, there are error messages, read them carefully and then try to correct your submit file or ask for help.**
 
 Notice that `condor_submit` returns back to the shell prompt right away. It does **not** wait for your job to run. Instead, as soon as it has finished submitting your job into the queue, the submit command finishes.
 
@@ -73,7 +71,7 @@ Now, use `condor_q` and `condor_q -nobatch` to watch for your job in the queue!
 
 You may not even catch the job in the `R` running state, because the `hostname` command runs very quickly. When the job itself is finished, it will 'leave' the queue and no longer be listed in the `condor_q` output.
 
-The output from your job is written to the filename given in the `output` line of your submit file. Thus, after the job finishes, you should be able to see the `hostname` output in `simple.out`, since this information is usually printed to the terminal by the `hostname` program, and not to a special file of it's own.
+After the job finishes, check for the `hostname` output in `simple.out`, which is where job information printed to the terminal screen will be printed for the jobi.
 
 ``` console
 username@learn $ cat simple.out
@@ -98,7 +96,7 @@ In an HTCondor submit file, the program (or 'executable') name goes in the `exec
 username@learn $ sleep 60
 ```
 
-Then in the submit file, we would put the location of the "sleep" program (you can find it with `which sleep`) as the job `executable`, and options ("60" seconds for the "sleep" program to count) as the job `arguments`:
+Then in the submit file, we would put the location of the "sleep" program (you can find it with `which sleep`) as the job `executable`, and `60` as the job `arguments`:
 
 ``` file
 executable = /bin/sleep
@@ -111,7 +109,7 @@ For the command-line command:
 username@learn $ dc -e '6 7 * p'
 ```
 
-We would put the following into the submit file:
+We would put the following into the submit file, putting the `arguments` statement in quotes, since it contains single quotes:
 
 ``` file
 executable = /usr/bin/dc
@@ -150,7 +148,7 @@ Running a Script Job From the Submit Directory
 
 So far, we have been running programs (executables) that come with the standard Linux system. 
 More frequently, you will want to run a program that exists within your directory 
-or perhaps a simple shell script of commands that you'd like to run within a job. In this example, you will write a shell script and a submit file to run the shell script within a job:
+or perhaps a simple shell script of commands that you'd like to run within a job. In this example, you will write a shell script and a submit file that runs the shell script within a job:
 
 1. Put the following contents into a file named `test-script.sh`:
 

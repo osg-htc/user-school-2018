@@ -9,6 +9,8 @@ Monday Exercise 1.6: Remove Jobs From the Queue
 
 The goal of this exercise is to show you how to remove jobs from the queue. This is helpful if you make a mistake, do not want to wait for a job to complete, or otherwise need to fix things. For example, if some test jobs go on hold for using too much memory or disk, you may want to just remove them, edit the submit files, and then submit again.
 
+**Skip this exercise and come back to it if you are short on time, or until you need to remove jobs for other exercises**
+
 !!! note
     Please remember to remove any jobs from the queue that you have given up on. Otherwise, the queue will start to get very long with jobs that will waste resources (and decrease your priority), or that may never run (if they're on hold, or have other issues keeping them from matching).
 

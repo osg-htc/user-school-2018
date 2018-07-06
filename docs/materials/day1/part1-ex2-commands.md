@@ -24,7 +24,7 @@ username@learn $ condor_status
 
 This command, running on our (CHTC) pool, will produce a lot of output; there is one line per slot, and we typically have over 10,000 slots. **TIP: You can widen your terminal window, which may help you to see all details of the output better.**
 
-Here is some example output (what you see will be longer):
+*Here is some example output (what you see will be longer):*
 
 ``` console
 slot1_31@e437.chtc.wisc.edu        LINUX      X86_64 Unclaimed Idle      0.000 8053  0+01:14:34
@@ -75,17 +75,7 @@ Also try out the `-compact` for a slightly different view of whole machines (i.e
 username@learn $ condor_status -compact
 ```
 
--   How has the column information changed? (Below is an example of the top of the output.)
-
-``` console
-Machine                      Platform     Slots Cpus Gpus  TotalGb FreCpu  FreeGb  CpuLoad ST Jobs/Min MaxSlotGb
-
-aci-005.chtc.wisc.edu        x64/SL6         16   16         58.86      0     1.29    1.00 Cb     0.00     12.00
-aci-017.chtc.wisc.edu        x64/SL6         14   16         58.86      2     2.86    0.88 **     0.00      4.00
-aci-056.chtc.wisc.edu        x64/SL6          7   16         58.86      9     0.86    0.42 **     0.05     12.00
-aci-057.chtc.wisc.edu        x64/SL6          6   16         58.82     10     2.82    0.39 **     0.00     12.00
-aci-058.chtc.wisc.edu        x64/SL6          6   16         58.86     10     2.86    0.38 **     0.00     12.00
-```
+**How has the column information changed?**
 
 Viewing Jobs
 ------------
@@ -143,8 +133,6 @@ By default, the `condor_q` command shows **your** jobs only. To see everyone’s
 username@learn $ condor_q -all
 ```
 
-Run that command now and use its output to answer the following questions:
-
 -   How many jobs are queued in total (i.e., running or waiting to run)?
 -   How many jobs from this submit machine are running right now?
 
@@ -156,7 +144,7 @@ The `condor_q` output, by default, groups "batches" of jobs together (if they we
 username@learn $ condor_q -all -nobatch
 ```
 
-How has the column information changed? (Below is an example of the top of the output.)
+**How has the column information changed?** (Below is an example of the top of the output.)
 
 ``` console
 -- Schedd: learn.chtc.wisc.edu : <128.104.100.43:9618?... @ 07/17/17 09:58:44
@@ -181,7 +169,7 @@ The `-nobatch` output shows a line for every job and consists of 8 columns:
 | SIZE      | `0.0`           | Current run-time memory usage, in MB                                           |
 | CMD       | `run_ffmpeg.sh` | The executable command (with arguments) to be run                              |
 
-In future exercises, you'll want to switch between `condor_q` and `condor_q -nobatch` to see different types of information about YOUR jobs.
+**In future exercises, you'll want to switch between `condor_q` and `condor_q -nobatch` to see different types of information about YOUR jobs.**
 
 Extra Information
 -----------------

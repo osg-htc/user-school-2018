@@ -10,14 +10,14 @@ Monday Exercise 1.4: Read and Interpret Log Files
 The goal of this exercise is quite simple: 
 Learn to understand the contents of a job log file, which is where HTCondor describes the steps 
 taken to run your job.
-When things go wrong with your job, the log is the best place to look first pointers (in addition to the .err file).
+When things go wrong with your job, the log is the best place to look for first pointers (in addition to the .err file).
 
 This exercise is short, but you'll want to at least read over it before moving on (and come back later, if you can't run through it now).
 
 Reading a Log File
 ------------------
 
-For this exercise, we can reuse any previous job that you have run. The example output below is based on the `sleep 60` job.
+For this exercise, we can examoine a log file for any previous job that you have run. The example output below is based on the `sleep 60` job.
 
 A job log file is updated throughout the life of a job, usually at key events. Each event starts with a heading that indicates what happened and when. Here are **all** of the event headings from the `sleep` job log (detailed output in between headings has been omitted here):
 
@@ -85,7 +85,7 @@ The job termination event includes a great deal of additional information:
 
 Probably the most interesting information is:
 
--   The `return value` (`0` here, which is success; non-zero usually means failure)
+-   The `return value` (`0` here, means the executable completed and didn't indicate any internal errors; non-zero usually means failure)
 -   The total number of bytes transferred each way, which could be useful if your network is slow
 -   The `Partitionable Resources` table, especially disk and memory usage, which will inform larger submissions.
 
@@ -103,9 +103,7 @@ When are events written to the job log file? Let’s find out. Read through the 
 1.  Right away, run a command to show the log file and **keep showing** updates as they occur:
 
         :::console
-        username@learn tail -f sleep.lo
-
-    Be sure to use the correct filename for your log file, as named in your submit file.
+        username@learn tail -f sleep.log
 
 1.  Watch the output carefully. When do events appear in the log file?
 1.  After the termination event appears, press Control-C to end the `tail` command and return to the shell prompt.
