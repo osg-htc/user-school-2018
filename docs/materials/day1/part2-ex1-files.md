@@ -88,7 +88,7 @@ for word in sorted(words.keys()):
 1.  Add a line to tell HTCondor to transfer the input file:
 
         :::file
-        transfer_input_files = mon-3.2-words.txt
+        transfer_input_files = mon-2.1-words.txt
 
     As with all submit file commands, it does not matter where this line goes, as long as it comes before the word `queue`.
 
@@ -170,7 +170,7 @@ Thinking About Progress So Far
 
 At this point, you can do just about everything that you need in order to run jobs on a local HTC pool. You can identify the executable, arguments, and input files, and you can get output back from the job. This is a big achievement!
 
-In some ways, everything after this exercise just makes it easier to run certain kinds of jobs and deal with certain kinds of situations.
+In some ways, everything after this exercise shows you how to submit multiple jobd at once and makes it easier to run certain kinds of jobs and deal with certain kinds of situations.
 
 References
 ----------
