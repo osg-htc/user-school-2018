@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css">
@@ -7,7 +7,7 @@ status: in progress
   pre strong { font-style: normal; font-weight: bold; color: \#008; }
 </style>
 
-# Monday Exercise 3.3: Coordinating a Set of Jobs With a Simple DAG
+# Monday Exercise 4.1: Coordinating a Set of Jobs With a Simple DAG
 
 The objective of this exercise is to learn the very basics of running a set of jobs, where our set is just one job.
 
@@ -18,7 +18,7 @@ For example, you may wish to run a large parameter sweep but before the sweep ru
 the sweep runs, you need to collate the results.  This might look like this, assuming you want to sweep over five
 parameters:
 
-<img src="files/osgus17-day1-part3-ex3-simple-dag.gif" alt="simple DAG" width="480" height="267">
+<img src="/materials/day1/files/osgus18-day1-part4-ex1-simple-dag.gif" alt="simple DAG" width="480" height="267">
 
 DAGMan has many abilities, such as throttling jobs, recovery from failures, and more.  More information about DAGMan can
 be found at [in the Condor manual](http://research.cs.wisc.edu/htcondor/manual/v8.5/2_10DAGMan_Applications.html).
@@ -34,8 +34,8 @@ log                     = simple.log
 output                  = simple.out
 error                   = simple.error
 request_memory = 1GB
-request_disk       = 1GB
-request_cpus      = 1
+request_disk = 1GB
+request_cpus = 1
 queue
 ```
 
@@ -183,8 +183,11 @@ username@learn $ tail -f --lines=500 simple.dag.dagman.out
 06/21/12 22:51:28 Sleeping for one second for log file consistency
 06/21/12 22:51:29 MultiLogFiles: truncating log file /home/roy/condor/simple.log
 06/21/12 22:51:29 Submitting Condor Node Simple job(s)...
+```
 
-%RED%Here's where the job is submitted%ENDCOLOR%
+%RED%**Here's where the job is submitted**%ENDCOLOR%
+
+```file
 06/21/12 22:51:29 submitting: condor_submit 
                               -a dag_node_name' '=' 'Simple 
                               -a +DAGManJobId' '=' '61 
@@ -206,16 +209,22 @@ username@learn $ tail -f --lines=500 simple.dag.dagman.out
 06/21/12 22:51:30     0       0        1       0       0          0        0
 06/21/12 22:51:30 0 job proc(s) currently held
 06/21/12 22:55:05 Currently monitoring 1 Condor log file(s)
+```
 
-%RED%Here's where DAGMan noticed that the job is running%ENDCOLOR%
+%RED%*Here's where DAGMan noticed that the job is running**%ENDCOLOR%
+
+```file
 06/21/12 22:55:05 Event: ULOG_EXECUTE for Condor Node Simple (62.0.0)
 06/21/12 22:55:05 Number of idle job procs: 0
 06/21/12 22:55:10 Currently monitoring 1 Condor log file(s)
 06/21/12 22:55:10 Event: ULOG_IMAGE_SIZE for Condor Node Simple (62.0.0)
 06/21/12 22:56:05 Currently monitoring 1 Condor log file(s)
 06/21/12 22:56:05 Event: ULOG_IMAGE_SIZE for Condor Node Simple (62.0.0)
+```
 
-%RED%Here's where DAGMan noticed that the job  finished.%ENDCOLOR%
+%RED%**Here's where DAGMan noticed that the job finished.**%ENDCOLOR%
+
+```file
 06/21/12 22:56:05 Event: ULOG_JOB_TERMINATED for Condor Node Simple (62.0.0)
 06/21/12 22:56:05 Node Simple job proc (62.0.0) completed successfully.
 06/21/12 22:56:05 Node Simple job completed
@@ -225,8 +234,11 @@ username@learn $ tail -f --lines=500 simple.dag.dagman.out
 06/21/12 22:56:05   ===     ===      ===     ===     ===        ===      ===
 06/21/12 22:56:05     1       0        0       0       0          0        0
 06/21/12 22:56:05 0 job proc(s) currently held
+```
 
-%RED%Here's where DAGMan noticed that all the work is done.%ENDCOLOR%
+%RED%**Here's where DAGMan noticed that all the work is done.**%ENDCOLOR%
+
+```file
 06/21/12 22:56:05 All jobs Completed!
 06/21/12 22:56:05 Note: 0 total job deferrals because of -MaxJobs limit (0)
 06/21/12 22:56:05 Note: 0 total job deferrals because of -MaxIdle limit (0)
@@ -300,16 +312,11 @@ environment = _CONDOR_DAGMAN_LOG=simple.dag.dagman.out;_CONDOR_MAX_DAGMAN_LOG=0
 queue
 ```
 
-Clean up some of these files:
+IF you want to clean up some of these files (you may not want to, at least not yet):
 
 ``` console
 username@learn $ rm simple.dag.*
 ```
-
-## On Your Own
-
-- Why does DAGman run as a Condor job?
-- Look at the submit file for DAGMan: What does `on_exit_remove` do? Why is this here?
 
 ## Challenge
 
