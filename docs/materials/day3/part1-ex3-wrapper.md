@@ -7,7 +7,7 @@ status: in progress
 Wednesday Exercise 1.3: Using Wrapper Scripts to Submit Jobs
 ============================================================
 
-In this exercise, you will create a wrapper script to run the same program (`blastx`) as the [previous exercise](part1-ex2-precompiled.md).
+In this exercise, you will create a wrapper script to run the same program (`blastx`) as the [previous exercise](/materials/day3/part1-ex2-precompiled).
 
 Background
 ----------
@@ -26,9 +26,11 @@ Our wrapper script will be a bash script that runs several commands.
         :::bash
         #/bin/bash
         
-        ncbi-blast-2.6.0+/bin/blastx -db pdbaa/pdbaa -query mouse.fa -out results.txt 
-    
-    **Note**: the "header" of `#!/bin/bash` will tell the computer that this is a bash shell script and can be run in the same way that  you would run individual commands on the command line.) 
+        ncbi-blast-2.7.1+/bin/blastx -db pdbaa/pdbaa -query mouse.fa -out results.txt 
+
+
+	!!! note 
+		The "header" of `#!/bin/bash` will tell the computer that this is a bash shell script and can be run in the same way that  you would run individual commands on the command line.
 
 Submit File Changes
 -------------------
@@ -46,12 +48,12 @@ We now need to make some changes to our submit file.
 1. Note that since the `blastx` program is no longer listed as the executable, it will be need to be included in `transfer_input_files`. Instead of transferring just that program, we will transfer the original downloaded `tar.gz` file.  
 
         :::file
-        transfer_input_files = pdbaa, mouse.fa, %BLUE%ncbi-blast-2.6.0+-x64-linux.tar.gz%ENDCOLOR%
+        transfer_input_files = pdbaa, mouse.fa, %BLUE%ncbi-blast-2.7.1+-x64-linux.tar.gz%ENDCOLOR%
 
 1. To achieve efficiency, we'll also transfer the pdbaa database as the original `tar.gz` file instead of as the unzipped folder: 
 
         :::file
-        transfer_input_files = %BLUE%pdbaa.tar.gz%ENDCOLOR%, mouse.fa, ncbi-blast-2.6.0+-x64-linux.tar.gz
+        transfer_input_files = %BLUE%pdbaa.tar.gz%ENDCOLOR%, mouse.fa, ncbi-blast-2.7.1+-x64-linux.tar.gz
 
 Wrapper Script, part 2
 ----------------------
@@ -67,10 +69,10 @@ Now that our database and BLAST software are being transferred to the job as `ta
         :::bash
         #/bin/bash
         
-        tar -xzf ncbi-blast-2.6.0+-x64-linux.tar.gz 
+        tar -xzf ncbi-blast-2.7.1+-x64-linux.tar.gz 
         tar -xzf pdbaa.tar.gz
 
-        ncbi-blast-2.6.0+/bin/blastx -db pdbaa/pdbaa -query mouse.fa -out results2.txt
+        ncbi-blast-2.7.1+/bin/blastx -db pdbaa/pdbaa -query mouse.fa -out results2.txt
 
 1.  While not strictly necessary, it's a good idea to enable executable permissions on the wrapper script, like so: 
 

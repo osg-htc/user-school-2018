@@ -20,22 +20,25 @@ Our Software Example
 The software we will be using for this example is a common tool for aligning genome and protein sequences against a
 reference database, the BLAST program.
 
-1.  Search the internet for the BLAST software.  Searches might include "blast executable
+1.  Search the internet for the BLAST software.  Searches might include "blast executable or "download blast software".  Hopefully these searches will lead you to a BLAST website page that looks like this:
 
-    or "download blast software".  Hopefully these searches will lead you to a BLAST website page that looks like this:
-    ![BLAST landing page](files/osgus17-day3-part1-ex2-blast-landing-page.png)
+    ![BLAST landing page](/materials/day3/files/osgus18-day3-part1-ex2-blast-front-page.png)
 
-1.  Click on the title that says "Download BLAST" and then look for the link that has the latest installation and source
-    code.  You should end up on a page with a list of each version of BLAST that is available for different operating
-    systems.
+1.  Click on the title that says "Download BLAST" and then look for the link that has the latest installation and source code.  You should end up on a page with a list of each version of BLAST that is available for different operating systems.
 
 1.  We could download the source and compile it ourselves, but instead, we're going to use one of the pre-built binaries.  Before proceeding, look at the list of downloads and try to determine which one you want. 
 
-1.  Based on our operating system, we want to use the Linux binary, which is labelled with the `x64-linux` suffix. All the other links are either for source code or other operating systems. While logged into `osg-learn.chtc.wisc.edu`, create a directory for this exercise. Then download the appropriate `tar.gz` file and un-tar it. You can download the file directly from the BLAST website using `wget` or download our local copy with the command below: 
+1.  Based on our operating system, we want to use the Linux binary, which is labelled with the `x64-linux` suffix. 
+
+	![BLAST downloads](/materials/day3/files/osgus18-day3-part1-ex2-blast-src-page.png)
+
+	All the other links are either for source code or other operating systems. 
+	
+1. While logged into `osg-learn.chtc.wisc.edu`, create a directory for this exercise. Then download the appropriate `tar.gz` file and un-tar it. You can download the file directly from the BLAST website using `wget` or download our local copy with the command below: 
 
         :::console
-        user@osg-learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/ncbi-blast-2.6.0+-x64-linux.tar.gz
-        user@osg-learn $ tar -xzf ncbi-blast-2.6.0+-x64-linux.tar.gz
+        user@osg-learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/ncbi-blast-2.7.1+-x64-linux.tar.gz
+        user@osg-learn $ tar -xzf ncbi-blast-2.7.1+-x64-linux.tar.gz
 
 1.  We're going to be using the `blastx` binary in our job. Where is it in the directory you just downloaded?
 
@@ -47,8 +50,8 @@ To run BLAST, we need an input file and reference database. For this example, we
 1.  Download these files to your current directory: 
 
         :::console
-        username@osg-learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/pdbaa.tar.gz
-        username@osg-learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/mouse.fa
+        username@osg-learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/pdbaa.tar.gz
+        username@osg-learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/mouse.fa
 
 1.  Untar the `pdbaa` database: 
 
@@ -61,8 +64,8 @@ Submitting the Job
 
 We now have our program (the pre-compiled `blastx` binary) and our input files, so all that remains is to create the submit file. A typical `blastx` command looks something like this:
 
-```console
-username@host $ blastx -db database -query input_file -out results.txt
+```file
+blastx -db database -query input_file -out results.txt
 ```
 
 1.   Copy the submit file from the last exercise into your current directory. 
@@ -80,7 +83,7 @@ username@host $ blastx -db database -query input_file -out results.txt
     * The executable is `blastx`, which is located in the `bin` directory of our downloaded BLAST directory. We need to use the `arguments` line in the submit file to express the rest of the command. 
     
             :::file
-            executable = ncbi-blast-2.6.0+/bin/blastx
+            executable = ncbi-blast-2.7.1+/bin/blastx
             arguments = -db pdbaa/pdbaa -query mouse.fa -out results.txt
 
     * The BLAST program requires our input file and database, so they must be transferred with `transfer_input_files`. 

@@ -25,7 +25,7 @@ Our C code prints 7 rows of Pascal's triangle.
 1.  Copy and paste the following code into a file named `pascal.c`.
 
         :::c++
-        #include stdio.h
+        #include "stdio.h"
         
         long factorial(int);
         

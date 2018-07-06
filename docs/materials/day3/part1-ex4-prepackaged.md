@@ -17,7 +17,7 @@ Some software cannot be compiled into a single executable, whether you compile i
 Our Software Example
 --------------------
 
-For this exercise, we will be using the Bayseian inference package Open BUGS. Open BUGS is a good example of software that is not compiled to a single executable; it has multiple executables as well as a helper library.
+For this exercise, we will be using the Bayseian inference package OpenBUGS. OpenBUGS is a good example of software that is not compiled to a single executable; it has multiple executables as well as a helper library.
 
 1.  Do an internet search to find the Open BUGS software downloads page.
 
@@ -28,11 +28,11 @@ For this exercise, we will be using the Bayseian inference package Open BUGS. Op
 Where to Prepare
 ----------------
 
-Our goal is to pre-build an Open BUGS installation, and then write a script that will unpack that installation and run a simulation.
+Our goal is to pre-build an OpenBUGS installation, and then write a script that will unpack that installation and run a simulation.
 
 1.  Where can we create this pre-built installation? Based on the end of the lecture, what are our options and which would be most appropriate? Make a guess before moving on.
 
-1.  Because we're on the CHTC-based submit node (`learn.chtc.wisc.edu`), we have the option of using an interactive job to build the Open BUGS installation. This is a good option because the submit server is already busy with lots of users and we don't know how long the Open BUGS install will take. To submit an interactive job do the following:
+1.  Because we're on the CHTC-based submit node (`learn.chtc.wisc.edu`), we have the option of using an interactive job to build the OpenBUGS installation. This is a good option because the submit server is already busy with lots of users and we don't know how long the OpenBUGS install will take. To submit an interactive job do the following:
 
     1.  Copy the following lines into a file named `build.submit`
 
@@ -47,6 +47,7 @@ Our goal is to pre-build an Open BUGS installation, and then write a script that
 			when_to_transfer_output = ON_EXIT
 			transfer_input_files = 
 
+			request_cpus = 1
 			request_disk = 2GB
 			request_memory = 2GB
 
@@ -77,36 +78,36 @@ Your interactive job should have started by now and we've learned about installi
 1.  Before we follow the installation instructions, we should create a directory to hold our installation. You can create this in the current directory. 
 
 		:::console
-		username@learn $ mkdir openbugs
+		username@host $ mkdir openbugs
 
 1.  Now run the commands to unpack the source code: 
 
         :::console
-		username@learn $ tar zxvf OpenBUGS-3.2.3.tar.gz
-		username@learn $ cd OpenBUGS-3.2.3
+		username@host $ tar -zxf OpenBUGS-3.2.3.tar.gz
+		username@host $ cd OpenBUGS-3.2.3
 
 1.  Now we can follow the second set of installation instructions. For the prefix, we'll use the command `$(pwd)` to capture the name of our current working directory and then a relative path to the `openbugs` directory we created in step 1: 
 
 		:::console
-		username@learn $ ./configure --prefix=$(pwd)/../openbugs
-		username@learn $ make
-		username@learn $ make install
+		username@host $ ./configure --prefix=$(pwd)/../openbugs
+		username@host $ make
+		username@host $ make install
 
 1.  **Go back to the job's main working directory**: 
 
 		:::console
-		username@learn $ cd ..
+		username@host $ cd ..
 
 	and confirm that our installation procedure created `bin`,  `lib`, and `share` directories. 
 
 		:::console
-		username@learn $ ls openbugs
+		username@host $ ls openbugs
 		bin lib share
 
-1.  Now we want to package up our installation, so we can use it in other jobs. We can do this simply by compressing any necessary directories into a single gzipped tarball. 
+1.  Now we want to package up our installation, so we can use it in other jobs. We can do this by compressing any necessary directories into a single gzipped tarball. 
 
 		:::console
-		username@learn $ tar -czf openbugs.tar.gz openbugs/
+		username@host $ tar -czf openbugs.tar.gz openbugs/
 
 1.  Once everything is complete, type `exit` to leave the interactive job. Make sure that your tarball is in the main working directory - it will be transferred back to the submit server automatically. 
 
@@ -151,7 +152,7 @@ We're almost ready! We need two more pieces to run a OpenBUGS job.
 1.  Download the necessary input files to your directory on the submit server and then untar them. 
 
 		:::console
-		username@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/openbugs_files.tar.gz
+		username@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/openbugs_files.tar.gz
 		username@learn $ tar -xzf openbugs_files.tar.gz
 
 1.  Our last step is to create a submit file for our Open BUGS job. Think about which lines this submit file will need. Make a copy of a previous submit file (you could use the blast submit file from the [previous exercise](/materials/day3/part1-ex3-wrapper) as a base) and modify it as you think necessary.

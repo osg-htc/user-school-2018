@@ -17,8 +17,9 @@ Matlab is licensed; however, unlike most licensed software, it has the ability t
 Matlab Code
 -----------
 
-1.  Log in to the CHTC submit server (`learn.chtc.wisc.edu`).
-1.  Create a directory for this exercise and `cd` into it . 2. Copy the following code into a file called `matrix.m` 
+1. Log in to the CHTC submit server (`learn.chtc.wisc.edu`).
+1. Create a directory for this exercise and `cd` into it . 
+1. Copy the following code into a file called `matrix.m` 
 
 		:::file
 		A = randi(100,4,4)
