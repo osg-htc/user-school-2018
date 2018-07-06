@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 Tuesday Exercise 2.2: Software Differences in the OSG

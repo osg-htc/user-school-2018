@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 Tuesday Exercise 1.2: Log in to the OSG Submit Machine

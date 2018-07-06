@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 Tuesday Exercise 2.1: Hardware Differences in the OSG
