@@ -94,7 +94,7 @@ username@learn $ watch -n 10 condor_q -nobatch
  ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD               
 
 0 jobs; 0 completed, 0 removed, 0 idle, 0 running, 0 held, 0 suspended
-<i>Ctrl-C</i>
+#%RED%<Ctrl-C>%ENDCOLOR%
 ```
 
 In the third window, watch what DAGMan does:
