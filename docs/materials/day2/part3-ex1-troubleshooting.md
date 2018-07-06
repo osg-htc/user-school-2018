@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 Tuesday Exercise 3.1: Troubleshooting a DAG
