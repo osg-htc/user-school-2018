@@ -25,7 +25,7 @@ The materials for this exercise are located on our web server.
 4.  Change into the directory extracted from the tarball and explore its contents
 
 `anagram.dag` is the main DAG that you will be submitting and although it may look like a simple, linear DAG, it's
-actually more like the DAG from Monday's [exercise 4.2](/materials/day1/part3-ex3-simple-dag.md) because of the
+actually more like the DAG from Monday's [exercise 4.2](/materials/day1/part4-ex2-simple-dag.md) because of the
 [SUBDAG](http://research.cs.wisc.edu/htcondor/manual/v8.6/2_10DAGMan_Applications.html#SECTION0031091100000000000000)
 within it!
 There is only one `.dag` file in the extracted folder, so where does the `SUBDAG` come from?

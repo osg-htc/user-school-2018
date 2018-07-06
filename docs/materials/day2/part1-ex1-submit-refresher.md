@@ -75,7 +75,7 @@ Now, let’s try to use this Python script and remember some basic HTCondor idea
 1.  Create a submit file that generates **ten** jobs that run `location.py` and uses the `$(Process)` macro to write
     different `output` and `error` files.
     Try to do this step without looking at materials from yesterday.
-    But if you are stuck, see [yesterday’s exercise 2.4](/materials/day1/part2-ex4-queue-n.md).
+    But if you are stuck, see [yesterday’s exercise 2.4](/materials/day1/part2-ex2-queue-n.md).
 1.  Submit your jobs and wait for the results
 
 ### Collating your results
