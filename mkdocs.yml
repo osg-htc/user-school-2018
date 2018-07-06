@@ -87,6 +87,8 @@ pages:
     - Local transportation:       logistics/local-transportation.md
     - School location:            logistics/location.md
     - Meals at the School:        logistics/meals.md
+    - Fun in Madison:             logistics/fun.md
+    - Wednesday activities:       logistics/wednesday-activities.md
 
 markdown_extensions:
   - admonition
