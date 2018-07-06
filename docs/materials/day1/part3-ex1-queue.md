@@ -1,10 +1,10 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-Monday Exercise 2.1: Explore condor\_q
+Monday Exercise 3.1: Explore condor_q
 ======================================
 
 The goal of this exercise is try out some of the most common options to the `condor_q` command, so that you can view jobs effectively.
@@ -17,32 +17,32 @@ Selecting Jobs
 The `condor_q` program has many options for selecting which jobs are listed. You have already seen that the default mode (as of version 8.5) is to show only your jobs in "batch" mode:
 
 ``` console
-user@learn $ <strong>condor_q</strong>
+user@learn $ condor_q
 ```
 
 You've seen that you can view all jobs (all users) in the submit node's queue by using the `-all` argument:
 
 ``` console
-user@learn $ <strong>condor_q -all</strong>
+user@learn $ condor_q -all
 ```
 
 And you've seen that you can view more details about queued jobs, with each separate job on a single line using the `-nobatch` option:
 
 ``` console
-user@learn $ <strong>condor_q -nobatch</strong>
-user@learn $ <strong>condor_q -all -nobatch</strong>
+user@learn $ condor_q -nobatch
+user@learn $ condor_q -all -nobatch
 ```
 
 Did you know you can also name one or more user IDs on the command line, in which case jobs for all of the named users are listed at once?
 
 ``` console
-user@learn $ <strong>condor_q <em><i>username1 username2 username3</i></em></strong>
+user@learn $ condor_q %RED%username1 username2 username3%ENDCOLOR%
 ```
 
 There are two other, simple selection criteria that you can use. To list just the jobs associated with a single cluster number:
 
 ``` console
-user@learn $ <strong>condor_q <em><i>CLUSTER</i></em></strong>
+user@learn $ condor_q %RED%CLUSTER%ENDCOLOR%
 ```
 
 For example, if you want to see the jobs in cluster 5678 (i.e., `5678.0`, `5678.1`, etc.), you use `condor_q 5678`.
@@ -50,7 +50,7 @@ For example, if you want to see the jobs in cluster 5678 (i.e., `5678.0`, `5678.
 To list a specific job (i.e., cluster.process, as in 5678.0):
 
 ``` console
-user@learn $ <strong>condor_q <em><i>JOB_ID</i></em></strong>
+user@learn $ condor_q %RED%JOB_ID%ENDCOLOR%
 ```
 
 For example, to see job ID 5678.1, you use `condor_q 5678.1`.
@@ -61,15 +61,15 @@ For example, to see job ID 5678.1, you use `condor_q 5678.1`.
 
 Let’s get some practice using `condor_q` selections!
 
-1.  Using a previous exercise, submit several `sleep` jobs
-2.  List all jobs in the queue — are there others besides your own?
-3.  Practice using all forms of `condor_q` that you have learned:
-    -   List just your jobs, with and without batching
-    -   List a specific cluster
-    -   List a specific job ID
-    -   Try listing several users at once
-    -   Try listing several clusters and job IDs at once
-4.  When there are a variety of jobs in the queue, try combining a user ID and a different user's cluster or job ID in the same command — what happens?
+1.  Using a previous exercise, submit several `sleep` jobs.
+1.  List all jobs in the queue — are there others besides your own?
+1.  Practice using all forms of `condor_q` that you have learned:
+    -   List just your jobs, with and without batching.
+    -   List a specific cluster.
+    -   List a specific job ID.
+    -   Try listing several users at once.
+    -   Try listing several clusters and job IDs at once.
+1.  When there are a variety of jobs in the queue, try combining a username and a different user's cluster or job ID in the same command — what happens?
 
 Viewing a Job ClassAd
 ---------------------
@@ -79,7 +79,7 @@ You may have wondered why it is useful to be able to list a single job ID using 
 If you add the `-long` option to `condor_q` (or its short form, `-l`), it will show the complete ClassAd for each selected job, instead of the one-line summary that you have seen so far. Because job ClassAds may have 80–90 attributes (or more), it probably makes the most sense to show the ClassAd for a single job at a time. And you know how to show just one job! Here is what the command looks like:
 
 ``` console
-user@learn $ <strong>condor_q -long <em>job-id</em></strong>
+user@learn $ condor_q -long job-id
 ```
 
 The output from this command is long and complex. Most of the attributes that HTCondor adds to a job are arcane and uninteresting for us now. But here are some examples of common, interesting attributes taken directly from `condor_q` output (except with some line breaks added to the `Requirements` attribute):
@@ -108,11 +108,18 @@ Arguments = "120"
     Attributes are listed in no particular order and may change from time to time.
     Do not assume anything about the order of attributes in `condor_q` output.
 
-See what you can find in a job ClassAd from your own job.
+**See what you can find in a job ClassAd from your own job.**
 
-1.  Using a previous exercise, submit a `sleep` job
-2.  Before the job executes, capture its ClassAd and save to a file:\\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> **condor\_q -l *job-id* > classad-1.txt**</pre>
-3.  After the job starts execution but before it finishes, capture its ClassAd again and save to a file:\\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> **condor\_q -l *job-id* > classad-2.txt**</pre>
+1.  Using a previous exercise, submit a `sleep` job.
+1.  Before the job executes, capture its ClassAd and save to a file:
+
+        :::console
+        condor_q -l %RED%job-id%ENDCOLOR% > classad-1.txt
+
+1.  After the job starts execution but before it finishes, capture its ClassAd again and save to a file
+
+        :::console 
+        condor_q -l %RED%job-id%ENDCOLOR% > classad-1.txt
 
 Now examine each saved ClassAd file. Here are a few things to look for:
 
@@ -122,7 +129,6 @@ Now examine each saved ClassAd file. Here are a few things to look for:
     -   DiskUsage
     -   ImageSize
     -   BytesSent
-    -   JobStartDate — what format is the value in? (Hint: The HTCondor developers are primarily trained in the Unix way of doing things.)
     -   JobStatus
 
 Why Is My Job Not Running?
@@ -130,10 +136,10 @@ Why Is My Job Not Running?
 
 Sometimes, you submit a job and it just sits in the queue in Idle state, never running. It can be difficult to figure out why a job never matches and runs. Fortunately, HTCondor can give you some help.
 
-To ask HTCondor why you job is not running, add the `-better-analyze` option to `condor_q` for the specific job. For example, for job ID 2423.0, the command is:
+To ask HTCondor why your job is not running, add the `-better-analyze` option to `condor_q` for the specific job. For example, for job ID 2423.0, the command is:
 
 ``` console
-user@learn $ <strong>condor_q -better-analyze <em>2423.0</em></strong>
+user@learn $ condor_q -better-analyze 2423.0
 ```
 
 Of course, replace the job ID with your own.
@@ -148,14 +154,14 @@ error = norun.err
 log = norun.log
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
-request_memory = 2TB
+request_memory = 8TB
 queue
 ```
 
 (Do you see what I did?)
 
-1.  Save and submit this file
-2.  Run `condor_q -analyze` on the job ID
+1.  Save and submit this file.
+1.  Run `condor_q -analyze` on the job ID.
 
 There is a lot of output, but a few items are worth highlighting. Here is a sample from my own job (with many lines left out):
 
@@ -163,11 +169,11 @@ There is a lot of output, but a few items are worth highlighting. Here is a samp
 -- Submitter: learn.chtc.wisc.edu : ....
 ...
 ---
-2423.000:  Run analysis summary.  <em>Of 12388 machines,</em>
-<em>   12388 are rejected by your job's requirements </em>
+2423.000:  Run analysis summary.  Of 12388 machines,
+   12388 are rejected by your job's requirements 
 ...
 WARNING:  Be advised:
-<em>   No resources matched request's constraints</em>
+   No resources matched request's constraints
 
 The Requirements expression for your job is:
 ...
@@ -176,7 +182,7 @@ Suggestions:
 
     Condition                         Machines Matched    Suggestion
     ---------                         ----------------    ----------
-<em>1   ( TARGET.Memory >= 2097152 )      0                   MODIFY TO 1000064</em>
+1   ( TARGET.Memory >= 8388608 )      0                   MODIFY TO 1000064
 2   ( ... )
                                       12145                
 3   ( TARGET.Arch == "X86_64" )       12388                
@@ -187,25 +193,29 @@ Suggestions:
 
 Toward the top, `condor_q` said that it considered 12388 “machines” (really, slots) and **all** 12388 of them were rejected by **my job’s requirements**. In other words, I am asking for something that is not available. But what?
 
-The real clue comes from the breakdown of the Requirements expression, at the end of the output. Note the highlighted line: My job asked for **2 terabytes** of memory (2,097,152 MB) and **no** machines matched that part of the expression. Well, of course! 2 TB is a lot of memory on today’s machines. And finally, note the suggestion: If I reduce my memory request to 1,000,064 MB (about 1 TB), there will be at least one slot in the pool that will match that expression.
+The real clue comes from the breakdown of the Requirements expression, at the end of the output. 
+Note the highlighted line: My job asked for **8 terabytes** of memory (8,388,608 MB) and **no** machines matched that part of the expression. 
+Well, of course! 8 TB is a lot of memory on today’s machines. 
+And finally, note the suggestion: If I reduce my memory request to 1,000,064 MB (about 1 TB), there will be at least one slot in the pool that will match that expression.
 
 The output from `condor_q -analyze` (and `condor_q -better-analyze`) may be helpful or it may not be, depending on your exact case. The example above was constructed so that it would be obvious what the problem was. But in many cases, this is a good place to start looking if you are having problems matching.
 
-Automatic Formatting Output (Optional)
---------------------------------------
+Bonus: Automatic Formatting Output
+----------------------------------
 
-There is a way to format output from `condor_q` with the `-autoformat` or `-af` option. In this case, HTCondor decides for you how to format the data you ask for from job ClassAd(s). (To tell HTCondor how to format this information, yourself, you could use the `-format` option, which we're not covering.)
+**Do this exercise only if you have time, though it's pretty awesome!**
+
+There is a way to select the specific job attributes you want `condor_q` to tell you about with the `-autoformat` or `-af` option. In this case, HTCondor decides for you how to format the data you ask for from job ClassAd(s). 
+(To tell HTCondor how to specially format this information, yourself, you could use the `-format` option, which we're not covering.)
 
 To use autoformatting, use the `-af` option followed by the attribute name, for each attribute that you want to output:
 
 ``` console
-user@learn $ <strong>condor_q -af Owner -af ClusterId -af Cmd</strong>
+user@learn $ condor_q -af Owner ClusterId Cmd
 moate 2418 /share/test.sh
 cat 2421 /bin/sleep
 cat 2422 /bin/sleep
 ```
-
-Note that the `-af` option saves some typing but provides less control over the formatting of the output.
 
 **Bonus Question**: If you wanted to print out the `Requirements` expression of a job, how would you do that with `-af`? Is the output what you expected? (HINT: for ClassAd attributes like "Requirements" that are long expressions, instead of simple values, you can use `-af:r` to view the expressions, instead of what it's current evaluation.)
 

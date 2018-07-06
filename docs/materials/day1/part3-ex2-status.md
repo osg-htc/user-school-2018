@@ -4,7 +4,7 @@ status: in progress
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-Monday Exercise 2.2: Explore condor\_status
+Monday Exercise 3.2: Explore condor_status
 ===========================================
 
 The goal of this exercise is try out some of the most common options to the `condor_status` command, so that you can view slots effectively.
@@ -19,7 +19,7 @@ The `condor_status` program has many options for selecting which slots are liste
 Another convenient option is to list only those slots that are available now:
 
 ``` console
-user@learn $ <strong>condor_status -avail</strong>
+user@learn $ condor_status -avail
 ```
 
 Of course, the individual execute machines only report their slots to the collector at certain time intervals, so this list will not reflect the up-to-the-second reality of all slots. But this limitation is true of all `condor_status` output, not just with the `-avail` option.
@@ -27,25 +27,25 @@ Of course, the individual execute machines only report their slots to the collec
 Similar to `condor_q`, you can limit the slots that are listed in two easy ways. To list just the slots on a specific machine:
 
 ``` console
-user@learn $ <strong>condor_status <em><i>HOSTNAME</i></em></strong>
+user@learn $ condor_status %RED%HOSTNAME%ENDCOLOR%
 ```
 
 For example, if you want to see the slots on `e242.chtc.wisc.edu` (in the CHTC pool):
 
 ``` console
-user@learn $ <strong>condor_status e242.chtc.wisc.edu</strong>
+user@learn $ condor_status e242.chtc.wisc.edu
 ```
 
 To list a specific slot on a machine:
 
 ``` console
-user@learn $ <strong>condor_status <em><i>SLOT</i></em>@<em><i>HOSTNAME</i></em></strong>
+user@learn $ condor_status %RED%SLOT%ENDCOLOR%@%RED%HOSTNAME%ENDCOLOR%
 ```
 
 For example, to see the “first” slot on the machine above:
 
 ``` console
-user@learn $ <strong>condor_status slot1@e242.chtc.wisc.edu</strong>
+user@learn $ condor_status slot1@e242.chtc.wisc.edu
 ```
 
 !!! note
@@ -55,12 +55,12 @@ user@learn $ <strong>condor_status slot1@e242.chtc.wisc.edu</strong>
 Let’s get some practice using `condor_status` selections!
 
 1.  List all slots in the pool — how many are there total?
-2.  Practice using all forms of `condor_status` that you have learned:
-    -   List the available slots
-    -   List the slots on a specific machine (e.g., `e242.chtc.wisc.edu`)
-    -   List a specific slot from that machine
-    -   Try listing the slots from a few (but not all) machines at once
-    -   Try using a mix of hostnames and slot IDs at once
+1.  Practice using all forms of `condor_status` that you have learned:
+    -   List the available slots.
+    -   List the slots on a specific machine (e.g., `e242.chtc.wisc.edu`).
+    -   List a specific slot from that machine.
+    -   Try listing the slots from a few (but not all) machines at once.
+    -   Try using a mix of hostnames and slot IDs at once.
 
 Viewing a Slot ClassAd
 ----------------------
@@ -68,7 +68,7 @@ Viewing a Slot ClassAd
 Just as with `condor_q`, you can use `condor_status` to view the complete ClassAd for a given slot (often confusingly called the “machine” ad):
 
 ``` console
-user@learn $ <strong>condor_status -long <em><i>SLOT</i></em>@<em><i>HOSTNAME</i></em></strong>
+user@learn $ condor_status -long %RED%SLOT%ENDCOLOR%@%RED%HOSTNAME%ENDCOLOR%
 ```
 
 Because slot ClassAds may have 150–200 attributes (or more), it probably makes the most sense to show the ClassAd for a single slot at a time, as shown above.
@@ -101,7 +101,7 @@ Often, it is helpful to view slots that meet some particular criteria. For examp
 For example, suppose we want to list all slots that are running Scientific Linux 6 (operating system) and have at least 16 GB memory available. Note that memory is reported in units of Megabytes. The command is:
 
 ``` console
-user@learn $ <strong>condor_status -constraint 'OpSysAndVer == "SL6" && Memory >= 64000'</strong>
+user@learn $ condor_status -constraint 'OpSysAndVer == "CentOS7" && Memory >= 200000'
 ```
 
 !!! note
@@ -109,7 +109,7 @@ user@learn $ <strong>condor_status -constraint 'OpSysAndVer == "SL6" && Memory >
     In the example above, the single quotes (`'`) are for the shell, so that the entire expression is passed to
     `condor_status` untouched, and the double quotes (`"`) surround a string value within the expression itself.
 
-Currently on CHTC, there are only a few slots that meet these criteria.
+Currently on CHTC, there are only a few slots that meet these criteria (our high-memory servers, mainly used for metagenomics assemblies).
 
 If you are interested in learning more about writing ClassAd expressions, look at section 4.1 and especially 4.1.4 of the HTCondor Manual. This is definitely advanced material, so if you do not want to read it, that is fine. But if you do, take some time to practice writing expressions for the `condor_status -constraint` command.
 
@@ -117,16 +117,15 @@ If you are interested in learning more about writing ClassAd expressions, look a
     The `condor_q` command accepts the `-constraint` option as well!
     As you might expect, the option allows you to limit the jobs that are listed based on a ClassAd expression.
 
-Formatting Output (Optional)
+Bonus: Formatting Output
 ----------------------------
 
-The `condor_status` command accepts the same `-format` (`-f`) and `-autoformat` (`-af`) options that `condor_q` accepts, and the options have the same meanings in both commands. Of course, the attributes available in machine ads may differ from the ones that are available in job ads. Use the HTCondor Manual or look at individual slot ClassAds to get a better idea of what attributes are available.
+The `condor_status` command accepts the same `-autoformat` (`-af`) options that `condor_q` accepts, and the options have the same meanings in both commands. Of course, the attributes available in machine ads may differ from the ones that are available in job ads. Use the HTCondor Manual or look at individual slot ClassAds to get a better idea of what attributes are available.
 
-For example, I was curious about the Windows slot listed in the `condor_status` summary output. Here are two commands that show the full hostnames and major version information for the Windows slots:
+For example, I was curious about the Windows slots listed in the `condor_status` summary output. Here are two commands that show the full hostnames and major version information for the Windows slots:
 
 ``` console
-user@learn $ <strong>condor_status -format '%30s  ' Machine -format '%s\n' OpSysAndVer -constraint 'OpSys == "WINDOWS"'</strong>
-user@learn $ <strong>condor_status -af Machine -af OpSysAndVer -constraint 'OpSys == "WINDOWS"'</strong>
+user@learn $ condor_status -af Machine -af OpSysAndVer -constraint 'OpSys == "WINDOWS"'
 ```
 
 If you like, spend a few minutes now or later experimenting with `condor_status` formatting.

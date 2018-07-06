@@ -1,10 +1,10 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-Monday Exercise 3.1: Retries
+Monday Exercise 3.3: Retries
 ============================
 
 The goal of this exercise is to demonstrate running a job that intermittently fails and thus could benefit from having HTCondor automatically retry it.
@@ -45,14 +45,14 @@ Even if you are not a Python expert, you may be able to figure out what this pro
 
 Let’s see what happens when a program like this one is run in HTCondor.
 
-1.  In a new directory for this exercise, save the script above as `murphy.py`
-2.  Write a submit file for the script; `queue 20` instances of the job and be sure to ask for 20 MB of memory and disk
-3.  Submit the file and wait for the jobs to finish
+1.  In a new directory for this exercise, save the script above as `murphy.py`.
+1.  Write a submit file for the script; `queue 20` instances of the job and be sure to ask for 20 MB of memory and disk.
+1.  Submit the file and wait for the jobs to finish.
 
 What output do you expect? What output did you get? If you are curious about the exit code from the job, it is saved in completed jobs in `condor_history` in the `ExitCode` attribute. The following command will show the `ExitCode` for a given cluster of jobs:
 
 ``` console
-user@learn $ <strong>condor_history <em>CLUSTERID</em> -af ProcId ExitCode</strong>
+username@learn $ condor_history %RED%CLUSTERID%ENDCOLOR% -af ProcId ExitCode
 ```
 
 (Be sure to replace `CLUSTERID` with your actual cluster ID)
@@ -71,7 +71,7 @@ After the jobs have finished, examine the log file(s) to see what happened in de
 A (Too) Long Running Job
 ------------------------
 
-Sometimes, an ill-behaved job will get stuck in a loop and run forever, instead of exiting with a failure code. We can modify our Python program to simulate this kind of bad job with the following file:
+Sometimes, an ill-behaved job will get stuck in a loop and run forever, instead of exiting with a failure code, and it may just need to be re-run (or run on a different execute server) to complete without getting stuck. We can modify our Python program to simulate this kind of bad job with the following file:
 
 ``` file
 #!/usr/bin/env python
@@ -99,11 +99,15 @@ sys.exit(0)
 
 Again, you may be able to figure out what this new program does.
 
-1.  Save the script to a new file named `murphy2.py`
-2.  Copy your previous submit file to a new name and change the `executable` to `murphy2.py`
-3.  If you like, submit the new file — but after a while be sure to remove the whole cluster to clear out the “hung” jobs.
-4.  Now try to change the submit file to automatically remove any jobs that **run** for more than one minute. You can make this change with just a single line in your submit file\\ <pre class="file">periodic\_remove = (JobStatus == 2) && (CurrentTime - EnteredCurrentStatus) > 60</pre>
-5.  Submit the new file. Do the long running jobs get removed? What does `condor_history` show for the cluster after all jobs are done?
+1.  Save the script to a new file named `murphy2.py`.
+1.  Copy your previous submit file to a new name and change the `executable` to `murphy2.py`.
+1.  If you like, submit the new file — but after a while be sure to remove the whole cluster to clear out the “hung” jobs.
+1.  Now try to change the submit file to automatically remove any jobs that **run** for more than one minute. You can make this change with just a single line in your submit file
+
+        :::file
+        periodic_remove = (JobStatus == 2) && ( (CurrentTime - EnteredCurrentStatus) > 60 )
+
+1.  Submit the new file. Do the long running jobs get removed? What does `condor_history` show for the cluster after all jobs are done? Which job status (i.e. idle, held, running) do you think "JobStatus == 2" corresponds to?
 
 Bonus Exercise
 --------------
