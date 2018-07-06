@@ -1,18 +1,15 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-Monday Exercise 2.4: Use queue *N*, $(Cluster), and $(Process)
+Monday Exercise 2.2: Use queue *N*, $(Cluster), and $(Process)
 ==============================================================
 
-The goal of this exercise is to learn to submit many jobs from a single `queue` statement, and then to control filenames and arguments per job.
+The goal of the next several exercises is to learn to submit many jobs from a single `queue` statement, and then to control filenames and arguments per job.
 
-Submitting Many Jobs With One Submit File
------------------------------------------
-
-Suppose you have a program that you want to run many times. The program takes an argument, and you want to change the argument for each run of the program. With what you know so far, you have a couple of choices (assuming that you cannot change the job itself to work this way):
+Suppose you have a program that you want to run many times with different arguments each time. With what you know so far, you have a couple of choices:
 
 -   Write one submit file; submit one job, change the argument in the submit file, submit another job, change the submit file, …
 -   Write many submit files that are nearly identical except for the program argument
@@ -61,17 +58,27 @@ int main(int argc, char *argv[])
 ```
 
 1.  In a new directory for this exercise, save the code to a file named `circlepi.c`
-2.  Compile the code (we will cover this in more detail Wednesday):\\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> **gcc -static -o circlepi circlepi.c**</pre>
-3.  If there are errors, check the file contents and compile command carefully, otherwise see the instructors
-4.  Test the program with just a few samples:\\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> **./circlepi 10000**</pre>
+1.  Compile the code (we will cover this in more detail Wednesday):
 
-Now suppose that you want to run the program many times, to produce many estimates. This is exactly what a statement like `queue 3` is useful for. Let’s see how it works.
+        :::console
+        username@learn $ gcc -static -o circlepi circlepi.c
+
+1.  Test the program with just 1000 samples:
+
+        :::console
+        ./circlepi 1000
+
+Now suppose that you want to run the program many times, to produce many estimates. This is exactly what a statement like `queue 3` is useful for. Let’s see how it works:
 
 1.  Write a normal submit file for this program
-    -   Pass 1 billion (`1000000000`) as the command line argument to `circlepi`
+    -   Pass 1 million (`1000000`) as the command line argument to `circlepi`
     -   Remember to use `queue 3` instead of just `queue`
-2.  Submit the file\\ <p>Note the slightly different message from `condor_submit`:</p>\\ <pre class="screen">*3 job(s)* submitted to cluster *NNNN*.</pre>
-3.  Before the jobs execute, look at the job queue to see the multiple jobs
+1.  Submit the file. Note the slightly different message from `condor_submit`:
+
+        :::console
+        3 job(s) submitted to cluster *NNNN*.
+
+1.  Before the jobs execute, look at the job queue to see the multiple jobs
 
 Here is some sample `condor_q -nobatch` output:
 
@@ -101,10 +108,12 @@ When all three jobs in your single cluster are finished, examine the resulting f
 Using $(Process) to Distinguish Jobs
 ------------------------------------
 
-As you saw with the experiment above, we need a way to separate output (and error) files *per job that is queued*, not just for the whole cluster of jobs. Fortunately, HTCondor has a way to separate the files easily.
+As you saw with the experiment above, each job ended up overwriting the same output and error filenames in the submission directory.
+After all, we didn't tell it to behave any differently when it ran three jobs.
+We need a way to separate output (and error) files *per job that is queued*, not just for the whole cluster of jobs. Fortunately, HTCondor has a way to separate the files easily.
 
-When processing a submit file, HTCondor defines and uses a special variable for the process number of each job. If you write `$(Process)` in a submit file, HTCondor will replace it with the process number of the job, independently for each job that is queued. For example, you can use the `$(Process)` variable to define a separate output file name for each job. Suppose the following two lines are in a submit file:
-
+When processing a submit file, HTCondor will replace any instance of `$(Process)` with the process number of the job, for each job that is queued. 
+For example, you can use the `$(Process)` variable to define a separate output file name for each job:
 ``` file
 output = my-output-file-$(Process).out
 queue 10
@@ -122,9 +131,9 @@ Even though the `output` filename is defined only once, HTCondor will create sep
 
 Let’s see how this works for our program that estimates π.
 
-1.  In your submit file, change the definitions of `output` and `error` to use `$(Process)`, in a way that is similar to the example above
-2.  Remove any output, error, and log files from previous runs
-3.  Submit the updated file
+1.  In your submit file, change the definitions of `output` and `error` to use `$(Process)` in the filename, similar to the example above.
+1.  Delete any output, error, and log files from previous runs.
+1.  Submit the updated file.
 
 When all three jobs are finished, examine the resulting files again.
 
@@ -142,30 +151,21 @@ In addition to `$(Process)`, there is also a `$(Cluster)` variable that you can 
 output = my-output-file-$(Cluster)-$(Process).out
 ```
 
-For one particular run, it might result in output filenames like this:
+For one particular run, it might result in output filenames like `my-output-file-2444-0.out`, `myoutput-file-2444-1.out`, `myoutput-file-2444-2.out`, etc.
 
-|            |                             |
-|------------|-----------------------------|
-| First job  | `my-output-file-2444-0.out` |
-| Second job | `my-output-file-2444-1.out` |
-| Third job  | `my-output-file-2444-2.out` |
-| ...        |                             |
-
-If you like, change your submit file from the previous exercise to use both `$(Cluster)` and `$(Process)`. Submit your file twice to see the separate files for each run. Be careful how many jobs you run total, as the number of output files grows quickly!
+However, the next run would have different filenames, replacing `2444` with the new Cluster number of that run.
 
 Using $(Process) and $(Cluster) in Other Statements
 ---------------------------------------------------
 
-The `$(Cluster)` and `$(Process)` variables can be used in any submit file statement, although they are useful in some kinds of statements more than others. For instance, it is hard to imagine a truly good reason to use the `$(Process)` variable in a `rank` statement (i.e., for preferring some execute slots over others), and in general the `$(Cluster)` variable often makes little sense to use.
-
-But in some situations, the `$(Process)` variable can be very helpful. Common uses are in the following kinds of statements — can you think of a scenario in which each use might be helpful?
+The `$(Cluster)` and `$(Process)` variables can be used in any submit file statement, although they are useful in some kinds of submit file statements and not really for others. For example, consider using $(Cluster) or $(Process) in each of the below:
 
 -   `log`
 -   `transfer_input_files`
 -   `transfer_output_files`
 -   `arguments`
 
-Unfortunately, HTCondor does not let you perform math on the `$(Process)` number when using it. So, for example, if you use `$(Process)` as a numeric argument to a command, it will always result in jobs getting the arguments 0, 1, 2, and so on. If you have control over your program and the way in which it uses command-line arguments, then you are fine. Otherwise, you might need to transform the `$(Process)` numbers into something more appropriate using a ***wrapper script***, which will be discussed on Wednesday.
+Unfortunately, HTCondor does not easily let you perform math on the `$(Process)` number when using it. So, for example, if you use `$(Process)` as a numeric argument to a command, it will always result in jobs getting the arguments 0, 1, 2, and so on. If you have control over your program and the way in which it uses command-line arguments, then you are fine. Otherwise, you might need a solution like those in the next exercises.
 
 (Optional) Defining JobBatchName for Tracking
 ---------------------------------------------
@@ -175,24 +175,25 @@ During the lecture, it was mentioned that you can define arbitrary attributes in
 Once again, we will use `sleep` jobs, so that your jobs remain in the queue long enough to experiment on.
 
 1.  Create a basic submit file that runs `sleep 120` (or some reasonable duration).
-2.  Instead of a single `queue` statement, write this:\\ <pre class="file">
+1.  Instead of a single `queue` statement, write this:
 
-*jobbatchname = 1* queue 5 </pre>\\ <p>The highlighted statements give the extra attribute `jobbatchname` to your jobs; the first 5 jobs have one value, and the second 5 have another.
+        :::file
+        jobbatchname = 1
+        queue 5
 
 1.  Submit the file.
-2.  Now, quickly edit the submit file to instead say:
+1.  Now, quickly edit the submit file to instead say:
 
-*jobbatchname = 2*
+        :::file
+        jobbatchname = 2
 
 1.  Submit the file again.
 
 Check on the submissions using a normal `condor_q` and `condor_q -nobatch`. Of course, your special attribute does not appear in the `condor_q -nobatch` output, but it is present in the `condor_q` output and in each job’s ClassAd. You can see the effect of the attribute by limiting your `condor_q` output to one type of job or another. First, run this command:
 
 ``` console
-user@learn $ <strong>condor_q -constraint 'JobBatchName == "1"'</strong>
+user@learn $ condor_q -constraint 'JobBatchName == "1"'
 ```
 
-Do you get the output that you expected?
-
-Using the example command above, how would you list your other five jobs?
-
+Do you get the output that you expected? Using the example command above, how would you list your other five jobs?
+(More on constraints in other exercises later today.)
