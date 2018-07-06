@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
@@ -24,7 +24,7 @@ Our wrapper script will be a bash script that runs several commands.
 1. The first line we'll place in the script is the basic command for running blast. Based on our previous submit file, what command needs to go into the script? Once you have an idea, check against the example below:  
 
         :::bash
-        #/bin/bash
+        #!/bin/bash
         
         ncbi-blast-2.7.1+/bin/blastx -db pdbaa/pdbaa -query mouse.fa -out results.txt 
 

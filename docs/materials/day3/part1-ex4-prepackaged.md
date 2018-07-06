@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
@@ -124,7 +124,7 @@ Now that we've created our portable installation, we need to write a script that
 1.  Create a script called `run_openbugs.sh`. The script will first need to untar our installation, so the script should start out like this:  
 
 		:::bash
-		#/bin/bash
+		#!/bin/bash
 
 		tar -xzf openbugs.tar.gz
 

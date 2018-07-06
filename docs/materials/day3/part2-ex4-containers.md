@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
@@ -25,6 +25,7 @@ Submit File Changes
 		:::file
 		universe = docker
 		docker_image = python:3.7.0-stretch
+		requirements = (OpSysMajorVer == 7)
 
 	Here we are requesting HTCondor's Docker universe and using a pre-built python image that, by default, will be pulled from a public website of Docker images called DockerHub.  The requirements line will ensure that we run on computers whose operating system can support Docker.
 

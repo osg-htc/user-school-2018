@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
@@ -130,7 +130,7 @@ We now have our Python installation and our Python script - we just need to writ
 1.  Your final `run_fib.sh` script should look something like this: 
 
 		:::bash
-		#/bin/bash
+		#!/bin/bash
 
 		tar xzf prebuilt_python.tar.gz 
 		python/bin/python3 fib.py 90
@@ -138,7 +138,7 @@ We now have our Python installation and our Python script - we just need to writ
 	or
 
 		:::bash
-		#/bin/bash
+		#!/bin/bash
 
 		tar xzf prebuilt_python.tar.gz 
 		export PATH=$(pwd)/python/bin:$PATH 

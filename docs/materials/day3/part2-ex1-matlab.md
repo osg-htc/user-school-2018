@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
@@ -24,7 +24,7 @@ Matlab Code
 		:::file
 		A = randi(100,4,4)
 		b = randi(100,4,1);
-		x = Ab
+		x = A*b
 		save results.txt x -ascii
 
 Compiling Matlab Code
