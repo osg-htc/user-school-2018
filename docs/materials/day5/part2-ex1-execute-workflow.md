@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
@@ -13,7 +13,7 @@ In this exercise, you will:
 -   write the DAG for the workflow you planned, and
 -   submit this workflow on `learn.chtc.wisc.edu`
 
-There are bonus tasks in [Exercise 1.4](part2-ex2-workflow-tuning.md), if you get through this part quickly, including running the workflow on the Open Science Grid.
+There are bonus tasks in [Exercise 1.4](part2-ex2-workflow-tuning), if you get through this part quickly, including running the workflow on the Open Science Grid.
 
 Steps to Take
 -------------

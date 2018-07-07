@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
@@ -20,7 +20,7 @@ Your goal is to plan out Joe’s workflow based upon small-scale test jobs and, 
 
 -   **Create a single DAG file, with *permutation* and *QTL mapping* jobs for each of the three traits,** including PRE and/or POST scripts for the `tar` scripts that need to be run.
 
-We'll be working on the first two optimization steps during this session, and the second optimization step and DAG creation after the break, in [Exercise 1.3](/materials/day5/part2-ex1-execute-workflow.md).
+We'll be working on the first two optimization steps during this session, and the second optimization step and DAG creation after the break, in [Exercise 1.3](/materials/day5/part2-ex1-execute-workflow).
 
 !!! note 
 	In what follows, the only files you will need to modify are the submit files (and as specifically instructed). You will not need to modify any of the input files, output files, or scripts/programs. It is advisable that you split up some of the work within your pair or group in order to be time-efficient.
