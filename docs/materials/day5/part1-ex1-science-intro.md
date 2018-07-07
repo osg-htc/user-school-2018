@@ -38,16 +38,16 @@ View Joe's files
 
 Log in to `learn.chtc.wisc.edu` and move to a desired location in your home directory. Enter the following commands to download and decompress/untar Joe’s job ingredients:
 
-``` console
-user@learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/WorkflowExercise.tar.gz</strong>
-user@learn $ <strong>tar -xzf WorkflowExercise.tar.gz</strong>
+```console
+username@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/WorkflowExercise.tar.gz
+username@learn $ tar -xzf WorkflowExercise.tar.gz
 ```
 
 You can now navigate into the `WorkflowExercise` directory to view the full ingredients for Joe’s Computing work. Review all of these files based upon the information below and refer back to it as you proceed through the remaining exercises (1.2-1.4). (If you've been drawing a diagram of Joe's work so far, feel free to annotate with some of this information.)
 
 Based upon Joe’s description and submit files you determine the following details for each step:
 
-#### **Permutation Step**
+**Permutation Step**
 
 Note that the files below are the necessary files to submit the permutation calculations for **one** trait (in this case, trait 1). There are additional submit files to perform this step for the other traits.
 
@@ -78,13 +78,13 @@ As output, this job will create:
 -   a series of .log and .out files, named from the first argument (`1_$(Process)`). This looks like: `runR.1_0.out`, `runR.1_0.log`, `runR.1_0.err`
 -   the actual output file, named using the `1` and `$(Process)` arguments, like so: `perm_part.1_0.Rdat`
 
-#### **Combine Permutation Output**
+**Combine Permutation Output**
 
 `tarit.sh` is run after each trait's Permutation step (with the column number as an argument) to compress `perm_part.1_0.Rdat` (or potentially multiple such files named according to "perm\_part.1\_\*.Rdat") for the QTL step.
 
 Sample execution: \* `./tarit.sh 1`, where "1" is the trait column number.
 
-#### **QTL Mapping Step**
+**QTL Mapping Step**
 
 Again, the files below are for submitting the *QTL* calculations for **one** trait (in this case, trait 1). There are additional submit files to perform this step for the other traits.
 
@@ -113,7 +113,7 @@ As output, this job will create:
 -   a series of .log and .out files, named from the first argument (`qtl_1`).
 -   several output files named for the trait argument `1`: `perm_combined_1.Rdat`, `perm_summary_1.txt`, `sim_geno_results_1.Rdat`, `qtl_1.Rdat`, `refined_qtl_summary_1.txt`, `refined qtl_1.Rdat`, and `fit_qtl_results_1.Rdat`
 
-#### **Combine All Output**
+**Combine All Output**
 
 `results_1.tar.gz` is made by running `taritall.sh` (with the column number as an argument) after the QTL step for that trait finishes, where "1" reflects the trait column number in the output above.
 
