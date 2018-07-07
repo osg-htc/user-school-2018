@@ -1,59 +1,40 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-Monday Exercise 2.5: Submit With “queue matching”
+Monday Exercise 2.3: Submit With “queue matching”
 =================================================
 
 In this exercise and the next one, you will explore more ways to use a single submit file to submit many jobs. The focus of this exercise is to submit one job per filename that matches a given pattern.
 
 In all cases of submitting many jobs from a single submit file, the key questions are:
 
--   What makes each job unique? In other words, there is one job per \_\_\_\_*\_*?
--   What tells HTCondor how to distinguish each job?
+-   What makes each job unique? In other words, there is one job per \_\_\_\_\_?
+-   So, how should you tell HTCondor to distinguish each job?
 
-For `queue <i>N</i>`, jobs are distinguished simply by number and HTCondor assigns the numbers itself. But with the remaining `queue` forms, you help HTCondor distinguish jobs by other, more meaningful means.
+For `queue *N*`, jobs are distinguished simply by the built-in "process" varialbe. But with the remaining `queue` forms, you help HTCondor distinguish jobs by other, more meaningful *custom* variables.
 
 Counting Words in Files
 -----------------------
 
-Suppose you have a collection of books, and you want to analyze how words vary from book to book or author to author. As mentioned in the lecture, HTCondor provides many ways to do this task. You could create a separate submit file for each book, and submit all of the files manually. Or you could be a bit more clever and create one submit file for all of the books: (DON'T ACTUALLY CREATE THIS SUBMIT FILE)
+Suppose you have a collection of books, and you want to analyze how words vary from book to book or author to author. As mentioned in the lecture, HTCondor provides many ways to do this task. You could create a separate submit file for each book, and submit all of the files manually, but you'd have a lot of file lines to modify each time (in particular, all five of the last lines before `queue` below):
 
 ``` file
-universe                = vanilla
 executable              = freq.py
 request_memory          = 20MB
-request_disk          = 20MB
+request_disk            = 20MB
 should_transfer_files   = YES
 when_to_transfer_output = ON_EXIT
 
 transfer_input_files = AAiW.txt
-arguments            = &quot;AAiW.txt&quot;
+arguments            = AAiW.txt
 output               = AAiW.out
 error                = AAiW.err
 log                  = AAiW.log
 queue
-
-transfer_input_files = PandP.txt
-arguments            = &quot;PandP.txt&quot;
-output               = PandP.out
-error                = PandP.err
-log                  = PandP.log
-queue
-
-transfer_input_files = TAoSH.txt
-arguments            = &quot;TAoSH.txt&quot;
-output               = TAoSH.out
-error                = TAoSH.err
-log                  = TAoSH.log
-queue
 ```
-
-If you use many `queue` statements in one submit file, HTCondor remembers and carries over values for attributes, such as `universe`, `executable`, `request_memory`, and so on in this example.
-
-But even then, this approach results in a long, repetitive submit file. And if you add more books, you must add five more lines to the submit file for each book. Therefore, this is not a recommended approach to submitting many jobs with one submit file. Fortunately, HTCondor has many `queue` features to make this kind of job submission process easy!
 
 Queue Jobs By Matching Filenames
 --------------------------------
@@ -95,18 +76,28 @@ for word in sorted_words:
 
 To use the script:
 
-1.  Save it as `wordcount.py`
-2.  Download and unpack some books from Project Gutenberg:\\ <pre class="screen">
+1.  Save it as `wordcount.py`.
+1.  Download and unpack some books from Project Gutenberg:
 
-<span class="twiki-macro UCL_PROMPT_SHORT"></span> **wget <http://proxy.chtc.wisc.edu/SQUID/osgschool17/books.zip>** <span class="twiki-macro UCL_PROMPT_SHORT"></span> **unzip books.zip** </pre>
+        :::console
+        username@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/books.zip
+        unzip books.zip
 
-1.  Verify the script by running it on one book manually
-2.  Create a submit file to submit one file (pick one), including memory and disk requests of 20 MB; submit it, if you like
-3.  Modify the following submit file statements to work for all books:\\ <pre class="file">
+1.  Verify the script by running it on one book manually.
+1.  Create a submit file to submit one job (pick a book file and model your submit file off of the one above), including memory and disk requests of 20 MB; submit it, if you like.
+1.  Modify the following submit file statements to work for all books:
 
-transfer\_input\_files = $(BOOK) arguments = $(book) output = $(book).out error = $(book).err queue book matching \*.txt </pre>\\ <p>Note, as always, the order of statements in a submit file does not matter, except that the `queue` statement should be last. Also note that any submit file variable name (here, `book`, but true for `process` and all others) may be used in any mixture of upper- and lowercase letters.</p>
+        :::file
+        transfer_input_files = $(BOOK) 
+        arguments = $(book) 
+        output = $(book).out 
+        error = $(book).err 
+        queue book matching *.txt
 
-1.  Submit the jobs
+    !!!note
+        As always, the order of statements in a submit file does not matter, except that the `queue` statement should be last. Also note that any submit file variable name (here, `book`, but true for `process` and all others) may be used in any mixture of upper- and lowercase letters.
+
+1.  Submit the jobs.
 
 HTCondor uses the `queue ... matching` statement to look for files in the submit directory that match the given pattern, then queues one job per match. For each job, the given variable (e.g., `book` here) is assigned the name of the matching file, so that it can be used in `output`, `error`, and other statements.
 
@@ -134,7 +125,7 @@ error = TAoSH.txt.err
 queue
 ```
 
-Here is some sample `condor_q -nobatch` output:
+Here is some example `condor_q -nobatch` output:
 
 ``` console
  ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
@@ -147,8 +138,8 @@ All three jobs were part of cluster 89. The first filename that was matched in t
 
 When the three jobs finish, carefully look at the resulting files. Do they match your expectations? There should be a single log file, but three separate output files and three separate (and hopefully empty) error files, one for each job.
 
-Extra Challenge 1
------------------
+Extra Challenge
+---------------
 
 In the example above, you used a single log file for all three jobs. HTCondor handles this situation with no problem; each job writes its events into the log file without getting in the way of other events and other jobs. But as you may have seen, it may be difficult for a person to understand the events for any particular job in the combined log file.
 
