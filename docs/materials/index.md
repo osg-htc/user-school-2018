@@ -8,7 +8,7 @@ status: in progress
 
 ### Monday Morning: Introduction to HTC and HTCondor
 
-- Lecture: Introduction to HTC ([PDF](/materials/day1/files/osgus18-day1-part1-intro-to-htc.pdf);[PPT](osgus18-day1-part1-intro-to-htc.pptx))
+- Lecture: Introduction to HTC ([PDF](/materials/day1/files/osgus18-day1-part1-intro-to-htc.pdf);[PPT](/materials/day1/files/osgus18-day1-part1-intro-to-htc.pptx))
 - [Exercise 1.1: Log in to the local submit machine and look around](/materials/day1/part1-ex1-login.md)
 - [Exercise 1.2: Experiment with basic HTCondor commands](/materials/day1/part1-ex2-commands.md)
 - [Exercise 1.3: Run jobs!](/materials/day1/part1-ex3-jobs.md)
@@ -27,7 +27,7 @@ status: in progress
 
 ### Monday Afternoon: Job Attributes and Handling
 
-- Lecture: Intermediate HTCondor: Workflows ([PDF](/materials/day1/files/osgus18-day1-part3-matching-handling.pdf);[PPT](osgus18-day1-part3-matching-handling.pptx))
+- Lecture: Intermediate HTCondor: Workflows ([PDF](/materials/day1/files/osgus18-day1-part3-matching-handling.pdf);[PPT](/materials/day1/files/osgus18-day1-part3-matching-handling.pptx))
 - [Exercise 3.1: Explore `condor_q`](/materials/day1/part3-ex1-queue.md)
 - [Exercise 3.2: Explore `condor_status`](/materials/day1/part3-ex2-status.md)
 - [Exercise 3.3: A job that needs retries](/materials/day1/part3-ex3-job-retry.md)
