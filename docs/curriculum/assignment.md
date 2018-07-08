@@ -35,13 +35,13 @@ questions in your submission:
     - Summarize your approach and explain why you think it is good
     - Estimate the resources (CPUs, time, memory, disk, network, etc.) that you need
     - Describe in some detail your plan or proposal to use computing tools to work on your challenge (more than one plan is OK)
-    - Refer back to specific lectures and exercises in the School, when appropriate
+    - Make sure to highlight specific practices and HTCondor features that you need and that you learned in the School
 
 There are many possible questions your paper could address.  Below are some suggestions — feel free to answer some (or
 all) of them, or create and answer your own interesting questions:
 
 - What local resources do you have access to?
-- Would you use just local resources or do you need remote resources, too?
+- Which parts of the work will be prepared or run on your laptop or on non-OSG resources, and which parts can run on OSG?
 - How would you turn your project into actual jobs?
 - What are the resource needs of the jobs themselves?
 - What sort of workflow, if any, would you use? Are there manual steps in your overall workflow? Could they be automated (e.g., with DAGMan)?
