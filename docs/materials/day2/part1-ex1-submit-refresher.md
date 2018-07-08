@@ -30,8 +30,8 @@ Now, let’s try to remember some basic HTCondor ideas from yesterday!
 
 1.  As always, ensure that your executable has the proper permissions (hint: try running it from the command line)
 1.  Create a submit file that generates **one hundred** jobs that run `location-wrapper.sh`, transfers `wn-geoip.tar.gz`
-    as an input file, and uses the `$(Process)` macro to write different `output` and `error` files with the following
-    requirements:
+    as an input file, and uses the `$(Process)` macro to write different `output` and `error` files.
+    Also, add the following requirement to the submit file (it's not important to know what it does):
 
         Requirements = (HAS_CVMFS_oasis_opensciencegrid_org =?= TRUE)
 
