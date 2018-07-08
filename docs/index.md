@@ -11,7 +11,7 @@ using the national Open Science Grid (OSG) — to run large-scale computing appl
 cutting-edge science.  Through lectures, discussions, and **lots of hands-on activities** with experienced OSG staff,
 you will learn how HTC systems work, how to run and manage lots of jobs and huge datasets to implement a scientific
 computing workflow, and where to turn for more information and help.  Take a look at [the high-level curriculum and
-syllabus](curriculum/overview.md) for more details.
+syllabus](/curriculum/overview.md) for more details.
 
 The school is ideal for graduate students in any science or research domain where large-scale computing is a vital part
 of the research process, plus we will consider applications from advanced undergraduates, post-doctoral students,
@@ -30,10 +30,18 @@ applications this year, so thanks to everyone for your enthusiastic interest!
 
 ## Information for Participants
 
+- Curriculum
+    - [High-level curriculum](/curriculum/overview.md)
+    - [Detailed schedule](/curriculum/detailed-schedule.md)
 - Logistics
-    - [General information and travel schedule](logistics/index.md)
-    - [Visa requirements for non-resident aliens](logistics/personal-info.md)
-    - [Travel planning to and from Madison](logistics/travel.md)
+    - [General information and travel schedule](/logistics/index.md)
+    - [Visa requirements for non-resident aliens](/logistics/personal-info.md)
+    - [Travel planning to and from Madison](/logistics/travel.md)
+    - [Hotel information](/logistics/hotel.md)
+    - [Local transportation within Madison](/logistics/local-transportation.md)
+    - [School location](/logistics/location.md)
+    - [Meals at the School](/logistics/meals.md)
+    - [Fun things to do in Madison](/logistics/fun.md) and [Wednesday activities](/logistics/wednesday-activities.md)
 
 ## Contact Us
 
