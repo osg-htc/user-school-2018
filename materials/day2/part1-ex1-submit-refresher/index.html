@@ -62,104 +62,37 @@ To do this, you will write a simple submit file that will queue multiple jobs an
 <h2 id="where-in-the-world-are-my-jobs">Where in the world are my jobs?<a class="headerlink" href="#where-in-the-world-are-my-jobs" title="Permanent link">&para;</a></h2>
 <p>To find the physical location of the computers your jobs our running on, you will use a method called <em>geolocation</em>.
 Geolocation uses a registry to match a computer’s network address to an approximate latitude and longitude.</p>
-<h3 id="geolocation-code">Geolocation code<a class="headerlink" href="#geolocation-code" title="Permanent link">&para;</a></h3>
-<p>Below is a Python script that geolocates the machine that it is running on, returning
-<a href="https://en.wikipedia.org/wiki/Geographic_coordinate_system">latitude and longitude coordinates</a>.
-It is not important to understand how the internals of the script works.
-When called without any arguments, the script will return the latitude and longitude coordinates of the machine from
-which it is run.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#!/bin/env python</span>
-
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">socket</span>
-<span class="kn">import</span> <span class="nn">urllib2</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">time</span>
-
-<span class="n">hostnames</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">hostnames</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">getfqdn</span><span class="p">())</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">hostnames</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]))</span>
-        <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
-            <span class="k">pass</span>
-
-<span class="n">hostnames</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">hostnames</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">ipaddr</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostbyname</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">response</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://www.freegeoip.net/json/&#39;</span> <span class="o">+</span> <span class="n">ipaddr</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-                <span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-                <span class="n">lat</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span>
-                <span class="n">lon</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span>
-
-                <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="ow">is</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span> <span class="ow">is</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="nb">exit</span><span class="p">(</span><span class="s2">&quot;www.freegeoip.net could not find associated lat/lon coordinates.&quot;</span><span class="p">)</span>
-                <span class="k">print</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
-                <span class="k">break</span>
-            <span class="k">except</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">:</span>
-                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>
-                <span class="k">pass</span>
-    <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">gaierror</span><span class="p">:</span>
-        <span class="k">pass</span>
-</pre></div>
-</td></tr></table>
-
 <h3 id="geolocating-several-machines">Geolocating several machines<a class="headerlink" href="#geolocating-several-machines" title="Permanent link">&para;</a></h3>
-<p>Now, let’s try to use this Python script and remember some basic HTCondor ideas from yesterday!</p>
+<p>Now, let’s try to remember some basic HTCondor ideas from yesterday!</p>
 <ol>
 <li>Log in to <code>learn.chtc.wisc.edu</code></li>
 <li>Create and change into a new folder for this exercise, for example <code>tuesday-1.1</code></li>
-<li>Save the Python script above as a file named <code>location.py</code></li>
-<li>As always, ensure that your script has the proper permissions (hint: try running it from the command line)</li>
-<li>Create a submit file that generates <strong>ten</strong> jobs that run <code>location.py</code> and uses the <code>$(Process)</code> macro to write
-    different <code>output</code> and <code>error</code> files.
-    Try to do this step without looking at materials from yesterday.
-    But if you are stuck, see <a href="../../day1/part2-ex2-queue-n/">yesterday’s exercise 2.4</a>.</li>
-<li>Submit your jobs and wait for the results</li>
+<li>
+<p>Download the geolocation code:</p>
+<div class="codehilite"><pre><span></span><span class="gp">username@learn $</span> wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/location-wrapper.sh
+<span class="go">                 http://proxy.chtc.wisc.edu/SQUID/osgschool18/wn-geoip.tar.gz</span>
+</pre></div>
+
+
+<p>You will be using <code>location-wrapper.sh</code> as your executable and <code>wn-geoip.tar.gz</code> as an input file.</p>
+</li>
+<li>
+<p>As always, ensure that your executable has the proper permissions (hint: try running it from the command line)</p>
+</li>
+<li>
+<p>Create a submit file that generates <strong>one hundred</strong> jobs that run <code>location-wrapper.sh</code>, transfers <code>wn-geoip.tar.gz</code>
+    as an input file, and uses the <code>$(Process)</code> macro to write different <code>output</code> and <code>error</code> files.
+    Also, add the following requirement to the submit file (it's not important to know what it does):</p>
+<div class="codehilite"><pre><span></span>Requirements = (HAS_CVMFS_oasis_opensciencegrid_org =?= TRUE)
+</pre></div>
+
+
+<p>Try to do this step without looking at materials from yesterday.
+But if you are stuck, see <a href="../../day1/part2-ex2-queue-n/">yesterday’s exercise 2.2</a>.</p>
+</li>
+<li>
+<p>Submit your jobs and wait for the results</p>
+</li>
 </ol>
 <h3 id="collating-your-results">Collating your results<a class="headerlink" href="#collating-your-results" title="Permanent link">&para;</a></h3>
 <p>Now that you have your results, it's time to summarize them.
@@ -172,7 +105,7 @@ like this:</p>
 
 
 <p>The <code>*</code> is a wildcard so the above cat command runs on all files that start with <code>location-</code> and end in <code>.out</code>.
-Additionally, you can use <code>cat</code> in tandem with the <code>sort</code> and <code>uniq</code> commands to print only the unique results:</p>
+Additionally, you can use <code>cat</code> in combination with the <code>sort</code> and <code>uniq</code> commands to print only the unique results:</p>
 <div class="codehilite"><pre><span></span><span class="gp">user@learn $</span> cat location-*.out <span class="p">|</span> sort <span class="p">|</span> uniq
 </pre></div>
 
@@ -181,7 +114,7 @@ Additionally, you can use <code>cat</code> in tandem with the <code>sort</code> 
 <p>To visualize the locations of the machines that your jobs ran on, you will be using <a href="http://www.mapcustomizer.com/">http://www.mapcustomizer.com/</a>.
 Copy and paste the collated results into the text box that pops up when clicking on the 'Bulk Entry' button on the
 right-hand side.
-Are the results what you expected?</p>
+Where did your jobs run?</p>
 <h2 id="next-exercise">Next exercise<a class="headerlink" href="#next-exercise" title="Permanent link">&para;</a></h2>
 <p>Once completed, move onto the next exercise: <a href="../part1-ex2-login-scp/">Logging in to the OSG Submit Machine</a></p>
 
