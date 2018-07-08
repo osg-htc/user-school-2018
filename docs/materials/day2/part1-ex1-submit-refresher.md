@@ -36,7 +36,7 @@ Now, let’s try to remember some basic HTCondor ideas from yesterday!
         Requirements = (HAS_CVMFS_oasis_opensciencegrid_org =?= TRUE)
 
     Try to do this step without looking at materials from yesterday.
-    But if you are stuck, see [yesterday’s exercise 2.4](/materials/day1/part2-ex2-queue-n.md).
+    But if you are stuck, see [yesterday’s exercise 2.2](/materials/day1/part2-ex2-queue-n.md).
 
 1.  Submit your jobs and wait for the results
 
