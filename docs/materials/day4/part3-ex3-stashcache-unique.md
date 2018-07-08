@@ -162,7 +162,7 @@ the input file name, the "output" file name will be the input file name with the
 arguments = $(mov) $(mov).mp4
 ```
 
-2. To set these arguments, we will use the `queue .. matching` syntax that we learned on [Monday](../day1/part2-ex6-queue-from.md). To \\ do so, we need to create a list of our input files. 3. In our submit file, we can then change our queue statement to: \\
+2. To set these arguments, we will use the `queue .. matching` syntax that we learned on [Monday](../day1/part2-ex4-queue-from.md). To \\ do so, we need to create a list of our input files. 3. In our submit file, we can then change our queue statement to: \\
 
 ``` file
 queue mov from movie_list.txt

@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
@@ -22,38 +22,35 @@ For this compiling example, we will use a script written in C. C code depends on
 Our C code prints 7 rows of Pascal's triangle.
 
 1.  Log into the OSG submit node `osg-learn.chtc.wisc.edu`. Create a directory for this exercise and `cd` into it.
-2.  Copy and paste the following code into a file named `pascal.c`. \\
+1.  Copy and paste the following code into a file named `pascal.c`.
 
-\\
-
-``` file
-#include &ltstdio.h&gt
- 
-long factorial(int);
- 
-int main()
-{
-   int i, n, c;
-   n=7;
-   for (i = 0; i < n; i++){
-      for (c = 0; c <= (n - i - 2); c++)
-         printf(" ");
-      for (c = 0 ; c <= i; c++)
-         printf("%ld ",factorial(i)/(factorial(c)*factorial(i-c)));
-      printf("\n");
-   }
-   return 0;
-}
-
-long factorial(int n)
-{
-   int c;
-   long result = 1;
-   for (c = 1; c <= n; c++)
-         result = result*c;
-   return result;
-}
-```
+        :::c++
+        #include "stdio.h"
+        
+        long factorial(int);
+        
+        int main()
+        {
+        int i, n, c;
+        n=7;
+        for (i = 0; i < n; i++){
+          for (c = 0; c <= (n - i - 2); c++)
+          printf(" ");
+              for (c = 0 ; c <= i; c++)
+                 printf("%ld ",factorial(i)/(factorial(c)*factorial(i-c)));
+              printf("\n");
+           }
+           return 0;
+        }
+        
+        long factorial(int n)
+        {
+           int c;
+           long result = 1;
+           for (c = 1; c <= n; c++)
+                 result = result*c;
+           return result;
+        }
 
 Compiling
 ---------
@@ -61,13 +58,36 @@ Compiling
 In order to use this code in a job, we will first need to statically compile the code. Recall the slide from the lecture - where *can* we compile and where *should* we compile? In particular:
 
 -   Where is the compiler available?
--   How computationally intensive will this compilation be?
+-   How computationally intensive will this compilation be?    
+
+<!--hiding-->
+
 
 1.  Think about these questions before moving on. Where do you think we should compile?
 
-\\ 2. Most linux servers (including our submit node) have the `gcc` (GNU compiler collection) installed, so we already have a compiler on the submit node. Furthermore, this is a simple piece of C code, so the compilation will not be computationally intensive. Thus, we should be able to compile directly on the submit node. \\
+1. Most linux servers (including our submit node) have the `gcc` (GNU compiler collection) installed, so we already have a compiler on the submit node. Furthermore, this is a simple piece of C code, so the compilation will not be computationally intensive. Thus, we should be able to compile directly on the submit node. 
 
-3. Compile the code, using the command: \\ <pre class="screen"> <span class="twiki-macro UCL_PROMPT_SHORT"></span> **gcc -static pascal.c -o pascal** </pre>\\ \\ Note that we have added the `-static` option to make sure that the compiled binary includes the necessary libraries. This will allow the code to run on any Linux machine, no matter where those libraries are located. \\ 4. Verify that the compiled binary was statically linked:\\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> **file pascal**</pre>\\ <p>The Linux `file` command provides information about the *type* or *kind* of file that is given as an argument. In this case, you should get output like this:</p>\\ <pre class="screen">pascal: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), *statically linked*, for GNU/Linux 2.6.18, not stripped</pre>\\ <p>Note the highlighted part, which clearly states that this executable (software) is statically linked. The same command run on a non-statically linked executable file would include the text `dynamically linked (uses shared libs)` instead. So with this simple verification step, which could even be run on files that you did not compile yourself, you have some further reassurance that it is safe to use on other Linux machines. (Bonus exercise: Try the `file` command on lots of other files)</p>
+1. Compile the code, using the command: 
+
+        :::console
+        username@osg-learn $ gcc -static pascal.c -o pascal
+
+	Note that we have added the `-static` option to make sure that the compiled binary includes the necessary libraries. This will allow the code to run on any Linux machine, no matter where those libraries are located. 
+
+1. Verify that the compiled binary was statically linked:
+
+        :::console
+        username@osg-learn $ file pascal
+
+The Linux `file` command provides information about the *type* or *kind* of file that is given as an argument. In this case, you should get output like this:
+
+```console
+username@host $ file pascal
+pascal: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), %BLUE%statically linked%ENDCOLOR%,
+for GNU/Linux 2.6.18, not stripped
+```
+
+Note the blue text, which clearly states that this executable (software) is statically linked. The same command run on a non-statically linked executable file would include the text `dynamically linked (uses shared libs)` instead. So with this simple verification step, which could even be run on files that you did not compile yourself, you have some further reassurance that it is safe to use on other Linux machines. (Bonus exercise: Try the `file` command on lots of other files)
 
 Submit the Job
 --------------
@@ -79,9 +99,11 @@ Now that our code is compiled, we can use it to submit a job.
     -   Are there command line arguments?
     -   Where is its output written?
 
-\\
+1.  Based on what you thought about in 1., find a submit file from earlier in the week that you can modify to run our compiled `pascal` code.
 
-1.  Based on what you thought about in 1., find a submit file from earlier in the week that you can modify to run our compiled `pascal` code. \\
+1. Copy it to the directory with the `pascal` binary and make those changes. 
 
-Copy it to the directory with the `pascal` binary and make those changes. \\ 2. Submit the job using `condor_submit`. \\ 3. Once the job has run and left the queue, you should be able to see the results (seven rows of \\ Pascal's triangle) in the `.out` file created by the job.
+1. Submit the job using `condor_submit`. 
+
+1. Once the job has run and left the queue, you should be able to see the results (seven rows of Pascal's triangle) in the `.out` file created by the job.
 
