@@ -76,6 +76,6 @@ If you're comfortable with `scp` or another method, you can copy it back to your
         :::console
         username@learn $ cp mandel.jpg ~/public_html/
 
-1.  Access `http://learn.chtc.wisc.edu/~%RED%<username>%ENDCOLOR%/mandel.jpg` in your web browser (change %RED%<username>%ENDCOLOR% to your username on the submit machine).
+1.  Access `http://learn.chtc.wisc.edu/~%RED%<USERAME>%ENDCOLOR%/mandel.jpg` in your web browser (change %RED%<USERAME>%ENDCOLOR% to your username on the submit machine).
 
 
