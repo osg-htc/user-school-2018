@@ -185,7 +185,7 @@ or perhaps a simple shell script of commands that you'd like to run within a job
         :::file
         universe = vanilla
         executable = *test-script.sh*
-        arguments = "foo bar baz"
+        arguments = foo bar baz
 
         output = script.out
         error = script.err
