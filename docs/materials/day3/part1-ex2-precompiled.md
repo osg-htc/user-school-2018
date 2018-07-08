@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
@@ -20,99 +20,80 @@ Our Software Example
 The software we will be using for this example is a common tool for aligning genome and protein sequences against a
 reference database, the BLAST program.
 
-1.  Search the internet for the BLAST software.  Searches might include "blast executable
+1.  Search the internet for the BLAST software.  Searches might include "blast executable or "download blast software".  Hopefully these searches will lead you to a BLAST website page that looks like this:
 
-    or "download blast software".  Hopefully these searches will lead you to a BLAST website page that looks like this:
-    ![BLAST landing page](files/osgus17-day3-part1-ex2-blast-landing-page.png)
+    ![BLAST landing page](/materials/day3/files/osgus18-day3-part1-ex2-blast-front-page.png)
 
-1.  Click on the title that says "Download BLAST" and then look for the link that has the latest installation and source
-    code.  You should end up on a page with a list of each version of BLAST that is available for different operating
-    systems.
+1.  Click on the title that says "Download BLAST" and then look for the link that has the latest installation and source code.  You should end up on a page with a list of each version of BLAST that is available for different operating systems.
 
-1.  We could download the source and compile it ourselves, but instead, we're going to use \\
+1.  We could download the source and compile it ourselves, but instead, we're going to use one of the pre-built binaries.  Before proceeding, look at the list of downloads and try to determine which one you want. 
 
-one of the pre-built binaries. \\ Before proceeding, look at the list of downloads and try to determine which one you want. \\
+1.  Based on our operating system, we want to use the Linux binary, which is labelled with the `x64-linux` suffix. 
 
-1.  Based on our operating system, we want to use the Linux binary, which is \\
+	![BLAST downloads](/materials/day3/files/osgus18-day3-part1-ex2-blast-src-page.png)
 
-labelled with the `x64-linux` suffix. All the other links are either for source code or other operating systems. \\ While logged into `osg-learn.chtc.wisc.edu`, create a directory for this exercise. Then download the appropriate `tar.gz` file and un-tar it. \\ You can download the file directly from the BLAST website using `wget` or download our local copy with the command below: \\
+	All the other links are either for source code or other operating systems. 
+	
+1. While logged into `osg-learn.chtc.wisc.edu`, create a directory for this exercise. Then download the appropriate `tar.gz` file and un-tar it. You can download the file directly from the BLAST website using `wget` or download our local copy with the command below: 
 
-``` console
-user@osg-learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/ncbi-blast-2.6.0+-x64-linux.tar.gz</strong>
-user@osg-learn $ <strong>tar -xzf ncbi-blast-2.6.0+-x64-linux.tar.gz</strong>
-```
+        :::console
+        user@osg-learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/ncbi-blast-2.7.1+-x64-linux.tar.gz
+        user@osg-learn $ tar -xzf ncbi-blast-2.7.1+-x64-linux.tar.gz
 
-1.  We're going to be using the `blastx` binary in our job. Where is \\
-
-it in the directory you just downloaded?
+1.  We're going to be using the `blastx` binary in our job. Where is it in the directory you just downloaded?
 
 Copy the Input Files
 --------------------
 
 To run BLAST, we need an input file and reference database. For this example, we'll use the "pdbaa" database, which contains sequences for the protein structure from the Protein Data Bank. For our input file, we'll use an abbreviated fasta file with mouse genome information.
 
-1.  Download these files to your current directory: \\
+1.  Download these files to your current directory: 
 
-``` console
-user@osg-learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/pdbaa.tar.gz</strong>
-user@osg-learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/mouse.fa</strong>
-```
+        :::console
+        username@osg-learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/pdbaa.tar.gz
+        username@osg-learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/mouse.fa
 
-1.  Untar the `pdbaa` database: \\
+1.  Untar the `pdbaa` database: 
 
-``` console
-user@osg-learn $ <strong>tar -xzf pdbaa.tar.gz</strong>
-```
+        :::console
+        username@osg-learn $ tar -xzf pdbaa.tar.gz
+
 
 Submitting the Job
 ------------------
 
 We now have our program (the pre-compiled `blastx` binary) and our input files, so all that remains is to create the submit file. A typical `blastx` command looks something like this:
 
-``` console
-user@osg-learn $ <strong> blastx -db database -query input_file -out results.txt</strong>
+```file
+blastx -db database -query input_file -out results.txt
 ```
 
-1.   Copy the submit file from the last exercise into your current directory. 2. Think about which lines you will need to change or add to your submit file in order to submit \\
+1.   Copy the submit file from the last exercise into your current directory. 
 
-the job successfully. In particular:
+1. Think about which lines you will need to change or add to your submit file in order to submit the job successfully. In particular:    
+	-   What is the executable?
+	-   How can you indicate the entire command line sequence above?
+	-   Which files need to be transferred in addition to the executable?
+	-   Does this job require a certain type of operating system?
 
--   What is the executable?
--   How can you indicate the entire command line sequence above?
--   Which files need to be transferred in addition to the executable?
--   Does this job require a certain type of operating system?
+1. Try to answer these questions and modify your submit file appropriately.
 
-\\ 3. Try to answer these questions and modify your submit file appropriately. 4. Once you have done all you can, check your submit file against the lines below, which contain the necessary changes \\ to run this particular job.
+1. Once you have done all you can, check your submit file against the lines below, which contain the necessary changes to run this particular job.
 
--   The executable is `blastx`, which is located in the `bin` directory of our downloaded BLAST \\
+    * The executable is `blastx`, which is located in the `bin` directory of our downloaded BLAST directory. We need to use the `arguments` line in the submit file to express the rest of the command. 
+    
+            :::file
+            executable = ncbi-blast-2.7.1+/bin/blastx
+            arguments = -db pdbaa/pdbaa -query mouse.fa -out results.txt
 
-directory. We need to use the `arguments` line in the submit file to express the rest of the \\ command. \\ \\
+    * The BLAST program requires our input file and database, so they must be transferred with `transfer_input_files`. 
+    
+            :::file
+            transfer_input_files = pdbaa, mouse.fa
 
-``` file
-executable = ncbi-blast-2.6.0+/bin/blastx
-arguments = -db pdbaa/pdbaa -query mouse.fa -out results.txt
-```
+    * Because we downloaded a Linux-specific binary, we need to request machines that are running Linux. 
+    
+            :::file
+            requirements = (OpSys == "LINUX")
 
-\\
-
--   The BLAST program requires our input file and database, so they must be transferred with `transfer_input_files`. \\
-
-\\
-
-``` file
-transfer_input_files = pdbaa, mouse.fa
-```
-
-\\
-
--   Because we downloaded a Linux-specific binary, we need to request machines that are running Linux. \\
-
-\\
-
-``` file
-requirements = (OpSys == "LINUX")
-```
-
-\\
-
-5. Submit the blast job using `condor_submit`. Once the job starts, it should run in just a few minutes and produce a file called `results.txt`.
+1. Submit the blast job using `condor_submit`. Once the job starts, it should run in just a few minutes and produce a file called `results.txt`.

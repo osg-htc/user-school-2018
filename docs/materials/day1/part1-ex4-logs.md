@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
@@ -7,14 +7,17 @@ status: in progress
 Monday Exercise 1.4: Read and Interpret Log Files
 =================================================
 
-The goal of this exercise is quite simple: Learn to understand the contents of a job log file. When things go wrong with your job, it is usually the first place you should look for important messages. Plus, there is other useful information there.
+The goal of this exercise is quite simple: 
+Learn to understand the contents of a job log file, which is where HTCondor describes the steps 
+taken to run your job.
+When things go wrong with your job, the log is the best place to look for first pointers (in addition to the .err file).
 
-This exercise is short. If you do not have time for it now, come back and visit it later.
+This exercise is short, but you'll want to at least read over it before moving on (and come back later, if you can't run through it now).
 
 Reading a Log File
 ------------------
 
-For this exercise, we can reuse any previous job that you have run. The example output below is based on the `sleep 60` job.
+For this exercise, we can examine a log file for any previous job that you have run. The example output below is based on the `sleep 60` job.
 
 A job log file is updated throughout the life of a job, usually at key events. Each event starts with a heading that indicates what happened and when. Here are **all** of the event headings from the `sleep` job log (detailed output in between headings has been omitted here):
 
@@ -58,7 +61,7 @@ But the periodic information update event contains some additional information:
 ...
 ```
 
-These updates record the amount of memory that the job is using on the execute machine. This can be helpful information, so that in future runs of the job, you can tell HTCondor how much memory you will need. More on that topic in the next lecture.
+These updates record the amount of memory that the job is using on the execute machine. This can be helpful information, so that in future runs of the job, you can tell HTCondor how much memory you will need.
 
 The job termination event includes a great deal of additional information:
 
@@ -82,11 +85,12 @@ The job termination event includes a great deal of additional information:
 
 Probably the most interesting information is:
 
--   The `return value` (`0` here, which is success; non-zero usually means failure)
+-   The `return value` (`0` here, means the executable completed and didn't indicate any internal errors; non-zero usually means failure)
 -   The total number of bytes transferred each way, which could be useful if your network is slow
--   The `Partitionable Resources` table, especially disk and memory usage — again, more on that in the next lecture
+-   The `Partitionable Resources` table, especially disk and memory usage, which will inform larger submissions.
 
 There are many other kinds of events, but the ones above will occur in almost every job log.
+
 
 Understanding When Job Log Events Are Written
 ---------------------------------------------
@@ -94,11 +98,16 @@ Understanding When Job Log Events Are Written
 When are events written to the job log file? Let’s find out. Read through the entire procedure below before starting, because some parts of the process are time sensitive.
 
 1.  Change the `sleep` job submit file, so that the job sleeps for 2 minutes (= 120 seconds)
-2.  Submit the updated sleep job
-3.  As soon as the `condor_submit` command finishes, hit the return key a few times, to create some blank lines
-4.  Right away, run a command to show the log file and **keep showing** updates as they occur:\\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> **tail -f *sleep.log***</pre>\\ <p>Be sure to use the correct filename for your log file, as named in your submit file.</p>
-5.  Watch the output carefully. When do events appear in the log file?
-6.  After the termination event appears, press Control-C to end the `tail` command and return to the shell prompt.
+1.  Submit the updated sleep job
+1.  As soon as the `condor_submit` command finishes, hit the return key a few times, to create some blank lines
+1.  Right away, run a command to show the log file and **keep showing** updates as they occur:
+
+        :::console
+        username@learn $ tail -f sleep.log
+
+1.  Watch the output carefully. When do events appear in the log file?
+1.  After the termination event appears, press Control-C to end the `tail` command and return to the shell prompt.
+
 
 Understanding How HTCondor Writes Files
 ---------------------------------------
@@ -107,11 +116,12 @@ When HTCondor writes the output, error, and log files, does it erase the previou
 
 For this exercise, we can use the `hostname` job from earlier.
 
-1.  Edit the `hostname` submit file so that it uses new and unique filenames for output, error, and log files\\ <p>Alternatively, delete any existing output, error, and log files from previous runs of the `hostname` job.</p>
-2.  Submit the job three separate times in a row (there are better ways to do this, which we will cover in the next lecture)
-3.  Wait for all three jobs to finish
-4.  Examine the output file: How many hostnames are there? Did HTCondor erase the previous contents for each job, or add new lines?
-5.  Examine the log file… carefully: What happened there? Pay close attention to the times and job IDs of the events.
+1.  Edit the `hostname` submit file so that it uses new and unique filenames for output, error, and log files.  
+Alternatively, delete any existing output, error, and log files from previous runs of the `hostname` job.
+1.  Submit the job three separate times in a row (there are better ways to do this, which we will cover in the next lecture)
+1.  Wait for all three jobs to finish
+1.  Examine the output file: How many hostnames are there? Did HTCondor erase the previous contents for each job, or add new lines?
+1.  Examine the log file… carefully: What happened there? Pay close attention to the times and job IDs of the events.
 
 If you have questions about how HTCondor handles these files, you could try finding relevant sections of the manual (this is hard and not as useful as one would hope), discuss it with neighbors or instructors, or ask questions at the end of this session.
 
