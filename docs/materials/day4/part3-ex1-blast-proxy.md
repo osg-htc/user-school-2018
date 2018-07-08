@@ -25,12 +25,12 @@ user@training $ cp pdbaa_files.tar.gz ~/stash/public/
 
 ### Test a download of the file
 
-Once the file is placed in the ~/stash/public directory, it can be downloaded from a corresponding URL such as `http://stash.osgconnect.net/~%RED%username%ENDCOLOR%/pdbaa_files.tar.gz`, where %RED%username<span class="twiki-macro ENDCOLOR"></span> is your username on `training.osgconnect.net`.
+Once the file is placed in the ~/stash/public directory, it can be downloaded from a corresponding URL such as `http://stash.osgconnect.net/~%RED%username%ENDCOLOR%/pdbaa_files.tar.gz`, where %RED%username%ENDCOLOR% is your username on `training.osgconnect.net`.
 
 Using the above convention (and from a different directory on `training.osgconnect.net`, any directory), you can test the download of your `pdbaa_files.tar.gz` file with a command like the following:
 
 ``` console
-user@training $ <strong>wget http://stash.osgconnect.net/~%RED%username%ENDCOLOR%/pdbaa_files.tar.gz</strong>
+user@training $ wget http://stash.osgconnect.net/~%RED%username%ENDCOLOR%/pdbaa_files.tar.gz
 ```
 
 You may realize that you've been using `wget` to download files from a web proxy for many of the previous exercises at the school!
@@ -72,7 +72,7 @@ In your submit file, you will need to remove the `pdbaa_files.tar.gz` file from 
 You may wish to first remove the log, result, output, and error files from the previous tests, which will be overwritten when the new test job completes.
 
 ``` console
-rm *.err *.out *.result *.log
+user@training $ rm *.err *.out *.result *.log
 ```
 
 Submit the test job!

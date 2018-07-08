@@ -20,7 +20,7 @@ Also copy the data from the last exercise into the `thur-blast-data` directory. 
 
 ### Review: HTCondor File Transfer
 
-![OSG data transfer](files/osgus17-day4-part2-ex2-data-transfer.jpg)
+![OSG data transfer](files/osgus18-day4-part2-ex2-data-transfer.jpg)
 
 Recall that OSG does not have a shared filesystem!  Instead, HTCondor *transfers* your executable and input files
 (listed with `transfer_input_files`) to a working directory on the execute node, regardless of how these files were

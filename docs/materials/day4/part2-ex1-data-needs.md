@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: needs testing
 ---
 
 Understanding Data Requirements
@@ -14,13 +14,13 @@ This exercise's goal is to learn to think critically about an application's data
 ### Setup
 
 -   Make sure you are logged into `training.osgconnect.net`.
--   Navigate to your `stash` directory within the home directory, and create a directory for this exercise named thur-blast.
+-   Navigate to your `stash` directory within the home directory, and create a directory for this exercise named `thur-blast`.
 
 #### Copy the blast executables:
 
 ``` console
-user@training $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/ncbi-blast-2.6.0+-x64-linux.tar.gz
-user@training $ tar -xzf ncbi-blast-2.6.0+-x64-linux.tar.gz
+user@training $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/ncbi-blast-2.7.1+-x64-linux.tar.gz
+user@training $ tar xzf ncbi-blast-2.7.1+-x64-linux.tar.gz
 ```
 
 #### Copy the Input Files
@@ -76,7 +76,9 @@ user@training $ du -sh %RED%directory%ENDCOLOR%
 
 ### Input requirements
 
-Looking at yesterday's exercise, total up the amount of data in all of the files necessary to run the `blastx` job (which will include the executable, itself). Write down this number. Also take note of how much total data in in the `pdbaa` directory.
+Looking at yesterday's exercise, total up the amount of data in all of the files necessary to run the `blastx` job (which will include the executable, itself). Write down this number. Also take note of how much total data in in the `pdbaa` directory.  Remember, `blastx` reads the un-compressed `pdbaa` files.
+
+
 
 ### Output requirements
 
@@ -87,8 +89,8 @@ Talk about this as a group!
 
 Once you have completed the above tasks, we'll talk about the totals as a group.
 
--   How much disk space is required on the submit server for one blastx run with the input file you used before?
--   How *many* files are needed and created for each run?
+-   How much disk space is required on the submit server for one blastx run with the input file you used before? (Input data)
+-   How *many* files are needed and created for each run? (Output data)
 -   Assuming that each file is read completely by BLAST, and since you know how long blastx runs (time it):
     -   At what rate are files read in?
     -   How many MB/s?
