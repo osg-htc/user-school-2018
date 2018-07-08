@@ -52,10 +52,10 @@ Let’s see what happens when a program like this one is run in HTCondor.
 What output do you expect? What output did you get? If you are curious about the exit code from the job, it is saved in completed jobs in `condor_history` in the `ExitCode` attribute. The following command will show the `ExitCode` for a given cluster of jobs:
 
 ``` console
-username@learn $ condor_history %RED%CLUSTERID%ENDCOLOR% -af ProcId ExitCode
+username@learn $ condor_history %RED%<CLUSTER>%ENDCOLOR% -af ProcId ExitCode
 ```
 
-(Be sure to replace `CLUSTERID` with your actual cluster ID)
+(Be sure to replace `<cluster>` with your actual cluster ID)
 
 How many of the jobs succeeded? How many failed?
 
@@ -66,7 +66,7 @@ Now let’s see if we can solve the problem of jobs that fail once in a while. I
 
 From the lecture materials, implement the `max_retries` feature to retry any job with a non-zero exit code up to 5 times, then resubmit the jobs. Did your change work?
 
-After the jobs have finished, examine the log file(s) to see what happened in detail. Did any jobs need to be restarted? Another way to see how many restarts there were is to look at the `NumJobStarts` attribute of a completed job with the `condor_history` command, in the same way you looked at the `ExitCode` attribute earlier. Does the number of retries seem correct? For those jobs which did need to be retried, what is their `ExitCode=; and what about the =ExitCode` from earlier execution attempts?
+After the jobs have finished, examine the log file(s) to see what happened in detail. Did any jobs need to be restarted? Another way to see how many restarts there were is to look at the `NumJobStarts` attribute of a completed job with the `condor_history` command, in the same way you looked at the `ExitCode` attribute earlier. Does the number of retries seem correct? For those jobs which did need to be retried, what is their `ExitCode`; and what about the `ExitCode` from earlier execution attempts?
 
 A (Too) Long Running Job
 ------------------------
@@ -107,7 +107,7 @@ Again, you may be able to figure out what this new program does.
         :::file
         periodic_remove = (JobStatus == 2) && ( (CurrentTime - EnteredCurrentStatus) > 60 )
 
-1.  Submit the new file. Do the long running jobs get removed? What does `condor_history` show for the cluster after all jobs are done? Which job status (i.e. idle, held, running) do you think "JobStatus == 2" corresponds to?
+1.  Submit the new file. Do the long running jobs get removed? What does `condor_history` show for the cluster after all jobs are done? Which job status (i.e. idle, held, running) do you think `JobStatus == 2` corresponds to?
 
 Bonus Exercise
 --------------

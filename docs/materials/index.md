@@ -8,7 +8,7 @@ status: in progress
 
 ### Monday Morning: Introduction to HTC and HTCondor
 
-- Lecture: Introduction to HTC ([PDF](/materials/day1/files/osgus18-day1-part1-intro-to-htc.pdf);[PPT](osgus18-day1-part1-intro-to-htc.ppt))
+- Lecture: Introduction to HTC ([PDF](/materials/day1/files/osgus18-day1-part1-intro-to-htc.pdf);[PPT](/materials/day1/files/osgus18-day1-part1-intro-to-htc.pptx))
 - [Exercise 1.1: Log in to the local submit machine and look around](/materials/day1/part1-ex1-login.md)
 - [Exercise 1.2: Experiment with basic HTCondor commands](/materials/day1/part1-ex2-commands.md)
 - [Exercise 1.3: Run jobs!](/materials/day1/part1-ex3-jobs.md)
@@ -19,7 +19,7 @@ status: in progress
 
 ### Monday Morning: Running Many HTC Jobs
 
-- Lecture: More HTCondor ([PDF](/materials/day1/files/osgus18-day1-part2-many-HTCondor-jobs.pdf);[PPT](/materials/day1/files/osgus18-day1-part2-many-HTCondor-jobs.ppt))
+- Lecture: More HTCondor ([PDF](/materials/day1/files/osgus18-day1-part2-many-HTCondor-jobs.pdf);[PPT](/materials/day1/files/osgus18-day1-part2-many-HTCondor-jobs.pptx))
 - [Exercise 2.1: Work with input and output files](/materials/day1/part2-ex1-files.md)
 - [Exercise 2.2: Use `queue N`, `$(Cluster)`, and `$(Process)`](/materials/day1/part2-ex2-queue-n.md)
 - [Exercise 2.3: Use `queue matching` with a custom variable](/materials/day1/part2-ex3-queue-matching.md)
@@ -27,16 +27,16 @@ status: in progress
 
 ### Monday Afternoon: Job Attributes and Handling
 
-- Lecture: Intermediate HTCondor: Workflows ([PDF](/materials/day1/files/osgus18-day1-part3-matching-handling.pdf);[PPT](osgus18-day1-part3-matching-handling.ppt))
+- Lecture: Intermediate HTCondor: Workflows ([PDF](/materials/day1/files/osgus18-day1-part3-matching-handling.pdf);[PPT](/materials/day1/files/osgus18-day1-part3-matching-handling.pptx))
 - [Exercise 3.1: Explore `condor_q`](/materials/day1/part3-ex1-queue.md)
 - [Exercise 3.2: Explore `condor_status`](/materials/day1/part3-ex2-status.md)
 - [Exercise 3.3: A job that needs retries](/materials/day1/part3-ex3-job-retry.md)
 
 ### Monday Afternoon: Automating Workflows with HTCondor's DAGMan
 
-- Lecture: HTCondor: More on Workflows ([PDF](/materials/day1/files/osgus18-day1-part4-dagman.pdf);[PPT](/materials/day1/files/osgus18-day1-part4-dagman.ppt))
-- [Exercise 4.1: A brief detour through the Mandelbrot set](/materials/day1/part4-ex1-mandelbrot.md)
-- [Exercise 4.2: Coordinating set of jobs: A simple DAG](/materials/day1/part4-ex2-simple-dag.md)
+- Lecture: HTCondor: More on Workflows ([PDF](/materials/day1/files/osgus18-day1-part4-dagman.pdf);[PPT](/materials/day1/files/osgus18-day1-part4-dagman.pptx))
+- [Exercise 4.1: Coordinating set of jobs: A simple DAG](/materials/day1/part4-ex1-simple-dag.md)
+- [Exercise 4.2: A brief detour through the Mandelbrot set](/materials/day1/part4-ex2-mandelbrot.md)
 - [Exercise 4.3: A more complex DAG](/materials/day1/part4-ex3-complex-dag.md)
 - [Exercise 4.4: Handling jobs that fail with DAGMan](/materials/day1/part4-ex4-failed-dag.md)
 - [Bonus Exercise 4.5: HTCondor challenges](/materials/day1/part4-ex5-challenges.md) (If and only if you have time)
@@ -92,7 +92,7 @@ status: in progress
 
 ### Wednesday Afternoon: On Your Own
 
-- [Ideas for activities](UserSchool15WedActivities)
+- [Ideas for activities](/logistics/wednesday-activities.md)
 
 ## Thursday
 

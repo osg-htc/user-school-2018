@@ -13,7 +13,7 @@ More Job Submission Alternatives
 --------------------------------
 
 In the previous exercise, we used the `queue ... matching` syntax, which is primarily useful for collections of files with similar names. But that method has its weaknesses, too. 
-It is less useful when the values for different job conditions are **not** filenames, or if you have other filenames with a similar namin pattern that should *not* be used for jobs.
+It is less useful when the values for different job conditions are **not** filenames, or if you have other filenames with a similar naming pattern that should *not* be used for jobs.
 
 Queue Jobs From a List of Values
 --------------------------------

@@ -29,7 +29,7 @@ Determining Resource Needs Before Running Any Jobs
 !!! note
     If you are running short on time, you can skip to "Determining Resource Needs By Running Test Jobs", below, but try to come back and read over this part at some point.
 
-It can be very difficult to predict the memory needs of your running program without just running tests. Typically, the memory size of a job changes over time, making the task even trickier. 
+It can be very difficult to predict the memory needs of your running program without running tests. Typically, the memory size of a job changes over time, making the task even trickier. 
 If you have knowledge ahead of time about your job’s maximum memory needs, use that, or a maybe a number that's just a bit higher, to be safe. Worst case scenario, you can request a fairly large amount of memory (as high as what's on your laptop or other server, if you know your program can run without crashing) for a first test job, OR you can run the program locally and 'watch' it:
 ### Examining a Running Program on a Local Computer
 
@@ -57,7 +57,7 @@ The Resident Set Size (`RSS`) column, highlighted above, gives a rough indicatio
 Using `top`:
 
 ``` console
-username@learn $ top -u %RED%username%ENDCOLOR%
+username@learn $ top -u %RED%<USERAME>%ENDCOLOR%
 top - 13:55:31 up 11 days, 20:59,  5 users,  load average: 0.12, 0.12, 0.09
 Tasks: 198 total,   1 running, 197 sleeping,   0 stopped,   0 zombie
 Cpu(s):  1.2%us,  0.1%sy,  0.0%ni, 98.5%id,  0.2%wa,  0.0%hi,  0.1%si,  0.0%st
@@ -105,7 +105,7 @@ time.sleep(60)
 os.remove('temp')
 ```
 
-Without trying to figure out what this code does or how many resources it uses, just create a submit file for it, 
+Without trying to figure out what this code does or how many resources it uses, create a submit file for it, 
 and run it once with HTCondor, starting with somewhat high memory requests ("1GB" for memory and disk is a good starting point, unless you think the job will use far more).
 When it is done, examine the log file. In particular, we care about these lines:
 
@@ -126,8 +126,8 @@ Setting Resource Requirements
 Once you know your job’s resource requirements, it is easy to declare them in your submit file. For example, taking our results above as an example, we might slightly increase our requests above what was used, just to be safe:
 
 ``` file
-request_memory = 4MB  <span style="font-style: italic; color: blue;"># rounded up from 3 MB</span>
-request_disk = 7MB   <span style="font-style: italic; color: blue;"># rounded up from 6.5 MB</span>
+request_memory = 4MB  %BLUE%# rounded up from 3 MB%ENDCOLOR%
+request_disk = 7MB  %BLUE%# rounded up from 6.5 MB%ENDCOLOR%
 ```
 
 Pay close attention to units:
@@ -136,7 +136,7 @@ Pay close attention to units:
 -   Without explicit units, `request_disk` is in KB (kilobytes)
 -   Allowable units are `KB` (kilobytes), `MB` (megabytes), `GB` (gigabytes), and `TB` (terabytes)
 
-HTCondor translates these requirements into attributes that become part of the job's `requirements` expression. However, do not put your CPU, memory, and disk requirements directly into the `requirements` expression; use the `request_<i>XXX</i>` statements instead.
+HTCondor translates these requirements into attributes that become part of the job's `requirements` expression. However, do not put your CPU, memory, and disk requirements directly into the `requirements` expression; use the `request_XXX` statements instead.
 
 **If you still have time in this working session, Add these requirements to your submit file for the Python script, rerun the job, and confirm in the log file that your requests were used.**
 

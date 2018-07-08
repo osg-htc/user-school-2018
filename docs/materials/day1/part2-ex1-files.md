@@ -16,12 +16,12 @@ Before you learn to transfer files to and from your job, it is good to understan
 
 1.  Save the script below in a file named `sandbox.sh`:
 
-        :::file
-        #/bin/sh
+        :::bash
+        #!/bin/sh
         echo 'Date: ' `date`
         echo 'Host: ' `hostname` 
         echo 'Sandbox: ' `pwd` 
-        echo ls -alF</pre>
+        echo ls -alF
         # END
 
 1.  Create a submit file for this script and submit it.
@@ -48,7 +48,7 @@ Now that we know something about the sandbox, we can transfer more files to and 
 Running a Job With Input Files
 ------------------------------
 
-Next, you will run a job that requires an input file. As with all previous examples, you will tell HTCondor to transfer files to the sandbox (=should\_transfer\_files = YES=). Remember, the initial job sandbox contains only the renamed job executable and nothing else from your directory on the submit machine. You must tell HTCondor explicitly about every other file to transfer to the sandbox. Fortunately, this is easy.
+Next, you will run a job that requires an input file. Remember, the initial job sandbox will contain only the renamed job executable, unless you tell HTCondor explicitly about every other file that needs to be ransfered. Fortunately, this is easy.
 
 Here is a simple Python script that takes the name of an input file (containing one word per line) from the command line, counts the number of times each (lowercased) word occurs in the text, and prints out the final list of words and their counts.
 
@@ -78,13 +78,13 @@ for word in sorted(words.keys()):
     print '%8d %s' % (words[word], word)
 ```
 
-1.  Save the Python script in a file named `freq.py`
+1.  Save the Python script in a file named `freq.py`.
 1.  Download the input file for the script (263K lines, ~1.4 MB) and save it in your submit directory:
 
         :::console
         username@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/mon-2.1-words.txt
 
-1.  Create a basic submit file for the `freq.py` executable
+1.  Create a basic submit file for the `freq.py` executable.
 1.  Add a line to tell HTCondor to transfer the input file:
 
         :::file
@@ -92,7 +92,7 @@ for word in sorted(words.keys()):
 
     As with all submit file commands, it does not matter where this line goes, as long as it comes before the word `queue`.
 
-1.  Do not forget to add a line to name the input file as the argument to the Python script
+1.  Do not forget to add a line to name the input file as the argument to the Python script.
 1.  Submit the job, wait for it to finish, and check the output!
 
 If things do not work the first time, keep trying! At this point in the exercises, we are telling you less and less explicitly how to do steps that you have done before. If you get stuck, ask a neighbor or one of the instructors.
