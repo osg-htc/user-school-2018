@@ -1,8 +1,8 @@
 ---
-status: in progress
+status: done
 ---
 
-<style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
+<style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
 
 Bonus: Passing Arguments Through the Wrapper Script
 ===================================================
@@ -20,31 +20,21 @@ Identifying Potential Arguments
 -------------------------------
 
 1.  Find the directory you used to submit Open BUGS jobs and open your `run_openbugs.sh` wrapper script.
-2.  What values might we want to input to the script via arguments? Hint: anything that we might want to change if we were to run the script many times.
+1.  What values might we want to input to the script via arguments? Hint: anything that we might want to change if we were to run the script many times.
 
 In this example, some values we might want to change are the name of the input and output file. These will be the arguments for our script.
 
 Modifying Files
 ---------------
 
-1.  Note the name of the input and output files and open the submit file. Add an arguments line if it doesn't already exist, and fill it with our two chosen arguments: the name of the input file and the name of the output file: \\
+1.  Note the name of the input and output files and open the submit file. Add an arguments line if it doesn't already exist, and fill it with our two chosen arguments: the name of the input file and the name of the output file: 
 
-``` file
-arguments = input.txt results.txt
-```
+        :::file
+		arguments = input.txt results.txt
 
-\\
+1.  Now go back to the wrapper script. Each scripting language (bash, perl, python, R, etc.) will have its own particular syntax for capturing command line arguments. For bash (the language of our current wrapper script), the variables `$1` and `$2` represent  the first and second arguments, respectively. (If our script needed three arguments, we would use `$3` for the third one). Thus, in  the main command of the script, replace the file names with these variables: 
 
-1.  Now go back to the wrapper script. Each scripting language (bash, perl, python, R, etc.) will have its own particular syntax \\
-
-for capturing command line arguments. For bash (the language of our current wrapper script), the variables `$1` and `$2` represent \\ the first and second arguments, respectively. (If our script needed three arguments, we would use `$3` for the third one). Thus, in \\ the main command of the script, replace the file names with these variables: \\
-
-``` file
-OpenBUGS < $1 > $2
-```
-
-\\
+		:::file
+		OpenBUGS < $1 > $2
 
 1.  Once these changes are made, submit your jobs with `condor_submit`. Use `condor_q -nobatch` to see what the job command looks like to HTCondor.
-
-

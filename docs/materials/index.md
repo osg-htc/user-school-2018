@@ -85,10 +85,10 @@ status: in progress
 
 - Lecture: Considerations for licensing and programming packages
   ([PDF](/materials/day3/files/osgus18-day3-part2-software-license-interpret.pdf))
-- [Exercise 1.6: Compile and run Matlab code](/materials/day3/part2-ex1-matlab.md)
-- [Exercise 1.7: Pre-packaging Python](/materials/day3/part2-ex2-python-built.md)
-- [Exercise 1.8: In-job installation of Python](/materials/day3/part2-ex3-python-install.md)
-- [Bonus Exercise 1.9: Using containers](/materials/day3/part2-ex4-containers.md)
+- [Exercise 2.1: Compile and run Matlab code](/materials/day3/part2-ex1-matlab.md)
+- [Exercise 2.2: Pre-packaging Python](/materials/day3/part2-ex2-python-built.md)
+- [Exercise 2.3: In-job installation of Python](/materials/day3/part2-ex3-python-install.md)
+- [Bonus Exercise 2.4: Using containers](/materials/day3/part2-ex4-containers.md)
 
 ### Wednesday Afternoon: On Your Own
 
