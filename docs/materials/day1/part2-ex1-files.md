@@ -16,12 +16,12 @@ Before you learn to transfer files to and from your job, it is good to understan
 
 1.  Save the script below in a file named `sandbox.sh`:
 
-        :::file
-        #/bin/sh
+        :::bash
+        #!/bin/sh
         echo 'Date: ' `date`
         echo 'Host: ' `hostname` 
         echo 'Sandbox: ' `pwd` 
-        echo ls -alF</pre>
+        echo ls -alF
         # END
 
 1.  Create a submit file for this script and submit it.

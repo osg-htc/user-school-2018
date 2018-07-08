@@ -36,7 +36,7 @@ username@learn $ condor_q -all -nobatch
 Did you know you can also name one or more user IDs on the command line, in which case jobs for all of the named users are listed at once?
 
 ``` console
-username@learn $ condor_q %RED%username1 username2 username3%ENDCOLOR%
+username@learn $ condor_q %RED%<username1> <username2> <username3>%ENDCOLOR%
 ```
 
 There are two other, simple selection criteria that you can use. To list just the jobs associated with a single cluster number:

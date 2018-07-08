@@ -21,7 +21,7 @@ parameters:
 <img src="/materials/day1/files/osgus18-day1-part4-ex1-simple-dag.gif" alt="simple DAG" width="480" height="267">
 
 DAGMan has many abilities, such as throttling jobs, recovery from failures, and more.  More information about DAGMan can
-be found at [in the Condor manual](http://research.cs.wisc.edu/htcondor/manual/v8.5/2_10DAGMan_Applications.html).
+be found at [in the HTCondor manual](http://research.cs.wisc.edu/htcondor/manual/v8.7/DAGManApplications.html).
 
 ## Submitting a Simple DAG
 
@@ -94,7 +94,7 @@ username@learn $ watch -n 10 condor_q -nobatch
  ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD               
 
 0 jobs; 0 completed, 0 removed, 0 idle, 0 running, 0 held, 0 suspended
-<i>Ctrl-C</i>
+#%RED%<Ctrl-C>%ENDCOLOR%
 ```
 
 In the third window, watch what DAGMan does:
@@ -211,7 +211,7 @@ username@learn $ tail -f --lines=500 simple.dag.dagman.out
 06/21/12 22:55:05 Currently monitoring 1 Condor log file(s)
 ```
 
-%RED%*Here's where DAGMan noticed that the job is running**%ENDCOLOR%
+%RED%**Here's where DAGMan noticed that the job is running**%ENDCOLOR%
 
 ```file
 06/21/12 22:55:05 Event: ULOG_EXECUTE for Condor Node Simple (62.0.0)

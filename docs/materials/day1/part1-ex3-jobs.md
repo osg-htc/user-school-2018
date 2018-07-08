@@ -71,7 +71,7 @@ Now, use `condor_q` and `condor_q -nobatch` to watch for your job in the queue!
 
 You may not even catch the job in the `R` running state, because the `hostname` command runs very quickly. When the job itself is finished, it will 'leave' the queue and no longer be listed in the `condor_q` output.
 
-After the job finishes, check for the `hostname` output in `simple.out`, which is where job information printed to the terminal screen will be printed for the jobi.
+After the job finishes, check for the `hostname` output in `simple.out`, which is where job information printed to the terminal screen will be printed for the job.
 
 ``` console
 username@learn $ cat simple.out
