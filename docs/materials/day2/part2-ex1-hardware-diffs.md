@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: done
 ---
 
 Tuesday Exercise 2.1: Hardware Differences in the OSG
@@ -61,15 +61,15 @@ parameter (`request_memory`) for each batch of jobs.
 
 1.  If not already, log in to `learn.chtc.wisc.edu`
 1.  Create and change into a new subdirectory called `tuesday-2.1` – doing things this way will make Part 2 much easier
-1.  Create a submit file that is named `sleep.sub` that executes the command `/bin/sleep 60`.
+1.  Create a submit file that is named `sleep.sub` that executes the command `/bin/sleep 300`.
 
     !!! note
         If you do not remember all of the submit statements to write this file, or just to go faster, find a similar
         submit file from yesterday.
         Copy the file and rename it here, and make sure the argument to `sleep` is `60`.
 
-1.  Use the `queue in` syntax to submit 5 jobs each for the following memory requests: 2, 4, 8, 16, and 32 GB of memory.
-    You should have 5 jobs requesting 2GB, 5 jobs requesting 4GB, etc.
+1.  Use the `queue in` syntax to submit 10 jobs each for the following memory requests: 4, 8, 16, 32, and 64 GB of memory.
+    You should have 10 jobs requesting 4GB, 10 jobs requesting 8GB, etc.
 1.  Save the submit file and exit your editor
 1.  Submit your jobs
 
@@ -88,11 +88,11 @@ Consider making a little table like the one below to track progress.
 
 | Memory | Remaining \#1 | Remaining \#2 | Remaining \#3 |
 |:-------|:--------------|:--------------|:--------------|
-| 2 GB   | 5             | 3             |               |
-| 4 GB   | 5             | 3             |               |
-| 8 GB   | 5             | 4             |               |
-| 16 GB  | 5             | 4             |               |
-| 32 GB  | 5             | 5             |               |
+| 4 GB   | 10            | 6             |               |
+| 8 GB   | 10            | 7             |               |
+| 16 GB  | 10            | 8             |               |
+| 32 GB  | 10            | 9             |               |
+| 64 GB  | 10            | 10            |               |
 
 In the meantime, between checking on your local jobs, start Part 2 – taking a break every few minutes to record progress
 on your local jobs.
