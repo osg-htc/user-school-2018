@@ -126,7 +126,7 @@ ls -alF
 <p>So, HTCondor wrote copies of the job and machine ads (for use by the job, if desired), transferred your executable (<code>sandbox.sh</code>), renamed it (<code>condor_exec.exe</code>), ran it, and saved its standard output and standard error into files. Notice that your submit file, which was in the same directory on the submit machine as your executable, was <strong>not</strong> transferred, nor were any other files that happened to be in directory with the submit file.</p>
 <p>Now that we know something about the sandbox, we can transfer more files to and from it.</p>
 <h2 id="running-a-job-with-input-files">Running a Job With Input Files<a class="headerlink" href="#running-a-job-with-input-files" title="Permanent link">&para;</a></h2>
-<p>Next, you will run a job that requires an input file. Remember, the initial job sandbox will contain only the renamed job executable, unless you tell HTCondor explicitly about every other file that needs to be ransfered. Fortunately, this is easy.</p>
+<p>Next, you will run a job that requires an input file. Remember, the initial job sandbox will contain only the renamed job executable, unless you tell HTCondor explicitly about every other file that needs to be transferred. Fortunately, this is easy.</p>
 <p>Here is a simple Python script that takes the name of an input file (containing one word per line) from the command line, counts the number of times each (lowercased) word occurs in the text, and prints out the final list of words and their counts.</p>
 <div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
