@@ -25,8 +25,6 @@ Suppose you have a collection of books, and you want to analyze how words vary f
 executable              = freq.py
 request_memory          = 20MB
 request_disk            = 20MB
-should_transfer_files   = YES
-when_to_transfer_output = ON_EXIT
 
 transfer_input_files = AAiW.txt
 arguments            = AAiW.txt
