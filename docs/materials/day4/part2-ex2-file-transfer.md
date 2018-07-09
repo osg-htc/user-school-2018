@@ -22,7 +22,7 @@ Also copy the data from the last exercise into the `thur-blast-data` directory. 
 
 ### Review: HTCondor File Transfer
 
-![OSG data transfer](files/osgus17-day4-part2-ex2-data-transfer.jpg)
+![OSG data transfer](/materials/day4/files/osgus18-day4-part2-ex2-data-transfer.jpg)
 
 Recall that OSG does not have a shared filesystem!  Instead, HTCondor *transfers* your executable and input files
 (listed with `transfer_input_files`) to a working directory on the execute node, regardless of how these files were
@@ -103,6 +103,6 @@ Once you have finished editing the submit file, go ahead and submit the job. It 
 
 Run a **`du -sh`** on the directory with this job's input. How does it compare to the directory from yesterday, and why?
 
-When you've completed the above, continue with the [next exercise](Education.UserSchool17Thu23BlastSplit).
+When you've completed the above, continue with the [next exercise](/materials/day4/part2-ex3-blast-split).
 
 
