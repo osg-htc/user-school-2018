@@ -10,9 +10,9 @@ In this exercise, we will do a similar version of the [previous exercise](part3-
 Background
 ----------
 
-In the previous exercises, we used two "web-based" tools to stage and deliver our files to jobs: [the squid web proxy](part3-ex1-blast-proxy.md) \\ and [Stash](part3-ex2-stashcache-shared.md). Another alternative for handling large files (both input and output), especially if they are unique to each job, is a local \\ shared filesystem. This is a filesystem that all (or most) of the execute servers can access, so data stored there can be copied \\ to the job from that system instead of as a transfer or download.
+In the previous exercises, we used two "web-based" tools to stage and deliver our files to jobs: [the squid web proxy](part3-ex1-blast-proxy.md)  and [Stash](part3-ex2-stashcache-shared.md). Another alternative for handling large files (both input and output), especially if they are unique to each job, is a local  shared filesystem. This is a filesystem that all (or most) of the execute servers can access, so data stored there can be copied  to the job from that system instead of as a transfer or download.
 
-For this example, we'll be submitting the same jobs as the [previous exercise](part3-ex3-stashcache-unique.md), but we will stage our \\ data in a shared filesystem local to CHTC. The name of our shared filesystem is Gluster and user directories are found as sub-directories \\ of the path `/mnt/gluster`. This is just one example of what it can look like to use a shared filesystem. If you are running \\ jobs at your own institution, the shared filesystem and how to access it may be different.
+For this example, we'll be submitting the same jobs as the [previous exercise](part3-ex3-stashcache-unique.md), but we will stage our  data in a shared filesystem local to CHTC. The name of our shared filesystem is Gluster and user directories are found as sub-directories  of the path `/mnt/gluster`. This is just one example of what it can look like to use a shared filesystem. If you are running  jobs at your own institution, the shared filesystem and how to access it may be different.
 
 Accessing the Filesystem
 ------------------------
@@ -29,14 +29,14 @@ Previous Files
 Like the previous example, we'll start by downloading our source movie files into the Gluster directory. Run this command **in your Gluster directory**.
 
 ``` console
-user@learn $ <strong>wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/videos.tar.gz</strong>
+user@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/videos.tar.gz
 ```
 
 While the files are copying, feel free to open a second connection to `learn.chtc.wisc.edu` and follow the instructions below. Once the files have finished downloading, untar them.
 
 ### Software, Executable, Submit File
 
-Because these jobs will be similar to the previous exercise, we can copy the software (`ffmpeg`), our executable (`run_ffmpeg.sh`) \\ and submit file from `user-training.osgconnect.net` to `learn.chtc.wisc.edu`, or, feel free to replicate these by following the instructions in the [previous exercise](part3-ex3-stashcache-unique.md). These files should go into a sub-directory of your **home** directory, **not your Gluster directory**.
+Because these jobs will be similar to the previous exercise, we can copy the software (`ffmpeg`), our executable (`run_ffmpeg.sh`)  and submit file from `user-training.osgconnect.net` to `learn.chtc.wisc.edu`, or, feel free to replicate these by following the instructions in the [previous exercise](part3-ex3-stashcache-unique.md). These files should go into a sub-directory of your **home** directory, **not your Gluster directory**.
 
 Ch-ch-ch-changes
 ----------------
@@ -45,19 +45,19 @@ What changes will we need to make to our previous job submission in order to sub
 
 ### Script
 
-The major actions of our script will be the same: *copy* \\ the movie file to the job's current working directory, *run* the appropriate `ffmpeg` command, \\ and then *remove* the original movie file. The main difference is that the `mov` file will be copied from \\ your Gluster directory instead of being downloaded from Stash. Like before, your script should remove \\ that file before the job completes so that it doesn't get transferred back to the submit server.
+The major actions of our script will be the same: *copy*  the movie file to the job's current working directory, *run* the appropriate `ffmpeg` command,  and then *remove* the original movie file. The main difference is that the `mov` file will be copied from  your Gluster directory instead of being downloaded from Stash. Like before, your script should remove  that file before the job completes so that it doesn't get transferred back to the submit server.
 
-1.  Change the first command of your `run_ffmpeg.sh` script to: \\
+1.  Change the first command of your `run_ffmpeg.sh` script to: 
 
 ``` file
 cp /mnt/gluster/%RED%username%ENDCOLOR%/test_open_terminal.mov ./
 ```
 
-\\ You should use your username on `learn.chtc.wisc.edu` in the path above. If you have a version of the script that uses arguments instead of the filenames, \\ that's okay.
+ You should use your username on `learn.chtc.wisc.edu` in the path above. If you have a version of the script that uses arguments instead of the filenames,  that's okay.
 
 ### Submit File
 
-1.  Remove any previous requirements and add a line to the file (before the final queue statement) that ensures your job will land on computers that have access to Gluster: \\
+1.  Remove any previous requirements and add a line to the file (before the final queue statement) that ensures your job will land on computers that have access to Gluster: 
 
 ``` file
 requirements = (Target.HasGluster == true)
@@ -66,7 +66,7 @@ requirements = (Target.HasGluster == true)
 Initial Job
 -----------
 
-As before, we should test our job submission with a single `mov` file before submitting jobs for all three. Alter your submit file (if necessary) to \\ run a job that converts the `test_open_terminal.mov` file.
+As before, we should test our job submission with a single `mov` file before submitting jobs for all three. Alter your submit file (if necessary) to  run a job that converts the `test_open_terminal.mov` file.
 
 Once the job finishes, check to make sure everything ran as expected:
 
