@@ -87,6 +87,4 @@ Up next!
 
 Next you will create a HTCondor submit script to transfer the Blast input files in order to run Blast on a worker nodes.
 
-[Next Exercise](Education.UserSchool17Thurs22HTCondorFT)
-
 

@@ -13,7 +13,7 @@ In this exercise, you will:
 -   write the DAG for the workflow you planned, and
 -   submit this workflow on `learn.chtc.wisc.edu`
 
-There are bonus tasks in [Exercise 1.4](part2-ex2-workflow-tuning), if you get through this part quickly, including running the workflow on the Open Science Grid.
+There are bonus tasks in [Exercise 1.4](/materials/day5/part2-ex2-workflow-tuning), if you get through this part quickly, including running the workflow on the Open Science Grid.
 
 Steps to Take
 -------------
@@ -45,7 +45,7 @@ Write a single DAG file for the workflow, including:
 !!! note
     You may need to think about how each `tar` step works for deciding on "PRE" or "POST" scripts for each.
 
-If you need a refresher on what a DAG looks like, see [this exercise from Monday](/materials/day1/part4-ex3-complex-dag.md) or the [HTCondor manual](http://research.cs.wisc.edu/htcondor/manual/current/2_10DAGMan_Applications.htmll)
+If you need a refresher on what a DAG looks like, see [this exercise from Monday](/materials/day1/part4-ex3-complex-dag.md) or the [HTCondor manual](http://research.cs.wisc.edu/htcondor/manual/current/2_10DAGMan_Applications.html)
 
 To **quickly** check that you've got the details of the DAG correct, modify your *permutation* submit files to submit only a few jobs, and with each job performing a much smaller number of permutations (say, ~10?).
 

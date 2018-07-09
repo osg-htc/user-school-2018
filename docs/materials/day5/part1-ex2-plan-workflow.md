@@ -28,7 +28,11 @@ We'll be working on the first two optimization steps during this session, and th
 Draw a diagram
 --------------
 
-Based upon what you [learned from Joe](/materials/day5/part1-ex1-science-intro), **draw the *general workflow* that you would make** for Joe (on paper), keeping in mind that there are 3 traits for which the *permutation* and *QTL mapping* steps need to be completed. (If you started drawing a diagram while reading the previous page, just extend it here). The tar steps will probably need to be PRE or POST scripts (you decide which is best). Think about what Joe's intended workflow means for the shape of the DAG, including PARENT-CHILD dependencies for JOBs in the DAG and the fact that the *permutation* step could be broken up into multiple processes of fewer total permutations, each. We'll come back to this diagram in the [next exercise](materials/day3/part2-ex1-execute-workflow) after the break, when it's time to construct the full DAG.
+Based upon what you [learned from Joe](/materials/day5/part1-ex1-science-intro), **draw the *general workflow* that you would make** for Joe (on paper), keeping in mind that there are 3 traits for which the *permutation* and *QTL mapping* steps need to be completed.
+(If you started drawing a diagram while reading the previous page, just extend it here).
+The tar steps will probably need to be PRE or POST scripts (you decide which is best).
+Think about what Joe's intended workflow means for the shape of the DAG, including PARENT-CHILD dependencies for JOBs in the DAG and the fact that the *permutation* step could be broken up into multiple processes of fewer total permutations, each.
+We'll come back to this diagram in the [next exercise](/materials/day5/part2-ex1-execute-workflow) after the break, when it's time to construct the full DAG.
 
 Optimize job components
 -----------------------
@@ -65,5 +69,5 @@ In order to optimize Joe's overall workflow, we can optimize the following value
 
 **Memory and disk for both steps:** Make sure to examine the log files of your *permutation* and *QTL* test jobs, so that you can extrapolate how much memory and disk should be requested in the submit files for the full-scale DAG.
 
-**When you're done with 3, move on to [Exercise 1.3](/materials/day3/part2-ex1-execute-workflow)**
+**When you're done with 3, move on to [Exercise 1.3](/materials/day5/part2-ex1-execute-workflow)**
 

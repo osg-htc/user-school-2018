@@ -12,7 +12,7 @@ Setup
 -----
 
 -   Make sure you are logged into `user-training.osgconnect.net`
--   Make sure you are in the same directory as the previous exercise, [Exercise 2.3](Education.UserSchool17Thu23BlastSplit) directory named `thur-blast-data`.
+-   Make sure you are in the same directory as the previous exercise, [Exercise 2.3](/materials/day4/part2-ex3-blast-split) directory named `thur-blast-data`.
 
 Place the Large File on the Proxy
 ---------------------------------
@@ -116,6 +116,6 @@ In the submit file, you will need to change the queue line to scan all the rna f
 queue inputfile matching mouse_rna.fa.*
 ```
 
-Submit all 100 jobs! They may take a while to all complete, but it will still be faster than the many hours it would have taken to blast the single, large `mouse_rna.fa` file without splitting it up. In the meantime, as long as the first several jobs are running for longer than two minutes, you can move on to the [next exercise](Education.UserSchool17Thurs32BlastStash).
+Submit all 100 jobs! They may take a while to all complete, but it will still be faster than the many hours it would have taken to blast the single, large `mouse_rna.fa` file without splitting it up. In the meantime, as long as the first several jobs are running for longer than two minutes, you can move on to the [next exercise](/materials/day4/part3-ex2-stashcache-shared).
 
 
