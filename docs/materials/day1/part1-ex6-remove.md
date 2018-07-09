@@ -50,7 +50,7 @@ Removing All of Your Jobs
 If you really want to remove all of your jobs at once, you can do that with:
 
 ```console
-username@learn $ condor_rm %RED%<USERAME>%ENDCOLOR%
+username@learn $ condor_rm %RED%<USERNAME>%ENDCOLOR%
 ```
 
 If you want to test it: (optional, though you'll likely need this in the future)
