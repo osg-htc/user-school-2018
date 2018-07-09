@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
   if (argc == 2) {
     iterations = atoi(argv[1]);
   } else {
-    printf(&quot;usage: circlepi ITERATIONS\n&quot;);
+    printf("usage: circlepi ITERATIONS\n");
     exit(1);
   }
 
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     }
   }
   pi_estimate = 4.0 * ((double) inside_circle / (double) iterations);
-  printf(&quot;%d iterations, %d inside; pi = %f\n&quot;, iterations, inside_circle, pi_estimate);
+  printf("%d iterations, %d inside; pi = %f\n", iterations, inside_circle, pi_estimate);
   return 0;
 }
 ```
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 1.  Test the program with just 1000 samples:
 
         :::console
-        ./circlepi 1000
+        username@learn $ ./circlepi 1000
 
 Now suppose that you want to run the program many times, to produce many estimates. This is exactly what a statement like `queue 3` is useful for. Let’s see how it works:
 

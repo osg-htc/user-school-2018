@@ -1,10 +1,10 @@
 ---
-status: in progress
+status: done
 ---
 
-a<style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
+<style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-Monday Exercise 3.4: A More Complex DAG
+Monday Exercise 4.3: A More Complex DAG
 =======================================
 
 The objective of this exercise is to run a real set of jobs with DAGMan.
@@ -12,7 +12,7 @@ The objective of this exercise is to run a real set of jobs with DAGMan.
 Make Your Job Submission Files
 ------------------------------
 
-We'll run our `goatbrot` example. If you didn't read about it yet, [please do so now](UserSchool16Mon32Mandelbrot). We are going to make a DAG with four simultaneous jobs (`goatbrot`) and one final node to stitch them together (`montage`). This means we have five jobs. We're going to run `goatbrot` with more iterations (100,000) so each job will take longer to run.
+We'll run our `goatbrot` example. If you didn't read about it yet, [please do so now](/materials/day1/part4-ex2-mandelbrot.md). We are going to make a DAG with four simultaneous jobs (`goatbrot`) and one final node to stitch them together (`montage`). This means we have five jobs. We're going to run `goatbrot` with more iterations (100,000) so each job will take longer to run.
 
 You can create your five jobs. The goatbrot jobs are very similar to each other, but they have slightly different parameters and output files.
 
@@ -24,9 +24,9 @@ arguments               = -i 100000 -c -0.75,0.75 -w 1.5 -s 500,500 -o tile_0_0.
 log                     = goatbrot.log
 output                  = goatbrot.out.0.0
 error                   = goatbrot.err.0.0
-request_memory = 1GB
-request_disk       = 1GB
-request_cpus      = 1
+request_memory          = 1GB
+request_disk            = 1GB
+request_cpus            = 1
 queue
 ```
 
@@ -38,9 +38,9 @@ arguments               = -i 100000 -c 0.75,0.75 -w 1.5 -s 500,500 -o tile_0_1.p
 log                     = goatbrot.log
 output                  = goatbrot.out.0.1
 error                   = goatbrot.err.0.1
-request_memory = 1GB
-request_disk       = 1GB
-request_cpus      = 1
+request_memory          = 1GB
+request_disk            = 1GB
+request_cpus            = 1
 queue
 ```
 
@@ -52,9 +52,9 @@ arguments               = -i 100000 -c -0.75,-0.75 -w 1.5 -s 500,500 -o tile_1_0
 log                     = goatbrot.log
 output                  = goatbrot.out.1.0
 error                   = goatbrot.err.1.0
-request_memory = 1GB
-request_disk       = 1GB
-request_cpus      = 1
+request_memory          = 1GB
+request_disk            = 1GB
+request_cpus            = 1
 queue
 ```
 
@@ -66,9 +66,9 @@ arguments               = -i 100000 -c 0.75,-0.75 -w 1.5 -s 500,500 -o tile_1_1.
 log                     = goatbrot.log
 output                  = goatbrot.out.1.1
 error                   = goatbrot.err.1.1
-request_memory = 1GB
-request_disk       = 1GB
-request_cpus      = 1
+request_memory          = 1GB
+request_disk            = 1GB
+request_cpus            = 1
 queue
 ```
 
@@ -83,9 +83,10 @@ transfer_input_files    = tile_0_0.ppm,tile_0_1.ppm,tile_1_0.ppm,tile_1_1.ppm
 output                  = montage.out
 error                   = montage.err
 log                     = montage.log
-request_memory = 1GB
-request_disk       = 1GB
-request_cpus      = 1
+request_memory          = 1GB
+request_disk            = 1GB
+request_cpus            = 1
+requirements            = OpSysMajorVer =?= 6
 queue
 ```
 
@@ -130,60 +131,66 @@ Watch Your DAG
 
 Let’s follow the progress of the whole DAG:
 
-1.  Use the `watch` command to run `condor_q -nobatch` every 10 seconds: <pre class="screen">
+1.  Use the `watch` command to run `condor_q -nobatch` every 10 seconds:
 
-<span class="twiki-macro UCL_PROMPT_SHORT"></span> **watch -n 10 condor\_q -nobatch**
+        :::console
+        username@learn $ watch -n 10 condor_q -nobatch
 
-%RED%Here we see DAGMan running:<span class="twiki-macro ENDCOLOR"></span> -- Submitter: learn.chtc.wisc.edu : <128.104.100.55:9618?sock=28867\_10e4\_2> : learn.chtc.wisc.edu ID OWNER SUBMITTED RUN\_TIME ST PRI SIZE CMD 71.0 roy 6/22 17:39 0+00:00:03 R 0 0.3 condor\_dagman
+    %RED%**Here we see DAGMan running:**%ENDCOLOR% 
 
-1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
+        :::console
+         ID  OWNER  SUBMITTED   RUN_TIME ST PRI SIZE CMD 
+        71.0 roy   6/22 17:39 0+00:00:03 R  0    0.3 condor_dagman
 
-%RED%DAGMan has submitted the goatbrot jobs, but they haven't started running yet:<span class="twiki-macro ENDCOLOR"></span> -- Submitter: learn.chtc.wisc.edu : <128.104.100.55:9618?sock=28867\_10e4\_2> : learn.chtc.wisc.edu ID OWNER SUBMITTED RUN\_TIME ST PRI SIZE CMD 71.0 roy 6/22 17:39 0+00:00:17 R 0 0.3 condor\_dagman 72.0 roy 6/22 17:39 0+00:00:00 I 0 0.0 goatbrot -i 100000 73.0 roy 6/22 17:39 0+00:00:00 I 0 0.0 goatbrot -i 100000 74.0 roy 6/22 17:39 0+00:00:00 I 0 0.0 goatbrot -i 100000 75.0 roy 6/22 17:39 0+00:00:00 I 0 0.0 goatbrot -i 100000
+    %RED%**DAGMan has submitted the goatbrot jobs, but they haven't started running yet**%ENDCOLOR%
+    
+        :::console
+         ID  OWNER SUBMITTED   RUN_TIME ST PRI SIZE CMD 
+        71.0 roy  6/22 17:39 0+00:00:17 R  0    0.3 condor_dagman 
+        72.0 roy  6/22 17:39 0+00:00:00 I  0    0.0 goatbrot -i 100000 
+        73.0 roy  6/22 17:39 0+00:00:00 I  0    0.0 goatbrot -i 100000 
+        74.0 roy  6/22 17:39 0+00:00:00 I  0    0.0 goatbrot -i 100000 
+        75.0 roy  6/22 17:39 0+00:00:00 I  0    0.0 goatbrot -i 100000
 
-5 jobs; 0 completed, 0 removed, 4 idle, 1 running, 0 held, 0 suspended
+    %RED%**They're running**%ENDCOLOR% 
 
-%RED%They're running%ENDCOLOR% -- Submitter: learn.chtc.wisc.edu : <128.104.100.55:9618?sock=28867\_10e4\_2> : learn.chtc.wisc.edu ID OWNER SUBMITTED RUN\_TIME ST PRI SIZE CMD 71.0 roy 6/22 17:39 0+00:07:15 R 0 0.3 condor\_dagman 72.0 roy 6/22 17:39 0+00:00:03 R 0 0.0 goatbrot -i 100000 73.0 roy 6/22 17:39 0+00:00:03 R 0 0.0 goatbrot -i 100000 74.0 roy 6/22 17:39 0+00:00:03 R 0 0.0 goatbrot -i 100000 75.0 roy 6/22 17:39 0+00:00:03 R 0 0.0 goatbrot -i 100000
+        :::console
+         ID  OWNER SUBMITTED   RUN_TIME ST PRI SIZE CMD
+        71.0 roy  6/22 17:39 0+00:07:15 R  0    0.3 condor_dagman 
+        72.0 roy  6/22 17:39 0+00:00:03 R  0    0.0 goatbrot -i 100000 
+        73.0 roy  6/22 17:39 0+00:00:03 R  0    0.0 goatbrot -i 100000 
+        74.0 roy  6/22 17:39 0+00:00:03 R  0    0.0 goatbrot -i 100000 
+        75.0 roy  6/22 17:39 0+00:00:03 R  0    0.0 goatbrot -i 100000
 
-5 jobs; 0 completed, 0 removed, 0 idle, 5 running, 0 held, 0 suspended
+    %RED%**They finished, but DAGMan hasn't noticed yet. It only checks periodically:**%ENDCOLOR%
 
-%RED%Two of the jobs have finished, while the others are still running:<span class="twiki-macro ENDCOLOR"></span> -- Submitter: learn.chtc.wisc.edu : <128.104.100.55:9618?sock=28867\_10e4\_2> : learn.chtc.wisc.edu ID OWNER SUBMITTED RUN\_TIME ST PRI SIZE CMD 71.0 roy 6/22 17:39 0+00:07:51 R 0 0.3 condor\_dagman 72.0 roy 6/22 17:39 0+00:00:39 R 0 0.0 goatbrot -i 100000 74.0 roy 6/22 17:39 0+00:00:39 R 0 0.0 goatbrot -i 100000
+        :::console
+         ID  OWNER SUBMITTED   RUN_TIME ST PRI SIZE CMD 
+        71.0 roy  6/22 17:39 0+00:08:46 R  0    0.3 condor_dagman
+ 
 
-3 jobs; 0 completed, 0 removed, 0 idle, 3 running, 0 held, 0 suspended
+    Eventually, you'll see the montage job submitted, then running, then leave the queue, and then DAGMan will leave the queue.
 
-%RED%They finished, but DAGMan hasn't noticed yet. It only checks periodically:<span class="twiki-macro ENDCOLOR"></span> -- Submitter: learn.chtc.wisc.edu : <128.104.100.55:9618?sock=28867\_10e4\_2> : learn.chtc.wisc.edu ID OWNER SUBMITTED RUN\_TIME ST PRI SIZE CMD 71.0 roy 6/22 17:39 0+00:08:46 R 0 0.3 condor\_dagman
+1.  Examine your results. For some reason, goatbrot prints everything to stderr, not stdout.
 
-1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
+        :::console
+        username@learn $ cat goatbrot.err.0.0 
+        Complex image: Center: -0.75 + 0.75i Width: 1.5 Height: 1.5 Upper Left: -1.5 + 1.5i Lower Right: 0 + 0i
+         
+        Output image: Filename: tile_0_0.ppm Width, Height: 500, 500 Theme: beej Antialiased: no
+        
+        Mandelbrot: Max Iterations: 100000 Continuous: no
+         
+        Goatbrot: Multithreading: not supported in this build
 
-%RED%DAGMan submitted and ran the montage job. It ran so fast I didn't capture it running. DAGMan will finish up soon <span class="twiki-macro ENDCOLOR"></span> -- Submitter: learn.chtc.wisc.edu : <128.104.100.55:9618?sock=28867\_10e4\_2> : learn.chtc.wisc.edu ID OWNER SUBMITTED RUN\_TIME ST PRI SIZE CMD 71.0 roy 6/22 17:39 0+00:08:55 R 0 0.3 condor\_dagman
+        Completed: 100.0%
 
-1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
+1.  Examine your log files (`goatbrot.log` and `montage.log`) and DAGMan output file (`goatbrot.dag.dagman.out`). Do they look as you expect? Can you see the progress of the DAG in the DAGMan output file?
+1.  As you did earlier, copy the resulting `mandel-from-dag.jpg` to your `public_html` directory, then access it from your web browser. Does the image look correct?
+1.  Clean up your results by removing all of the `goatbrot.dag.*` files if you like. Be careful to not delete the `goatbrot.dag` file.
 
-%RED%Now it's all done:<span class="twiki-macro ENDCOLOR"></span> -- Submitter: learn.chtc.wisc.edu : <128.104.100.55:9618?sock=28867\_10e4\_2> : learn.chtc.wisc.edu ID OWNER SUBMITTED RUN\_TIME ST PRI SIZE CMD
-
-0 jobs; 0 completed, 0 removed, 0 idle, 0 running, 0 held, 0 suspended </pre>
-
-1.  Examine your results. For some reason, goatbrot prints everything to stderr, not stdout. <pre class="screen">
-
-<span class="twiki-macro UCL_PROMPT_SHORT"></span> **cat goatbrot.err.0.0** Complex image: Center: -0.75 + 0.75i Width: 1.5 Height: 1.5 Upper Left: -1.5 + 1.5i Lower Right: 0 + 0i
-
-Output image: Filename: tile\_0\_0.ppm Width, Height: 500, 500 Theme: beej Antialiased: no
-
-Mandelbrot: Max Iterations: 100000 Continuous: no
-
-Goatbrot: Multithreading: not supported in this build
-
-Completed: 100.0% </pre>
-
-1.  <p>Examine your log files (`goatbrot.log` and `montage.log`) and DAGMan output file (`goatbrot.dag.dagman.out`). Do they look as you expect? Can you see the progress of the DAG in the DAGMan output file?</p>
-2.  <p>As you did earlier, copy the resulting `mandel-from-dag.jpg` to your `public_html` directory, then access it from your web browser. Does the image look correct?</p>
-3.  <p>Clean up your results. Be careful about deleting the `goatbrot.dag.*` files, you do not want to delete the `goatbrot.dag` file, just `goatbrot.dag.*`.</p> <pre class="screen">
-
-<span class="twiki-macro UCL_PROMPT_SHORT"></span> **rm goatbrot.dag.\*** <span class="twiki-macro UCL_PROMPT_SHORT"></span> **rm goatbrot.out.\*** <span class="twiki-macro UCL_PROMPT_SHORT"></span> **rm goatbrot.err.\*** </pre>
-
-On Your Own
------------
+Bonus Challenge
+---------------
 
 -   Re-run your DAG. When jobs are running, try `condor_q -nobatch -dag`. What does it do differently?
 -   Challenge, if you have time: Make a bigger DAG by making more tiles in the same area.
-
-

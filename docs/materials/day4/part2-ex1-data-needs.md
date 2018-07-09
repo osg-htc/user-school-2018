@@ -100,8 +100,8 @@ Once you have completed the above tasks, we'll talk about the totals as a group.
 Up next!
 --------
 
-Next you will create a HTCondor submit script to transfer the Blast input files in order to run Blast on a worker nodes.
+Next you will create a HTCondor submit script to transfer the Blast input files in order to run Blast on a worker nodes. [Next Exercise](part2-ex2-file-transfer.md)
 
-[Next Exercise](part2-ex2-file-transfer.md)
+
 
 
