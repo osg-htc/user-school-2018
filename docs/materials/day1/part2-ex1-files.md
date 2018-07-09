@@ -21,7 +21,7 @@ Before you learn to transfer files to and from your job, it is good to understan
         echo 'Date: ' `date`
         echo 'Host: ' `hostname` 
         echo 'Sandbox: ' `pwd` 
-        echo ls -alF
+        ls -alF
         # END
 
 1.  Create a submit file for this script and submit it.
