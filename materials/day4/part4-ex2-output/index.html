@@ -60,34 +60,36 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="thursday-exercise-42-large-output-data">Thursday Exercise 4.2: Large Output Data<a class="headerlink" href="#thursday-exercise-42-large-output-data" title="Permanent link">&para;</a></h1>
 <p>In this exercise, we will run a job that produces a very large output file, based on a few parameters. This exercise should take 15-20 minutes.</p>
 <h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
-<p>This exercise will be the reverse of the previous exercise! Instead of large input/small output, we will be using a program \ that has no input except for a few arguments on the command line, but produces a file that is several GB in size. \ As before, we will need to write a shell script that runs the program and handles the data.</p>
+<p>This exercise will be the reverse of the previous exercise! Instead of large input/small output, we will be using a program  that has no input except for a few arguments on the command line, but produces a file that is several GB in size.  As before, we will need to write a shell script that runs the program and handles the data.</p>
 <h2 id="the-program">The Program<a class="headerlink" href="#the-program" title="Permanent link">&para;</a></h2>
 <p>If you haven't already, log in to <code>learn.chtc.wisc.edu</code>. Download the software package and untar it.</p>
-<div class="codehilite"><pre><span></span><span class="gp">user@learn $</span> &lt;strong&gt;wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/motif-flanks.tar.gz&lt;/strong&gt;
-<span class="gp">user@learn $</span> &lt;strong&gt;tar -xzf motif-flanks.tar.gz&lt;/strong&gt;
+<div class="codehilite"><pre><span></span><span class="gp">user@learn $</span> wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/motif-flanks.tar.gz
+<span class="gp">user@learn $</span> tar -xzf motif-flanks.tar.gz
 </pre></div>
 
 
 <p>Use the <code>cd</code> command to enter the unpacked <code>motif-flanks</code> directory. Take a look at the README file and then do the following:</p>
 <ol>
-<li>Compile the code. 2. Run the program without any arguments. 3. Based on the README, what is the largest amount of data we might expect?</li>
+<li>Compile the code. </li>
+<li>Run the program without any arguments. </li>
+<li>Based on the README, what is the largest amount of data we might expect?</li>
 </ol>
-<p>This program generates all permutations of nucleotide sequences \ surrounding a given DNA motif. We can choose the length of permutation we want both \ before and after a motif of our choice. To use this program on the command line and save the output to a FASTA file, we can use the command:</p>
-<div class="codehilite"><pre><span></span><span class="gp">user@learn $</span> &lt;strong&gt;./motif-flanks <span class="m">2</span> AGTTCATGCCT <span class="m">2</span> &gt; sequences.fa&lt;/strong&gt;
+<p>This program generates all permutations of nucleotide sequences  surrounding a given DNA motif. We can choose the length of permutation we want both  before and after a motif of our choice. To use this program on the command line and save the output to a FASTA file, we can use the command:</p>
+<div class="codehilite"><pre><span></span><span class="gp">user@learn $</span> ./motif-flanks <span class="m">2</span> AGTTCATGCCT <span class="m">2</span> &gt; sequences.fa
 </pre></div>
 
 
-<p>According to the usage information and README, the two numerical arguments can add up to 13, at most, and the middle sequence can be any \ DNA sequence up to 20 characters. The largest output we can expect is around 4 GB.</p>
+<p>According to the usage information and README, the two numerical arguments can add up to 13, at most, and the middle sequence can be any  DNA sequence up to 20 characters. The largest output we can expect is around 4 GB.</p>
 <h2 id="test-job">Test Job<a class="headerlink" href="#test-job" title="Permanent link">&para;</a></h2>
-<p>Having output of up to 4 GB means two things: we will want to run a smaller \ test before we run the program at its peak, and the output data will need to go into a shared location like Gluster, instead of returning \ to the submit server.</p>
+<p>Having output of up to 4 GB means two things: we will want to run a smaller  test before we run the program at its peak, and the output data will need to go into a shared location like Gluster, instead of returning  to the submit server.</p>
 <p>First, we'll create a shell script to serve as the job's executable.</p>
 <ol>
 <li>What commands do you need to put in the script? What do you need to do with the <code>sequences.fa</code> file before the job exits?</li>
-<li>Our script needs to run the <code>motif-flanks</code> command as shown above, redirecting the output to a file called <code>sequences.fa</code>. Then, \</li>
+<li>Our script needs to run the <code>motif-flanks</code> command as shown above, redirecting the output to a file called <code>sequences.fa</code>. Then, </li>
 </ol>
-<p>after that command completes, the <code>sequences.fa</code> file should be moved to your Gluster directory, as it is too large to return to the \ submit server as usual.</p>
+<p>after that command completes, the <code>sequences.fa</code> file should be moved to your Gluster directory, as it is too large to return to the  submit server as usual.</p>
 <ol>
-<li>Write the script and then check it against the script below. Yours might look slightly different. \</li>
+<li>Write the script and then check it against the script below. Yours might look slightly different. </li>
 </ol>
 <div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
 
@@ -97,7 +99,7 @@ mv sequences.fa /mnt/gluster/<span style="color:red">username</span>/
 
 
 <ol>
-<li>Note that the two arguments in the script (4 and 4) are much smaller than the total possible for the software (two values that add up to 13). This is \</li>
+<li>Note that the two arguments in the script (4 and 4) are much smaller than the total possible for the software (two values that add up to 13). This is </li>
 </ol>
 <p>because we want to run a smaller test before submitting a job with the largest possible combination of arguments.</p>
 <p>Next, create a submit file for this job, based on other submit files from the school. Some important considerations:</p>
@@ -113,9 +115,9 @@ mv sequences.fa /mnt/gluster/<span style="color:red">username</span>/
 <li>Check your Gluster directory. Did the <code>sequences.fa</code> file get copied there successfully?</li>
 <li>Check file size. How big is the <code>sequences.fa</code> file? You can use the <code>ls -lh</code> command with the filename to find out.</li>
 </ol>
-<p>If your job successfully copied the <code>sequences.fa</code> file to Gluster and did <strong>not</strong> return it to your submission directory on \ the submit server, congratulations! Everything is working as it should and you can now submit a full job.</p>
+<p>If your job successfully copied the <code>sequences.fa</code> file to Gluster and did <strong>not</strong> return it to your submission directory on  the submit server, congratulations! Everything is working as it should and you can now submit a full job.</p>
 <h2 id="final-job">Final Job<a class="headerlink" href="#final-job" title="Permanent link">&para;</a></h2>
-<p>Having done a test, it should be straightforward to run a "full scale" job. Edit your <code>run_motif.sh</code> executable so that the <code>motif-flanks</code> command \ uses larger numerical arguments:</p>
+<p>Having done a test, it should be straightforward to run a "full scale" job. Edit your <code>run_motif.sh</code> executable so that the <code>motif-flanks</code> command  uses larger numerical arguments:</p>
 <div class="codehilite"><pre><span></span>./motif-flanks 6 GATTTTCGATC 7 &gt; sequences.fa
 </pre></div>
 

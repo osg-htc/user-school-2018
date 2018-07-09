@@ -61,19 +61,19 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Continuing the series of exercises blasting mouse genetic sequences, the objective of this exercise is to use a web proxy to stage the large database, which will be downloaded into each of many jobs that use the split input files from the last exercise (Exercise 2.3).</p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Make sure you are logged into <code>user-training.osgconnect.net</code></li>
-<li>Make sure you are in the same directory as the previous exercise, <a href="../../../materials/day4/part2-ex3-blast-split">Exercise 2.3</a> directory named <code>thur-blast-data</code>.</li>
+<li>Make sure you are logged into <code>training.osgconnect.net</code></li>
+<li>Make sure you are in the same directory as the previous exercise, <a href="../part2-ex3-blast-split/">Exercise 2.3</a> directory named <code>thur-blast-data</code>.</li>
 </ul>
 <h2 id="place-the-large-file-on-the-proxy">Place the Large File on the Proxy<a class="headerlink" href="#place-the-large-file-on-the-proxy" title="Permanent link">&para;</a></h2>
 <p>First, you'll need to put the <code>pdbaa_files.tar.gz</code> file onto the Stash web directory. Use the following command:</p>
-<div class="codehilite"><pre><span></span><span class="gp">user@user-training $</span> cp pdbaa_files.tar.gz ~/stash/public/
+<div class="codehilite"><pre><span></span><span class="gp">user@training $</span> cp pdbaa_files.tar.gz ~/stash/public/
 </pre></div>
 
 
 <h3 id="test-a-download-of-the-file">Test a download of the file<a class="headerlink" href="#test-a-download-of-the-file" title="Permanent link">&para;</a></h3>
-<p>Once the file is placed in the ~/stash/public directory, it can be downloaded from a corresponding URL such as <code>http://stash.osgconnect.net/~<span style="color:red">username</span>/pdbaa_files.tar.gz</code>, where <span style="color:red">username<span class="twiki-macro ENDCOLOR"></span> is your username on <code>user-training.osgconnect.net</code>.</p>
-<p>Using the above convention (and from a different directory on <code>user-training.osgconnect.net</code>, any directory), you can test the download of your <code>pdbaa_files.tar.gz</code> file with a command like the following:</p>
-<div class="codehilite"><pre><span></span><span class="gp">user@user-training $</span> &lt;strong&gt;wget http://stash.osgconnect.net/~<span style="color:red">username</span>/pdbaa_files.tar.gz&lt;/strong&gt;
+<p>Once the file is placed in the ~/stash/public directory, it can be downloaded from a corresponding URL such as <code>http://stash.osgconnect.net/~<span style="color:red">username</span>/pdbaa_files.tar.gz</code>, where <span style="color:red">username</span> is your username on <code>training.osgconnect.net</code>.</p>
+<p>Using the above convention (and from a different directory on <code>training.osgconnect.net</code>, any directory), you can test the download of your <code>pdbaa_files.tar.gz</code> file with a command like the following:</p>
+<div class="codehilite"><pre><span></span><span class="gp">user@training $</span> wget http://stash.osgconnect.net/~<span style="color:red">username</span>/pdbaa_files.tar.gz
 </pre></div>
 
 
@@ -84,51 +84,47 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>In the wrapper script, we have to add some special lines so that we can pull from Stash and use the HTTP proxy. In <code>blast_wrapper.sh</code>, we will have to add commands to pull the data file:</p>
 <div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span style="color:red">
-<span class="c1"># Set an environment variable to point to the local Proxy location at the cluster</span>
-<span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span><span class="nv">$OSG_SQUID_LOCATION</span>
 <span class="c1"># Copy the pdbaa_files.tar.gz to the worker node</span>
 <span class="c1"># Add the -S argument, so we can see if it was a cache HIT or MISS</span>
 wget -S http://stash.osgconnect.net/~username/pdbaa_files.tar.gz
 </span>
 tar xvzf pdbaa_files.tar.gz
-tar xvzf blastx.tar.gz
 
-
-./blastx -db pdbaa -query <span class="nv">$1</span> -out <span class="nv">$1</span>.result
+./blastx -db pdbaa -query mouse.fa -out mouse.fa.result
 
 rm pdbaa.*
-rm blastx
 </pre></div>
 
 
-<p>The first line will set a special environment variable that <code>wget</code> will look at. <code>$OSG_SQUID_LOCATION</code> is a special variable that is set on OSG sites to the hostname of the nearest squid cache. The second line will download the <code>pdbaa_files.tar.gz</code> from stash, using the closes cache (because <code>wget</code> will look at <code>http_proxy</code> for the newest cache=).</p>
+<p>The new line will download the <code>pdbaa_files.tar.gz</code> from stash, using the closest cache (because <code>wget</code> will look at the environment variable <code>http_proxy</code> for the newest cache).</p>
 <p>In your submit file, you will need to remove the <code>pdbaa_files.tar.gz</code> file from the <code>transfer_input_files</code>, because we are using HTTP proxies!</p>
 <h3 id="submit-the-test-job">Submit the test job<a class="headerlink" href="#submit-the-test-job" title="Permanent link">&para;</a></h3>
 <p>You may wish to first remove the log, result, output, and error files from the previous tests, which will be overwritten when the new test job completes.</p>
-<div class="codehilite"><pre><span></span><span class="go">rm *.err *.out *.result *.log</span>
+<div class="codehilite"><pre><span></span><span class="gp">user@training $</span> rm *.error *.out *.result *.log
 </pre></div>
 
 
 <p>Submit the test job!</p>
 <p>When the job starts, the wrapper will download the <code>pdbaa_files.tar.gz</code> file from the web proxy. If the jobs takes longer than two minutes, you can assume that it will complete successfully, and then continue with the rest of the exercise.</p>
-<p>After the job completes examine the *.err file generated by the submission. At the top of the file, you will find something like:</p>
-<div class="codehilite"><pre><span></span>--2017-07-19 00:36:29--  http://stash.osgconnect.net/~osguser199/pdbaa_files.tar.gz
-Resolving cmsprxy01.colorado.edu... 192.12.238.152
-Connecting to cmsprxy01.colorado.edu|192.12.238.152|:3128... connected.
+<p>After the job completes examine the *.error file generated by the submission. At the top of the file, you will find something like:</p>
+<div class="codehilite"><pre><span></span>--2018-07-09 <span class="m">17</span>:00:34--  http://stash.osgconnect.net/~dweitzel/pdbaa_files.tar.gz
+Resolving cmsprxy01.colorado.edu <span class="o">(</span>cmsprxy01.colorado.edu<span class="o">)</span>... <span class="m">192</span>.12.238.152
+Connecting to cmsprxy01.colorado.edu <span class="o">(</span>cmsprxy01.colorado.edu<span class="o">)</span><span class="p">|</span><span class="m">192</span>.12.238.152<span class="p">|</span>:3128... connected.
 Proxy request sent, awaiting response... 
-  HTTP/1.0 200 OK
-  Content-Type: application/octet-stream
-  Content-Length: 22105114
-  Accept-Ranges: bytes
+  HTTP/1.0 <span class="m">200</span> OK
   Server: nginx/1.10.2
-  Date: Wed, 19 Jul 2017 00:36:29 GMT
-  Last-Modified: Wed, 19 Jul 2017 05:03:09 GMT
-  ETag: &quot;596ee80d-1514c1a&quot;
+  Date: Mon, <span class="m">09</span> Jul <span class="m">2018</span> <span class="m">16</span>:58:50 GMT
+  Content-Type: application/octet-stream
+  Content-Length: <span class="m">22105124</span>
+  Last-Modified: Mon, <span class="m">09</span> Jul <span class="m">2018</span> <span class="m">15</span>:56:19 GMT
+  ETag: <span class="s2">&quot;5b4385a3-1514c24&quot;</span>
+  Accept-Ranges: bytes
+  Age: <span class="m">104</span>
   X-Cache: HIT from cmsprxy01.colorado.edu
-  Via: 1.1 cmsprxy01.colorado.edu:3128 (squid/frontier-squid-2.7.STABLE9-14)
-  Connection: close
-Length: 22105114 (21M) [application/octet-stream]
-Saving to: `pdbaa_files.tar.gz&#39;
+  Via: <span class="m">1</span>.1 cmsprxy01.colorado.edu:3128 <span class="o">(</span>squid/frontier-squid-2.7.STABLE9-27.1.osg33.el7<span class="o">)</span>
+  Connection: keep-alive
+  Proxy-Connection: keep-alive
+Length: <span class="m">22105124</span> <span class="o">(</span>21M<span class="o">)</span> <span class="o">[</span>application/octet-stream<span class="o">]</span>
 ...
 </pre></div>
 
@@ -136,12 +132,7 @@ Saving to: `pdbaa_files.tar.gz&#39;
 <p>Notice the <code>X-Cache</code> line. It says it was a cache HIT from the proxy <code>cmsprxy01.colorado.edu</code>. Yay! You successfully used a proxy to cache data near your worker node! Notice, the name of the cache file may be different.</p>
 <h2 id="run-all-100-jobs">Run all 100 Jobs!<a class="headerlink" href="#run-all-100-jobs" title="Permanent link">&para;</a></h2>
 <p>If all of the previous tests have gone okay, you can prepare to run all 100 jobs that will use the split input files. To make sure you're not going to generate too much data, use the size of files from the previous test to calculate how much total data you're going to add to the <code>thur-blast-data</code> directory for 100 jobs.</p>
-<p>In the submit file, you will need to change the queue line to scan all the rna files:</p>
-<div class="codehilite"><pre><span></span>...
-queue inputfile matching mouse_rna.fa.*
-</pre></div>
-
-
+<p>Make sure you remove <code>pdbaa_files.tar.gz</code> from the <code>transfer_input_files</code> in the <em>split</em> submit file.</p>
 <p>Submit all 100 jobs! They may take a while to all complete, but it will still be faster than the many hours it would have taken to blast the single, large <code>mouse_rna.fa</code> file without splitting it up. In the meantime, as long as the first several jobs are running for longer than two minutes, you can move on to the <a href="../../../materials/day4/part3-ex2-stashcache-shared">next exercise</a>.</p>
 
   <br>
