@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: tested
 ---
 
 Thursday Exercise 3.2: Using StashCache for Large Shared Data
@@ -20,7 +20,7 @@ Setup
 -----
 
 -   Make sure you're logged in to `training.osgconnect.net`
--   Transfer the following files from [Exercise 3.1](/materials/day4/part3-ex1-blast-proxy.md) to a new directory called `thur-data-3.2`: `blast_wrapper.sh`, `mouse_rna.fa.1`, `mouse_rna.fa.2`, `mouse_rna.fa.3`, and the most recent submit file.
+-   Transfer the following files from [Exercise 3.1](/materials/day4/part3-ex1-blast-proxy.md) to a new directory called `~/stash/thur-data-stash`: `blast_wrapper.sh`, `mouse_rna.fa.1`, `mouse_rna.fa.2`, `mouse_rna.fa.3`, and the most recent submit file.
 
 Place the Database in StashCache
 --------------------------------
@@ -38,7 +38,7 @@ As the `public` directory name indicates \*your files placed in the `public` dir
 Next, you can check for the file and test the command that we'll use in jobs on the OSG Connect login node:
 
 ``` console
-user@training $ ls public
+user@training $ ls ~/stash/public
 ```
 
 Now, load the `stashcp` module, which will allow you to test a copy of the file from StashCache into your home directory on `login.osgconnect.net`:
@@ -54,9 +54,9 @@ You should now see the `pdbaa_files.tar.gz` file in your current directory. Noti
 Modify the Submit File and Wrapper
 ----------------------------------
 
-Return to your `thur-data-stash` directory on `training.osgconnect.net` (you may already be connected) where you will modify the files as described below:
+You will have to modify the wrapper and submit files to use StashCache:
 
-1. At the top of the wrapper script (after `#!/bin/bash`), add the line to activate OSG Connect modules, followed by the above two lines that load the `stashcp` module and to copy the `pdbaa_files.tar.gz` file into the current directory of the job:
+1. At the top of the wrapper script (after `#!/bin/bash`), add the lines that load the `stashcp` module and to copy the `pdbaa_files.tar.gz` file into the current directory of the job:
 
         ::file
         module load xrootd
@@ -82,7 +82,7 @@ Return to your `thur-data-stash` directory on `training.osgconnect.net` (you may
         ::file
         queue inputfile matching mouse_rna.fa.*
 
-And that mouse\_rna.fa.\* files exist in the current directory (you should have copied them from the previous exercise directory.
+And that mouse\_rna.fa.\* files exist in the current directory (you should have copied them from the previous exercise directory).
 
 Submit the Job
 --------------
