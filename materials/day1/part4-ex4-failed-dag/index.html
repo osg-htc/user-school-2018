@@ -62,18 +62,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>DAGMan can handle a situation where some of the nodes in a DAG fail. DAGMan will run as many nodes as possible, then create a rescue DAG making it easy to continue when the problem is fixed.</p>
 <h2 id="breaking-things">Breaking Things<a class="headerlink" href="#breaking-things" title="Permanent link">&para;</a></h2>
 <p>Recall that DAGMan decides that a jobs fails if its exit code is non-zero. Let's modify our montage job so that it fails. Work in the same directory where you did the last DAG. Edit montage.sub to add a <code>-h</code> to the arguments. It will look like this (the change is highlighted in red):</p>
-<div class="codehilite"><pre><span></span><span class="go">universe                = vanilla</span>
-<span class="go">executable              = /usr/bin/montage</span>
-<span class="go">arguments               = <span style="color:red">-h</span> tile_0_0.ppm tile_0_1.ppm tile_1_0.ppm tile_1_1.ppm -mode Concatenate -tile 2x2 mandle.jpg</span>
-<span class="go">transfer_input_files    = tile_0_0.ppm,tile_0_1.ppm,tile_1_0.ppm,tile_1_1.ppm</span>
-<span class="go">transfer_executable     = false</span>
-<span class="go">output                  = montage.out</span>
-<span class="go">error                   = montage.err</span>
-<span class="go">log                     = goat.log</span>
-<span class="go">request_memory = 1G</span>
-<span class="go">request_disk       = 1G</span>
-<span class="go">request_cpus      = 1</span>
-<span class="go">queue</span>
+<div class="codehilite"><pre><span></span>executable              = /usr/bin/montage
+arguments               = <span style="color:red">-h</span> tile_0_0.ppm tile_0_1.ppm tile_1_0.ppm tile_1_1.ppm -mode Concatenate -tile 2x2 mandle-from-dag.jpg
+transfer_input_files    = tile_0_0.ppm,tile_0_1.ppm,tile_1_0.ppm,tile_1_1.ppm
+output                  = montage.out
+error                   = montage.err
+log                     = montage.log
+request_memory          = 1GB
+request_disk            = 1GB
+request_cpus            = 1
+requirements            = OpSysMajorVer =?= 6
+queue
 </pre></div>
 
 
@@ -161,18 +160,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 
 <p>From the comment near the top, we know that the montage node failed. Let's fix it by getting rid of the offending <code>-h</code> argument. Change montage.sub to look like:</p>
-<div class="codehilite"><pre><span></span><span class="go">universe                = vanilla</span>
-<span class="go">executable              = /usr/bin/montage</span>
-<span class="go">arguments               = tile_0_0.ppm tile_0_1.ppm tile_1_0.ppm tile_1_1.ppm -mode Concatenate -tile 2x2 mandle.jpg</span>
-<span class="go">transfer_input_files    = tile_0_0.ppm,tile_0_1.ppm,tile_1_0.ppm,tile_1_1.ppm</span>
-<span class="go">transfer_executable     = false</span>
-<span class="go">output                  = montage.out</span>
-<span class="go">error                   = montage.err</span>
-<span class="go">log                     = goat.log</span>
-<span class="go">request_memory = 1G</span>
-<span class="go">request_disk       = 1G</span>
-<span class="go">request_cpus      = 1</span>
-<span class="go">queue</span>
+<div class="codehilite"><pre><span></span>executable              = /usr/bin/montage
+arguments               = tile_0_0.ppm tile_0_1.ppm tile_1_0.ppm tile_1_1.ppm -mode Concatenate -tile 2x2 mandle-from-dag.jpg
+transfer_input_files    = tile_0_0.ppm,tile_0_1.ppm,tile_1_0.ppm,tile_1_1.ppm
+output                  = montage.out
+error                   = montage.err
+log                     = montage.log
+request_memory          = 1GB
+request_disk            = 1GB
+request_cpus            = 1
+requirements            = OpSysMajorVer =?= 6
+queue
 </pre></div>
 
 
