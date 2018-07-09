@@ -2,16 +2,17 @@
 status: in progress
 ---
 
+<style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
+
 Thursday Exercise 1.4: Try Singularity on the OSG (Optional)
 ============================================================
-
 
 In this tutorial, we see how to submit a \[tensorflow\](<https://www.tensorflow.org/>) job on the OSG through \[Singularity containers\](<https://support.opensciencegrid.org/solution/articles/12000024676-singularity-containers>). We currently offer CPU and GPU containers for tensorflow (both based on Ubuntu). Here, we focus on CPU container.
 
 Setup
 -----
 
--   Make sure you are logged into `training.osgconnect.net` (the OSG Connect submit server for this workshop).
+Make sure you are logged into `training.osgconnect.net` (the OSG Connect submit server for this workshop).
 
 Get the example files and understand the job requirements.
 ----------------------------------------------------------
@@ -19,13 +20,13 @@ Get the example files and understand the job requirements.
 Let us utilize the `tutorial` command. In the command prompt, type
 
 ``` console
-username@training $ tutorial tf-matmul  
+username@training $ tutorial tensorflow-matmul
 ```
 
-This creates a directory `tutorial-tf-matmul`. Go inside the directory and see what is inside.
+This creates a directory `tutorial-tensorflow-matmul`. Go inside the directory and see what is inside.
 
 ``` console
-username@training $ cd tutorial-tf-matmul
+username@training $ cd tutorial-tensorflow-matmul
 username@training $ ls -F
 ```
 
@@ -51,7 +52,7 @@ Requirements = HAS_SINGULARITY == True
 In addition, we also provide the full path of the image via the keyword `+SingularityImage`.
 
 ``` console
-    +SingularityImage = "/cvmfs/singularity.opensciencegrid.org/tensorflow/tensorflow:latest"
+    +SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest"
 ```
 
 The image is distributed to the remote worker machines through \`cvmfs\`. Although there are multiple ways to obtain the image file for a job on the OSG machine, the image distributed through \`cvmfs\` is preferred.
@@ -59,14 +60,17 @@ The image is distributed to the remote worker machines through \`cvmfs\`. Althou
 Submit the tensorflow example job
 ---------------------------------
 
-Submit the job.
+Now submit the job to the OSG.
 
 ``` console
 username@training $ condor_submit tf_matmul.submit 
 ```
 
-The job will look for a machine on the OSG that has singularity installed, creates the singularity container with the image `/cvmfs/singularity.opensciencegrid.org/tensorflow/tensorflow:latest` and executes the program `tf_matmul.py`.
+The job will look for a machine on the OSG that has singularity installed, On a matched machine, the creates the singularity container with the image `/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest` and executes the program `tf_matmul.py`.
 
-After the job is completed, you will see the output file `tf_matmul.output`.
+Once the finished, you will see the output file `tf_matmul.output`.
 
+What container images are available on the OSG?
+------
+To get an idea on what container images are available on the OSG, take a look at the directory path `/cvmfs/singularity.opensciencegrid.org/opensciencegrid`.  
 
