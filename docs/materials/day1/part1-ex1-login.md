@@ -83,13 +83,13 @@ $CondorVersion: 8.7.2 Jun 02 2017 BuildID: 407060 $
 $CondorPlatform: x86_64_RedHat6 $
 ```
 
-As you can see from the output, we are using HTCondor 8.7.2, which is the most recently released development version.
+As you can see from the output, we are using HTCondor 8.7.2.
 
 ### Background information about HTCondor version numbers
 
 HTCondor always has two types of releases at one time: stable and development. HTCondor 8.4.x and 8.6.x are considered stable releases, indicated by even-numbered second digits (e.g., 4 or 6 in these cases). Within one stable series, all versions have the same features (for example 8.4.0 and 8.4.8 have the same set of features) and differ only in bug and security fixes.
 
-HTCondor 8.7.2 is the current development release series of HTCondor. You know that it is a development release because the second digit (i.e., 7) is an odd number. We typically do not use development releases for the School, but CHTC always runs the latest development series to fully test it, and  8.7.2 is considered stable enough.
+HTCondor 8.7.2 is an older development release series of HTCondor; the newest development release is 8.7.9. You know that these are a development release because the second digit (i.e., 7) is an odd number. 
 
 Reference Materials
 -------------------
