@@ -147,7 +147,6 @@ Of course, replace the job ID with your own.
 Let’s submit a job that will never run and see what happens. Here is the submit file to use:
 
 ``` file
-universe = vanilla
 executable = /bin/hostname
 output = norun.out
 error = norun.err
