@@ -59,7 +59,7 @@ Looking at the files from the `blastx` jobs you ran yesterday, add up the amount
 How to see the size of a specific file:
 
 ``` console
-user@training $ ls -lh %RED%file%ENDCOLOR%
+user@training $ ls -lh <FILE>
 ```
 
 How to see the size of all files in the current directory:
@@ -71,7 +71,7 @@ user@training $ ls -lh
 How to determine the total amount of data in the current directory: 
 
 ``` console
-user@training $ du -sh %RED%directory%ENDCOLOR%
+user@training $ du -sh <DIRECTORY>
 ```
 
 ### Input requirements
@@ -100,7 +100,7 @@ Once you have completed the above tasks, we'll talk about the totals as a group.
 Up next!
 --------
 
-Next you will create a HTCondor submit script to transfer the Blast input files in order to run Blast on a worker nodes. [Next Exercise](part2-ex2-file-transfer.md)
+Next you will create a HTCondor submit script to transfer the Blast input files in order to run Blast on a worker nodes. [Next Exercise](/materials/day4/part2-ex2-file-transfer.md)
 
 
 

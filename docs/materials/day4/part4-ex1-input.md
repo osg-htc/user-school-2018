@@ -29,7 +29,7 @@ Previous Files
 Like the previous example, we'll start by downloading our source movie files into the Gluster directory. Run this command **in your Gluster directory**.
 
 ``` console
-user@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/videos.tar.gz
+user@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/videos.tar.gz
 ```
 
 While the files are copying, feel free to open a second connection to `learn.chtc.wisc.edu` and follow the instructions below. Once the files have finished downloading, untar them.

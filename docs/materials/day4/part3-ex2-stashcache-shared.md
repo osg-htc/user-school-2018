@@ -12,7 +12,7 @@ Because our individual blast jobs from [Exercise 3.1](/materials/day4/part3-ex1-
 
 StashCache is a distributed set of caches spread across the U.S. They are connected with high bandwidth connections to each other, and to the data origin servers, where your data is originally placed.
 
-![StashCache Map](files/osgus18-day4-part3-ex2-stash-cache-map.png)
+![StashCache Map](/materials/day4/files/osgus18-day4-part3-ex2-stash-cache-map.png)
 
 We will be using the command `stashcp` to copy files from Stash to the execute hosts.  It has a `cp` like syntax.
 

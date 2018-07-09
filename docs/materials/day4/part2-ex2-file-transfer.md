@@ -14,7 +14,7 @@ Setup
 -   Make sure you are still logged into `training.osgconnect.net`
 -   Make a directory for today's blast exercises named `thur-blast-data` inside your `stash` directory, and change into it.
 
-The executable we'll use in this exercise and later today is the same **`blastx`** executable from the [previous exercise](part2-ex1-data-needs.md).
+The executable we'll use in this exercise and later today is the same **`blastx`** executable from the [previous exercise](/materials/day4/part2-ex1-data-needs.md).
 
 Also copy the data from the last exercise into the `thur-blast-data` directory. You'll need the `mouse.fa` file and the `pdbaa` directory from the last exercise, but you'll end up making a new submit file.
 
@@ -54,7 +54,7 @@ In our first blast job from yesterday, the database files in the `pdbaa` directo
     A typical command for creating a tar file is:
 
         :::console
-        user@training $ tar cvzf [compressed filename] [list of files]
+        user@training $ tar cvzf [compressed filename] <LIST OF FILES OR DIRECTORIES>
 
 
     Move this file to the `thur-blast-data` directory.
