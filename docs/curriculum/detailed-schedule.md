@@ -63,9 +63,7 @@ instructor will be at your hotel and their expected departure time for the Fluno
 | 3:00  | 3:45  | Automating HTC Workflows (lecture)                                    | Lauren Michael           |
 | 3:45  | 5:00  | Running workflows locally with HTCondor's DAGMan (hands-on)           | "                        |
 | 5:00  | —     | On your own                                                           |                          |
-| 7:00  | 9:00  | Evening work session												    | Bala, Derek, Lauren, Tim |
-
-The evening work session will be at Union South; search the “Today In The Union” (TITU) display for the exact room.  
+| 7:00  | 9:00  | Evening work session<br><span style="color: #FF6600;">Union South, Traditions room (2nd floor)</span> | Bala, Derek, Lauren, Tim |
 
 ## Tuesday, 10 July 2018
 
@@ -87,7 +85,7 @@ The evening work session will be at Union South; search the “Today In The Unio
 | 3:25  | 4:45  | Troubleshooting (hands-on)                         | "                      |
 | 4:45  | 5:00  | Ways to connect to OSG (lecture)                   | Lauren Michael         |
 | 5:00  | —     | On your own                                        |                        |
-| 7:00  | 9:00  | Evening work session                               | Bala, Derek, Christina |
+| 7:00  | 9:00  | Evening work session                               | Bala, Derek, Brian     |
 
 The evening work session will be at Union South; search the “Today In The Union” (TITU) display for the exact room.  
 

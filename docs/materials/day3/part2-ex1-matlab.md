@@ -40,8 +40,6 @@ specifically requests these build machines.
 1.   Create a file called `compile.submit` with the lines below: 
 
 		:::file
-		universe = vanilla
-
 		output = compile.out
 		error = compile.err
 		log = compile.log

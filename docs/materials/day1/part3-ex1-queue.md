@@ -79,7 +79,7 @@ You may have wondered why it is useful to be able to list a single job ID using 
 If you add the `-long` option to `condor_q` (or its short form, `-l`), it will show the complete ClassAd for each selected job, instead of the one-line summary that you have seen so far. Because job ClassAds may have 80–90 attributes (or more), it probably makes the most sense to show the ClassAd for a single job at a time. And you know how to show just one job! Here is what the command looks like:
 
 ``` console
-username@learn $ condor_q -long %RED$<JOB.ID>%ENDCOLOR%
+username@learn $ condor_q -long %RED%<JOB.ID>%ENDCOLOR%
 ```
 
 The output from this command is long and complex. Most of the attributes that HTCondor adds to a job are arcane and uninteresting for us now. But here are some examples of common, interesting attributes taken directly from `condor_q` output (except with some line breaks added to the `Requirements` attribute):
@@ -119,7 +119,7 @@ Arguments = "120"
 1.  After the job starts execution but before it finishes, capture its ClassAd again and save to a file
 
         :::console 
-        condor_q -l %RED%<JOB.ID>%ENDCOLOR% > classad-1.txt
+        condor_q -l %RED%<JOB.ID>%ENDCOLOR% > classad-2.txt
 
 Now examine each saved ClassAd file. Here are a few things to look for:
 
@@ -147,7 +147,6 @@ Of course, replace the job ID with your own.
 Let’s submit a job that will never run and see what happens. Here is the submit file to use:
 
 ``` file
-universe = vanilla
 executable = /bin/hostname
 output = norun.out
 error = norun.err

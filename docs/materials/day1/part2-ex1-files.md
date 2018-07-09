@@ -21,7 +21,7 @@ Before you learn to transfer files to and from your job, it is good to understan
         echo 'Date: ' `date`
         echo 'Host: ' `hostname` 
         echo 'Sandbox: ' `pwd` 
-        echo ls -alF
+        ls -alF
         # END
 
 1.  Create a submit file for this script and submit it.
@@ -48,7 +48,7 @@ Now that we know something about the sandbox, we can transfer more files to and 
 Running a Job With Input Files
 ------------------------------
 
-Next, you will run a job that requires an input file. Remember, the initial job sandbox will contain only the renamed job executable, unless you tell HTCondor explicitly about every other file that needs to be ransfered. Fortunately, this is easy.
+Next, you will run a job that requires an input file. Remember, the initial job sandbox will contain only the renamed job executable, unless you tell HTCondor explicitly about every other file that needs to be transferred. Fortunately, this is easy.
 
 Here is a simple Python script that takes the name of an input file (containing one word per line) from the command line, counts the number of times each (lowercased) word occurs in the text, and prints out the final list of words and their counts.
 

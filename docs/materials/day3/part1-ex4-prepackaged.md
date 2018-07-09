@@ -37,8 +37,6 @@ Our goal is to pre-build an OpenBUGS installation, and then write a script that 
     1.  Copy the following lines into a file named `build.submit`
 
             :::file
-            universe = vanilla
-            
             output = build.out
             error = build.err
 			log = build.log
