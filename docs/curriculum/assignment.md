@@ -33,7 +33,7 @@ questions in your submission:
     - Why does that work require significant computing resources to solve?
 - The computational plan (**about 2/3 of the assignment**)
     - Summarize your approach and explain why you think it is good
-    - Estimate the resources (CPUs, time, memory, disk, network, etc.) that you need
+    - Estimate the resources (CPUs, time, memory, disk, etc.) that you need
     - Describe in some detail your plan or proposal to use computing tools to work on your challenge (more than one plan is OK)
     - Make sure to highlight specific practices and HTCondor features that you need and that you learned in the School
 
