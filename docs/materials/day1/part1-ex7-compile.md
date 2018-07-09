@@ -67,7 +67,6 @@ Running a Compiled C Program
 The rest is simple. In fact, it is no different than running any other program. Here is a basic submit file for the C program (call it simple.sub):
 
 ``` file
-universe = vanilla
 executable = simple
 arguments = "60 64"
 
