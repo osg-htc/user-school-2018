@@ -25,8 +25,8 @@ log                     = goatbrot.log
 output                  = goatbrot.out.0.0
 error                   = goatbrot.err.0.0
 request_memory = 1GB
-request_disk       = 1GB
-request_cpus      = 1
+request_disk   = 1GB
+request_cpus   = 1
 queue
 ```
 
@@ -39,8 +39,8 @@ log                     = goatbrot.log
 output                  = goatbrot.out.0.1
 error                   = goatbrot.err.0.1
 request_memory = 1GB
-request_disk       = 1GB
-request_cpus      = 1
+request_disk   = 1GB
+request_cpus   = 1
 queue
 ```
 
@@ -53,8 +53,8 @@ log                     = goatbrot.log
 output                  = goatbrot.out.1.0
 error                   = goatbrot.err.1.0
 request_memory = 1GB
-request_disk       = 1GB
-request_cpus      = 1
+request_disk   = 1GB
+request_cpus   = 1
 queue
 ```
 
@@ -67,8 +67,8 @@ log                     = goatbrot.log
 output                  = goatbrot.out.1.1
 error                   = goatbrot.err.1.1
 request_memory = 1GB
-request_disk       = 1GB
-request_cpus      = 1
+request_disk   = 1GB
+request_cpus   = 1
 queue
 ```
 
@@ -84,8 +84,9 @@ output                  = montage.out
 error                   = montage.err
 log                     = montage.log
 request_memory = 1GB
-request_disk       = 1GB
-request_cpus      = 1
+request_disk   = 1GB
+request_cpus   = 1
+requirements = OpSysMajorVer =?= 6
 queue
 ```
 

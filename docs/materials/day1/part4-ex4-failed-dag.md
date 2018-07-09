@@ -17,18 +17,17 @@ Breaking Things
 
 Recall that DAGMan decides that a jobs fails if its exit code is non-zero. Let's modify our montage job so that it fails. Work in the same directory where you did the last DAG. Edit montage.sub to add a `-h` to the arguments. It will look like this (the change is highlighted in red):
 
-``` console
-universe                = vanilla
+``` file
 executable              = /usr/bin/montage
-arguments               = %RED%-h%ENDCOLOR% tile_0_0.ppm tile_0_1.ppm tile_1_0.ppm tile_1_1.ppm -mode Concatenate -tile 2x2 mandle.jpg
+arguments               = %RED%-h%ENDCOLOR% tile_0_0.ppm tile_0_1.ppm tile_1_0.ppm tile_1_1.ppm -mode Concatenate -tile 2x2 mandle-from-dag.jpg
 transfer_input_files    = tile_0_0.ppm,tile_0_1.ppm,tile_1_0.ppm,tile_1_1.ppm
-transfer_executable     = false
 output                  = montage.out
 error                   = montage.err
-log                     = goat.log
-request_memory = 1G
-request_disk       = 1G
-request_cpus      = 1
+log                     = montage.log
+request_memory = 1GB
+request_disk   = 1GB
+request_cpus   = 1
+requirements = OpSysMajorVer =?= 6
 queue
 ```
 
