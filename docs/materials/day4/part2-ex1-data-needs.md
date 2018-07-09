@@ -59,7 +59,7 @@ Looking at the files from the `blastx` jobs you ran yesterday, add up the amount
 How to see the size of a specific file:
 
 ``` console
-user@training $ ls -lh <FILE>
+user@training $ ls -lh %RED%<FILE>%ENDCOLOR%
 ```
 
 How to see the size of all files in the current directory:
@@ -71,7 +71,7 @@ user@training $ ls -lh
 How to determine the total amount of data in the current directory: 
 
 ``` console
-user@training $ du -sh <DIRECTORY>
+user@training $ du -sh %RED%<DIRECTORY>%ENDCOLOR%
 ```
 
 ### Input requirements

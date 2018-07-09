@@ -54,7 +54,7 @@ In our first blast job from yesterday, the database files in the `pdbaa` directo
     A typical command for creating a tar file is:
 
         :::console
-        user@training $ tar cvzf [compressed filename] <LIST OF FILES OR DIRECTORIES>
+        user@training $ tar cvzf %RED%<COMPRESSED FILENAME>%ENDCOLOR% %RED%<LIST OF FILES OR DIRECTORIES>%ENDCOLOR%
 
 
     Move this file to the `thur-blast-data` directory.
