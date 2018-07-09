@@ -24,10 +24,10 @@ transfer_input_files    = tile_0_0.ppm,tile_0_1.ppm,tile_1_0.ppm,tile_1_1.ppm
 output                  = montage.out
 error                   = montage.err
 log                     = montage.log
-request_memory = 1GB
-request_disk   = 1GB
-request_cpus   = 1
-requirements   = OpSysMajorVer =?= 6
+request_memory          = 1GB
+request_disk            = 1GB
+request_cpus            = 1
+requirements            = OpSysMajorVer =?= 6
 queue
 ```
 
@@ -120,18 +120,17 @@ DONE g4
 
 From the comment near the top, we know that the montage node failed. Let's fix it by getting rid of the offending `-h` argument. Change montage.sub to look like:
 
-``` console
-universe                = vanilla
+``` file
 executable              = /usr/bin/montage
-arguments               = tile_0_0.ppm tile_0_1.ppm tile_1_0.ppm tile_1_1.ppm -mode Concatenate -tile 2x2 mandle.jpg
+arguments               = tile_0_0.ppm tile_0_1.ppm tile_1_0.ppm tile_1_1.ppm -mode Concatenate -tile 2x2 mandle-from-dag.jpg
 transfer_input_files    = tile_0_0.ppm,tile_0_1.ppm,tile_1_0.ppm,tile_1_1.ppm
-transfer_executable     = false
 output                  = montage.out
 error                   = montage.err
-log                     = goat.log
-request_memory = 1G
-request_disk       = 1G
-request_cpus      = 1
+log                     = montage.log
+request_memory          = 1GB
+request_disk            = 1GB
+request_cpus            = 1
+requirements            = OpSysMajorVer =?= 6
 queue
 ```
 
