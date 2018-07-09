@@ -63,7 +63,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>write the DAG for the workflow you planned, and</li>
 <li>submit this workflow on <code>learn.chtc.wisc.edu</code></li>
 </ul>
-<p>There are bonus tasks in <a href="../part2-ex2-workflow-tuning">Exercise 1.4</a>, if you get through this part quickly, including running the workflow on the Open Science Grid.</p>
+<p>There are bonus tasks in <a href="../../../materials/day5/part2-ex2-workflow-tuning">Exercise 1.4</a>, if you get through this part quickly, including running the workflow on the Open Science Grid.</p>
 <h2 id="steps-to-take">Steps to Take<a class="headerlink" href="#steps-to-take" title="Permanent link">&para;</a></h2>
 <p>Note: While one person in your group works on step 1, someone else can work on step 2.</p>
 <h3 id="1-finish-optimizing-job-components">1. Finish optimizing job components<a class="headerlink" href="#1-finish-optimizing-job-components" title="Permanent link">&para;</a></h3>
@@ -91,7 +91,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p class="admonition-title">Note</p>
 <p>You may need to think about how each <code>tar</code> step works for deciding on "PRE" or "POST" scripts for each.</p>
 </div>
-<p>If you need a refresher on what a DAG looks like, see <a href="../../day1/part4-ex3-complex-dag/">this exercise from Monday</a> or the <a href="http://research.cs.wisc.edu/htcondor/manual/current/2_10DAGMan_Applications.htmll">HTCondor manual</a></p>
+<p>If you need a refresher on what a DAG looks like, see <a href="../../day1/part4-ex3-complex-dag/">this exercise from Monday</a> or the <a href="http://research.cs.wisc.edu/htcondor/manual/current/2_10DAGMan_Applications.html">HTCondor manual</a></p>
 <p>To <strong>quickly</strong> check that you've got the details of the DAG correct, modify your <em>permutation</em> submit files to submit only a few jobs, and with each job performing a much smaller number of permutations (say, ~10?).</p>
 <h3 id="3-run-a-production-workflow">3. Run a production workflow<a class="headerlink" href="#3-run-a-production-workflow" title="Permanent link">&para;</a></h3>
 <p>Once you have run a quick test of the DAG and you know all the steps are working together, you can submit a full-scale run of the DAG! To do so, <strong>modify the <em>permutation</em> submit files to the values you chose when optimizing the <em>permutation</em> step</strong> (remember, this should be about 100,000 total permutations for each trait) and then submit the DAG. If you have any issues, consult the log and out files for the DAG and jobs, and modify your approach at any of the previous steps. While the full-scale DAG is running, you may wish to further detail your drawn workflow, including information regarding resource usage. Share all submit and DAG files with one another so everyone has a copy.</p>
