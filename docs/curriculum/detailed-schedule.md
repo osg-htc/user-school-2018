@@ -87,7 +87,7 @@ The evening work session will be at Union South; search the “Today In The Unio
 | 3:25  | 4:45  | Troubleshooting (hands-on)                         | "                      |
 | 4:45  | 5:00  | Ways to connect to OSG (lecture)                   | Lauren Michael         |
 | 5:00  | —     | On your own                                        |                        |
-| 7:00  | 9:00  | Evening work session                               | Bala, Derek, Christina |
+| 7:00  | 9:00  | Evening work session                               | Bala, Derek, Brian     |
 
 The evening work session will be at Union South; search the “Today In The Union” (TITU) display for the exact room.  
 
