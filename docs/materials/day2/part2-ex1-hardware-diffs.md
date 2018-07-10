@@ -56,7 +56,7 @@ Try submitting this yourself and check the jobs that end up in the queue with `c
 
 ### Create the submit files
 
-To create our parameter sweep, we will create one submit file with multiple queue statements and change the value of our
+To create our parameter sweep, we will create a **new** submit file with multiple queue statements and change the value of our
 parameter (`request_memory`) for each batch of jobs.
 
 1.  If not already, log in to `learn.chtc.wisc.edu`
