@@ -68,7 +68,7 @@ username@training $ condor_submit tf_matmul.submit
 
 The job will look for a machine on the OSG that has singularity installed, On a matched machine, the creates the singularity container with the image `/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest` and executes the program `tf_matmul.py`.
 
-Once the finished, you will see the output file `tf_matmul.output`.
+Once the job finished, you will see the output file `tf_matmul.output`.
 
 What container images are available on the OSG?
 ------
