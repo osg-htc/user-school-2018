@@ -205,7 +205,7 @@ For example, if there are three input files:</p>
 </li>
 <li>Submit the job and wait for it to finish.</li>
 </ol>
-<p>What happened? Can you tell what HTCondor did with your output file, after it was created in the job sandbox? Look carefully at the list of files in your submit directory now.</p>
+<p>What happened? Can you tell what HTCondor did with the output file that was created (did it end up back on the submit server?), after it was created in the job sandbox? Look carefully at the list of files in your submit directory now.</p>
 <h2 id="transferring-specific-output-files">Transferring Specific Output Files<a class="headerlink" href="#transferring-specific-output-files" title="Permanent link">&para;</a></h2>
 <p>As you saw in the last exercise, by default HTCondor transfers files that are created in the job sandbox back to the submit directory when the job finishes. In fact, HTCondor will also transfer back <strong>changed</strong> input files, too. But, this only works for files that are in the top-level sandbox directory, and <strong>not</strong> for ones contained in subdirectories.</p>
 <p>What if you want to bring back only <strong>some</strong> output files, or output files contained in subdirectories?</p>
@@ -221,9 +221,9 @@ cp <span class="nv">$1</span> subdirectory/backup-<span class="nv">$1</span>
 
 <p>First, let’s confirm that HTCondor does not bring back the output file in the subdirectory:</p>
 <ol>
-<li>Save the shell script in a file named <code>output.sh</code></li>
-<li>Write a submit file that transfers an input file and runs <code>output.sh</code> on it</li>
-<li>Submit the job, wait for it to finish, and examine the contents of your submit directory</li>
+<li>Save the shell script in a file named <code>output.sh</code>.</li>
+<li>Write a submit file that transfers an input file and runs <code>output.sh</code> on it (passing the filename as an argument).</li>
+<li>Submit the job, wait for it to finish, and examine the contents of your submit directory.</li>
 </ol>
 <p>Suppose you decide that you want only the timestamp output file and all files in the subdirectory, but not the calendar output file. You can tell HTCondor to transfer these specific files:</p>
 <div class="codehilite"><pre><span></span>transfer_output_files = output-timestamp.txt, subdirectory/
