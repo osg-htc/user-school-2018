@@ -69,7 +69,7 @@ can be used as a `POST` script:
     For example, the following shell script would create a directory `foo` then list its contents:
 
         :::bash
-        #/bin/bash
+        #!/bin/bash
         mkdir foo
         ls foo
 
