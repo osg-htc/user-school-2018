@@ -110,7 +110,7 @@ Arguments = "120"
 
 **See what you can find in a job ClassAd from your own job.**
 
-1.  Using a previous exercise, submit a `sleep` job.
+1.  Using a previous exercise, submit a `sleep` job that sleeps for at least 3 minutes (180 seconds).
 1.  Before the job executes, capture its ClassAd and save to a file:
 
         :::console

@@ -121,7 +121,7 @@ Let’s start by exploring what happens to files that a jobs creates in the sand
     -   As always, use `output`, `error`, and `log` filenames that are different from previous exercises
 1.  Submit the job and wait for it to finish.
 
-What happened? Can you tell what HTCondor did with your output file, after it was created in the job sandbox? Look carefully at the list of files in your submit directory now.
+What happened? Can you tell what HTCondor did with the output file that was created (did it end up back on the submit server?), after it was created in the job sandbox? Look carefully at the list of files in your submit directory now.
 
 Transferring Specific Output Files
 ----------------------------------
@@ -143,9 +143,9 @@ cp $1 subdirectory/backup-$1
 
 First, let’s confirm that HTCondor does not bring back the output file in the subdirectory:
 
-1.  Save the shell script in a file named `output.sh`
-1.  Write a submit file that transfers an input file and runs `output.sh` on it
-1.  Submit the job, wait for it to finish, and examine the contents of your submit directory
+1.  Save the shell script in a file named `output.sh`.
+1.  Write a submit file that transfers an input file and runs `output.sh` on it (passing the filename as an argument).
+1.  Submit the job, wait for it to finish, and examine the contents of your submit directory.
 
 Suppose you decide that you want only the timestamp output file and all files in the subdirectory, but not the calendar output file. You can tell HTCondor to transfer these specific files:
 
