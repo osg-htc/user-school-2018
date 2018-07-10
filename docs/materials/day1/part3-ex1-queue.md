@@ -151,8 +151,6 @@ executable = /bin/hostname
 output = norun.out
 error = norun.err
 log = norun.log
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
 request_memory = 8TB
 queue
 ```
