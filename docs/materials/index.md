@@ -45,7 +45,8 @@ status: in progress
 
 ### Tuesday Morning: Introduction to Distributed HTC and Overlay Systems
 
-- Lecture: Introduction to DHTC ([PDF](/materials/day2/files/osgus18-day2-part1-intro-to-dhtc.pdf))
+- Lecture: Introduction to DHTC ([PDF](/materials/day2/files/osgus18-day2-part1-intro-to-dhtc.pdf);
+  [PPT](/materials/day2/files/osgus18-day2-part1-intro-to-dhtc.pptx))
 - [Exercise 1.1: Refresher - Submitting multiple jobs](/materials/day2/part1-ex1-submit-refresher.md)
 - [Exercise 1.2: Log in to the OSG submit machine](/materials/day2/part1-ex2-login-scp.md)
 - [Exercise 1.3: Running jobs in the OSG](/materials/day2/part1-ex3-submit-osg.md)
@@ -53,17 +54,20 @@ status: in progress
 ### Tuesday Morning: Comparing Local and Remote HTC
 
 - Lecture: What is different about overlay systems?
-  ([PDF](/materials/day2/files/osgus18-day2-part2-overlay-differences.pdf))
+  ([PDF](/materials/day2/files/osgus18-day2-part2-overlay-differences.pdf);
+  [PPT](/materials/day2/files/osgus18-day2-part2-overlay-differences.pptx))
 - [Exercise 2.1: Hardware differences in the OSG](/materials/day2/part2-ex1-hardware-diffs.md)
 - [Exercise 2.2: Software differences in the OSG](/materials/day2/part2-ex2-software-diffs.md)
 
 ### Tuesday Afternoon: Security in OSG
 
-- Lecture: Security in OSG ([PDF](/materials/day2/files/osgus18-day2-part3-security.pdf))
+- Lecture: Security in OSG ([PDF](/materials/day2/files/osgus18-day2-part3-security.pdf);
+  [PPT](/materials/day2/files/osgus18-day2-part3-security.pptx))
 
 ### Tuesday Afternoon: Troubleshooting jobs
 
-- Lecture: Troubleshooting jobs ([PDF](/materials/day2/files/osgus18-day2-part4-troubleshooting.pdf))
+- Lecture: Troubleshooting jobs ([PDF](/materials/day2/files/osgus18-day2-part4-troubleshooting.pdf);
+  [PPT](/materials/day2/files/osgus18-day2-part4-troubleshooting.pptx))
 - [Exercise 3.1: Troubleshooting a DAG](/materials/day2/part3-ex1-troubleshooting.md)
 
 ### Tuesday Afternoon: Connecting to OSG
