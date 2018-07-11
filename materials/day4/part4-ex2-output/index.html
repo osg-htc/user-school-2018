@@ -63,7 +63,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>This exercise will be the reverse of the previous exercise! Instead of large input/small output, we will be using a program  that has no input except for a few arguments on the command line, but produces a file that is several GB in size.  As before, we will need to write a shell script that runs the program and handles the data.</p>
 <h2 id="the-program">The Program<a class="headerlink" href="#the-program" title="Permanent link">&para;</a></h2>
 <p>If you haven't already, log in to <code>learn.chtc.wisc.edu</code>. Download the software package and untar it.</p>
-<div class="codehilite"><pre><span></span><span class="gp">user@learn $</span> wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/motif-flanks.tar.gz
+<div class="codehilite"><pre><span></span><span class="gp">user@learn $</span> wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/motif-flanks.tar.gz
 <span class="gp">user@learn $</span> tar -xzf motif-flanks.tar.gz
 </pre></div>
 
@@ -85,10 +85,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>First, we'll create a shell script to serve as the job's executable.</p>
 <ol>
 <li>What commands do you need to put in the script? What do you need to do with the <code>sequences.fa</code> file before the job exits?</li>
-<li>Our script needs to run the <code>motif-flanks</code> command as shown above, redirecting the output to a file called <code>sequences.fa</code>. Then, </li>
-</ol>
-<p>after that command completes, the <code>sequences.fa</code> file should be moved to your Gluster directory, as it is too large to return to the  submit server as usual.</p>
-<ol>
+<li>Our script needs to run the <code>motif-flanks</code> command as shown above, redirecting the output to a file called <code>sequences.fa</code>. Then, after that command completes, the <code>sequences.fa</code> file should be moved to your Gluster directory, as it is too large to return to the  submit server as usual.</li>
 <li>Write the script and then check it against the script below. Yours might look slightly different. </li>
 </ol>
 <div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
@@ -98,13 +95,13 @@ mv sequences.fa /mnt/gluster/<span style="color:red">username</span>/
 </pre></div>
 
 
-<ol>
-<li>Note that the two arguments in the script (4 and 4) are much smaller than the total possible for the software (two values that add up to 13). This is </li>
-</ol>
-<p>because we want to run a smaller test before submitting a job with the largest possible combination of arguments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that the two arguments in the script (4 and 4) are much smaller than the total possible for the software (two values that add up to 13). This is because we want to run a smaller test before submitting a job with the largest possible combination of arguments.</p>
+</div>
 <p>Next, create a submit file for this job, based on other submit files from the school. Some important considerations:</p>
 <ol>
-<li>We're writing our file to the job's working directory, so make sure to request several GB of disk space.</li>
+<li>We're writing our file to the job's working directory, so make sure to request several GB of disk space. (<code>request_disk</code> in the submit file)</li>
 <li>Add a line to the file that ensures your job will land on computers that have access to Gluster (see the file from the <a href="../part4-ex1-input/">last exercise</a>).</li>
 <li>The <code>executable</code> will be the script you wrote above.</li>
 </ol>
