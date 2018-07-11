@@ -18,7 +18,7 @@ Accessing the Filesystem
 ------------------------
 
 !!! note "Running on `learn.chtc.wisc.edu`"
-    For these next 2 exercises, we will be using **`learn.chtc.wisc.edu`** node.
+    For these next 2 exercises, we will be using **`learn.chtc.wisc.edu`**.
 
 Because our shared filesystem is **only** available on the local CHTC HTCondor pool, you'll need to log into our local submit server, **`learn.chtc.wisc.edu`**.
 
