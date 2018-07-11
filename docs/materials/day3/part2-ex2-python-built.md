@@ -63,7 +63,7 @@ The first step in our job process is building a Python installation that we can 
 			username@host $ cd $_CONDOR_SCRATCH_DIR
 			username@host $ mkdir python
 
-	1.  Move into the `Python 3.6.1` directory and run the installation commands. These may take a few minutes each. 
+	1.  Move into the `Python-3.7.0` directory and run the installation commands. These may take a few minutes each. 
 
 			:::console
 			username@host $ cd Python-3.7.0
