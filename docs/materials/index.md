@@ -78,7 +78,7 @@ status: in progress
 
 ### Wednesday Morning: Software Portability
 
-- Lecture: Software Portability for DHTC ([PDF](/materials/day3/files/osgus18-day3-part1-software-portability.pdf))
+- Lecture: Software Portability for DHTC ([PDF](/materials/day3/files/osgus18-day3-part1-software-portability.pdf); [PPT](/materials/day3/files/osgus18-day3-part1-software-portability.pptx))
 - [Exercise 1.1: Compiling programs for portability](/materials/day3/part1-ex1-compiling.md)
 - [Exercise 1.2: Using a pre-compiled binary](/materials/day3/part1-ex2-precompiled.md)
 - [Exercise 1.3: Using a wrapper script](/materials/day3/part1-ex3-wrapper.md)
@@ -88,7 +88,7 @@ status: in progress
 ### Wednesday Morning: Software Limitations
 
 - Lecture: Considerations for licensing and programming packages
-  ([PDF](/materials/day3/files/osgus18-day3-part2-software-license-interpret.pdf))
+  ([PDF](/materials/day3/files/osgus18-day3-part2-software-license-interpret.pdf); [PPT](/materials/day3/files/osgus18-day3-part2-software-license-interpret.pptx))
 - [Exercise 2.1: Compile and run Matlab code](/materials/day3/part2-ex1-matlab.md)
 - [Exercise 2.2: Pre-packaging Python](/materials/day3/part2-ex2-python-built.md)
 - [Exercise 2.3: In-job installation of Python](/materials/day3/part2-ex3-python-install.md)
