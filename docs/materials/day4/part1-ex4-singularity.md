@@ -33,10 +33,10 @@ username@training $ ls -F
 You will see the following files
 
 ``` file
-    tf_matmul.py            (Python program to multiply two matrices using tensorflow package)
-    tf_matmul.submit        (HTCondor Job description file)
-    tf_matmul_wrapper.sh    (Job wrapper shell script that executes the python program)
-    tf_matmul_gpu.submit    (HTCondor Job description file targeting gpus)
+tf_matmul.py            (Python program to multiply two matrices using tensorflow package)
+tf_matmul.submit        (HTCondor Job description file)
+tf_matmul_wrapper.sh    (Job wrapper shell script that executes the python program)
+tf_matmul_gpu.submit    (HTCondor Job description file targeting gpus)
 ```
 
 NOTE: The file `tf_matmul_gpu.submit` is for gpus, but we will not focus on gpus in this exercise. You are welcome to take a look.
