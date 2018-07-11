@@ -24,7 +24,7 @@ We will get the example files using the `tutorial` command.
 username@training $ tutorial quickstart
 ```
 
-This creates a directory `tutorial-quickstart`. Go inside the directory and see what is inside.
+This creates a directory `tutorial-quickstart`. Go inside the directory `tutorial-quickstart` and see what is inside.
 
 ``` console
 username@training $ cd tutorial-quickstart
@@ -48,7 +48,7 @@ Take a look at the job execution file `short.sh`.
 username@training $ cat short.sh 
 ```
 
-This is a shell script, quite ordinary . Run this shell script locally to see what it does.
+This is a shell script, quite ordinary. Run this shell script locally to see what it does.
 
 ``` console
 username@training $ chmod +x short.sh 
