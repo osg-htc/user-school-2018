@@ -74,9 +74,6 @@ output = c-program.out
 error = c-program.err
 log = c-program.log
 
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
-
 queue
 ```
 
