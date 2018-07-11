@@ -52,7 +52,7 @@ Requirements = HAS_SINGULARITY == True
 In addition, we also provide the full path of the image via the keyword `+SingularityImage`.
 
 ``` console
-    +SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest"
++SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest"
 ```
 
 The image is distributed to the remote worker machines through \`cvmfs\`. Although there are multiple ways to obtain the image file for a job on the OSG machine, the image distributed through \`cvmfs\` is preferred.
