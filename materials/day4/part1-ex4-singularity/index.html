@@ -38,6 +38,7 @@
               {title: "Setup", url: "#setup" },
               {title: "Get the example files and understand the job requirements.", url: "#get-the-example-files-and-understand-the-job-requirements" },
               {title: "Submit the tensorflow example job", url: "#submit-the-tensorflow-example-job" },
+              {title: "What container images are available on the OSG?", url: "#what-container-images-are-available-on-the-osg" },
           ]},
         ];
 
@@ -56,29 +57,29 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <h1 id="thursday-exercise-14-try-singularity-on-the-osg-optional">Thursday Exercise 1.4: Try Singularity on the OSG (Optional)<a class="headerlink" href="#thursday-exercise-14-try-singularity-on-the-osg-optional" title="Permanent link">&para;</a></h1>
+    <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
+
+<h1 id="thursday-exercise-14-try-singularity-on-the-osg-optional">Thursday Exercise 1.4: Try Singularity on the OSG (Optional)<a class="headerlink" href="#thursday-exercise-14-try-singularity-on-the-osg-optional" title="Permanent link">&para;</a></h1>
 <p>In this tutorial, we see how to submit a [tensorflow](<a href="https://www.tensorflow.org/">https://www.tensorflow.org/</a>) job on the OSG through [Singularity containers](<a href="https://support.opensciencegrid.org/solution/articles/12000024676-singularity-containers">https://support.opensciencegrid.org/solution/articles/12000024676-singularity-containers</a>). We currently offer CPU and GPU containers for tensorflow (both based on Ubuntu). Here, we focus on CPU container.</p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Make sure you are logged into <code>training.osgconnect.net</code> (the OSG Connect submit server for this workshop).</li>
-</ul>
+<p>Make sure you are logged into <code>training.osgconnect.net</code> (the OSG Connect submit server for this workshop).</p>
 <h2 id="get-the-example-files-and-understand-the-job-requirements">Get the example files and understand the job requirements.<a class="headerlink" href="#get-the-example-files-and-understand-the-job-requirements" title="Permanent link">&para;</a></h2>
 <p>Let us utilize the <code>tutorial</code> command. In the command prompt, type</p>
-<div class="codehilite"><pre><span></span><span class="gp">username@training $</span> tutorial tf-matmul  
+<div class="codehilite"><pre><span></span><span class="gp">username@training $</span> tutorial tensorflow-matmul
 </pre></div>
 
 
-<p>This creates a directory <code>tutorial-tf-matmul</code>. Go inside the directory and see what is inside.</p>
-<div class="codehilite"><pre><span></span><span class="gp">username@training $</span> <span class="nb">cd</span> tutorial-tf-matmul
+<p>This creates a directory <code>tutorial-tensorflow-matmul</code>. Go inside the directory and see what is inside.</p>
+<div class="codehilite"><pre><span></span><span class="gp">username@training $</span> <span class="nb">cd</span> tutorial-tensorflow-matmul
 <span class="gp">username@training $</span> ls -F
 </pre></div>
 
 
 <p>You will see the following files</p>
-<div class="codehilite"><pre><span></span>    tf_matmul.py            (Python program to multiply two matrices using tensorflow package)
-    tf_matmul.submit        (HTCondor Job description file)
-    tf_matmul_wrapper.sh    (Job wrapper shell script that executes the python program)
-    tf_matmul_gpu.submit    (HTCondor Job description file targeting gpus)
+<div class="codehilite"><pre><span></span>tf_matmul.py            (Python program to multiply two matrices using tensorflow package)
+tf_matmul.submit        (HTCondor Job description file)
+tf_matmul_wrapper.sh    (Job wrapper shell script that executes the python program)
+tf_matmul_gpu.submit    (HTCondor Job description file targeting gpus)
 </pre></div>
 
 
@@ -90,19 +91,31 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 
 <p>In addition, we also provide the full path of the image via the keyword <code>+SingularityImage</code>.</p>
-<div class="codehilite"><pre><span></span><span class="go">    +SingularityImage = &quot;/cvmfs/singularity.opensciencegrid.org/tensorflow/tensorflow:latest&quot;</span>
+<div class="codehilite"><pre><span></span><span class="go">+SingularityImage = &quot;/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest&quot;</span>
 </pre></div>
 
 
 <p>The image is distributed to the remote worker machines through `cvmfs`. Although there are multiple ways to obtain the image file for a job on the OSG machine, the image distributed through `cvmfs` is preferred.</p>
 <h2 id="submit-the-tensorflow-example-job">Submit the tensorflow example job<a class="headerlink" href="#submit-the-tensorflow-example-job" title="Permanent link">&para;</a></h2>
-<p>Submit the job.</p>
+<p>Now submit the job to the OSG.</p>
 <div class="codehilite"><pre><span></span><span class="gp">username@training $</span> condor_submit tf_matmul.submit 
 </pre></div>
 
 
-<p>The job will look for a machine on the OSG that has singularity installed, creates the singularity container with the image <code>/cvmfs/singularity.opensciencegrid.org/tensorflow/tensorflow:latest</code> and executes the program <code>tf_matmul.py</code>.</p>
-<p>After the job is completed, you will see the output file <code>tf_matmul.output</code>.</p>
+<p>The job will look for a machine on the OSG that has singularity installed. On a matched machine, the job creates the singularity container from the image <code>/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest</code>. Inside this container, the program <code>tf_matmul.py</code> begins to execute. </p>
+<p>After your job completed, you will see an output file <code>tf_matmul.output</code>. </p>
+<div class="codehilite"><pre><span></span><span class="gp">username@training $</span> cat tf_matmul.output 
+<span class="go">result of matrix multiplication</span>
+<span class="go">===============================</span>
+<span class="go">[[ 1.0000000e+00  0.0000000e+00]</span>
+<span class="go"> [-4.7683716e-07  1.0000002e+00]]</span>
+<span class="go">===============================</span>
+</pre></div>
+
+
+<p>The result printed in the output file should be a <code>2x2</code> identity matrix.</p>
+<h2 id="what-container-images-are-available-on-the-osg">What container images are available on the OSG?<a class="headerlink" href="#what-container-images-are-available-on-the-osg" title="Permanent link">&para;</a></h2>
+<p>To get an idea on what container images are available on the OSG, take a look at the directory path <code>/cvmfs/singularity.opensciencegrid.org/opensciencegrid</code>.  </p>
 
   <br>
     

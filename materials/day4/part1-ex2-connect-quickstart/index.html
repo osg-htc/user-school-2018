@@ -34,9 +34,11 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Setup", url: "#_top", children: [
+          {title: "Thursday Exercise 1.2:  Run a simple quickstart job on OSG Connect", url: "#_top", children: [
           ]},
-          {title: "Get the example files for the tutorial \"OSG Connect Quickstart\" via tutorial command", url: "#get-the-example-files-for-the-tutorial-osg-connect-quickstart-via-tutorial-command", children: [
+          {title: "Setup", url: "#setup", children: [
+          ]},
+          {title: "Get the files for quickstart example", url: "#get-the-files-for-quickstart-example", children: [
           ]},
           {title: "Job Execution File", url: "#job-execution-file", children: [
           ]},
@@ -59,19 +61,19 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <p>--+ !Thursday Exercise 1.2: Do the OSG Connect Quickstart</p>
+    <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
+
+<h2 id="thursday-exercise-12-run-a-simple-quickstart-job-on-osg-connect">Thursday Exercise 1.2:  Run a simple quickstart job on OSG Connect<a class="headerlink" href="#thursday-exercise-12-run-a-simple-quickstart-job-on-osg-connect" title="Permanent link">&para;</a></h2>
 <p>For this exercise, you can also follow the online guide from the OSG Connect helpdesk that will acquaint you with submission on the OSG Connect submit server. Please use the submit host training.osgconnect.net instead of login.osgconnect.net for the workshop.</p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<ul>
-<li>SSH into <code>training.osgconnect.net</code> (the OSG Connect submit server for this workshop).</li>
-</ul>
-<h2 id="get-the-example-files-for-the-tutorial-osg-connect-quickstart-via-tutorial-command">Get the example files for the tutorial "OSG Connect Quickstart" via <code>tutorial</code> command<a class="headerlink" href="#get-the-example-files-for-the-tutorial-osg-connect-quickstart-via-tutorial-command" title="Permanent link">&para;</a></h2>
+<p>SSH into <code>training.osgconnect.net</code> (the OSG Connect submit server for this workshop).</p>
+<h2 id="get-the-files-for-quickstart-example">Get the files for quickstart example<a class="headerlink" href="#get-the-files-for-quickstart-example" title="Permanent link">&para;</a></h2>
 <p>We will get the example files using the <code>tutorial</code> command.</p>
 <div class="codehilite"><pre><span></span><span class="gp">username@training $</span> tutorial quickstart
 </pre></div>
 
 
-<p>This creates a directory <code>tutorial-quickstart</code>. Go inside the directory and see what is inside.</p>
+<p>This creates a directory <code>tutorial-quickstart</code>. Go inside the directory <code>tutorial-quickstart</code> and see what is inside.</p>
 <div class="codehilite"><pre><span></span><span class="gp">username@training $</span> <span class="nb">cd</span> tutorial-quickstart
 <span class="gp">username@training $</span> ls -F 
 </pre></div>
@@ -89,8 +91,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </pre></div>
 
 
-<p>This is a shell script, quite ordinary . Run this shell script locally to see what it does.</p>
-<div class="codehilite"><pre><span></span><span class="gp">username@training $</span> chmod + short.sh 
+<p>This is a shell script, quite ordinary. Run this shell script locally to see what it does.</p>
+<div class="codehilite"><pre><span></span><span class="gp">username@training $</span> chmod +x short.sh 
 <span class="gp">username@training $</span> ./short.sh 
 </pre></div>
 
