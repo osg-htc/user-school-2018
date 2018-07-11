@@ -18,7 +18,7 @@ The Program
 If you haven't already, log in to `learn.chtc.wisc.edu`. Download the software package and untar it.
 
 ``` console
-user@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool17/motif-flanks.tar.gz
+user@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/motif-flanks.tar.gz
 user@learn $ tar -xzf motif-flanks.tar.gz
 ```
 
@@ -44,10 +44,7 @@ Having output of up to 4 GB means two things: we will want to run a smaller  tes
 First, we'll create a shell script to serve as the job's executable.
 
 1.  What commands do you need to put in the script? What do you need to do with the `sequences.fa` file before the job exits?
-2.  Our script needs to run the `motif-flanks` command as shown above, redirecting the output to a file called `sequences.fa`. Then, 
-
-after that command completes, the `sequences.fa` file should be moved to your Gluster directory, as it is too large to return to the  submit server as usual.
-
+2.  Our script needs to run the `motif-flanks` command as shown above, redirecting the output to a file called `sequences.fa`. Then, after that command completes, the `sequences.fa` file should be moved to your Gluster directory, as it is too large to return to the  submit server as usual.
 1.  Write the script and then check it against the script below. Yours might look slightly different. 
 
 ``` file
@@ -57,13 +54,12 @@ after that command completes, the `sequences.fa` file should be moved to your Gl
 mv sequences.fa /mnt/gluster/%RED%username%ENDCOLOR%/
 ```
 
-1.  Note that the two arguments in the script (4 and 4) are much smaller than the total possible for the software (two values that add up to 13). This is 
-
-because we want to run a smaller test before submitting a job with the largest possible combination of arguments.
+!!! note 
+    Note that the two arguments in the script (4 and 4) are much smaller than the total possible for the software (two values that add up to 13). This is because we want to run a smaller test before submitting a job with the largest possible combination of arguments.
 
 Next, create a submit file for this job, based on other submit files from the school. Some important considerations:
 
-1.  We're writing our file to the job's working directory, so make sure to request several GB of disk space.
+1.  We're writing our file to the job's working directory, so make sure to request several GB of disk space. (`request_disk` in the submit file)
 2.  Add a line to the file that ensures your job will land on computers that have access to Gluster (see the file from the [last exercise](part4-ex1-input.md)).
 3.  The `executable` will be the script you wrote above.
 
