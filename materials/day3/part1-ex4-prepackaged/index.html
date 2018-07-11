@@ -73,10 +73,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Do an internet search to find the Open BUGS software downloads page.</p>
 </li>
 <li>
-<p>Create a directory for this exercise on the CHTC submit server <code>learn.chtc.wisc.edu</code> (<strong>not</strong> <code>osg-learn.chtc.wisc.edu</code>), download the source code (<code>OpenBUGS-3.2.3.tar.gz</code>), and place it in this directory.</p>
+<p>Create a directory for this exercise on the CHTC submit server <code>learn.chtc.wisc.edu</code> (<strong>not</strong> <code>osg-learn.chtc.wisc.edu</code>), </p>
+</li>
+<li>
+<p>Because you can't download the OpenBUGS source tarball directly, download it from our "squid" webserver: </p>
+<div class="codehilite"><pre><span></span><span class="gp">username@learn $</span> wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/OpenBUGS-3.2.3.tar.gz
+</pre></div>
+
+
 </li>
 </ol>
-<p><strong>Note: The OpenBUGS source tarball cannot be downloaded via <code>wget</code>; you will need to download the source to your own computer and then transfer it to <code>learn.chtc.wisc.edu</code>.</strong></p>
 <h2 id="where-to-prepare">Where to Prepare<a class="headerlink" href="#where-to-prepare" title="Permanent link">&para;</a></h2>
 <p>Our goal is to pre-build an OpenBUGS installation, and then write a script that will unpack that installation and run a simulation.</p>
 <ol>
