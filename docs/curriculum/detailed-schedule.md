@@ -102,9 +102,7 @@ instructor will be at your hotel and their expected departure time for the Fluno
 | 12:15 | 1:15  | Lunch                                                |                       |
 | 1:15  | 5:00  | Free Choice (with options provided)                  | Group                 |
 | 5:00  | —     | On your own                                          |                       |
-| 7:00  | 9:00  | Evening work session                                 | Derek, Christina, Tim |
-
-The evening work session will be at Union South; search the “Today In The Union” (TITU) display for the exact room.  
+| 7:00  | 9:00  | Evening work session<br><span style="color: #FF6600;">Union South, Traditions room (2nd floor)</span> | Derek, Christina, Tim |
 
 ## Thursday, 12 July 2018
 
