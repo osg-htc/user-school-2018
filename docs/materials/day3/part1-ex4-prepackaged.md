@@ -21,9 +21,12 @@ For this exercise, we will be using the Bayseian inference package OpenBUGS. Ope
 
 1.  Do an internet search to find the Open BUGS software downloads page.
 
-1.  Create a directory for this exercise on the CHTC submit server `learn.chtc.wisc.edu` (**not** `osg-learn.chtc.wisc.edu`), download the source code (`OpenBUGS-3.2.3.tar.gz`), and place it in this directory.
+1.  Create a directory for this exercise on the CHTC submit server `learn.chtc.wisc.edu` (**not** `osg-learn.chtc.wisc.edu`), 
 
-**Note: The OpenBUGS source tarball cannot be downloaded via `wget`; you will need to download the source to your own computer and then transfer it to `learn.chtc.wisc.edu`.**
+1. Because you can't download the OpenBUGS source tarball directly, download it from our "squid" webserver: 
+
+		:::console
+		username@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/OpenBUGS-3.2.3.tar.gz
 
 Where to Prepare
 ----------------
