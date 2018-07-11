@@ -2,17 +2,21 @@
 status: in progress
 ---
 
---+ !Thursday Exercise 1.2: Do the OSG Connect Quickstart
+<style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
+
+Thursday Exercise 1.2:  Run a simple quickstart job on OSG Connect
+-----
 
 For this exercise, you can also follow the online guide from the OSG Connect helpdesk that will acquaint you with submission on the OSG Connect submit server. Please use the submit host training.osgconnect.net instead of login.osgconnect.net for the workshop.
 
 Setup
 -----
 
--   SSH into `training.osgconnect.net` (the OSG Connect submit server for this workshop).
+SSH into `training.osgconnect.net` (the OSG Connect submit server for this workshop).
 
-Get the example files for the tutorial "OSG Connect Quickstart" via `tutorial` command
---------------------------------------------------------------------------------------
+
+Get the files for quickstart example
+-----
 
 We will get the example files using the `tutorial` command.
 
@@ -20,7 +24,7 @@ We will get the example files using the `tutorial` command.
 username@training $ tutorial quickstart
 ```
 
-This creates a directory `tutorial-quickstart`. Go inside the directory and see what is inside.
+This creates a directory `tutorial-quickstart`. Go inside the directory `tutorial-quickstart` and see what is inside.
 
 ``` console
 username@training $ cd tutorial-quickstart
@@ -44,10 +48,10 @@ Take a look at the job execution file `short.sh`.
 username@training $ cat short.sh 
 ```
 
-This is a shell script, quite ordinary . Run this shell script locally to see what it does.
+This is a shell script, quite ordinary. Run this shell script locally to see what it does.
 
 ``` console
-username@training $ chmod + short.sh 
+username@training $ chmod +x short.sh 
 username@training $ ./short.sh 
 ```
 

@@ -2,6 +2,8 @@
 status: in progress
 ---
 
+<style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
+
 Thursday Exercise 1.3: Try an OSG Connect Software Module
 =========================================================
 
@@ -11,9 +13,9 @@ In this exercise, you'll use a software package called GROMACS that was already 
 Setup
 -----
 
--   Make sure you are logged into `training.osgconnect.net` (the OSG Connect submit server for this workshop).
+Make sure you are logged into `training.osgconnect.net` (the OSG Connect submit server for this workshop).
 
-Practice Loading the GROMACS Module on OSG Connect submit host
+Practice loading the GROMACS module on OSG Connect submit host
 --------------------------------------------------------------
 
 Before proceeding, make sure to read over the OSG Connect help desk guide on [Accessing Software using Distributed Environment Modules](https://support.opensciencegrid.org/support/solutions/articles/5000634394-accessing-software-using-distributed-environment-modules).
@@ -54,7 +56,7 @@ We will get the example files using the `tutorial` command.
 username@training $ tutorial gromacs
 ```
 
-This creates a directory `tutorial-quickstart`. Go inside the directory and see what is inside.
+This creates a directory `tutorial-gromacs`. Go inside the directory and see what is inside.
 
 ``` console
 username@training $ cd tutorial-gromacs
@@ -97,5 +99,5 @@ Let's submit the job.
 username@training $ condor_submit gromacs_job.submit 
 ```
 
-After the simulation is completed, you will see the output files (including gro, cpt and trr files) from GROMACS in your work directory.
+After the job completed, you will see the output files (including gro, cpt and trr files) from GROMACS in your work directory.
 
