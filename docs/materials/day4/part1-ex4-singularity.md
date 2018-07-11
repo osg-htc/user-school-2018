@@ -68,7 +68,18 @@ username@training $ condor_submit tf_matmul.submit
 
 The job will look for a machine on the OSG that has singularity installed. On a matched machine, the job creates the singularity container from the image `/cvmfs/singularity.opensciencegrid.org/opensciencegrid/tensorflow:latest`. Inside this container, the program `tf_matmul.py` begins to execute. 
 
-You will see the output file `tf_matmul.output` after the job finished.
+After your job completed, you will see an output file `tf_matmul.output`. 
+
+``` console
+username@training $ cat tf_matmul.output 
+result of matrix multiplication
+===============================
+[[ 1.0000000e+00  0.0000000e+00]
+ [-4.7683716e-07  1.0000002e+00]]
+===============================
+
+```
+The result printed in the output file should be a `2x2` identity matrix.
 
 What container images are available on the OSG?
 ------
