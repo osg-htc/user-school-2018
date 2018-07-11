@@ -45,6 +45,8 @@ Our goal is to pre-build an OpenBUGS installation, and then write a script that 
 			when_to_transfer_output = ON_EXIT
 			transfer_input_files = 
 
+			requirements = (OpSysMajorVer == 6)
+
 			request_cpus = 1
 			request_disk = 2GB
 			request_memory = 2GB
