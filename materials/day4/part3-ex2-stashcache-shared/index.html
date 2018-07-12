@@ -95,7 +95,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>At the top of the wrapper script (after <code>#!/bin/bash</code>), add the lines that load the <code>stashcp</code> module and to copy the <code>pdbaa_files.tar.gz</code> file into the current directory of the job:</p>
 <div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">load</span> <span class="n">xrootd</span>
 <span class="k">module</span> <span class="n">load</span> <span class="n">stashcp</span>
-<span class="n">stashcp</span> /<span class="n">user</span>/<span class="nv"><span style="color:red">username%ENDCOLOR</span>%/<span class="n">public</span><span class="o">/</span><span class="n">pdbaa_files</span>.<span class="n">tar</span>.<span class="n">gz</span> ./
+<span class="n">stashcp</span> /<span class="n">user</span>/<span class="s">&lt;USERNAME&gt;</span>/<span class="n">public</span><span class="o">/</span><span class="n">pdbaa_files</span>.<span class="n">tar</span>.<span class="n">gz</span> ./
 </pre></div>
 
 
