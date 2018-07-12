@@ -75,7 +75,10 @@ You will have to modify the wrapper and submit files to use StashCache:
 
         ::file
         +WantsStashCache = true
-        requirements = (OpSys == "LINUX") && (HAS_MODULES =?= true)
+        requirements = (OSGVO_OS_STRING == "RHEL 6") && (OpSys == "LINUX") && (HAS_MODULES =?= true)
+
+    !!! note "`OSGVO_OS_STRING`"
+        The `OSGVO_OS_STRING` is necessary because the OSG is transitioning to a mixed usage two operating systems, RHEL6 and RHEL7. The stashcp and xrootd modules are not available yet on RHEL7.
 
 5. Confirm that your queue statement is correct for the current directory. It should be something like:
 
