@@ -92,7 +92,7 @@ Create a submit file for this job, based on other submit files from the school (
 1.  Add the same requirements as the previous exercise: 
 
         +WantsStashCache = true
-        requirements = (OpSys == "LINUX") && (HAS_MODULES =?= true)
+        requirements = (OSGVO_OS_STRING == "RHEL 6") && (OpSys == "LINUX") && (HAS_MODULES =?= true)
 
 Initial Job
 -----------
@@ -181,6 +181,7 @@ to do so?
         #!/bin/bash
 
         module load stashcp
+        module load xrootd
         stashcp /user/%RED%username%ENDCOLOR%/public/$1 ./
         ./ffmpeg -i $1 -b:v $3 -s $4 $2
         rm $1
