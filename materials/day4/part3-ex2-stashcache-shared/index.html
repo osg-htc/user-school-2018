@@ -113,10 +113,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>
 <p>Add the following line to the submit file and update the "requirements" statement to require servers with OSG Connect modules (for accessing the <code>stashcp</code> module), somewhere before the word <code>queue</code>.</p>
 <div class="codehilite"><pre><span></span>+WantsStashCache = true
-requirements = (OpSys == &quot;LINUX&quot;) &amp;&amp; (HAS_MODULES =?= true)
+requirements = (OSGVO_OS_STRING == &quot;RHEL 6&quot;) &amp;&amp; (OpSys == &quot;LINUX&quot;) &amp;&amp; (HAS_MODULES =?= true)
 </pre></div>
 
 
+<div class="admonition note">
+<p class="admonition-title"><code>OSGVO_OS_STRING</code></p>
+<p>The <code>OSGVO_OS_STRING</code> is necessary because the OSG is transitioning to a mixed usage two operating systems, RHEL6 and RHEL7. The stashcp and xrootd modules are not available yet on RHEL7.</p>
+</div>
 </li>
 <li>
 <p>Confirm that your queue statement is correct for the current directory. It should be something like:</p>

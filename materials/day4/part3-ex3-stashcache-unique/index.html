@@ -152,7 +152,7 @@ rm test_open_terminal.mov
 <li>
 <p>Add the same requirements as the previous exercise: </p>
 <div class="codehilite"><pre><span></span>+WantsStashCache = true
-requirements = (OpSys == &quot;LINUX&quot;) &amp;&amp; (HAS_MODULES =?= true)
+requirements = (OSGVO_OS_STRING == &quot;RHEL 6&quot;) &amp;&amp; (OpSys == &quot;LINUX&quot;) &amp;&amp; (HAS_MODULES =?= true)
 </pre></div>
 
 
@@ -247,9 +247,11 @@ queue mov,mp4,bitrate,size from movie_list.txt
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 module load stashcp
+module load xrootd
 stashcp /user/<span style="color:red">username</span>/public/<span class="nv">$1</span> ./
 ./ffmpeg -i <span class="nv">$1</span> -b:v <span class="nv">$3</span> -s <span class="nv">$4</span> <span class="nv">$2</span>
 rm <span class="nv">$1</span>
