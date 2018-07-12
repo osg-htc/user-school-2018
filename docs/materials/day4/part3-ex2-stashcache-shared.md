@@ -61,7 +61,7 @@ You will have to modify the wrapper and submit files to use StashCache:
         ::file
         module load xrootd
         module load stashcp
-        stashcp /user/%RED%username%ENDCOLOR%/public/pdbaa_files.tar.gz ./
+        stashcp /user/<USERNAME>/public/pdbaa_files.tar.gz ./
 
 2. Since HTCondor will no longer transfer or download the file for you, make sure to add the following line (or modify your existing `rm` command, if you're confident) to make sure the `pdbaa_files.tar.gz` file is also deleted and not copied back as perceived output.
 
