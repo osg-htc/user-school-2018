@@ -34,10 +34,11 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Friday Exercise 1.4: Workflow Optimization and Scaling", url: "#_top", children: [
+          {title: "Friday Exercise 2.2: Workflow Optimization and Scaling", url: "#_top", children: [
               {title: "Bonus 1", url: "#bonus-1" },
               {title: "Bonus 2", url: "#bonus-2" },
               {title: "Bonus 3", url: "#bonus-3" },
+              {title: "Bonus 4", url: "#bonus-4" },
           ]},
         ];
 
@@ -58,7 +59,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-<h1 id="friday-exercise-14-workflow-optimization-and-scaling">Friday Exercise 1.4: Workflow Optimization and Scaling<a class="headerlink" href="#friday-exercise-14-workflow-optimization-and-scaling" title="Permanent link">&para;</a></h1>
+<h1 id="friday-exercise-22-workflow-optimization-and-scaling">Friday Exercise 2.2: Workflow Optimization and Scaling<a class="headerlink" href="#friday-exercise-22-workflow-optimization-and-scaling" title="Permanent link">&para;</a></h1>
 <p>If you finish the entire workflow and are thirsty for more, try any of the following in whatever order you like:</p>
 <h3 id="bonus-1">Bonus 1<a class="headerlink" href="#bonus-1" title="Permanent link">&para;</a></h3>
 <p>Rerun the DAG again with four times the permutations <em>per job</em> (but fewer processes, keeping a total of 100,000 permutations per trait). Which DAG finished in an overall faster time? Why?</p>
@@ -70,6 +71,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <ul>
 <li>Do all of the jobs complete successfully? (Check for the desired output files and examine the <code>runR_*.out</code> files, which are created by the <code>runR.pl</code> wrapper and indicate any errors from the R script, even if HTCondor thought the job was successful.)</li>
 <li>If there are any errors (likely related to machine differences and/or software dependencies), implement a RETRY for jobs that fail, accounting for the fact that a DAG <code>RETRY</code> statement applies to an <strong>entire</strong> submit file (<code>JOB</code>), while you might actually need to account for process-specific errors.</li>
+</ul>
+<h3 id="bonus-4">Bonus 4<a class="headerlink" href="#bonus-4" title="Permanent link">&para;</a></h3>
+<p>This isn't actual a bonus, but links to a sample workflow diagram and DAG schematic: </p>
+<ul>
+<li><a href="../../../materials/day5/files/osgus18-day5-part1-workflow-diagram.jpg">Sample Workflow Diagram</a></li>
+<li><a href="../../../materials/day5/files/osgus18-day5-part2-dag-outline.jpg">Sample DAG Outline</a></li>
 </ul>
 
   <br>

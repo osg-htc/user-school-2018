@@ -35,8 +35,8 @@
         
         var pageToc = [
           {title: "Friday Exercise 1.1: Learn about Joe's Desired Computing Work", url: "#_top", children: [
-              {title: "Introduction", url: "#introduction" },
-              {title: "After asking Joe many questions, you realize the following things:", url: "#after-asking-joe-many-questions-you-realize-the-following-things" },
+              {title: "Joe's Science and Workflow", url: "#joes-science-and-workflow" },
+              {title: "Joe's Current Setup", url: "#joes-current-setup" },
               {title: "View Joe's files", url: "#view-joes-files" },
           ]},
         ];
@@ -60,18 +60,29 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <h1 id="friday-exercise-11-learn-about-joes-desired-computing-work">Friday Exercise 1.1: Learn about Joe's Desired Computing Work<a class="headerlink" href="#friday-exercise-11-learn-about-joes-desired-computing-work" title="Permanent link">&para;</a></h1>
 <p>In today's set of hands-on exercises, you'll be examining a set of pre-existing job submissions (scripts and submit files) and then coordinating them to run as a single workflow using a DAG. Along the way, you'll need to test some of the already written submit files. The first part of this exercise introduces the overall steps for the workflow and what pieces already exist (that you won't need to write yourself).</p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Joe Biologist studies the influence of genetic differences (genotypes) on the growth traits (phenotypes) of a common crop. He has come to you with some computing work he’d like to automate as a workflow, so that he can scale out his research and run it on a much larger HTC compute system. He has used HTCondor to manually submit individual jobs (never used a DAG), but has only run jobs on a smaller, dedicated HTCondor cluster where he doesn’t have to request CPU, disk, or RAM. He’s not familiar with DAGman. He's getting annoyed by how many manual job submissions and summary scripts he has to run, especially as he's thinking of scaling out his work in a way that would be much more cumbersome - so he's asking you to help him organize all the steps into an optimized DAG workflow.</p>
+<h2 id="joes-science-and-workflow">Joe's Science and Workflow<a class="headerlink" href="#joes-science-and-workflow" title="Permanent link">&para;</a></h2>
+<p>Joe Biologist studies the influence of genetic differences (genotypes) on the growth traits (phenotypes) of a common crop. He has come to you with some computing work he’d like to automate as a workflow, so that he can scale out his research and run it on a much larger HTC compute system. </p>
+<p>Joe starts with a spreadsheet containing phenotype measurements and genotype information for hundreds of plants.  Each phenotype measurement corresponds to a trait that he's interested in learning about.  In order to understand the relationship of these trait phenotypes to the underlying genetic material (the genotypes), he first generates thousands of combinations of the trait's phenotype with all the genotypes.  These <strong>permutations</strong> represent hypothetical phenotype-genotype connections that could be meaningful for that trait.  Each of these permutations is then run through a <strong>QTL mapping</strong> process, which sifts through all the permutations to find the genotypes that are most important for the trait in question.  Joe has to repeat this process (generating genotype-phenotype permutations and then running a QTL mapping on those permutations) separately for each trait he's studying.  </p>
+<h2 id="joes-current-setup">Joe's Current Setup<a class="headerlink" href="#joes-current-setup" title="Permanent link">&para;</a></h2>
+<p>Joe has run some of this work on a high throughput system -- submitting individual jobs on a small, dedicated HTCondor cluster where he doesn’t have to request CPU, disk, or RAM.  </p>
 <p>(As you learn more details below, it might be helpful to draw a diagram that describes the steps of his workflow.)</p>
-<h2 id="after-asking-joe-many-questions-you-realize-the-following-things">After asking Joe many questions, you realize the following things:<a class="headerlink" href="#after-asking-joe-many-questions-you-realize-the-following-things" title="Permanent link">&para;</a></h2>
-<p><strong>A) Joe starts with a file called <code>input.csv</code> that was made on his desktop.</strong> When you open this file in excel, Joe shows you that each row corresponds to an individual plant. For each individual, the first three columns are phenotype measurements for each of three different growth <em>traits</em> (T240, T300, T360), and the remaining columns contain the genotype (A or B) of that individual across multiple genes (columns).</p>
-<p><strong>B) At present, Joe does the following manual steps (for each of the three traits)</strong> to achieve a meaningful result from the data in <code>input.csv</code>:</p>
+<p>Specifically, for one trait, his workflow looks like this: </p>
 <ol>
-<li>Joe first submits a job that calculates a large number of hypothetical <em>permutations</em> of phenotype-genotype combinations for the trait. This produces a set of files containing all the permutations for that trait. 2. Joe then runs a script for each trait, to create a gzipped tar file of the <em>permutation</em> job results for that trait. 3. Joe then submits a second job for each trait, which uses the permutations that have been zipped together to perform a <em>QTL mapping</em> calculation. This calculation determines which genes were most important for the phenotype trait, relative to other possible genes exemplified in the random permutations. 4. As a final step for each trait, Joe runs a script that creates a gzipped tar file of all of the <em>permutation</em> and <em>QTL mapping</em> data for that trait, so that he can take it back to his desktop computer for final processing.</li>
+<li>Uploading an input file (<code>input.csv</code>) to the submit server that has <em>all</em> of the genotypic and phenotypic information for multiple traits.  </li>
+<li>Joe then uses a submit file, perl wrapper script (<code>runR.pl</code>) and custom R script (<code>run_perm.R</code>) to submit jobs that generate the permutations for a single trait.  The perl script is the job's executable.  Besides setting up the job environment, it takes several arguments: <ul>
+<li>The name of the R script that creates the permutations</li>
+<li>Which trait (and therefore which phenotype) it's using to create permutations</li>
+<li>How many permutations to create per job</li>
+<li>When running multiple permutation jobs at once for a trait, a number to identify the job. </li>
+</ul>
+</li>
+<li>After the permutation job(s), a shell script creates a tarball of the permutation files for that trait (which may have been generated by multiple jobs).  This is a short-running script that runs directly on the submit server.  </li>
+<li>The second job (the QTL mapping step) uses the tarball of trait permutations from the previous step, the same perl wrapper script (<code>runR.pl</code>), and a different R script (<code>run_qtl.R</code>) to run the QTL mapping on the permutations generated in the first batch of jobs.  </li>
+<li>Finally, a second shell script creates a tarball of the QTL mapping output on the submit server.   </li>
 </ol>
-<p><strong>C) For the <em>permutation</em> and <em>QTL mapping</em> calculations, Joe runs a special <em>wrapper</em> that then uses his main R scripts.</strong> For each type of calculation this perl script, <code>runR.pl</code>, first installs R using files from Joe's proxy server and then sets up the R environment before running whatever R script has been indicated as an argument to <code>runR.pl</code>. Therefore, the <code>runR.pl</code> wrapper script is run as the HTCondor executable with the name of either R program as an argument to the wrapper (along with arguments to the R program, itself).</p>
-<p><strong>D) The two tar steps that happen after the <em>permutation</em> and <em>QTL mapping</em> steps are simple shell scripts containing a relevant <code>tar</code> command,</strong> and can be run on the submit server because they create little CPU load and finish very quickly.</p>
-<p><strong>E) When Joe has previously run the first step, of 10,000 permutations, as one Condor job, the job runs for hours on his own small cluster.</strong> He has cut the permutations of a single Condor job up into multiple, shorter Condor jobs of fewer permutations before, but he doesn’t remember the details of how many jobs and how many permutations per job worked well. Furthermore, Joe would like to scale up to <strong>100,000</strong> permutations per trait this time. Unlike the <em>permutation</em> step, the <em>QTL</em> step finishes quite quickly; even with 10,000 permutations completed for each trait, the <em>QTL</em> step completes within several minutes.</p>
+<p>He has to perform all of these steps for each trait he wants to analyze.  </p>
+<p>That's a lot of steps!  Joe Biologist is getting annoyed by how many manual job submissions and summary scripts he has to run, especially as he's thinking of scaling out his work in a way that would be much more cumbersome.  As one example, when Joe has previously run the <strong>permutation</strong> step (generating 10,000 permutations for a single trait) as one Condor job on his own cluster, the job runs for hours.  To solve that problem in the past, he split the single permutation-creating Condor job into multiple, shorter Condor jobs, each creating fewer permutations, but he doesn’t remember the details of how many jobs and how many permutations per job worked well. Furthermore, Joe would like to scale up to 100,000 permutations (from 10,000) per trait this time.   Unlike the <strong>permutation</strong> step, the <strong>QTL</strong> step finishes quite quickly; even with 10,000 permutations completed for each trait, the <strong>QTL</strong> step completes within several minutes.</p>
+<p>Joe knows that he needs to modify and optimize his submissions to run jobs that create more permutations and that DAGMan might help him automate all these steps.  He's never used DAGMan, so he's asking you to help him organize all the steps into an optimized DAG workflow.</p>
 <h2 id="view-joes-files">View Joe's files<a class="headerlink" href="#view-joes-files" title="Permanent link">&para;</a></h2>
 <p><strong>(but don't do anything with them until the next <a href="../part1-ex2-plan-workflow/">exercise</a>, where you'll plan necessary developments of a workflow for Joe.)</strong></p>
 <p>Log in to <code>learn.chtc.wisc.edu</code> and move to a desired location in your home directory. Enter the following commands to download and decompress/untar Joe’s job ingredients:</p>
@@ -80,56 +91,48 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </pre></div>
 
 
-<p>You can now navigate into the <code>WorkflowExercise</code> directory to view the full ingredients for Joe’s Computing work. Review all of these files based upon the information below and refer back to it as you proceed through the remaining exercises (1.2-1.4). (If you've been drawing a diagram of Joe's work so far, feel free to annotate with some of this information.)</p>
-<p>Based upon Joe’s description and submit files you determine the following details for each step:</p>
-<p><strong>Permutation Step</strong></p>
-<p>Note that the files below are the necessary files to submit the permutation calculations for <strong>one</strong> trait (in this case, trait 1). There are additional submit files to perform this step for the other traits.</p>
-<p>Submit file:</p>
-<ul>
-<li><code>permutation1.submit</code></li>
-</ul>
-<p>In the submit file:</p>
-<ul>
-<li>executable: <code>runR.pl</code></li>
-<li>arguments <code>1_$(Process) run_perm.R 1 $(Process) 10000</code></li>
-<li>input: <code>run_perm.R</code>, <code>input.csv</code>, <code>RLIBS.tar.gz</code></li>
-</ul>
-<p>Altogether, the job(s) created by this submit file will execute the command:</p>
-<ul>
-<li><code>./runR.pl 1_$(Process) run_perm.R 1 $(Process) 10000</code></li>
-</ul>
+<p>You can now navigate into the <code>WorkflowExercise</code> directory to view the full ingredients for Joe’s Computing work. Review all of these files based upon the information below and refer back to it as you proceed through the remaining exercises (1.2, 2.1, 2.2). (If you've been drawing a diagram of Joe's work so far, feel free to annotate with some of this information.)</p>
+<p>Based upon Joe’s description and submit files you determine the following details for analyzing <strong>trait 1</strong>: </p>
+<h3 id="permutation-step">Permutation Step<a class="headerlink" href="#permutation-step" title="Permanent link">&para;</a></h3>
+<p>The command the job should run: <code>./runR.pl 1_$(Process) run_perm.R 1 $(Process) 10000</code></p>
+<p>The submit file for the permutation jobs is <code>permutation1.submit</code>, including the following: </p>
+<div class="codehilite"><pre><span></span>executable = runR.pl
+arguments = 1_$(Process) run_perm.R 1 $(Process) 10000
+transfer_input_files = run_perm.R, input.csv, RLIBS.tar.gz
+</pre></div>
+
+
 <p>The arguments mean the following:</p>
 <ul>
 <li><code>1_$(Process)</code>, used by <code>runR.pl</code> to name its log file</li>
 <li><code>run_perm.R</code>, which R script we want to run</li>
-<li><code>1</code>, trait column in <code>input.csv</code> (i.e. this is 3 for <code>permutation3.submit</code>)</li>
+<li><code>1</code>, trait column in <code>input.csv</code></li>
 <li><code>$(Process)</code>, used by <code>run_perm.R</code> for naming the permutation output</li>
-<li><code>10000</code>, indicates that 10,000 permutations should be done for each individual job process</li>
+<li><code>10000</code>, indicates that 10,000 permutations should be done for each individual job process.  If we use this submit file to create multiple jobs, each of them will create 10,000 permutations.  </li>
 </ul>
 <p>As output, this job will create:</p>
 <ul>
 <li>a series of .log and .out files, named from the first argument (<code>1_$(Process)</code>). This looks like: <code>runR.1_0.out</code>, <code>runR.1_0.log</code>, <code>runR.1_0.err</code></li>
 <li>the actual output file, named using the <code>1</code> and <code>$(Process)</code> arguments, like so: <code>perm_part.1_0.Rdat</code></li>
 </ul>
-<p><strong>Combine Permutation Output</strong></p>
-<p><code>tarit.sh</code> is run after each trait's Permutation step (with the column number as an argument) to compress <code>perm_part.1_0.Rdat</code> (or potentially multiple such files named according to "perm_part.1_*.Rdat") for the QTL step.</p>
-<p>Sample execution: * <code>./tarit.sh 1</code>, where "1" is the trait column number.</p>
-<p><strong>QTL Mapping Step</strong></p>
-<p>Again, the files below are for submitting the <em>QTL</em> calculations for <strong>one</strong> trait (in this case, trait 1). There are additional submit files to perform this step for the other traits.</p>
-<p>Submit file:</p>
-<ul>
-<li><code>qtl1.submit</code></li>
-</ul>
-<p>In the submit file:</p>
-<ul>
-<li>executable: <code>runR.pl</code></li>
-<li>arguments <code>qtl_1 qtl.R 1</code></li>
-<li>input: <code>qtl.R</code>, <code>input.csv</code>, <code>RLIBS.tar.gz</code>, <code>perm_combined_1.tar.gz</code> (created by <code>tarit.sh</code>)</li>
-</ul>
-<p>Altogether, the job(s) created by this submit file will execute the command:</p>
-<ul>
-<li><code>./runR.pl qtl_1 qtl.R 1</code></li>
-</ul>
+<h3 id="combine-permutation-output">Combine Permutation Output<a class="headerlink" href="#combine-permutation-output" title="Permanent link">&para;</a></h3>
+<p><code>tarit.sh</code> is run after the trait's <strong>permutation</strong> step with the column number as an argument to compress <code>perm_part.1_0.Rdat</code> (or potentially multiple such files named according to <code>perm_part.1_*.Rdat</code>, see above) for the QTL step.</p>
+<p>Sample execution: </p>
+<div class="codehilite"><pre><span></span><span class="gp">username@host $</span> ./tarit.sh <span class="m">1</span>
+</pre></div>
+
+
+<p>where <code>1</code> is the trait column number.</p>
+<h3 id="qtl-mapping-step">QTL Mapping Step<a class="headerlink" href="#qtl-mapping-step" title="Permanent link">&para;</a></h3>
+<p>The command the job should run: <code>./runR.pl qtl_1 qtl.R 1</code></p>
+<p>The submit file for the permutation jobs is <code>qtl1.submit</code>, containing the following: </p>
+<div class="codehilite"><pre><span></span>executable = runR.pl
+arguments qtl_1 qtl.R 1
+transfer_input_files = qtl.R, input.csv, RLIBS.tar.gz, perm_combined_1.tar.gz
+</pre></div>
+
+
+<p>Note that <code>perm_combined_1.tar.gz</code> was created by <code>tarit.sh</code>.</p>
 <p>The arguments mean the following:</p>
 <ul>
 <li><code>qtl_1</code>: used by <code>runR.pl</code> to name its log / output / error files</li>
@@ -141,12 +144,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>a series of .log and .out files, named from the first argument (<code>qtl_1</code>).</li>
 <li>several output files named for the trait argument <code>1</code>: <code>perm_combined_1.Rdat</code>, <code>perm_summary_1.txt</code>, <code>sim_geno_results_1.Rdat</code>, <code>qtl_1.Rdat</code>, <code>refined_qtl_summary_1.txt</code>, <code>refined qtl_1.Rdat</code>, and <code>fit_qtl_results_1.Rdat</code></li>
 </ul>
-<p><strong>Combine All Output</strong></p>
-<p><code>results_1.tar.gz</code> is made by running <code>taritall.sh</code> (with the column number as an argument) after the QTL step for that trait finishes, where "1" reflects the trait column number in the output above.</p>
-<p>Sample execution:</p>
-<ul>
-<li><code>./taritall.sh 1</code>, where "1" is the trait column number.</li>
-</ul>
+<h3 id="combine-all-output">Combine All Output<a class="headerlink" href="#combine-all-output" title="Permanent link">&para;</a></h3>
+<p><code>results_1.tar.gz</code> is made by running <code>taritall.sh</code> with the column number as an argument after the QTL step for that trait finishes, where "1" reflects the trait column number in the output above.</p>
+<p>Sample execution: </p>
+<div class="codehilite"><pre><span></span><span class="gp">username@host $</span> ./taritall.sh <span class="m">1</span>
+</pre></div>
+
+
+<p>where <code>1</code> is the trait column number.</p>
+<h3 id="other-files">Other Files<a class="headerlink" href="#other-files" title="Permanent link">&para;</a></h3>
+<p>The other files in the workflow directory (<code>permutation2.submit</code>/<code>qtl2.submit</code> and <code>permutation3.submit</code>/<code>qtl3.submit</code>) are used to submit the <strong>permutation</strong> and <strong>qtl</strong> jobs for traits 2 and 3, respectively.  </p>
 
   <br>
     
