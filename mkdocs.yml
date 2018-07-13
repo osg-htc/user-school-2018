@@ -21,6 +21,7 @@ pages:
   - Curriculum:
     - High-level overview:        curriculum/overview.md
     - Detailed schedule:          curriculum/detailed-schedule.md
+    - Final assignment:           curriculum/assignment.md
   - Materials:
     - Overview:                   materials/index.md
     - Monday Exercises:
@@ -88,6 +89,7 @@ pages:
     - Meals at the School:        logistics/meals.md
     - Fun in Madison:             logistics/fun.md
     - Wednesday activities:       logistics/wednesday-activities.md
+    - Reimbursements:             logistics/reimbursements.md
 
 markdown_extensions:
   - admonition
