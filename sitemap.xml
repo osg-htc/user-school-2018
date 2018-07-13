@@ -23,6 +23,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://opensciencegrid.github.io/user-school-2018//curriculum/assignment/</loc>
+     <lastmod>2018-07-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
@@ -117,6 +123,12 @@
         
     <url>
      <loc>https://opensciencegrid.github.io/user-school-2018//logistics/wednesday-activities/</loc>
+     <lastmod>2018-07-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://opensciencegrid.github.io/user-school-2018//logistics/reimbursements/</loc>
      <lastmod>2018-07-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
