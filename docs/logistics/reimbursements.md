@@ -4,7 +4,7 @@ If you paid for certain expenses to attend the OSG User School 2018, then we wil
 explains what can be reimbursed and how to request reimbursement.  Please read this whole page carefully before
 submitting your request.
 
-**The deadline for all reimbursement submissions is <span style="color: #FF6600;">Tuesday, 5 September 2018</span>.**
+**The deadline for all reimbursement submissions is <span style="color: #FF6600;">Friday, 7 September 2018</span>.**
 
 ## What Can Be Reimbursed?
 
@@ -41,7 +41,7 @@ Please follow these instructions carefully for fastest processing of your reimbu
 
 1.  Gather your reimbursement information (see above for what you need).
 
-1.  **Email your reimbursement request by Tuesday, 5 September 2018.**
+1.  **Email your reimbursement request by Friday, 7 September 2018.**
 
     Write a clear email with your name, the exact expenses and amounts to be reimbursed, reimbursement total, and any
     scanned receipts or other documentation.  Send the email to
@@ -55,9 +55,9 @@ Please follow these instructions carefully for fastest processing of your reimbu
         STUDENT INFORMATION
 
         Name: Cartwright, Tim
-        SSN: 1234 <span style="background-color: #FFFF00;">[LAST FOUR DIGITS ONLY]</span>
+        SSN: 1234 [LAST FOUR DIGITS ONLY]
         Mail: 1210 W Dayton St, Madison, WI 53706
-        Email: <cat@cs.wisc.edu>
+        Email: cat@cs.wisc.edu
         Phone: +1 (608) 262-4002
 
         EXPENSES
@@ -91,7 +91,7 @@ Please follow these instructions carefully for fastest processing of your reimbu
 1.  For receipts, just attach the electronic files (PDF) to your request email; or, email separately to
     [user-school@opensciencegrid.org](mailto:user-school@opensciencegrid.org).
 
-    All receipts must be emailed by Tuesday, 5 September 2018, or the corresponding expenses will not be reimbursed.
+    All receipts must be emailed by Friday, 7 September 2018, or the corresponding expenses will not be reimbursed.
 
 1.  OSG School staff will review your request and either approve it or send it back for changes.
 
