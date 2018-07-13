@@ -7,7 +7,7 @@ status: done
 Friday Exercise 1.2: Plan Joe's Workflow
 ========================================
 
-This exercise outlines our goal (creating a production workflow) and the steps needed to achieve it. Before starting this section, make sure to first read [Exercise 1.1](/materials/day5/-ex1-science-intro), which has important background information about Joe's intended work and how he has submitted jobs so far.
+This exercise outlines our goal (creating a production workflow) and the steps needed to achieve it. Before starting this section, make sure to first read [Exercise 1.1](/materials/day5/part1-ex1-science-intro), which has important background information about Joe's intended work and how he has submitted jobs so far.
 
 Your Mission
 ------------
