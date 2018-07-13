@@ -4,7 +4,7 @@ status: done
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-Friday Exercise 1.4: Workflow Optimization and Scaling
+Friday Exercise 2.2: Workflow Optimization and Scaling
 ======================================================
 
 If you finish the entire workflow and are thirsty for more, try any of the following in whatever order you like:
@@ -25,5 +25,12 @@ What happens?
 
 -   Do all of the jobs complete successfully? (Check for the desired output files and examine the `runR_*.out` files, which are created by the `runR.pl` wrapper and indicate any errors from the R script, even if HTCondor thought the job was successful.)
 -   If there are any errors (likely related to machine differences and/or software dependencies), implement a RETRY for jobs that fail, accounting for the fact that a DAG `RETRY` statement applies to an **entire** submit file (`JOB`), while you might actually need to account for process-specific errors.
+
+### Bonus 4
+
+This isn't actual a bonus, but links to a sample workflow diagram and DAG schematic: 
+
+- [Sample Workflow Diagram](/materials/day5/files/osgus18-day5-part1-workflow-diagram.jpg)
+- [Sample DAG Outline](/materials/day5/files/osgus18-day5-part2-dag-outline.jpg)
 
 
