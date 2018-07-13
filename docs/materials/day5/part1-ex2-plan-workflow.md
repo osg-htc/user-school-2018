@@ -7,67 +7,88 @@ status: done
 Friday Exercise 1.2: Plan Joe's Workflow
 ========================================
 
-This exercise outlines our goal (creating a production workflow) and the steps needed to achieve it. Before starting this section, make sure to first read [Exercise 1.1](/materials/day5/part1-ex1-science-intro), which has important background information about Joe's intended work and how he has submitted jobs so far.
+This exercise outlines our goal (creating a production workflow) and the steps needed to achieve it. Before starting this section, make sure to first read [Exercise 1.1](/materials/day5/-ex1-science-intro), which has important background information about Joe's intended work and how he has submitted jobs so far.
 
-Your mission
+Your Mission
 ------------
 
 Your goal is to plan out Joe’s workflow based upon small-scale test jobs and, later, to write a full-scale DAG to actually run his workflow in production. In particular, you will need to do the following:
 
--   **Optimize the submit files for the *permutation* jobs of each trait,** such that each trait takes advantage of high-throughput parallelization with some number of job *processes*. Each process should calculate a portion of the new total of 100,000 permutations per trait (versus the 10,000 permutations per trait that Joe has been working with previously).
+- **Optimize number of permutation jobs:** Joe wants to take advantage of high-throughput parallelization.  This means, for one trait, determining how many jobs to submit for the **permutation** step (where each job is calculating a portion of the new total of 100,000 permutations per trait).  For each trait, is it better to run 10 jobs that each generate 10,000 permutations?  Or 1000 jobs that generate 10 permutations?  You'll have to find out.  
 
--   **Optimize submit file values for "request\_memory" and "request\_cpus"** for each *permutation* and *QTL mapping* step, for each trait of the three traits.
+- **Optimize memory and cpu requests**: For both the **permutation** and **QTL mapping** steps, what values should you use for `request_memory` and `request_cpus`?
 
--   **Create a single DAG file, with *permutation* and *QTL mapping* jobs for each of the three traits,** including PRE and/or POST scripts for the `tar` scripts that need to be run.
+- **Put all the pieces together in a single DAG file**: We want to create a DAG that runs the **permutation** and **QTL mapping** jobs for each of the three traits, with the necessary `tar` scripts running at the appropriate times on the submit server.  
 
-We'll be working on the first two optimization steps during this session, and the second optimization step and DAG creation after the break, in [Exercise 1.3](/materials/day5/part2-ex1-execute-workflow).
+We'll be working on the first two steps during this session, with final testing and the last step (DAG creation) after the break in [Exercise 2.1](/materials/day5/part2-ex1-execute-workflow).
 
 !!! note 
-	In what follows, the only files you will need to modify are the submit files (and as specifically instructed). You will not need to modify any of the input files, output files, or scripts/programs. It is advisable that you split up some of the work within your pair or group in order to be time-efficient.
+	In what follows, **the only files you will need to modify are the submit files** (and as specifically instructed). You will not need to modify any of the input files, output files, or scripts/programs. It is advisable that you split up some of the work within your pair or group in order to be time-efficient.
 
-Draw a diagram
+Draw a Diagram
 --------------
 
-Based upon what you [learned from Joe](/materials/day5/part1-ex1-science-intro), **draw the *general workflow* that you would make** for Joe (on paper), keeping in mind that there are 3 traits for which the *permutation* and *QTL mapping* steps need to be completed.
-(If you started drawing a diagram while reading the previous page, just extend it here).
-The tar steps will probably need to be PRE or POST scripts (you decide which is best).
-Think about what Joe's intended workflow means for the shape of the DAG, including PARENT-CHILD dependencies for JOBs in the DAG and the fact that the *permutation* step could be broken up into multiple processes of fewer total permutations, each.
+If you haven't already -- draw a digram of Joe's workflow, based on what you [learned from Joe](/materials/day5/part1-ex1-science-intro).  Keep in mind that there are 3 traits for which the *permutation* and *QTL mapping* steps need to be completed, but these trait analyses are each completely independent (each of the steps described needs to be run for trait 1, trait 2, and trait 3, but they don't overlap at all).  (If you started drawing a diagram while reading the previous page, just extend it here.)  
+
+Think about what Joe's intended workflow means for the shape of the DAG, including PARENT-CHILD dependencies for JOBs in the DAG and the fact that the *permutation* step could be broken up into multiple processes of fewer total permutations, each.  The tar steps will probably need to be PRE or POST scripts (you decide which is best).
 We'll come back to this diagram in the [next exercise](/materials/day5/part2-ex1-execute-workflow) after the break, when it's time to construct the full DAG.
 
-Optimize job components
+Optimize Job Components
 -----------------------
 
-Before we assemble the full DAG, we want to optimize each component of the workflow. This will include 3 optimization steps:
+Before we assemble the full DAG, we want to optimize each component of the workflow. This will include 3 optimization steps.  
 
-### 1. Test the HTC optimization of the *permutation* step.
+!!! note
+	Eventually we'll want to apply our job optimizations to the submit files for all three traits, but for testing purposes, it's okay to just focus on one trait.  In your group, pick whether you want to use trait 1, 2, or 3 for testing and use the submit files for that trait for all of your tests.  
 
-You will need to determine the number of permutations that should be batched in a single job process, if each process needs to run in ~30 minutes for good HTC scaling. To do this, you will need to run some test jobs, to see how long it takes a single job process to run, say, 10, 100, or 1000 permutations.
+### 1. Optimize length of *permutation* jobs, test resource use
+
+To get good HTC scaling, we want the jobs that run for the permutation step to each take ~30 minutes.  So our first optimization task is to determine the number of permutations that can be generated by a single job in this amount of time.  (Eventually - as part of the final workflow - we'll submit batches of these optimized permutation jobs so that we generate 100,000 total permutations for each trait.)  
+
+To determine the right number of permutations per job, you will need to run some test jobs, to see how long it takes a single job to create, say, 10, 100, or 1000 permutations.  
 
 To run these test jobs:
 
-1.  Modify one of the permutation submit files to “queue” 10 jobs (so that you can average time between the 10 test jobs)
 1.  Add `request_cpus = 1` according to Joe's indication
 1.  Add reasonable first guesses for `request_memory` and `request_disk` (say, 1 GB?).
-1.  Make a few copies of this submit file so that you can change the last argument (the number of permutations) from "10000" to "10", "100", or "1000". For time's sake, a member of your group should test all three of these variations at the same time!
+1.  Make a few copies of this submit file so that you can change the last argument (the number of permutations) from "10000" to "10", "100", or "1000", e.g. from: 
+
+		:::file
+		arguments = arguments = 1_$(Process) run_perm.R 1 $(Process) 10000
+
+	to something like: 
+	
+		:::file
+		arguments = arguments = 1_$(Process) run_perm.R 1 $(Process) 10
+
+	You'll want to run multiple tests here (`10` as given above, and probably at least `100` and `1000`).  You can split this testing with a partner.  
 
 Getting ready for the next step:
 
 1.  After each set of *permutation* tests finishes, you’ll need to use `tarit.sh` (with the correct argument) before running the test jobs for the QTL step.
 
-### 2. Test each of the *QTL mapping* jobs
+### 2. Test the *QTL mapping* job
 
-Once you have results from your previous *permutation* step testing, you can start optimizing the *QTL mapping* jobs. Submit the three submit files (one for each trait) after adding lines for `request_memory`, `request_disk`, and `request_cpus`. The resource needs (RAM and disk space) and execution time of each *QTL mapping* job will likely increase with the total number of permutations from the previous *permutation* step, though the execution time will likely still be short (according to Joe). You'll test optimized *permutation* and *QTL mapping* steps later on.
+Once you have results from your previous *permutation* step testing, you can start testing the *QTL mapping* job.  
+
+1. Add lines for `request_memory`, `request_disk`, and `request_cpus` to one of the *QTL* submit files.  The resource needs (RAM and disk space) and execution time of each *QTL mapping* job will likely increase with the total number of permutations from the previous *permutation* step, though the execution time will likely still be short (according to Joe). 
+1. Submit the modified *QTL* submit file.
+1. When the QTL job completes (hopefully quickly!) look at the log file.  
+
+If you have time, try running the QTL job again with results from a different permutation test (that may be a different sized input).  Does the disk and memory usage change?  
 
 ### 3. Optimization planning
 
-In order to optimize Joe's overall workflow, we can optimize the following values, based on our test jobs from steps 1 and 2:
+In order to optimize Joe's overall workflow, we can choose the following values, based on our test jobs from steps 1 and 2:
 
-**Permutation throughput:** Calculate the number of permutations that should be run *per job process*, such that the runtimes per process will be about 30 minutes (not exact, but closer to 30 than to 5 or 60). You can then calculate the number of processes that should be queued such that 100,000 permutations are calculated for each trait. Essentially, you want *job processes* X *permutations* to equal 100,000 total permutations for each of the three phenotype traits. 
+1. How many permutations should each permutation job create to run in about 30 minutes?  10? 100? 1000?  Something in-between?  Based on your testing, choose an appropriate value. 
 
-!!! note
-	Hint: You can use the "condor_history" feature (similar to condor_q, but for completed jobs) to easily view and compare the "RUNTIME" for jobs in a "cluster" (using the cluster value as an argument to `condor_history`.
+	!!! note
+		You can use the "condor_history" feature (similar to condor_q, but for completed jobs) to easily view and compare the "RUNTIME" for jobs in a "cluster" (using the cluster value as an argument to `condor_history`).
 
-**Memory and disk for both steps:** Make sure to examine the log files of your *permutation* and *QTL* test jobs, so that you can extrapolate how much memory and disk should be requested in the submit files for the full-scale DAG.
+1. For each trait, we want to generate 100,000 permutations.  How many jobs do you need to submit (for each trait) to generate this amount, based on the number of permutations created per job (what you chose in the previous point)?  Essentially, you want *number of jobs* X *permutations per job* to equal 100,000 total permutations...and do that for each of the three phenotype traits. 
 
-**When you're done with 3, move on to [Exercise 1.3](/materials/day5/part2-ex1-execute-workflow)**
+1. Make sure to examine the log files of both your *permutation* and *QTL* test jobs, so that you can extrapolate how much memory and disk should be requested in the submit files for the full-scale DAG.
+
+**When you're done with 3, move on to [Exercise 2.1](/materials/day5/part2-ex1-execute-workflow)**
 
