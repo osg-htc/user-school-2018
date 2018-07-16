@@ -33,4 +33,11 @@ This isn't actual a bonus, but links to a sample workflow diagram and DAG schema
 - [Sample Workflow Diagram](/materials/day5/files/osgus18-day5-part1-workflow-diagram.jpg)
 - [Sample DAG Outline](/materials/day5/files/osgus18-day5-part2-dag-outline.jpg)
 
+And also how to download and look at a solution workflow: 
+
+```console
+username@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool18/CompleteWorkflow.tar.gz
+username@learn $ tar -xzf CompleteWorkflow.tar.gz
+```
+
 
