@@ -150,18 +150,17 @@ If you have any questions about the signup process, please email
 - [Bonus Exercise 1.4: Further Optimization and Scaling](/materials/day5/part2-ex2-workflow-tuning.md)
 
 ### Friday Afternoon: HTC Showcase
-<!--
-- Talk: [Dane Morgan](http://directory.engr.wisc.edu/mse/faculty/morgan_dane), Engineering:
-  *HTC for Engineering Better Materials* ([PDF](/materials/day5/files/osgus18-day5-part3-showcase1-dmorgan.pdf))
-- Talk: [Megan Frayer](https://payseur.genetics.wisc.edu/member.html), Genetics:
-  *Using HTC in Genomic Ancestry Analysis* ([PDF](/materials/day5/files/osgus18-day5-part3-showcase2-mfrayer.pdf))
-- Talk: [William Cocke](https://www.math.wisc.edu/~boston/), Mathematics:
-  *Building a Character Table Database: A Use of Condor in Pure Math*
-  ([PDF](/materials/day5/files/osgus18-day5-part3-showcase3-wcocke.pdf))
-- Talk: [Edgar Spalding](http://www.botany.wisc.edu/spalding.htm), Botany:
-  *HTC As a Tool to Study How Plant Genomes Function*
-  ([PDF](/materials/day5/files/osgus18-day5-part3-showcase4-espalding.pdf))
--->
+
+- Talk: [Spencer Ericksen](https://cancer.wisc.edu/research/resources/ddc/smsf/), Small Molecule Facility (Carbone Cancer Center):
+  *Exploring Virtual Screening Approaches with HTC* ([PDF](/materials/day5/files/osgus18-day5-part3-showcase1-ericksen.pdf))
+- Talk: [Josh Karpel](https://www.physics.wisc.edu/people/joshkarpel), Physics:
+  *High-Throughput Computing in Atomic Physics* ([PPT](/materials/day5/files/osgus18-day5-part3-showcase2-karpel.pptx))
+- Talk: [Ross Kleiman](https://wid.wisc.edu/people/ross-kleiman/), Computer Sciences:
+  *High-Throughput Machine Learning from Electronic Health Records*
+  ([PPTX](/materials/day5/files/osgus18-day5-part3-showcase2-kleiman.pptx))
+- Talk: [Dave O'Connor](https://www.pathology.wisc.edu/profile/david-oconnor), Pathology:
+  *When Low Throughput Biologists Meet High Throughput Computing*
+
 ### Friday Afternoon: Foundations of HTC
 
 - Lecture: The Principles of HTC ([PDF](/materials/day5/files/osgus18-day5-part4-htc-principles.pdf))
