@@ -2,19 +2,23 @@
 status: done
 ---
 
-<style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
+<style type="text/css">
+  pre em { font-style: normal; background-color: yellow; }
+  pre strong { font-style: normal; font-weight: bold; color: #008; }
+</style>
 
-Monday Exercise 2.3: Submit With “queue matching”
-=================================================
+# Monday Exercise 2.3: Submit With “queue matching”
 
-In this exercise and the next one, you will explore more ways to use a single submit file to submit many jobs. The focus of this exercise is to submit one job per filename that matches a given pattern.
+In this exercise and the next one, you will explore more ways to use a single submit file to submit many jobs.  The
+focus of this exercise is to submit one job per filename that matches a given pattern.
 
 In all cases of submitting many jobs from a single submit file, the key questions are:
 
--   What makes each job unique? In other words, there is one job per \_\_\_\_\_?
+-   What makes each job unique?  In other words, there is one job per \_\_\_\_\_?
 -   So, how should you tell HTCondor to distinguish each job?
 
-For `queue *N*`, jobs are distinguished simply by the built-in "process" varialbe. But with the remaining `queue` forms, you help HTCondor distinguish jobs by other, more meaningful *custom* variables.
+For `queue *N*`, jobs are distinguished simply by the built-in "process" variable.  But with the remaining `queue`
+forms, you help HTCondor distinguish jobs by other, more meaningful *custom* variables.
 
 Counting Words in Files
 -----------------------
@@ -142,4 +146,3 @@ Extra Challenge
 In the example above, you used a single log file for all three jobs. HTCondor handles this situation with no problem; each job writes its events into the log file without getting in the way of other events and other jobs. But as you may have seen, it may be difficult for a person to understand the events for any particular job in the combined log file.
 
 Create a new submit file that works just like the one above, except that each job writes its own log file.
-
