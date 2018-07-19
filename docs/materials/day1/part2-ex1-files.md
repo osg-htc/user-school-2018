@@ -165,15 +165,16 @@ transfer_output_files = output-timestamp.txt, subdirectory/
 
 Did it work as you expected?
 
-Thinking About Progress So Far
-------------------------------
+## Thinking About Progress So Far
 
-At this point, you can do just about everything that you need in order to run jobs on a local HTC pool. You can identify the executable, arguments, and input files, and you can get output back from the job. This is a big achievement!
+At this point, you can do just about everything that you need in order to run jobs on a local HTC pool.  You can
+identify the executable, arguments, and input files, and you can get output back from the job.  This is a big
+achievement!
 
-In some ways, everything after this exercise shows you how to submit multiple jobd at once and makes it easier to run certain kinds of jobs and deal with certain kinds of situations.
+In some ways, everything after this exercise shows you how to submit multiple jobs at once and makes it easier to run
+certain kinds of jobs and deal with certain kinds of situations.
 
-References
-----------
+## References
 
-There are many more details about HTCondor’s file transfer mechanism not covered here. For more information, read section 2.5.9 of the HTCondor Manual.
-
+There are many more details about HTCondor’s file transfer mechanism not covered here.  For more information, read
+section 2.5.9 of the HTCondor Manual.
