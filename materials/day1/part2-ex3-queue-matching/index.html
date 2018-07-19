@@ -56,16 +56,21 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
+    <style type="text/css">
+  pre em { font-style: normal; background-color: yellow; }
+  pre strong { font-style: normal; font-weight: bold; color: #008; }
+</style>
 
 <h1 id="monday-exercise-23-submit-with-queue-matching">Monday Exercise 2.3: Submit With “queue matching”<a class="headerlink" href="#monday-exercise-23-submit-with-queue-matching" title="Permanent link">&para;</a></h1>
-<p>In this exercise and the next one, you will explore more ways to use a single submit file to submit many jobs. The focus of this exercise is to submit one job per filename that matches a given pattern.</p>
+<p>In this exercise and the next one, you will explore more ways to use a single submit file to submit many jobs.  The
+focus of this exercise is to submit one job per filename that matches a given pattern.</p>
 <p>In all cases of submitting many jobs from a single submit file, the key questions are:</p>
 <ul>
-<li>What makes each job unique? In other words, there is one job per _____?</li>
+<li>What makes each job unique?  In other words, there is one job per _____?</li>
 <li>So, how should you tell HTCondor to distinguish each job?</li>
 </ul>
-<p>For <code>queue *N*</code>, jobs are distinguished simply by the built-in "process" varialbe. But with the remaining <code>queue</code> forms, you help HTCondor distinguish jobs by other, more meaningful <em>custom</em> variables.</p>
+<p>For <code>queue *N*</code>, jobs are distinguished simply by the built-in "process" variable.  But with the remaining <code>queue</code>
+forms, you help HTCondor distinguish jobs by other, more meaningful <em>custom</em> variables.</p>
 <h2 id="counting-words-in-files">Counting Words in Files<a class="headerlink" href="#counting-words-in-files" title="Permanent link">&para;</a></h2>
 <p>Suppose you have a collection of books, and you want to analyze how words vary from book to book or author to author. As mentioned in the lecture, HTCondor provides many ways to do this task. You could create a separate submit file for each book, and submit all of the files manually, but you'd have a lot of file lines to modify each time (in particular, all five of the last lines before <code>queue</code> below):</p>
 <div class="codehilite"><pre><span></span>executable              = freq.py
