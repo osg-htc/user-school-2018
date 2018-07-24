@@ -33,6 +33,8 @@ applications this year, so thanks to everyone for your enthusiastic interest!
 - Curriculum
     - [High-level curriculum](/curriculum/overview.md)
     - [Detailed schedule](/curriculum/detailed-schedule.md)
+    - [Materials](/materials/index.md)
+    - [Final assignment](/curriculum/assignment.md)
 - Logistics
     - [General information and travel schedule](/logistics/index.md)
     - [Visa requirements for non-resident aliens](/logistics/personal-info.md)
@@ -42,6 +44,7 @@ applications this year, so thanks to everyone for your enthusiastic interest!
     - [School location](/logistics/location.md)
     - [Meals at the School](/logistics/meals.md)
     - [Fun things to do in Madison](/logistics/fun.md) and [Wednesday activities](/logistics/wednesday-activities.md)
+    - [Reimbursements](/logistics/reimbursements.md)
 
 ## Contact Us
 
