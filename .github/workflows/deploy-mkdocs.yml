@@ -16,8 +16,6 @@ jobs:
       - name: Build Site
         run: |
           pip3 install mkdocs==0.17.5 # freeze mkdocs version
-          pip3 install linkchecker; python_version < '3.0'
-          pip3 install requests==2.9.2 # https://github.com/wummel/linkchecker/issues/649
           pip3 install mkdocs-material==2.9.4
           pip3 install mkdocs-windmill==0.1.6
 
