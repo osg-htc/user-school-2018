@@ -1,0 +1,27 @@
+name: Deploy static MkDocs pages
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy-mkdocs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v3
+
+      - name: Build Site
+        run: |
+          pip3 install mkdocs
+          pip3 install mkdocs-windmill
+
+          mkdocs build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.3.0
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: site # The folder the action should deploy.

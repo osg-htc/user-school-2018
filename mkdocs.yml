@@ -1,5 +1,5 @@
 site_name: OSG User School 2018
-site_url: https://opensciencegrid.github.io/user-school-2018/
+site_url: https://osg-htc/user-school-2018/
 repo_name: null
 repo_url: null
 theme:
@@ -16,7 +16,7 @@ extra_css:
 # Suppress weird JavaScript problems with development server
 extra_javascript: []
 
-pages:
+nav:
   - User School 2018:             index.md
   - Curriculum:
     - High-level overview:        curriculum/overview.md
