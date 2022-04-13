@@ -20,6 +20,7 @@ jobs:
           pip3 install mkdocs==0.17.5 # freeze mkdocs version
           pip3 install mkdocs-material==2.9.4
           pip3 install mkdocs-windmill==0.1.6
+          pip3 install toc
 
           mkdocs build
 
