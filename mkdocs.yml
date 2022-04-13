@@ -94,5 +94,4 @@ pages:
 markdown_extensions:
   - admonition
   - codehilite
-  - osg_markdown.colors
 
